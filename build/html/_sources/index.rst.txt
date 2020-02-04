@@ -10,6 +10,9 @@ Welcome to TrustOS's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   intro
+   example
+
 
 
 Indices and tables
