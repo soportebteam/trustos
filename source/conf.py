@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# trustos-docs documentation build configuration file, created by
+# trustos documentation build configuration file, created by
 # sphinx-quickstart on Mon Feb 20 16:11:53 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -68,7 +68,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = u'trustos-docs'
+project = u'trustos'
 copyright = u'2020, Telefónica'
 author = u'Telefónica'
 
@@ -135,7 +135,7 @@ def setup(app):
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'trustos-docs'
+htmlhelp_basename = 'trustos'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -162,7 +162,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'trustos-docs.tex', u'trustos-docs Documentation',
+    (master_doc, 'trustos.tex', u'trustos Documentation',
      u'hyperledger', 'manual'),
 ]
 
@@ -172,7 +172,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'trustos-docs', u'trustos-docs Documentation',
+    (master_doc, 'trustos', u'trustos Documentation',
      [author], 1)
 ]
 
@@ -183,8 +183,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'trustos-docs', u'trustos-docs Documentation',
-     author, 'trustos-docs', 'One line description of project.',
+    (master_doc, 'trustos', u'trustos Documentation',
+     author, 'trustos', 'One line description of project.',
      'Miscellaneous'),
 ]
 
