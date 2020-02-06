@@ -55,7 +55,7 @@ username : example
 password : example
 ```
 
-# TRACK API
+# Track
 
 This API is used to create, manage, and export digital assets on the blockchain.
 
@@ -790,7 +790,7 @@ In postman folder there are the collection and environment to interact and test 
 | TRACK-01 	| Error parsing any data structure 	|
 | TRACK-02 	| Error of some kind of functionality 	|
 
-# TOKEN API
+# Token
 
 This API allows developers to easily create transferable tokens on the Hyperledger Fabric network.
 
@@ -1313,7 +1313,7 @@ In postman folder there are the collection and environment to interact and test 
 | TOKEN-02 	| Error of some kind of functionality 	|
 
 
-# SETTLEMENT API
+# Settle
 
 This API generates a general structure to perform the settlement of records. The API allows
 the settlement of a great gamut of record structures, aggregations and settlement operations.

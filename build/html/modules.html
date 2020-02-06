@@ -77,7 +77,7 @@
 
           
 
-<h1 style="color: white;">TRUSTOS</h1>
+<h1 style="color: white;">TrustOS</h1>
 <!-- <br><img style="background-color: #fff; height: unset; width: unset;" alt="Hyperledger Fabric" src=_images/hyperledger_fabric_logo_color.png />
 <br>
 <a href="https://github.com/hyperledger/fabric"><img style="padding: 0px; margin: auto auto auto auto;" alt="GitHub" src="_static/images/github_button.png"/></a>
@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#login">Login</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#track-api">TRACK API</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#track">Track</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#asset">Asset</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#post-asset-create">POST -  <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code></a></li>
@@ -132,9 +132,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#errors-management">Errors management</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#token-api">TOKEN API</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#token">Token</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">API Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#token">Token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Token</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#post-token-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create/</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-token-tokenid">GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-token-tokenid-allowance-owner-spender">GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/allowance/{owner}/{spender}</span></code></a></li>
@@ -150,16 +150,16 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Architecture of the project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Project configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">Running the Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">Testing the Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Errors management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Architecture of the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Project configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Testing the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Errors management</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#settlement-api">SETTLEMENT API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id7">API Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#settle">Settle</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#settle">Settle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id8">API Specification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Settle</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#post-settlement-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid-history">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code></a></li>
@@ -171,11 +171,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">Architecture of the project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">Project configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">Running the Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">Testing the Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">Errors management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">Architecture of the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">Project configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">Testing the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">Errors management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id-api">ID API</a></li>
 </ul>
 </li>
@@ -286,8 +286,8 @@ the power of blockchain technology.</p>
 </div>
 </div>
 </div>
-<div class="section" id="track-api">
-<h1>TRACK API<a class="headerlink" href="#track-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="track">
+<h1>Track<a class="headerlink" href="#track" title="Permalink to this headline">¶</a></h1>
 <p>This API is used to create, manage, and export digital assets on the blockchain.</p>
 <div class="section" id="api-specification">
 <h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
@@ -938,14 +938,14 @@ N/A. It returns all the assets which belong to the login user</p>
 | TRACK-02 	| Error of some kind of functionality 	|</p>
 </div>
 </div>
-<div class="section" id="token-api">
-<h1>TOKEN API<a class="headerlink" href="#token-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="token">
+<h1>Token<a class="headerlink" href="#token" title="Permalink to this headline">¶</a></h1>
 <p>This API allows developers to easily create transferable tokens on the Hyperledger Fabric network.</p>
 <div class="section" id="id1">
 <h2>API Specification<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the token functionalities.</p>
-<div class="section" id="token">
-<h3>Token<a class="headerlink" href="#token" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Token<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The term is a little bit confusing at first, since a token can represent the whole class, in which the total supply is declarated, or individual tokens (balances) transferable between users.</p>
 <p>Every token has the following structure:</p>
 <ul class="simple">
@@ -1299,8 +1299,8 @@ N/A. It returns all the assets which belong to the login user</p>
 </details></details></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>Architecture of the project<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Architecture of the project<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-tokenapi
 ├── api
       ├── handler           // HTTP logic
@@ -1325,15 +1325,15 @@ N/A. It returns all the assets which belong to the login user</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>Project configuration<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Project configuration<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>This project has too bee stored in the following route:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$GOPATH/src/github.com/name_of_the_project
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Running the Application<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>Running the Application<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>To initialize the application execute the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">./</span><span class="n">init</span><span class="o">.</span><span class="n">sh</span>
 <span class="n">go</span> <span class="n">run</span> <span class="n">main</span><span class="o">.</span><span class="n">go</span>
@@ -1344,12 +1344,12 @@ N/A. It returns all the assets which belong to the login user</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>Testing the Application<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>Testing the Application<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-tokenapi module</p>
 </div>
-<div class="section" id="id6">
-<h2>Errors management<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>Errors management<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>Token API errors are managed through the following nomenclature <strong>TOKEN-XX</strong> which corresponds to:<br></p>
 <p>| Code 	| Description 	|
 |:—–:	|———————————————————————–	|
@@ -1358,19 +1358,19 @@ N/A. It returns all the assets which belong to the login user</p>
 | TOKEN-02 	| Error of some kind of functionality 	|</p>
 </div>
 </div>
-<div class="section" id="settlement-api">
-<h1>SETTLEMENT API<a class="headerlink" href="#settlement-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="settle">
+<h1>Settle<a class="headerlink" href="#settle" title="Permalink to this headline">¶</a></h1>
 <p>This API generates a general structure to perform the settlement of records. The API allows
 the settlement of a great gamut of record structures, aggregations and settlement operations.
 Currently two <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> and <code class="docutils literal notranslate"><span class="pre">settlement</span></code> operations are implemented, but further
 settlement and aggregation operations will be implemented in future versions. You can contact
 our development team through the Issues to ask for new settlement and aggregation operations
 to fit your use case.</p>
-<div class="section" id="id7">
-<h2>API Specification<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>API Specification<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the settlement functionalities.</p>
-<div class="section" id="settle">
-<h3>Settle<a class="headerlink" href="#settle" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Settle<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>A settlement structure has the following parameters:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">settleid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>    - Unique identifier of the settlement structure</li>
@@ -1709,8 +1709,8 @@ been detected in the updating of records.</p>
 </details></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>Architecture of the project<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h2>Architecture of the project<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-tokenapi
 ├── api
       ├── handler           // HTTP logic
@@ -1736,15 +1736,15 @@ been detected in the updating of records.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>Project configuration<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h2>Project configuration<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <p>This project has too bee stored in the following route:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$GOPATH/src/github.com/name_of_the_project
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>Running the Application<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h2>Running the Application<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <p>To initialize the application execute the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">./</span><span class="n">init</span><span class="o">.</span><span class="n">sh</span>
 <span class="n">go</span> <span class="n">run</span> <span class="n">main</span><span class="o">.</span><span class="n">go</span>
@@ -1755,12 +1755,12 @@ been detected in the updating of records.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h2>Testing the Application<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h2>Testing the Application<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <p>In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-settleapi module</p>
 </div>
-<div class="section" id="id12">
-<h2>Errors management<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h2>Errors management<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
 <p>Settle API errors are managed through the following nomenclature <strong>SETTLE-XX</strong> which corresponds to:<br></p>
 <p>| Code 	| Description 	|
 |:—–:	|———————————————————————–	|
