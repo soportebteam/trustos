@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TrustOS" href="trustos_modules.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="next" title="Architecture" href="architecture.html" />
+    <link rel="prev" title="Key Concepts" href="key_concepts.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,7 +79,7 @@
           
 
 <br>
-<h1 style="color: white;">TrustOS</h1>
+<a style="width:100%;" href="index.html"><h1 style="color: white; font-size:220%;">TrustOS</h1> </a>
 <img style="background:none; margin: auto; width:30%; height:95%;" alt="Telefónica" src="_static/images/telefonica_white.png"/>
 
 <!-- 
@@ -100,16 +100,22 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trustos_modules.html">TrustOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trustos_modules.html#track">Track</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trustos_modules.html#token">Token</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trustos_modules.html#settle">Settle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trustos_modules.html#id">ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#login">Login</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benefits.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 </ul>
 
             
@@ -176,7 +182,39 @@
             
   <div class="section" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>TrustOS is a work in progress…</p>
+<p>Why worrying about the low-level complexities of blockchain technology,
+and having to worry about building you network when you can leverage
+the benefits of the technology without having to know the details of
+its operation. Our TrustOS abstracts all the complexity of blockchain
+technology implementing the basic operations you need to leverage
+the power of blockchain technology.</p>
+<div class="section" id="login">
+<h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
+<p>In order to use the APIs, you need to have an active user and login to our system. Every API has a login method, which asks for a user and password.</p>
+<p>A call to this method will return a JWT token, of this form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0.M4PBSslERUImcOpWgg--N-2ZNW306BzWXTZVJgtdXWE&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Every call to the API, has to be authenticated, so the caller must provide this message as proof of his identity.</p>
+<p>Add the following header to your HTTP request in order to authenticate your call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bearer</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0</span><span class="o">.</span><span class="n">M4PBSslERUImcOpWgg</span><span class="o">--</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">ZNW306BzWXTZVJgtdXWE</span>
+</pre></div>
+</div>
+<p>If you are calling the APIs from Postman, you can set manually the headers (there are examples in the miscelanea/postman folder)</p>
+<p>However if you interact graphically with the swagger,  you have to click the button <strong>authorize, on the top right</strong> of the screen.</p>
+<p>From there, in the “value” field of ApiKeyAuth, you should write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bearer</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0</span><span class="o">.</span><span class="n">M4PBSslERUImcOpWgg</span><span class="o">--</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">ZNW306BzWXTZVJgtdXWE</span>
+</pre></div>
+</div>
+<p>You should now see that all the locks in swagger are closed, meaning that you are authenticated!</p>
+<p>The test user for this beta version is :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="p">:</span> <span class="n">example</span>
+<span class="n">password</span> <span class="p">:</span> <span class="n">example</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -187,10 +225,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="trustos_modules.html" class="btn btn-neutral float-right" title="TrustOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="key_concepts.html" class="btn btn-neutral" title="Key Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

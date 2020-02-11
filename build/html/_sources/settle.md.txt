@@ -459,7 +459,7 @@ In postman folder there are the collection and environment to interact and test 
   Settle API errors are managed through the following nomenclature **SETTLE-XX** which corresponds to:<br>
 
 
-  | Code 	| Description 	|
+| Code 	| Description 	|
 |:-----:	|-----------------------------------------------------------------------	|
 | SETTLE-00 	| Service is down 	|
 | SETTLE-01 	| Error parsing any data structure 	|

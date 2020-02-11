@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorials &mdash; trustos master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Releases" href="releases.html" />
+    <link rel="prev" title="ID" href="id.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+
+          
+            <a href="index.html" class="icon icon-home"> trustos
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+
+<br>
+<a style="width:100%;" href="index.html"><h1 style="color: white; font-size:220%;">TrustOS</h1> </a>
+<img style="background:none; margin: auto; width:30%; height:95%;" alt="Telefónica" src="_static/images/telefonica_white.png"/>
+
+<!-- 
+<a href="https://github.com/hyperledger/fabric"></a>
+&nbsp;<a href="https://stackoverflow.com/questions/tagged/hyperledger-fabric"><img style="padding: 0px; margin: auto auto auto auto;" alt="StackOverflow" src="_static/images/stackoverflow_button.png"/></a>
+&nbsp;<a href="https://chat.hyperledger.org"><img style="padding: 0px; margin: auto auto auto auto;" alt="Rocket Chat" src="_static/images/rocketchat_button.png"/></a>
+&nbsp;<a href="https://www.youtube.com/playlist?list=PL0MZ85B_96CH7wvtrRzV7SvtRY0sI0DEg"><img style="padding: 0px; margin: auto auto auto auto;" alt="Youtube Channel" src="_static/images/youtube_button.png"/></a> -->
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benefits.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#postman">Postman</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#postman-collection">Postman collection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-requests">Managing requests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nodejs">NodeJS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#axios-library">Axios library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http">HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requests">Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#shell">Shell</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reactjs">ReactJS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trustos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorials</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorials.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<p>In this section you will find snipets of code to integrate API calls to your page</p>
+<div class="section" id="postman">
+<h2>Postman<a class="headerlink" href="#postman" title="Permalink to this headline">¶</a></h2>
+<p>Postman is a fantastic software that lets us run requests against our APIs.</p>
+<p>One of the many great tools of Postman are collections, sets of grouped requests that can be exported/imported, in order to be run all together for testing purposes.</p>
+<div class="section" id="postman-collection">
+<h3>Postman collection<a class="headerlink" href="#postman-collection" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>First, download the collections we have created on the folder <strong>miscelanea/postman</strong></p>
+<p>You will see 2 diferent files: <strong>collections</strong> and <strong>enviroment</strong>. Download both, as we will explain later what are enviroments for.</p>
+</li>
+<li><p>On Postman, click on “Import” , and then select <strong>Import file</strong>.</p>
+<p>After doing so, on the left pannel you should see the collection you just imported, as shown in the image</p>
+<p><img alt="alt text" src="_images/import.png" /></p>
+</li>
+<li><p>Now that we can see the collection, lets take a<br />look at the URL for which the request is being made:</p>
+<p><img alt="alt text" src="_images/enviroment.png" /></p>
+<p>We can see that the URL contains: “ {{url}} “</p>
+<p>This is a variable in POSTMAN. The nice things about using variables, is that we can change the endpoints of the APIs without having to modify the requests, but only the <strong>enviroment</strong> file, where the enviroment variables are specified.</p>
+<p>To load a specific enviroment file, click the configuration button, manage enviroment, and select the enviroment file you want to load.</p>
+<p><img alt="alt text" src="_images/manage.png" /></p>
+<p>Great! Now, by clicking on the eye, you can watch the <strong>actual values</strong> of the enviroment values</p>
+<p><img alt="alt text" src="_images/current_enviroment.png" /></p>
+<p><strong>Side note</strong>
+Why do we say “actual values”? Because values can change dinamically</p>
+<p>We can see that under the URL field there are some others others.</p>
+<p>Concretely, <strong>pre-reqest scripts</strong> are scripts that execute right before the query is made, where <strong>tests</strong> are scripts that execute after the request is made.</p>
+<p><img alt="alt text" src="_images/login.png" /></p>
+<p>Luckily you dont have to worry about this, since we have already taken care of it.
+When you execute the login request, the Auth token received is set as the value of the variable “AuthToken”, which is later used in the <strong>Header</strong> tab (as can be seen in the second image of this tutorial)</p>
+</li>
+<li><p>Finally, now that we have everything set up, click on the “Runner” tab on the top left of the screen. Select the collection you want to run, the enviroment file you want to use for this collection, and run the tests!</p></li>
+</ol>
+<p><img alt="alt text" src="_images/runner.png" /></p>
+</div>
+</div>
+<div class="section" id="managing-requests">
+<h2>Managing requests<a class="headerlink" href="#managing-requests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nodejs">
+<h3>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="axios-library">
+<h4>Axios library<a class="headerlink" href="#axios-library" title="Permalink to this headline">¶</a></h4>
+<p>Axios is a promise based HTTP client for the browser. Using promises is great when dealing with code that requres chains of events.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;axios&#39;</span><span class="p">);</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://trustapi.tid.es/trust/asset&#39;</span><span class="p">,</span> <span class="p">{</span>
+ <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+   <span class="nx">Authorization</span><span class="o">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="nx">token</span> <span class="c1">// Token is a variable that stores the JWT</span>
+<span class="p">},</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;input&#39;</span><span class="o">:</span><span class="s1">&#39;whatever&#39;</span>
+  <span class="p">})</span>
+  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">explanation</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http">
+<h4>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h4>
+<p>If you dont want to use third party libraries,you can use node http standard module. However, this option is a little more verbose than the preceding one</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="nx">input</span><span class="o">:</span> <span class="s1">&#39;whatever&#39;</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">hostname</span><span class="o">:</span> <span class="s1">&#39;https://trustapi.tid.es/&#39;</span><span class="p">,</span>
+
+  <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/trust/asset/create&#39;</span><span class="p">,</span>
+  <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Content-Length&#39;</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="o">:</span> <span class="s1">&#39;Bearer &#39;</span><span class="o">+</span><span class="nx">token</span>  <span class="c1">// Where token is the JWT </span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`statusCode: </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="nx">req</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">req</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+<span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="requests">
+<h4>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h4>
+<p>You dont really want to use any other module!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">auth_token</span><span class="o">=</span><span class="s1">&#39;kbkcmbkcmbkcbc9ic9vixc9vixc9v&#39;</span>
+<span class="n">hed</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">auth_token</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;app&#39;</span> <span class="p">:</span> <span class="s1">&#39;aaaaa&#39;</span><span class="p">}</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://trustapi.tid.es/trust/asset&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">hed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="shell">
+<h3>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h3>
+<p>Lets not forget our old friend curl. This way can also be integrated in any other programming language calling something like exec.shell(command)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -X POST <span class="s2">&quot;https://trustapi.tid.es/trust/asset/create&quot;</span> -H <span class="s2">&quot;accept: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MTEyMjMwOX0.Qu28A580dTOXPAX9bKsnEuHRk8NxFLGL0iPkK5RuOKg&quot;</span> -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s2">&quot;{ \&quot;assetid\&quot;: \&quot;1\&quot;, \&quot;data\&quot;: {}, \&quot;metadata\&quot;: {}, \&quot;registerInEthereum\&quot;: \&quot;true/false\&quot;}&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reactjs">
+<h2>ReactJS<a class="headerlink" href="#reactjs" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="releases.html" class="btn btn-neutral float-right" title="Releases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="id.html" class="btn btn-neutral" title="ID" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <!-- <div role="contentinfo">
+    <p>
+        &copy; Copyright Telefónica 2020.
+
+    </p>
+  </div> -->
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,3 +1,23 @@
 # Introduction
 
-TrustOS is a work in progress...
+text text text
+
+## Environment
+
+text...
+
+## Blockchain Telefónica 
+
+text...
+
+## Header
+
+text...
+
+## Header 
+
+text...
+
+## Header
+
+text...

@@ -22,17 +22,25 @@ description, some images and videos.
    :maxdepth: 1
 
    introduction
+   key_concepts
    getting_started
-   trustos_modules
+   architecture
+   benefits
+   modules
    track
    token
    settle
    id
+   tutorials
+   releases
+   contributions
+   faq
 
 
-.. .. note:: If you have questions not addressed by this documentation, or run into
-..           issues with any of the tutorials, please visit the :doc:`questions`
-..           page for some tips on where to find additional help.
+.. note:: If you have questions not addressed by this documentation, or run into
+    issues with any of the tutorials, please `contact us`_ to find additional help.
+
+.. _`contact us`: mailto:soporte-bteam@telefonica.com
 
 .. Licensed under Creative Commons Attribution 4.0 International License
    https://creativecommons.org/licenses/by/4.0/
