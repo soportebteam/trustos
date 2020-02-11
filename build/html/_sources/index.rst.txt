@@ -21,9 +21,13 @@ description, some images and videos.
 .. toctree::
    :maxdepth: 1
 
-
+   introduction
    getting_started
-   modules
+   trustos_modules
+   track
+   token
+   settle
+   id
 
 
 .. .. note:: If you have questions not addressed by this documentation, or run into

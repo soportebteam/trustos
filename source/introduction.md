@@ -1,3 +1,3 @@
-# Trust
+# Introduction
 
 TrustOS is a work in progress...
