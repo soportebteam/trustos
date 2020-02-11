@@ -1,4 +1,4 @@
-# Contributions
+# Contributing
 
 You are more than welcome to contribute with TrustOS!
 

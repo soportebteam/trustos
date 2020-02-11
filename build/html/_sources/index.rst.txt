@@ -33,7 +33,7 @@ description, some images and videos.
    id
    tutorials
    releases
-   contributions
+   contributing
    faq
 
 
