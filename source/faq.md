@@ -2,13 +2,56 @@
 
 ## Security & Access Control
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor. Donec dignissim velit vitae odio rutrum viverra. Morbi porttitor suscipit mi, in auctor nisl eleifend vitae. Quisque quam libero, tincidunt vel nulla in, pharetra consectetur sem. Etiam vitae faucibus erat, id sodales nibh. Nam sed porta est, nec ornare justo. Ut risus mauris, finibus ac metus non, rutrum mollis odio. Nam feugiat metus augue, in tristique est sollicitudin ut. Donec vitae viverra tellus. Ut pretium nisi in eros fermentum, vel accumsan purus ultricies. Aenean id ante dui. Etiam consequat tempor convallis. Nam pellentesque iaculis nibh id mollis. Nam sed porta risus, in molestie magna. Fusce nec scelerisque augue, ut condimentum quam.
+- **Question:**
+  How do I have access to TrustOS?
+
+ - **Answer:**
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor. Donec dignissim velit vitae odio rutrum viverra. Morbi porttitor suscipit mi, in auctor nisl eleifend vitae. Quisque quam libero, tincidunt vel nulla in, pharetra consectetur sem.
 
 ## Track
+- **Question:**
+  How many assets can I have?
+
+- **Answer:**
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor. Donec dignissim velit vitae odio rutrum viverra. Morbi porttitor suscipit mi, in auctor nisl eleifend vitae. Quisque quam libero, tincidunt vel nulla in, pharetra consectetur sem.
 
 ## Token
 
+- **Question:**
+  What is the largest number of total supply in a token?
+
+- **Answer:**
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor. Donec dignissim velit vitae odio rutrum viverra. Morbi porttitor suscipit mi, in auctor nisl eleifend vitae. Quisque quam libero, tincidunt vel nulla in, pharetra consectetur sem. 
+
 ## Settle
 
+- **Question:**
+  How do I create my own settlement?
+
+- **Answer:**
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
+
+
+## Trust
+- **Question:**
+  How much the registration of a trust point in Ethereum cost?
+
+- **Answer:**
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
+
+---
+
+- **Question:**
+  How much the registration of a trust point in Ethereum cost?
+
+- **Answer:**
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
+
 ## ID
+
+- **Question:**
+  Which kind of Identity does TrustOS manage?
+
+- **Answer:** 
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
 

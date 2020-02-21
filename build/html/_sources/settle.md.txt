@@ -40,8 +40,9 @@ main variable used to upload records.
 
 ```
 </details>
+<br>
 
-
+### Methods
 
 <details>
   <summary><em><strong>Settlement methods</strong></em> (Click to expand)</summary>
@@ -459,11 +460,28 @@ In postman folder there are the collection and environment to interact and test 
   Settle API errors are managed through the following nomenclature **SETTLE-XX** which corresponds to:<br>
 
 
-| Code 	| Description 	|
-|:-----:	|-----------------------------------------------------------------------	|
-| SETTLE-00 	| Service is down 	|
-| SETTLE-01 	| Error parsing any data structure 	|
-| SETTLE-02 	| Error of some kind of functionality 	|
-
-
-
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0pky">Code</th>
+    <th class="tg-0pky">Description</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">SETTLE-00</td>
+    <td class="tg-0pky">Service is down</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">SETTLE-01</td>
+    <td class="tg-0pky">Error parsing any data structure</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SETTLE-02</td>
+    <td class="tg-0lax">Error of some kind of functionality</td>
+  </tr>
+</table>

@@ -104,14 +104,14 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benefits.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Token</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#post-token-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create/</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-token-tokenid">GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-token-tokenid-allowance-owner-spender">GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/allowance/{owner}/{spender}</span></code></a></li>
@@ -135,8 +135,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="id.html">ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
@@ -230,7 +232,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><details>
+</details>
+<br></div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<details>
   <summary><em><strong>Token methods</strong></em> (Click to expand)</summary>
 ---<div class="section" id="post-token-create">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create/</span></code><a class="headerlink" href="#post-token-create" title="Permalink to this headline">¶</a></h4>
@@ -562,7 +568,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></details></div>
+</details>
+</details>
+<br></div>
 </div>
 </div>
 <div class="section" id="architecture-of-the-project">
@@ -617,12 +625,30 @@
 <div class="section" id="errors-management">
 <h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Token API errors are managed through the following nomenclature <strong>TOKEN-XX</strong> which corresponds to:<br></p>
-<p>| Code 	| Description 	|
-|:—–:	|———————————————————————–	|
-| TOKEN-00 	| Service is down 	|
-| TOKEN-01 	| Error parsing any data structure 	|
-| TOKEN-02 	| Error of some kind of functionality 	|</p>
-</div>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style><table class="tg">
+  <tr>
+    <th class="tg-0pky">Code</th>
+    <th class="tg-0pky">Description</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TOKEN-00</td>
+    <td class="tg-0pky">Service is down</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TOKEN-01</td>
+    <td class="tg-0pky">Error parsing any data structure</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">TOKEN-02</td>
+    <td class="tg-0lax">Error of some kind of functionality</td>
+  </tr>
+</table></div>
 </div>
 
 

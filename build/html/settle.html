@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ID" href="id.html" />
+    <link rel="next" title="Trust" href="trust.html" />
     <link rel="prev" title="Token" href="token.html" /> 
 </head>
 
@@ -104,15 +104,15 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benefits.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Settle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Settle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Settle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#post-settlement-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid-history">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code></a></li>
@@ -131,8 +131,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#errors-management">Errors management</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="id.html">ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
@@ -235,7 +237,11 @@ main variable used to upload records.</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><details>
+</details>
+<br></div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<details>
   <summary><em><strong>Settlement methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="post-settlement-create">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code><a class="headerlink" href="#post-settlement-create" title="Permalink to this headline">¶</a></h4>
@@ -604,12 +610,30 @@ been detected in the updating of records.</p>
 <div class="section" id="errors-management">
 <h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Settle API errors are managed through the following nomenclature <strong>SETTLE-XX</strong> which corresponds to:<br></p>
-<p>| Code 	| Description 	|
-|:—–:	|———————————————————————–	|
-| SETTLE-00 	| Service is down 	|
-| SETTLE-01 	| Error parsing any data structure 	|
-| SETTLE-02 	| Error of some kind of functionality 	|</p>
-</div>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style><table class="tg">
+  <tr>
+    <th class="tg-0pky">Code</th>
+    <th class="tg-0pky">Description</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">SETTLE-00</td>
+    <td class="tg-0pky">Service is down</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">SETTLE-01</td>
+    <td class="tg-0pky">Error parsing any data structure</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SETTLE-02</td>
+    <td class="tg-0lax">Error of some kind of functionality</td>
+  </tr>
+</table></div>
 </div>
 
 
@@ -620,7 +644,7 @@ been detected in the updating of records.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="id.html" class="btn btn-neutral float-right" title="ID" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="trust.html" class="btn btn-neutral float-right" title="Trust" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="token.html" class="btn btn-neutral" title="Token" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

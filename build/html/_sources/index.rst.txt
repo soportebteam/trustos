@@ -1,21 +1,15 @@
-.. note:: Please make sure you are looking at the documentation that
-	  matches the version of the software you are using. See the
-	  version label at the top of the navigation panel on the left.
-	  You can change it using selector at the bottom of that
-	  navigation panel.
-
-TrustOS
+TrustOS - The Trust Operating System 
 ========================================
 
-.. image:: images/trust.png
+.. image:: images/trustos.png
 
-TrustOS is an awsome piece of technology that requires a proper
-description, some images and videos.
+ 
+A complete Blockchain solution which abstracts all the complexity of blockchain technology.
 
 .. .. raw:: html
 
 ..    <br/><br/>
-..    <iframe width="560" height="315" src="https://www.youtube.com/embed/EKa5Gh9whgU" frameborder="0" allowfullscreen></iframe>
+..    <iframe width="560" height="315" src="https://www.youtube.com/embed/1" frameborder="0" allowfullscreen></iframe>
 ..    <br/><br/>
 
 .. toctree::
@@ -23,19 +17,25 @@ description, some images and videos.
 
    introduction
    key_concepts
-   getting_started
    architecture
-   benefits
+   getting_started
    modules
    track
    token
    settle
+   trust
    id
    tutorials
+   use_cases
    releases
    contributing
    faq
 
+.. note:: Please make sure you are looking at the documentation that
+	  matches the version of the software you are using. See the
+	  version label at the top of the navigation panel on the left.
+	  You can change it using selector at the bottom of that
+	  navigation panel.
 
 .. note:: If you have questions not addressed by this documentation, or run into
     issues with any of the tutorials, please `contact us`_ to find additional help.

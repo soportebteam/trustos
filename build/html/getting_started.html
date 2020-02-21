@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Architecture" href="architecture.html" />
-    <link rel="prev" title="Key Concepts" href="key_concepts.html" /> 
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Architecture" href="architecture.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -104,18 +104,28 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#login">Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login">Login</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-ui">Login UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-request">Login request</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benefits.html">Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choose-and-api-and-start-developing">Choose and API and start developing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-request">API request</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="id.html">ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
@@ -185,37 +195,63 @@
             
   <div class="section" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>Why worrying about the low-level complexities of blockchain technology,
+<p>Why worrying about the low-level of blockchain technology,
 and having to worry about building you network when you can leverage
 the benefits of the technology without having to know the details of
-its operation. Our TrustOS abstracts all the complexity of blockchain
+its operation. <strong>TrustOS</strong> abstracts all the complexity of blockchain
 technology implementing the basic operations you need to leverage
 the power of blockchain technology.</p>
+<p>Before starting, it may be interesting for you to know about the <a class="reference internal" href="architecture.html"><span class="doc">architecture</span></a> and the different <a class="reference internal" href="modules.html"><span class="doc">modules</span></a> that compound TrustOS.</p>
 <div class="section" id="login">
 <h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
-<p>In order to use the APIs, you need to have an active user and login to our system. Every API has a login method, which asks for a user and password.</p>
-<p>A call to this method will return a JWT token, of this form:</p>
+<p>In order to use the APIs, you need to have an active user and login to use the system. Every API has a login method, which asks for a user and password.</p>
+<div class="section" id="login-ui">
+<h3>Login UI<a class="headerlink" href="#login-ui" title="Permalink to this headline">¶</a></h3>
+<p>To faccilitate the first interactions with TrustOS there is a login website so that the user can easily login and authenticate the next use of the website through cookies that contains the JWT and that expires after the JWT becomes invalid.</p>
+<p><img alt="Login UI" src="_images/login_ui.png" /></p>
+</div>
+<div class="section" id="login-request">
+<h3>Login request<a class="headerlink" href="#login-request" title="Permalink to this headline">¶</a></h3>
+<p>Once your solution has to madured, it would be nice to integrate the login process through API requests.</p>
+<p>A call to the login method will return a JWT token, of this form:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0.M4PBSslERUImcOpWgg--N-2ZNW306BzWXTZVJgtdXWE&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="choose-and-api-and-start-developing">
+<h2>Choose and API and start developing<a class="headerlink" href="#choose-and-api-and-start-developing" title="Permalink to this headline">¶</a></h2>
 <p>Every call to the API, has to be authenticated, so the caller must provide this message as proof of his identity.</p>
 <p>Add the following header to your HTTP request in order to authenticate your call:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bearer</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0</span><span class="o">.</span><span class="n">M4PBSslERUImcOpWgg</span><span class="o">--</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">ZNW306BzWXTZVJgtdXWE</span>
 </pre></div>
 </div>
-<p>If you are calling the APIs from Postman, you can set manually the headers (there are examples in the miscelanea/postman folder)</p>
-<p>However if you interact graphically with the swagger,  you have to click the button <strong>authorize, on the top right</strong> of the screen.</p>
-<p>From there, in the “value” field of ApiKeyAuth, you should write:</p>
+<div class="admonition note">
+  <p class="admonition-title">Attention</p>
+  <p>Please make sure you write "Bearer" before the JWT token</p>
+</div><div class="section" id="swagger-ui">
+<h3>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h3>
+<p>We have created a simple website that aggregates all the accesible modules so that the user can easily reach and test all the functionalities.</p>
+<p><img alt="Swagger UI" src="_images/trustos_swagger.png" /></p>
+<p>If you have login using the Login UI, it is simple to see and copy the JWT Token just clicking the header green button <code class="docutils literal notranslate"><span class="pre">JWT</span></code>.</p>
+<p>Choose and API to see what there is inside and then you have to click the button <strong>Authorize, on the right</strong> of the screen.</p>
+<p>From there, in the “value” field of ApiKeyAuth, you should write “Bearer” followed by the JWT Token already copied:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bearer</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0</span><span class="o">.</span><span class="n">M4PBSslERUImcOpWgg</span><span class="o">--</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">ZNW306BzWXTZVJgtdXWE</span>
 </pre></div>
 </div>
-<p>You should now see that all the locks in swagger are closed, meaning that you are authenticated!</p>
-<p>The test user for this beta version is :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="p">:</span> <span class="n">example</span>
-<span class="n">password</span> <span class="p">:</span> <span class="n">example</span>
+<p>You should now see that all the locks in swagger are closed, meaning that you are now authenticated!</p>
+</div>
+<div class="section" id="api-request">
+<h3>API request<a class="headerlink" href="#api-request" title="Permalink to this headline">¶</a></h3>
+<p>If you are calling the APIs from Postman, you can set manually the headers (you can see an example in <a class="reference internal" href="tutorials.html"><span class="doc">tutorials</span></a> section):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0.M4PBSslERUImcOpWgg--N-2ZNW306BzWXTZVJgtdXWE&quot;</span>
+<span class="p">}</span>
 </pre></div>
+</div>
+<p>Now it is time to read more about the TrustOS modules.</p>
 </div>
 </div>
 </div>
@@ -228,10 +264,10 @@ the power of blockchain technology.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="key_concepts.html" class="btn btn-neutral" title="Key Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
