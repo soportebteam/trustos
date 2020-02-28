@@ -218,6 +218,8 @@
 </li>
 <li><p>Now that we can see the collection, lets take a<br />look at the URL for which the request is being made:</p>
 <p><img alt="alt text" src="_images/enviroment.png" /></p>
+</li>
+</ol>
 <p>We can see that the URL contains: “ {{url}} “</p>
 <p>This is a variable in POSTMAN. The nice things about using variables, is that we can change the endpoints of the APIs without having to modify the requests, but only the <strong>enviroment</strong> file, where the enviroment variables are specified.</p>
 <p>To load a specific enviroment file, click the configuration button, manage enviroment, and select the enviroment file you want to load.</p>
@@ -231,7 +233,7 @@ Why do we say “actual values”? Because values can change dinamically</p>
 <p><img alt="alt text" src="_images/login.png" /></p>
 <p>Luckily you dont have to worry about this, since we have already taken care of it.
 When you execute the login request, the Auth token received is set as the value of the variable “AuthToken”, which is later used in the <strong>Header</strong> tab (as can be seen in the second image of this tutorial)</p>
-</li>
+<ol class="simple">
 <li><p>Finally, now that we have everything set up, click on the “Runner” tab on the top left of the screen. Select the collection you want to run, the enviroment file you want to use for this collection, and run the tests!</p></li>
 </ol>
 <p><img alt="alt text" src="_images/runner.png" /></p>
