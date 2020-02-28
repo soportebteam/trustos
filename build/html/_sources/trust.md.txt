@@ -18,8 +18,8 @@ This is the structure of a trust point:
 - `txRoot` :  `<string>` Hash of all transactions in the interval
 - `hftxid` :  `<string>` Current trust point transaction in Hyperledger Fabric
 - `prevhftxid` :  `<string>`  Previous trust point transaction in Hyperledger Fabric
-- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
 - `prevHash` :  `<string>` Hash of the previous trust point
+- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
 - `hash` :  `<string>`  Hash of the trust point (as a JSON) to verify integrity
 
 <details>

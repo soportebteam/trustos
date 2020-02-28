@@ -28,7 +28,6 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    use_cases
    releases
    contributing
-   faq
 
 .. note:: Please make sure you are looking at the documentation that
 	  matches the version of the software you are using. See the
