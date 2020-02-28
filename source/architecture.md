@@ -5,7 +5,7 @@
 TrustOS also includes some administration features and interfaces that allow the developer community to add new modules to TrustOS. 
 
 
-- **How does it work?**
+## How does it work
 
 The following figure describes a layer-based architecture:
 
