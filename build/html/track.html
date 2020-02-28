@@ -103,7 +103,6 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
@@ -213,14 +212,14 @@
 <p>Every asset has the following structure:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>inmutable</strong> data. It can have as many field as required</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> UNIX date of creation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the asset</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Last asset transaction in Hyperledger Fabric</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lastEthTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Last asset transaction in Ethereum</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>mutable</strong> data. It can have as many field as required</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>inmutable</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>mutable</strong> data.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">userOwner</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Owner of the asset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Timestamp of creation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current asset transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lastEthTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Last asset transaction in Ethereum</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the asset</p></li>
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -231,22 +230,24 @@
         <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;22&quot;</span>
       <span class="p">}</span>
     <span class="p">},</span>
-    <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1558009289</span><span class="p">,</span>
-    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49&quot;</span><span class="p">,</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
     <span class="p">},</span>
-    <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
+    <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1558009289</span><span class="p">,</span>
+    <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+</details> 
+<br></div>
 <div class="section" id="methods">
 <h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
-<br><details>
+<p><img alt="TrackAPI methods" src="_images/track_swagger.png" /></p>
+<details>
   <summary><em><strong> Asset methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="post-asset-create">
 <h4>POST -  <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code><a class="headerlink" href="#post-asset-create" title="Permalink to this headline">¶</a></h4>
@@ -563,11 +564,6 @@ N/A. It returns all the assets which belong to the login user</p>
 <div class="section" id="errors-management">
 <h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Track API errors are managed through the following nomenclature <strong>TRACK-XX</strong> which corresponds to:<br></p>
-<p>| Code 	| Description 	|
-|:—–:	|———————————————————————–	|
-| TRACK-00 	| Service is down 	|
-| TRACK-01 	| Error parsing any data structure 	|
-| TRACK-02 	| Error of some kind of functionality 	|</p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}

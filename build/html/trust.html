@@ -103,7 +103,6 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
@@ -215,14 +214,14 @@
 <p>This is the structure of a trust point:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp at which this trust point is made</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Hash of the trust point (as a JSON) to verify integrity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">txRoot</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of all transactions in the interval</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Last trust transaction in Hyperledger Fabric</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp for the previous trust point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp at which this trust point is made</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">txRoot</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of all transactions in the interval</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current trust point transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prevhftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Previous trust point transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">prevHash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the previous trust point</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">prevhftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Hash of the previous transaction (in the blockchain)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Hash of the trust point (as a JSON) to verify integrity</p></li>
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -244,6 +243,7 @@
 <br></div>
 <div class="section" id="methods">
 <h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p><img alt="TrustAPI methods" src="_images/trust_swagger.png" /></p>
 <details>
   <summary><em><strong>Trust methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="get-trust-assetid">

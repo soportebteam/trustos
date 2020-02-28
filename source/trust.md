@@ -13,14 +13,14 @@ A trust point is `<JSON>` object used to export the integrity of the transaction
 This is the structure of a trust point:
 
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made
+- `init` :  `<integer>` Timestamp for the previous trust point
 - `end` :  `<integer>` Timestamp at which this trust point is made
+- `txRoot` :  `<string>` Hash of all transactions in the interval
+- `hftxid` :  `<string>` Current trust point transaction in Hyperledger Fabric
+- `prevhftxid` :  `<string>`  Previous trust point transaction in Hyperledger Fabric
+- `prevHash` :  `<string>` Hash of the previous trust point
 - `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
 - `hash` :  `<string>`  Hash of the trust point (as a JSON) to verify integrity
-- `txRoot` :  `<string>` Hash of all transactions in the interval
-- `hftxid` :  `<string>` Last trust transaction in Hyperledger Fabric
-- `init` :  `<integer>` Timestamp for the previous trust point
-- `prevHash` :  `<string>` Hash of the previous trust point
-- `prevhftxid` :  `<string>`  Hash of the previous transaction (in the blockchain)
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -45,6 +45,8 @@ This is the structure of a trust point:
 <br>
 
 ### Methods
+
+![TrustAPI methods](./images/trust_swagger.png)
 
 <details>
   <summary><em><strong>Trust methods</strong></em> (Click to expand)</summary>

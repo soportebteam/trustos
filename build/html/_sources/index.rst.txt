@@ -16,7 +16,6 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    :maxdepth: 1
 
    introduction
-   key_concepts
    architecture
    getting_started
    modules

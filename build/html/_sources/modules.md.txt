@@ -1,10 +1,8 @@
 # Modules
 
-
 ![TrustOS modules](./images/modules.png)
 
-
-##  [Track](track.md)
+## [Track](track.md)
 
 Creation and tracking the life cycle of the assets in the Blockchain. An asset
 is a digital representation of a real asset in the physical world. Using this module you can

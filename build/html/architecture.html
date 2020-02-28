@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started" href="getting_started.html" />
-    <link rel="prev" title="Key Concepts" href="key_concepts.html" /> 
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,7 +103,6 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="key_concepts.html">Key Concepts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
@@ -183,12 +182,15 @@
             
   <div class="section" id="architecture">
 <h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<p><strong>TrustOS</strong> software can be deployed on any Hyperledger Fabric based blockchain network. Support for Quorum/Ethereum and CORDA based networks will be added soon. Once deployed, an HTTP API is published so that it can be used from any programming language. The API hides much of the complexity of working with a Blockchain, but its direct use still requires low-level knowledge. For that reason, TrustOS also includes some libraries to be consumed by applications and other Smart Contracts. Therefore, TrustOS commands can be invoked from outside Blockchain through its APIs or from other Smart Contracts inside the Blockchain itself.</p>
+<p>TrustOS also includes some administration features and interfaces that allow the developer community to add new modules to TrustOS.</p>
+<ul class="simple">
+<li><p><strong>How does it work?</strong></p></li>
+</ul>
 <p>The following figure describes a layer-based architecture:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="n">Image</span>
-</pre></div>
-</div>
-<p>Initially, TrustOS is available for deployment on any Hyperledger Fabric-based network and interacts with Ethereum (the public network). In the coming months support will be added for implementation in other technologies such as Ethereum/Quorum or CORDA.</p>
+<p><img alt="TrustOS Architecture" src="_images/architecture.png" /></p>
+<p>APIs do not speak the <strong>Blockchain language</strong> (send, validate or verify a transaction, query a block, provision or obtain gas at an address, compile, deploy or execute contracts, manage and safeguard cryptographic material, etc.) but the language a customer understands (create an asset and update its status or position, add account activity, verify an identity, create or transfer a token, etc.).</p>
+<p>Initially, <strong>TrustOS</strong> is available for deployment on any Hyperledger Fabric-based network and interacts with Ethereum (the public network). In the coming months support will be added for implementation in other technologies such as Ethereum/Quorum or CORDA.</p>
 </div>
 
 
@@ -202,7 +204,7 @@
         <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="key_concepts.html" class="btn btn-neutral" title="Key Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

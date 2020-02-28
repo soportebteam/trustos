@@ -34,19 +34,49 @@ Every token has the following structure:
 
 ### Methods
 
+![TokenAPI methods](./images/token_swagger.png)
+
+
 <details>
   <summary><em><strong>Token methods</strong></em> (Click to expand)</summary>
+
 ---
 
-#### POST   -   `/token/create/`
+#### POST   -   `/token/{tokenId}/instanciate`
 
-Creates a new generic token based on a chaincode
+Instanciate a new token as chaincode in Hyperledger Fabric 
+
 
 *Input*
-- `name` :  `<string>`    Name of the token
+- `tokenId` :  `<string>`  Name of the token to instanciate
+ 
+*Output*
+- `message`    :  `<string>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+
+{
+  "message": "Chaincode instantiated succesfully"
+}
+
+```
+</details>
+
+
+---
+
+#### POST   -   `/token/initialize`
+
+Initialize a token based on a previus instantiated chaincode
+
+*Input*
+- `name` :  `<string>` Name of the token
 - `symbol` : `<string>` Shortname of the token
-- `owner` :  `identifier<string>:company<string>`   Owner of the token contract
-- `ethereumAddress` :  `<string>` This address represents the contract in Ethereum associated to the token. At the moment is given as an input, but in future releases it will be created by the chaincode and given to the developer as a response 
+- `owner` :  `identifier<string>:company<string>` Owner of the token contract
+- `ethereumAddress` :  `<string>` This address represents the smart contract in Ethereum associated to the token. At the moment is given as an input, but in future releases it will be created by the chaincode and given to the developer as a response 
 - `totalSupply` :  `<integer>`  Total amount of individual tokens that will be created
 
 <details>
@@ -64,7 +94,7 @@ Creates a new generic token based on a chaincode
 
 ```
 </details>
-
+ 
 *Output*
 - `message`    :  `<string>` 
 
@@ -74,12 +104,17 @@ Creates a new generic token based on a chaincode
 ```js
 
 {
-  "message": "Chaincode instantiated succesfully"
+  "output": {
+    "name": "Test",
+    "symbol": "Tst",
+    "owner": "bteam:org1MSP",
+    "ethereumAddress": "0x0",
+    "totalSupply": 99999999999999
+  }
 }
 
 ```
 </details>
-
 
 
 ---
@@ -163,7 +198,7 @@ Approve a different spender for a amount of token you own
 
 ```
 </details>
-  
+ 
 *Output*
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
@@ -274,7 +309,7 @@ Transfers individual tokens (balances of a token class)
 
 ```
 </details>
-   
+  
 *Output*
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction

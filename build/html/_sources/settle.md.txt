@@ -44,6 +44,8 @@ main variable used to upload records.
 
 ### Methods
 
+![SettleAPI methods](./images/settle_swagger.png)
+
 <details>
   <summary><em><strong>Settlement methods</strong></em> (Click to expand)</summary>
 
@@ -407,6 +409,7 @@ been detected in the updating of records.
 ```
 </details>
 </details>
+<br>
 
 ## Architecture of the project
 ```

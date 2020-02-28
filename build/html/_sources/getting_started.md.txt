@@ -7,6 +7,8 @@ its operation. **TrustOS** abstracts all the complexity of blockchain
 technology implementing the basic operations you need to leverage
 the power of blockchain technology. 
 
+We have created several APIs for tracking the whole lifecycle of assets, for creating and managing transferable tokens, for offering agreement between diferent parts and ensuring confidence and integrity in the all the generated information.
+
 Before starting, it may be interesting for you to know about the [architecture](./architecture.md) and the different [modules](./modules.md) that compound TrustOS.
 
 ## Login

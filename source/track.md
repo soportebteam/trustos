@@ -11,14 +11,15 @@ An asset is a digital representation of a real asset in the real world.
 Every asset has the following structure:
 
 - `assetid` :  `<string>` Unique identifier of the asset 
-- `data`    :  `<json>`   JSON of **inmutable** data. It can have as many field as required
-- `datetime` :  `<string>` UNIX date of creation
-- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
-- `hash` :  `<string>` Hash of the asset
-- `hftxid` :  `<string>` Last asset transaction in Hyperledger Fabric
-- `lastEthTxId` :  `<string>` Last asset transaction in Ethereum
-- `metadata`:  `<json>`   JSON of **mutable** data. It can have as many field as required
+- `data`    :  `<json>`   JSON of **inmutable** data.
+- `metadata`:  `<json>`   JSON of **mutable** data.
 - `userOwner`:  `<string>` Owner of the asset
+- `datetime` :  `<string>` Timestamp of creation
+- `hftxid` :  `<string>` Current asset transaction in Hyperledger Fabric
+- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
+- `lastEthTxId` :  `<string>` Last asset transaction in Ethereum
+- `hash` :  `<string>` Hash of the asset
+
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -32,22 +33,24 @@ Every asset has the following structure:
         "y": "22"
       }
     },
-    "datetime": 1558009289,
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
-    "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
-    "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
-    "lastEthTxId": "0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49",
     "metadata": {
       "color": "red"
     },
-    "userOwner": "test:org1MSP"
+    "userOwner": "test:org1MSP",
+    "datetime": 1558009289,
+    "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
+    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
+    "lastEthTxId": "0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49",
+    "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8="
 }
 
 ```
 </details> 
+<br>
 
 ### Methods
-<br>
+
+![TrackAPI methods](./images/track_swagger.png)
 
 <details>
   <summary><em><strong> Asset methods</strong></em> (Click to expand)</summary>
@@ -397,13 +400,6 @@ In postman folder there are the collection and environment to interact and test 
   Track API errors are managed through the following nomenclature **TRACK-XX** which corresponds to:<br>
 
 
-  | Code 	| Description 	|
-|:-----:	|-----------------------------------------------------------------------	|
-| TRACK-00 	| Service is down 	|
-| TRACK-01 	| Error parsing any data structure 	|
-| TRACK-02 	| Error of some kind of functionality 	|
-
-
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -429,3 +425,4 @@ In postman folder there are the collection and environment to interact and test 
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
 </table>
+
