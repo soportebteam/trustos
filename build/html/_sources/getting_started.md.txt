@@ -37,18 +37,7 @@ A call to the login method will return a JWT token, of this form:
 
 ## Choose and API and start developing
 
-Every call to the API, has to be authenticated, so the caller must provide this message as proof of his identity.
-
-Add the following header to your HTTP request in order to authenticate your call: 
-
-```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0.M4PBSslERUImcOpWgg--N-2ZNW306BzWXTZVJgtdXWE
-```
-
-<div class="admonition note">
-  <p class="admonition-title">Attention</p>
-  <p>Please make sure you write "Bearer" before the JWT token</p>
-</div>
+Once the login is sucessfully done it is time to start developing your own solution based on one of the TrustOS modules.
 
 ### Swagger UI
 
@@ -69,6 +58,20 @@ You should now see that all the locks in swagger are closed, meaning that you ar
 
 
 ### API request
+
+Every call to the API, has to be authenticated, so the caller must provide this message as proof of his identity.
+
+Add the following header to your HTTP request in order to authenticate your call: 
+
+```
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0.M4PBSslERUImcOpWgg--N-2ZNW306BzWXTZVJgtdXWE
+```
+
+<div class="admonition note">
+  <p class="admonition-title">Attention</p>
+  <p>Please make sure you write "Bearer" before the JWT token</p>
+</div>
+
 
 If you are calling the APIs from Postman, you can set manually the headers (you can see an example in [tutorials](./tutorials.md) section):
 
