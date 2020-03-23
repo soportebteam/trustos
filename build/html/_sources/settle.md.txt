@@ -488,3 +488,5 @@ In postman folder there are the collection and environment to interact and test 
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
 </table>
+
+<br>

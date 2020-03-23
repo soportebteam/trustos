@@ -111,8 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Token</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-token-tokenid-instanciate">POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/instanciate</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-token-initialize">POST   -   <code class="docutils literal notranslate"><span class="pre">/token/initialize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-token-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-token-tokenid">GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-token-tokenid-allowance-owner-spender">GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/allowance/{owner}/{spender}</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-token-tokenid-approve">POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/approve</span></code></a></li>
@@ -238,28 +237,9 @@
 <p><img alt="TokenAPI methods" src="_images/token_swagger.png" /></p>
 <details>
   <summary><em><strong>Token methods</strong></em> (Click to expand)</summary><hr class="docutils" />
-<div class="section" id="post-token-tokenid-instanciate">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/instanciate</span></code><a class="headerlink" href="#post-token-tokenid-instanciate" title="Permalink to this headline">¶</a></h4>
-<p>Instanciate a new token as chaincode in Hyperledger Fabric</p>
-<p><em>Input</em></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token to instanciate</p></li>
-</ul>
-<p><em>Output</em></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Chaincode instantiated succesfully&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></div>
-<hr class="docutils" />
-<div class="section" id="post-token-initialize">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/initialize</span></code><a class="headerlink" href="#post-token-initialize" title="Permalink to this headline">¶</a></h4>
-<p>Initialize a token based on a previus instantiated chaincode</p>
+<div class="section" id="post-token-create">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create</span></code><a class="headerlink" href="#post-token-create" title="Permalink to this headline">¶</a></h4>
+<p>Initialize a new token in the network with some specific information</p>
 <p><em>Input</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the token</p></li>
@@ -298,7 +278,7 @@
 <hr class="docutils" />
 <div class="section" id="get-token-tokenid">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code><a class="headerlink" href="#get-token-tokenid" title="Permalink to this headline">¶</a></h4>
-<p>Gets all the token info</p>
+<p>Gets all the token information</p>
 <p><em>Input</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
@@ -673,7 +653,7 @@
     <td class="tg-0lax">TOKEN-02</td>
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
-</table></div>
+</table><br></div>
 </div>
 
 

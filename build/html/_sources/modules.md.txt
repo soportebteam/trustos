@@ -1,6 +1,6 @@
 # Modules
 
-![TrustOS modules](./images/modules.png)
+![TrustOS modules](./images/trustos_modules.png)
 
 ## [Track](track.md)
 

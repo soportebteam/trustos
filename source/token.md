@@ -42,35 +42,9 @@ Every token has the following structure:
 
 ---
 
-#### POST   -   `/token/{tokenId}/instanciate`
+#### POST   -   `/token/create`
 
-Instanciate a new token as chaincode in Hyperledger Fabric 
-
-
-*Input*
-- `tokenId` :  `<string>`  Name of the token to instanciate
- 
-*Output*
-- `message`    :  `<string>` 
-
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-
-```js
-
-{
-  "message": "Chaincode instantiated succesfully"
-}
-
-```
-</details>
-
-
----
-
-#### POST   -   `/token/initialize`
-
-Initialize a token based on a previus instantiated chaincode
+Initialize a new token in the network with some specific information
 
 *Input*
 - `name` :  `<string>` Name of the token
@@ -121,7 +95,7 @@ Initialize a token based on a previus instantiated chaincode
 
 #### GET   -   `/token/{tokenId}`
 
-Gets all the token info
+Gets all the token information
 
 *Input*
 - `tokenId` :  `<string>`  Name of the token
@@ -576,3 +550,5 @@ In postman folder there are the collection and environment to interact and test 
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
 </table>
+
+<br>
