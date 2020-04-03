@@ -1,12 +1,12 @@
 # Track
 
-This API is used to create, manage, and export digital assets on the blockchain.
+Track API is used to create, manage, and follow life cycle of **digital assets** on the blockchain. An asset is a digital representation of a real asset in the physical world. Through this API tracking the whole state changes of every asset can be implemented in an easy way, taking advantage of the inherit benefits from blockchain. 
 
 ## API Specification
 
 An abstraction API with all the asset functionalities
 ### Asset
-An asset is a digital representation of a real asset in the real world. 
+An asset is a digital representation of a real asset in the physical world. An asset records every single state or data change (f.e. the update of metadata, the transfer of ownership, etc.) This allow us to track the whole transactions since its creation in an inmutable and transparent way.
 
 Every asset has the following structure:
 

@@ -1,6 +1,6 @@
 # Token
 
-This API allows developers to easily create transferable tokens on the Hyperledger Fabric network.
+Token API allows developers to easily create, transfer and get transferable tokens on the Hyperledger Fabric network. A token is a Through this API giving transferable value to simple assets can generate new markets and gamification strategies.
 
 ## API Specification
 
@@ -8,7 +8,7 @@ An abstraction API with all the token functionalities.
 
 ### Token
 
-The term is a little bit confusing at first, since a token can represent the whole class, in which the total supply is declarated, or individual tokens (balances) transferable between users.
+A token is an asset that gets a transferable value on the blockchain network and can represent whatever it can be imagined, either an abstract or real/physic thing. The term is a little bit confusing at first, since a token can represent the whole class, in which the total supply is declarated, or individual tokens (balances) transferable between users.
 
 Every token has the following structure:
 - `name` :  `<string>`  Name of the generic token
