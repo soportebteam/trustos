@@ -395,6 +395,15 @@ docker-compose up -d
 ## Testing the Application
 In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trackapi module
 
+
+
+[TRACK POSTMAN](_static/trackapi.collection.json)
+
+<a href="_static/trackapi.collection.json" download>Click to Download</a>
+
+<button onclick="window.open('_static/trackapi.collection.json')">Download</button>
+
+
 ## Errors management
   
   Track API errors are managed through the following nomenclature **TRACK-XX** which corresponds to:<br>
