@@ -1,0 +1,19 @@
+{
+	"id": "782dc3f5-3b7d-4953-ba11-16006494f8e1",
+	"name": "Example API environment",
+	"values": [
+		{
+			"key": "URL",
+			"value": "https://example-domain.io/module-name",
+			"enabled": true
+		},
+		{
+			"key": "authToken",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-04-06T15:02:30.049Z",
+	"_postman_exported_using": "Postman/7.21.1"
+}

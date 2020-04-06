@@ -1,0 +1,1028 @@
+{
+	"info": {
+		"_postman_id": "33c7b49b-c6eb-495a-b07c-1f7690ee1e2f",
+		"name": "coren-tokenapi",
+		"description": " Tokenization \n \n This API allows developers to easily create transferable tokens on the Hyperledger Fabric network. \n \n In case you have some questions or need more documentation about the use of this API, please contact B-Team:\n\nContact Support: \n{\n\nName : B-Team\n\nEmail : soporte-bteam@telefonica.com\n\n}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24dd39ab-7e6e-46bd-9d97-72e335a3c445",
+						"exec": [
+							"//Execution",
+							"",
+							"try {",
+							"",
+							"    // tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"authToken\", jsonData.message);",
+							"}",
+							"catch(e) {",
+							"    console.error(e);",
+							"}",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"test\",\n  \"password\": \"test\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh the login session",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/refresh",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"refresh"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Initialize a new token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"test\",\r\n  \"owner\": \"test:telefonicaMSP\",\r\n  \"symbol\": \"nKRM\",\r\n  \"ethereumAddress\": \"0x0\",\r\n  \"totalSupply\": \"999999999999\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"owner\": \"<string>\",\n    \"symbol\": \"<string>\",\n    \"ethereumAddress\": \"<string>\",\n    \"totalSupply\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"message\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get the token info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/token/:tokenId",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get the token allowance between owner and spender",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/allowance/:ownerId/:spenderId",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"allowance",
+						":ownerId",
+						":spenderId"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						},
+						{
+							"key": "ownerId",
+							"value": "test:telefonicaMSP"
+						},
+						{
+							"key": "spenderId",
+							"value": "bteam:telefonicaMSP"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/allowance/<string>/<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"allowance",
+								"<string>",
+								"<string>"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"message\": \"<number>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Approve spender to withdraw from your own",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spenderId\": \"test:telefonicaMSP\",\n    \"value\": \"20\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/approve",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"approve"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"spender\": \"<string>\",\n    \"value\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/approve",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"approve"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get the token balance of a user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/balance/:userId",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"balance",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test",
+							"description": "Token ID"
+						},
+						{
+							"key": "userId",
+							"value": "test:telefonicaMSP"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/balance/<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"balance",
+								"<string>"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"balance\": \"<number>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get the token transactions",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/transactions",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"transactions"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test",
+							"description": "Token ID"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/transactions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"name\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"decimals\": \"<number>\",\n  \"totalSupply\": \"<number>\",\n  \"balances\": \"<object>\",\n  \"allowed\": \"<object>\",\n  \"message\": \"<object>\"\n },\n {\n  \"name\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"decimals\": \"<number>\",\n  \"totalSupply\": \"<number>\",\n  \"balances\": \"<object>\",\n  \"allowed\": \"<object>\",\n  \"message\": \"<object>\"\n }\n]"
+				}
+			]
+		},
+		{
+			"name": "Transfer token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"bteam:telefonicaMSP\",\n    \"value\": \"10\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/transfer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"transfer"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"<string>\",\n    \"value\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/transfer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"transfer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Send a blocking transfer for a user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"bteam:telefonicaMSP\",\n    \"value\": \"50\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/transferblock",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"transferblock"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"<string>\",\n    \"value\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/transferblock",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"transferblock"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Unblock a blocked transfer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"blocked_id\": \"WXbRLGAw\",\n    \"accept\": \"false\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/transferunblock",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"transferunblock"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"blocked_id\": \"<string>\",\n    \"accept\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/transferunblock",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"transferunblock"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Transfer / withdraw token from user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": \"test:telefonicaMSP\",\n    \"to\": \"bteam:telefonicaMSP\",\n    \"value\": \"30\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/transferfrom",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"transferfrom"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from\": \"<string>\",\n    \"to\": \"<string>\",\n    \"value\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/transferfrom",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"transferfrom"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Transfer the ownership of a token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"bteam:telefonicaMSP\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/token/:tokenId/transferownership",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"token",
+						":tokenId",
+						"transferownership"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/<string>/transferownership",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								"<string>",
+								"transferownership"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"name\": \"<string>\",\n \"owner\": \"<string>\",\n \"symbol\": \"<string>\",\n \"decimals\": \"<number>\",\n \"totalSupply\": \"<number>\",\n \"balances\": \"<object>\",\n \"allowed\": \"<object>\",\n \"message\": \"<object>\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0ed38daa-23b7-47cf-b99c-e849161c8f07",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c9f998c5-f352-418a-b8e9-ed3da1d35876",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "87d780f0-23c3-40a0-b701-18c5354c4197",
+			"key": "baseUrl",
+			"value": "https://trustapi.tid.es/token",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
