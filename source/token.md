@@ -16,8 +16,8 @@ Every token has the following structure:
 - `owner` :  `id<string>:company<string>`  Owner of the token. It has to be specified the ID of the owner and the ID of the organization it belongs to inside the organization
 - `ethereumAddress`: `<string>` Address in the Ethereum blockchain, in case we want to link it to a public blockchain token
 - `totalSupply` :  `<integer>` Total number of individual tokens issued
-<details>
 
+<details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
@@ -68,7 +68,8 @@ Initialize a new token in the network with some specific information
 
 ```
 </details>
- 
+ <br>
+
 *Output*
 - `message`    :  `<string>` 
 
@@ -172,7 +173,8 @@ Approve a different spender for a amount of token you own
 
 ```
 </details>
- 
+<br>
+
 *Output*
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
@@ -282,7 +284,7 @@ Transfers individual tokens (balances of a token class)
 }
 
 ```
-</details>
+</details> <br>
   
 *Output*
 - `id`    :  `<string>`  Id of the transaction
@@ -325,7 +327,7 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 }
 
 ```
-</details>
+</details><br>
 
 *Output*
 - `id`    :  `<string>`  Id of the transaction
@@ -364,7 +366,7 @@ Transfer the ownership of a generic token
 }
 
 ```
-</details>
+</details><br>
 
 *Output*
 - `token`  :  `<json>`  Token with updated parameters
@@ -408,7 +410,7 @@ Transfer individual tokens as a blocked balance for a user
 }
 
 ```
-</details>
+</details><br>
 
 *Output*
 - `blocked_id`    :  `<string>`  Id of the transaction

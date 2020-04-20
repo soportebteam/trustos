@@ -16,8 +16,8 @@ Every token has the following structure:
 - `owner` :  `id<string>:company<string>`  Owner of the token. It has to be specified the ID of the owner and the ID of the organization it belongs to inside the organization
 - `ethereumAddress`: `<string>` Address in the Ethereum blockchain, in case we want to link it to a public blockchain token
 - `totalSupply` :  `<integer>` Total number of individual tokens issued
-<details>
 
+<details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
