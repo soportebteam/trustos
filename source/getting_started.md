@@ -9,7 +9,7 @@ the power of blockchain technology.
 
 We have created several APIs for tracking the whole lifecycle of assets, for creating and managing transferable tokens, for offering agreement between diferent parts and ensuring confidence and integrity in the all the generated information.
 
-Before starting, it may be interesting for you to know about the [architecture](./architecture.md) and the different [modules](./modules.md) that compound TrustOS.
+Before starting, it may be interesting for you to know about the [architecture](architecture.html) and the different [modules](modules.html) that compound TrustOS.
 
 ## Login
 
