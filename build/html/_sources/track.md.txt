@@ -11,13 +11,12 @@ An asset is a digital representation of a real asset in the physical world. An a
 Every asset has the following structure:
 
 - `assetid` :  `<string>` Unique identifier of the asset 
-- `data`    :  `<json>`   JSON of **inmutable** data.
-- `metadata`:  `<json>`   JSON of **mutable** data.
+- `data`    :  `<json>`   JSON of **inmutable** data. It can have as many field as required
+- `metadata`:  `<json>`   JSON of **mutable** data. It can have as many field as required
 - `userOwner`:  `<string>` Owner of the asset
-- `datetime` :  `<string>` Timestamp of creation
+- `datetime` :  `<string>` UNIX date of creation
 - `hftxid` :  `<string>` Current asset transaction in Hyperledger Fabric
-- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
-- `lastEthTxId` :  `<string>` Last asset transaction in Ethereum
+- `trustpoint` : `<json>` JSON of data related to trustpoints. It can include the fields: EthereumContractAddres, LastEthTxId and LastHfTxId.
 - `hash` :  `<string>` Hash of the asset
 
 
@@ -28,20 +27,21 @@ Every asset has the following structure:
 {
     "assetid": "exampleAsset",
     "data": {
-      "position": {
-        "x": "53",
-        "y": "22"
-      }
+      "id":"A2839RP",
+      "version":"1"
     },
     "metadata": {
       "color": "red"
+      "position": { "x": "53", "y": "22"}
     },
-    "userOwner": "test:org1MSP",
+    "userOwner": "test:telefonicaMSP"
     "datetime": 1558009289,
     "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
-    "lastEthTxId": "0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49",
-    "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8="
+    "trustpoint": {
+      "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
+      "lastEthTxId":"0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49"
+    },
+    "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
 }
 
 ```
@@ -70,20 +70,19 @@ Ceate a digital asset on a Blockchain.
 
 ```js
 {
-    "assetid": "exampleAsset2",
+    "assetid": "",
     "data": {
-      "color": "red"
+      "id":"A2839RP",
+      "version":"1"
     },
     "metadata" : {
-      "position":{
-        "x": 23.34,
-        "y": -24.22
-      }
-    }
+      "color": "red",
+      "position": { "x": 23.34, "y": -24.22}
     }
 }
 ```
 </details> 
+<br>
 
 *Output*
 - `asset`    :  `<json>` 
@@ -96,18 +95,16 @@ Ceate a digital asset on a Blockchain.
   "output": {
     "assetid": "exampleAsset",
     "data": {
-      "color": "red"
+      "id":"A2839RP",
+      "version":"1"
     },
     "datetime": 1559820650,
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
     "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
     "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
-    "lastEthTxId": "",
+    "trustpoint": {},
     "metadata": {
-      "position": {
-        "x": 23.34,
-        "y": -24.22
-      }
+      "color": "red",
+      "position": { "x": 23.34, "y": -24.22}
     }
     "userOwner": "test:org1MSP"
   }
@@ -136,18 +133,16 @@ Get asset from the blockchain identified by assetId
   "output": {
     "assetid": "exampleAsset",
     "data": {
-      "color": "red"
+      "id":"A2839RP",
+      "version":"1"
     },
     "datetime": 1559820650,
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
     "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
     "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
-    "lastEthTxId": "",
+    "trustpoint": {},
     "metadata": {
-      "position": {
-        "x": 23.34,
-        "y": -24.22
-      }
+      "color": "red",
+      "position": { "x": 23.34, "y": -24.22}
     }
     "userOwner": "test:org1MSP"
   }
@@ -176,37 +171,33 @@ Get all transactions for the whole lifecycle of the asset
     {
       "assetid": "exampleAsset",
       "data": {
-        "color": "red"
+        "id":"A2839RP",
+        "version":"1"
       },
       "datetime": 1559820650,
-      "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
-      "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
-      "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
-      "lastEthTxId": "",
+      "hash": "zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=",
+      "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06",
+      "trustpoint": {},
       "metadata": {
-        "position": {
-          "x": 23.34,
-          "y": -24.22
-        }
-      }
+        "color": "blue",
+        "position": { "x": 98.35, "y": -12.32}
+      },
       "userOwner": "test:org1MSP"
       },
     {
       "assetid": "exampleAsset",
       "data": {
-        "color": "red"
+        "id":"A2839RP",
+        "version":"1"
       },
       "datetime": 1559820650,
-      "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
-      "hash": "zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=",
-      "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06",
-      "lastEthTxId": "",
+      "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
+      "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
+      "trustpoint": {},
       "metadata": {
-        "position": {
-          "x": 98.35,
-          "y": -12.32
-        }
-      },
+        "color": "red",
+        "position": { "x": 23.34, "y": -24.22}
+      }
       "userOwner": "test:org1MSP"
     }
   ]
@@ -234,6 +225,7 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
 }
 ```
 </details> 
+<br>
 
 *Output*
 - `asset`    :  `<json>` 
@@ -246,19 +238,13 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
   "output": {
     "assetid": "exampleAsset",
     "data": {
-      "color": "red"
+      "id":"A2839RP",
+      "version":"1"
     },
     "datetime": 1559820650,
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
     "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
     "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
-    "lastEthTxId": "",
-    "metadata": {
-      "position": {
-        "x": 23.34,
-        "y": -24.22
-      }
-    }
+    "trustpoint":{},
     "userOwner": "bteam"
   }
 }
@@ -270,7 +256,9 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
 ####  POST    `/asset/{assetId}/update`  
 
 Updates the **mutable** ("metadata") of an asset
+
 *Input*
+
 - `assetid` :  `<string>` Unique identifier of the asset
 - `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required
 
@@ -280,14 +268,13 @@ Updates the **mutable** ("metadata") of an asset
 ```js
 {
   "metadata": {
-    "position": {
-      "x": 98.35,
-      "y": -12.32
-    }
+    "color": "blue",
+    "position": { "x": 98.35, "y": -12.32}
   }
 }
 ```
 </details> 
+<br>
 
 *Output*
 - `asset`    :  `<json>` 
@@ -301,18 +288,16 @@ Updates the **mutable** ("metadata") of an asset
     {
       "assetid": "exampleAsset",
       "data": {
-        "color": "red"
+        "id":"A2839RP",
+        "version":"1"
       },
       "datetime": 1559820650,
-      "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
       "hash": "zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=",
       "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06",
-      "lastEthTxId": "",
+      "trustpoint": {},
       "metadata": {
-        "position": {
-          "x": 98.35,
-          "y": -12.32
-        }
+        "color": "blue",
+        "position": { "x": 98.35, "y": -12.32}
       },
       "userOwner": "test:org1MSP"
     }
@@ -328,7 +313,8 @@ Updates the **mutable** ("metadata") of an asset
 Lists all the assets of a user
 
 *Input*
- N/A. It returns all the assets which belong to the login user
+
+N/A. It returns all the assets which belong to the login user
 
 *Output*
 - `assetList`    :  `<json>` 
@@ -339,13 +325,82 @@ Lists all the assets of a user
 ```js
 {
   "output": [
-    "exampleAsset",
-    "exampleAsset110",
-    "exampleAsset133"
+    "exampleAsset1",
+    "exampleAsset2",
+    "exampleAsset3"
   ]
 }
 ```
 </details>
+
+---
+
+#### (*) trustpoint parameter  
+The `trustpoint` parameter is only filled in after the creation/registration of a trust point. Thus every new trust point regarding to an asset results in a new transaction in the asset with only the update of that parameter.
+
+Transaction after creating a trustpoint in HF:
+
+*Output*
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    {
+      "assetid": "exampleAsset",
+      "data": {
+        "id":"A2839RP",
+        "version":"1"
+      },
+      "datetime": 1559844444,
+      "hash": "xfPsajse3rSSUCCrgJfV3+CegaOzV9m+ajso8sY=",
+      "hftxid": "ac5f9d658b6bfaed8fd2dd40b39ab485d06780d31f3ad249f26704ab3a8c5b3f",
+      "trustpoint": {
+        "lastHfTxId":"dd40bdb76c439afd2bfaed6ad25b3ff5d0b80d315883a8984af3670bac549f2"
+      },
+      "userOwner": "test:org1MSP"
+    }
+  }
+}
+```
+</details> 
+<br>
+
+
+Transaction after registering a trustpoint in Ethereum:
+
+*Output*
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    {
+      "assetid": "exampleAsset",
+      "data": {
+        "id":"A2839RP",
+        "version":"1"
+      },
+      "datetime": 1559846666,
+      "hash": "coAji3op2+SSUCCrgJfV3+CegaOzV9m+sodjPOI81=",
+      "hftxid": "5aed880ddea2kf38d06b6bfd38ac2431f3aabab3adf9d6740b3fd2d9648fac55",
+      "trustpoint": {
+        "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b",
+        "lastEthTxId":"0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49"
+      },
+      "userOwner": "test:org1MSP"
+    }
+  }
+}
+```
+</details> 
+
 </details> 
 <br>
 

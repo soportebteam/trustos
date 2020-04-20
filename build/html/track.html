@@ -116,6 +116,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-transfer">POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transfer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-update">POST    <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-assets">GET   -    <code class="docutils literal notranslate"><span class="pre">/assets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trustpoint-parameter">(*) trustpoint parameter</a></li>
 </ul>
 </li>
 </ul>
@@ -211,33 +212,33 @@
 <p>Every asset has the following structure:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>inmutable</strong> data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>mutable</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>inmutable</strong> data. It can have as many field as required</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of <strong>mutable</strong> data. It can have as many field as required</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">userOwner</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Owner of the asset</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Timestamp of creation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> UNIX date of creation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current asset transaction in Hyperledger Fabric</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lastEthTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Last asset transaction in Ethereum</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of data related to trustpoints. It can include the fields: EthereumContractAddres, LastEthTxId and LastHfTxId.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the asset</p></li>
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;22&quot;</span>
-      <span class="p">}</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;22&quot;</span><span class="p">}</span>
     <span class="p">},</span>
-    <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:telefonicaMSP&quot;</span>
     <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1558009289</span><span class="p">,</span>
     <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span>
+    <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span><span class="s2">&quot;0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -259,21 +260,20 @@
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;metadata&quot;</span> <span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;position&quot;</span><span class="o">:</span><span class="p">{</span>
-        <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span><span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> <p><em>Output</em></p>
+</details> 
+<br><p><em>Output</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -282,18 +282,16 @@
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559820650</span><span class="p">,</span>
-    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
     <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
     <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span>
-      <span class="p">}</span>
+      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span><span class="p">}</span>
     <span class="p">}</span>
     <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
   <span class="p">}</span>
@@ -318,18 +316,16 @@
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559820650</span><span class="p">,</span>
-    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
     <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
     <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span>
-      <span class="p">}</span>
+      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span><span class="p">}</span>
     <span class="p">}</span>
     <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
   <span class="p">}</span>
@@ -355,37 +351,33 @@
     <span class="p">{</span>
       <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
       <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559820650</span><span class="p">,</span>
-      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{},</span>
       <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span>
-          <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
+        <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">98.35</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">12.32</span><span class="p">}</span>
+      <span class="p">},</span>
       <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
       <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
       <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559820650</span><span class="p">,</span>
-      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{},</span>
       <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">98.35</span><span class="p">,</span>
-          <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">12.32</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
+        <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span><span class="p">}</span>
+      <span class="p">}</span>
       <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
     <span class="p">}</span>
   <span class="p">]</span>
@@ -408,7 +400,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> <p><em>Output</em></p>
+</details> 
+<br><p><em>Output</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -417,19 +410,13 @@
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559820650</span><span class="p">,</span>
-    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
     <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
     <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">23.34</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">24.22</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+    <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span><span class="p">{},</span>
     <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;bteam&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -439,8 +426,8 @@
 <hr class="docutils" />
 <div class="section" id="post-asset-assetid-update">
 <h4>POST    <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code><a class="headerlink" href="#post-asset-assetid-update" title="Permalink to this headline">¶</a></h4>
-<p>Updates the <strong>mutable</strong> (“metadata”) of an asset
-<em>Input</em></p>
+<p>Updates the <strong>mutable</strong> (“metadata”) of an asset</p>
+<p><em>Input</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>mutable</strong> data. It can have as many field as required</p></li>
@@ -448,15 +435,14 @@
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">98.35</span><span class="p">,</span>
-      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">12.32</span>
-    <span class="p">}</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">98.35</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">12.32</span><span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> <p><em>Output</em></p>
+</details> 
+<br><p><em>Output</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -466,18 +452,16 @@
     <span class="p">{</span>
       <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
       <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559820650</span><span class="p">,</span>
-      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
       <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=&quot;</span><span class="p">,</span>
       <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{},</span>
       <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">98.35</span><span class="p">,</span>
-          <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">12.32</span>
-        <span class="p">}</span>
+        <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;position&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">98.35</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">12.32</span><span class="p">}</span>
       <span class="p">},</span>
       <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
     <span class="p">}</span>
@@ -490,8 +474,8 @@
 <div class="section" id="get-assets">
 <h4>GET   -    <code class="docutils literal notranslate"><span class="pre">/assets</span></code><a class="headerlink" href="#get-assets" title="Permalink to this headline">¶</a></h4>
 <p>Lists all the assets of a user</p>
-<p><em>Input</em>
-N/A. It returns all the assets which belong to the login user</p>
+<p><em>Input</em></p>
+<p>N/A. It returns all the assets which belong to the login user</p>
 <p><em>Output</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetList</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
@@ -499,15 +483,73 @@ N/A. It returns all the assets which belong to the login user</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;exampleAsset110&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;exampleAsset133&quot;</span>
+    <span class="s2">&quot;exampleAsset1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exampleAsset2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exampleAsset3&quot;</span>
   <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="trustpoint-parameter">
+<h4>(*) trustpoint parameter<a class="headerlink" href="#trustpoint-parameter" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> parameter is only filled in after the creation/registration of a trust point. Thus every new trust point regarding to an asset results in a new transaction in the asset with only the update of that parameter.</p>
+<p>Transaction after creating a trustpoint in HF:</p>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559844444</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;xfPsajse3rSSUCCrgJfV3+CegaOzV9m+ajso8sY=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;ac5f9d658b6bfaed8fd2dd40b39ab485d06780d31f3ad249f26704ab3a8c5b3f&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lastHfTxId&quot;</span><span class="o">:</span><span class="s2">&quot;dd40bdb76c439afd2bfaed6ad25b3ff5d0b80d315883a8984af3670bac549f2&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </details> 
+<br><p>Transaction after registering a trustpoint in Ethereum:</p>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;A2839RP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="mi">1559846666</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;coAji3op2+SSUCCrgJfV3+CegaOzV9m+sodjPOI81=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;5aed880ddea2kf38d06b6bfd38ac2431f3aabab3adf9d6740b3fd2d9648fac55&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustpoint&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99931f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span><span class="s2">&quot;0x6d9f4bb3fb67cc451758097c928777aa8adccb6c8a6e59c2c5bc9360208cc8b49&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;userOwner&quot;</span><span class="o">:</span> <span class="s2">&quot;test:org1MSP&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details> </details> 
 <br></div>
 </div>
 </div>
