@@ -216,8 +216,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp for the previous trust point</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">end</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp at which this trust point is made</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">txRoot</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of all transactions in the interval</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current trust point transaction in Hyperledger Fabric</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">prevhftxid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Previous trust point transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hfTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current trust point transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prevHfTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Previous trust point transaction in Hyperledger Fabric</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">prevHash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the previous trust point</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Hash of the trust point (as a JSON) to verify integrity</p></li>
@@ -226,14 +226,15 @@
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1557830077</span><span class="p">,</span>
-    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0=&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;DGjUiCplVGom99o6bbdIXAIEqNKgVoQGi7rFNwDX+to=&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;hftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97&quot;</span><span class="p">,</span>
     <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;prevhftxid&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span>
+    <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1557830077</span><span class="p">,</span>
+    <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;DGjUiCplVGom99o6bbdIXAIEqNKgVoQGi7rFNwDX+to=&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0=&quot;</span>
+
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

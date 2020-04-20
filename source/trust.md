@@ -16,8 +16,8 @@ This is the structure of a trust point:
 - `init` :  `<integer>` Timestamp for the previous trust point
 - `end` :  `<integer>` Timestamp at which this trust point is made
 - `txRoot` :  `<string>` Hash of all transactions in the interval
-- `hftxid` :  `<string>` Current trust point transaction in Hyperledger Fabric
-- `prevhftxid` :  `<string>`  Previous trust point transaction in Hyperledger Fabric
+- `hfTxId` :  `<string>` Current trust point transaction in Hyperledger Fabric
+- `prevHfTxId` :  `<string>`  Previous trust point transaction in Hyperledger Fabric
 - `prevHash` :  `<string>` Hash of the previous trust point
 - `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
 - `hash` :  `<string>`  Hash of the trust point (as a JSON) to verify integrity
@@ -29,14 +29,15 @@ This is the structure of a trust point:
 {
   "output": {
     "assetid": "exampleAsset",
-    "end": 1557830077,
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b",
-    "hash": "3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0=",
-    "txRoot": "DGjUiCplVGom99o6bbdIXAIEqNKgVoQGi7rFNwDX+to=",
-    "hftxid": "671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97",
     "init": 0,
-    "prevHash": "",
-    "prevhftxid": "0"
+    "end": 1557830077,
+    "txRoot": "DGjUiCplVGom99o6bbdIXAIEqNKgVoQGi7rFNwDX+to=",
+    "hfTxId": "671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97",
+    "prevHfTxId": "0",
+    "prevHash": "0",
+    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b",
+    "hash": "3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0="
+
   }
 }
 
