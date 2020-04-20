@@ -405,6 +405,8 @@ Transaction after registering a trustpoint in Ethereum:
 <br>
 
 ## Architecture of the project
+The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.
+
 ```
 coren-trackapi
 ├── api
@@ -429,23 +431,8 @@ coren-trackapi
 └── main.go                 // Main app
  ```   
 
-## Project configuration
-This project has too bee stored in the following route:
-```
-$GOPATH/src/github.com/name_of_the_project
-```
-
-## Running the Application
-To initialize the application execute the following commands:
-```
-source ./init.sh
-go run main.go
-```
-
-Also the application can be executed with docker:
-```
-docker-compose up -d
-```
+## How we run the application
+As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
 ## Testing the Application
 In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trackapi module
@@ -455,8 +442,6 @@ Also you can download the files in the links below:
 <a href="_static/trackapi.collection.json" download> - Postman collection</a>
 <br>
 <a href="_static/environment.json" download> - Postman environment</a>
-
-
 
 ## Errors management
   

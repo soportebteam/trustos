@@ -348,6 +348,8 @@ This is the structure registered in HF and Ethereum, once the trust merkle tree 
 <br>
 
 ## Architecture of the project
+The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.
+
 ```
 coren-trustapi
 ├── api
@@ -372,23 +374,9 @@ coren-trustapi
 └── main.go                 // Main app
  ```   
 
-## Project configuration
-This project has too bee stored in the following route:
-```
-$GOPATH/src/github.com/name_of_the_project
-```
+## How we run the application
+As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
-## Running the Application
-To initialize the application execute the following commands:
-```
-source ./init.sh
-go run main.go
-```
-
-Also the application can be executed with docker:
-```
-docker-compose up -d
-```
 
 ## Testing the Application
 In postman folder there are the related collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trustapi module.

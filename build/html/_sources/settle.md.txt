@@ -412,6 +412,8 @@ been detected in the updating of records.
 <br>
 
 ## Architecture of the project
+The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.
+
 ```
 coren-tokenapi
 ├── api
@@ -437,23 +439,8 @@ coren-tokenapi
 └── main.go                 // Main app
  ```   
 
-## Project configuration
-This project has too bee stored in the following route:
-```
-$GOPATH/src/github.com/name_of_the_project
-```
-
-## Running the Application
-To initialize the application execute the following commands:
-```
-source ./init.sh
-go run main.go
-```
-
-Also the application can be executed with docker:
-```
-docker-compose up -d
-```
+## How we run the application
+As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
 ## Testing the Application
 In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-settleapi module

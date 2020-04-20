@@ -126,8 +126,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#architecture-of-the-project">Architecture of the project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-configuration">Project configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-we-run-the-application">How we run the application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing-the-application">Testing the Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#errors-management">Errors management</a></li>
 </ul>
@@ -507,6 +506,7 @@
 </div>
 <div class="section" id="architecture-of-the-project">
 <h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-trustapi
 ├── api
       ├── handler           // HTTP logic
@@ -531,24 +531,9 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="project-configuration">
-<h2>Project configuration<a class="headerlink" href="#project-configuration" title="Permalink to this headline">¶</a></h2>
-<p>This project has too bee stored in the following route:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$GOPATH/src/github.com/name_of_the_project
-</pre></div>
-</div>
-</div>
-<div class="section" id="running-the-application">
-<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this headline">¶</a></h2>
-<p>To initialize the application execute the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">./</span><span class="n">init</span><span class="o">.</span><span class="n">sh</span>
-<span class="n">go</span> <span class="n">run</span> <span class="n">main</span><span class="o">.</span><span class="n">go</span>
-</pre></div>
-</div>
-<p>Also the application can be executed with docker:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
-</pre></div>
-</div>
+<div class="section" id="how-we-run-the-application">
+<h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
+<p>As you could see in the <a class="reference external" href="architecture.html">Architecture</a> module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
 </div>
 <div class="section" id="testing-the-application">
 <h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
