@@ -19,8 +19,8 @@ In order to use the APIs, you need to have an active user and login to use the s
 
 To faccilitate the first interactions with TrustOS there is a login website so that the user can easily login and authenticate the next use of the website through cookies that contains the JWT and that expires after the JWT becomes invalid. 
 
-![Login UI](./images/login_ui.png)
-
+<!-- ![Login UI](./images/login_ui.png) -->
+![Login UI](./images/login.gif)
 
 ### Login request
 
@@ -43,7 +43,9 @@ Once the login is sucessfully done it is time to start developing your own solut
 
 We have created a simple website that aggregates all the accesible modules so that the user can easily reach and test all the functionalities.
 
-![Swagger UI](./images/trustos_swagger.png)
+<!-- ![Swagger UI](./images/trustos_swagger.png) -->
+![Swagger UI](./images/trustos_swagger.gif)
+
 
 If you have login using the Login UI, it is simple to see and copy the JWT Token just clicking the header green button `JWT`.
 
