@@ -22,10 +22,10 @@ Every token has the following structure:
 
 ```js
 {
-      "name": "Test",
-      "symbol": "Tst",
+      "name": "KARMA",
+      "symbol": "KRM",
       "owner": "bteam:org1MSP",
-      "ethereumAddress": "0x320492ua90suf9a0weuf903",
+      "ethereumAddress": "0x320aty492ua90suf9a0veuf903as3q82",
       "totalSupply": 99999999999999
 }
 ```
@@ -59,8 +59,8 @@ Initialize a new token in the network with some specific information
 ```js
 
 {
-  "name": "Test",
-  "symbol": "Tst",
+  "name": "KARMA",
+  "symbol": "KRM",
   "owner": "bteam:org1MSP",
   "ethereumAddress": "0x0",
   "totalSupply": 99999999999999
@@ -68,7 +68,8 @@ Initialize a new token in the network with some specific information
 
 ```
 </details>
- 
+ <br>
+
 *Output*
 - `message`    :  `<string>` 
 
@@ -79,8 +80,8 @@ Initialize a new token in the network with some specific information
 
 {
   "output": {
-    "name": "Test",
-    "symbol": "Tst",
+    "name": "KARMA",
+    "symbol": "KRM",
     "owner": "bteam:org1MSP",
     "ethereumAddress": "0x0",
     "totalSupply": 99999999999999
@@ -110,8 +111,8 @@ Gets all the token information
 
 {
   "output": {
-    "name": "Test",
-    "symbol": "Tst",
+    "name": "KARMA",
+    "symbol": "KRM",
     "owner": "bteam:org1MSP",
     "ethereumAddress": "0x0",
     "totalSupply": 99999999999999
@@ -172,7 +173,8 @@ Approve a different spender for a amount of token you own
 
 ```
 </details>
- 
+<br>
+
 *Output*
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
@@ -185,7 +187,7 @@ Approve a different spender for a amount of token you own
 {
   "output": {
     "id": "eaff9d6d289ca1894cffb4bbx0e540de4f58f69eb067a23efba2b7581c77e398",
-    "message": "Approve 230 from test:org1MSP to Satoshi:org1MSP"
+    "message": "Approve 230 from bteam:org1MSP to Satoshi:org1MSP"
   }
 }
 
@@ -243,15 +245,15 @@ Get the token transaction history
   "output": [
     {
       "id": "eaff9d6d289ca4894cffb4bbb0e540de4f58f69eb067a23efba2b7581c77e398",
-      "message": "Approve 20 from test:org1MSP to Satoshi:org1MSP"
+      "message": "Approve 20 from bteam:org1MSP to Satoshi:org1MSP"
     },
     {
       "id": "5aa6239bb3c45647ab4ffa52759fc1fc981c28f8beb0724765b0c4505fca5a13",
-      "message": "Transfer 40 from test:org1MSP to Bob:org1MSP"
+      "message": "Transfer 40 from bteam:org1MSP to Bob:org1MSP"
     },
     {
       "id": "bb7f630b44a42b67abd437d4d9afb0b515fcd4b5794dd8cd6e3bf4f3510c5146",
-      "message": "Transfer 40 from test:org1MSP to Alice:org1MSP"
+      "message": "Transfer 40 from bteam:org1MSP to Alice:org1MSP"
     }
   ]
 }
@@ -282,7 +284,7 @@ Transfers individual tokens (balances of a token class)
 }
 
 ```
-</details>
+</details> <br>
   
 *Output*
 - `id`    :  `<string>`  Id of the transaction
@@ -295,7 +297,7 @@ Transfers individual tokens (balances of a token class)
 {
   "output": {
     "id": "bb7f630b44a42b67abd437d4d9afb0b515fcd4b5794dd8cd6e3bf4f3510c5146",
-    "message": "Transfer 40 from test:org1MSP to Alice:org1MSP"
+    "message": "Transfer 40 from bteam:org1MSP to Alice:org1MSP"
   }
 }
 
@@ -320,12 +322,12 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 ```js
 {
   "from": "bteam:org1MSP",
-  "to": "satoshi:org1MSP",
+  "to": "Satoshi:org1MSP",
   "value": "20"
 }
 
 ```
-</details>
+</details><br>
 
 *Output*
 - `id`    :  `<string>`  Id of the transaction
@@ -338,7 +340,7 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 {
   "output": {
     "id": "7876322dbfe61fd2c293f63fd148875d36b3d4fbcec6635d55351bfab2e9e713",
-    "message": "TransferFrom 20 from bteam:org1MSP to satoshi:org1MSP"
+    "message": "TransferFrom 20 from bteam:org1MSP to Satoshi:org1MSP"
   }
 }
 ```
@@ -364,7 +366,7 @@ Transfer the ownership of a generic token
 }
 
 ```
-</details>
+</details><br>
 
 *Output*
 - `token`  :  `<json>`  Token with updated parameters
@@ -377,9 +379,9 @@ Transfer the ownership of a generic token
 {
   "output": {
     "ethereumAddress": "0x0",
-    "name": "Test",
+    "name": "KARMA",
     "owner": "Bob:org1MSP",
-    "symbol": "Tst",
+    "symbol": "KRM",
     "totalSupply": 99999999999999
   }
 }
@@ -403,12 +405,12 @@ Transfer individual tokens as a blocked balance for a user
 ```js
 
 {
-	"to":"bteam:org1MSP",
+	"to":"Alice:org1MSP",
 	"value":"50"
 }
 
 ```
-</details>
+</details><br>
 
 *Output*
 - `blocked_id`    :  `<string>`  Id of the transaction
@@ -423,7 +425,7 @@ Transfer individual tokens as a blocked balance for a user
   "output": {
     "blocked_id": "7c76500379b86967c04490baa1d25ecc52adfc9df9340d561805b548d8c87e72",
     "id": "7c76500379b86967c04490baa1d25ecc52adfc9df9340d561805b548d8c87e72",
-    "message": "Blocking transfer 50 from test:org1MSP to bteam:org1MSP"
+    "message": "Blocking transfer 50 from bteam:org1MSP to Alice:org1MSP"
   }
 }
 ```
@@ -466,7 +468,7 @@ Unblocks a blocked transfer being true equivalent to accept the blocked balance 
 {
   "output": {
     "id": "e309a55be8b1c842c3aaf475bb7b7b2b759101b09f622fbb5f8dc56aab3d3795",
-    "message": "Accepting blocked transaction b1cdd2e5df0d7565bdb2c54ee39c0ab9931ea647d04627062cb52500ee82c0af from test:org1MSP and token amount goes to test:org1MSP"
+    "message": "Accepting blocked transaction b1cdd2e5df0d7565bdb2c54ee39c0ab9931ea647d04627062cb52500ee82c0af from bteam:org1MSP and token amount goes to bteam:org1MSP"
   }
 }
 ```
