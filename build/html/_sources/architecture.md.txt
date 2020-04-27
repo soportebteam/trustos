@@ -1,6 +1,10 @@
 # Architecture
 
-**TrustOS** software can be deployed on any Hyperledger Fabric based blockchain network. Support for Quorum/Ethereum and CORDA based networks will be added soon. Once deployed, an HTTP API is published so that it can be used from any programming language. The API hides much of the complexity of working with a Blockchain, but its direct use still requires low-level knowledge. For that reason, TrustOS also includes some libraries to be consumed by applications and other Smart Contracts. Therefore, TrustOS commands can be invoked from outside Blockchain through its APIs or from other Smart Contracts inside the Blockchain itself. 
+**TrustOS** software is deployed on any Hyperledger Fabric based blockchain network. Support for Quorum/Ethereum and CORDA based networks will be added soon. 
+
+Once deployed, an HTTP API is published so that it can be used from any programming language. The API hides much of the complexity of working with a Blockchain, but its direct use still requires low-level knowledge. For that reason, TrustOS also includes some libraries to be consumed by applications and other Smart Contracts. Therefore, TrustOS commands can be invoked from outside Blockchain through its APIs or from other Smart Contracts inside the Blockchain itself. 
+
+Since the installation and deployment of TrustOS requires considerable efforts, TrustOS is perfectly designed to allow the majority of business logics and client systems take advantage of its benefits without having knowledge of Hyperledger Fabric neither deploying anything, just using simple APIs. Moreover, for those who are deepening into the field, doors will be open to deploy TrustOS software over its own network.
 
 TrustOS also includes some administration features and interfaces that allow the developer community to add new modules to TrustOS. 
 
