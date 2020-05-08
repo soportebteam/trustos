@@ -114,25 +114,10 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#track-api">Track API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#v1-1-0">v1.1.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v1-0-0">v1.0.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#token-api">Token API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">v1.1.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">v1.0.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#settle-api">Settle API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">v1.1.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">v1.0.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#trust-api">Trust API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">v1.0.0</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#track-api">Track API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#token-api">Token API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#settle-api">Settle API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trust-api">Trust API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -205,51 +190,116 @@
 <p>TrustOS started with the initial v1.0.0 release. Since that several changes have been implemented in order to improve the functionality and performance of each API. Take a look at the last changes.</p>
 <div class="section" id="track-api">
 <h2>Track API<a class="headerlink" href="#track-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> Versions </summary><div class="section" id="v1-1-0">
-<h3>v1.1.0<a class="headerlink" href="#v1-1-0" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Track API v1.1.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
-</div>
-<div class="section" id="v1-0-0">
-<h3>v1.0.0<a class="headerlink" href="#v1-0-0" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Track API v1.0.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
+<details><summary> v1.1.0 [April 2020]</summary><hr><p><strong>What’s new in Track API v1.1.0:</strong></p>
+<ul class="simple">
+<li><p>New trustpoint param in the Asset data model for grouping and showing information about trust points. Every call to createTrust or registerTrust functions (that is the creation/registration of the trust point in Hyperledger Fabric/Ethereum) involves an update of the trustpoint param in the asset. So this way allows to know when/where the trust point was generated.</p></li>
+<li><p>In order to increase the performance every update of the asset is now done in a separated and independent manner, so it doesn’t keep the last state, just the asset data that is immutable. (f.e. when there is a creation/registration of a trustpoint, the new transaction just fill the trustpoint field, but not the metadata contained in the last asset transaction)</p></li>
+<li><p>News in Swagger UI: link to Readthedocs and data model section with proper nomenclature</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">/refresh</span></code> method to able to refresh the JWT TOKEN without having to write again the user credentials</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>The history/range of asset transactions now returns an array of txs also when there is only 1 transaction.</p></li>
+<li><p>The history/range of asset transaction is now returned from newest to oldest</p></li>
+<li><p>Postman collections are now updated</p></li>
+</ul>
+</details><details><summary> v1.0.0 [December 2019]</summary><hr><p><strong>What’s new in Track API v1.0.0:</strong></p>
+<ul class="simple">
+<li><p>All basic tracking functionalities working: create, manage, and export digital assets on the blockchain</p></li>
+<li><p>API visualisation and interaction through Swagger UI</p></li>
+<li><p>Common errors management method implemented</p></li>
+<li><p>API integration testing with Hyperledger Fabric. Already successfully integrated with Hyperledger Fabric SDK and network and deployed through Kubernetes system with continuous integration and continuous deployment (CICD) mechanisms.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>All issues from previous releases (&lt; v1.0.0) are solved and closed</p></li>
+<li><p>API code is cleaned and improved and unnecessary files are removed from the repository</p></li>
+<li><p>Third party dependencies are handled through Go modules</p></li>
+</ul>
 </details><br></div>
-</div>
 <div class="section" id="token-api">
 <h2>Token API<a class="headerlink" href="#token-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> Versions</summary><div class="section" id="id1">
-<h3>v1.1.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Token API v1.1.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
-</div>
-<div class="section" id="id2">
-<h3>v1.0.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Token API v1.0.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
+<details><summary> v1.1.0 [March 2020]</summary><hr><p><strong>What’s new in Token API v1.1.0:</strong></p>
+<ul class="simple">
+<li><p>New token data model: a single chaincode can handle multiple tokens. Since the creation of a new token incurs sometimes in a timeout response error because of the process time while installing and instantiating a new chaincode, there was a need to implement a new data model based on a one single chaincode</p></li>
+<li><p>News in Swagger UI: link to Readthedocs and data model section with proper nomenclature</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">/refresh</span></code> method to able to refresh the JWT TOKEN without having to write again the user credentials</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>Changes in the implementation for <code class="docutils literal notranslate"><span class="pre">/token/{id}/transactions</span></code> path. Now it is allowed that a token owner can get the transactions of specific user in the way <code class="docutils literal notranslate"><span class="pre">/token/{id}/transactions?userId=&quot;test&quot;</span></code></p></li>
+<li><p>The paths <code class="docutils literal notranslate"><span class="pre">/token/initialize</span></code> and <code class="docutils literal notranslate"><span class="pre">/token/instantiate</span></code> are converged in <code class="docutils literal notranslate"><span class="pre">/token/create</span></code></p></li>
+<li><p>Postman collections are now updated</p></li>
+</ul>
+</details><details><summary> v1.0.1 [January 2020]</summary><hr><p><strong>What’s new in Token API v1.0.1:</strong></p>
+<ul class="simple">
+<li><p>Improvement based on writes performance. Now the token balances are handled separately as same way as the token information defined in the creation. Each one of the token transaction (f.e. token transfer transaction) are written in a separately way using completely different composite keys based on the user.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>FIXED: Known vulnerability that makes possible to upgrade the token replacing the token information defined in its creation.</p></li>
+<li><p>DEPRECATED: token implementation based on a unique token state which contains all the balances and token information in a unique key. It was deprecated because of the low performance.</p></li>
+</ul>
+</details><details><summary> v1.0.0 [December 2019]</summary><hr><p><strong>What’s new in Token API v1.0.0:</strong></p>
+<ul class="simple">
+<li><p>All basic token functionalities working:</p></li>
+<li><p>API visualisation and interaction through Swagger UI</p></li>
+<li><p>Common errors management method implemented</p></li>
+<li><p>API integration testing with Hyperledger Fabric. Already successfully integrated with Hyperledger Fabric SDK and network and deployed through Kubernetes system with continuous integration and continuous deployment (CICD) mechanisms.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>All issues from previous releases (&lt; v1.0.0) are solved and closed</p></li>
+<li><p>API code is cleaned and improved and unnecessary files are removed from the repository</p></li>
+<li><p>Third party dependencies are handled through Go modules</p></li>
+</ul>
 </details><br></div>
-</div>
 <div class="section" id="settle-api">
 <h2>Settle API<a class="headerlink" href="#settle-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> Versions</summary><div class="section" id="id3">
-<h3>v1.1.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Settle API v1.1.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
-</div>
-<div class="section" id="id4">
-<h3>v1.0.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Settle API v1.0.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
+<details><summary> v1.1.0 [April 2020]</summary><hr><p><strong>What’s new in Settle API v1.1.0:</strong></p>
+<ul class="simple">
+<li><p>In order to increase the performance every update of the settlement with record is now done in a separated and independent way through composite keys implementation</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">/settlement/{id}/global</span></code> function to get global status of the settlement structure.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">/refresh</span></code> method to able to refresh the JWT TOKEN without having to write again the user credentials</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>Splitted get settlement structure function into get status for the logged user and get global status.</p></li>
+<li><p>The function for getting the global status <code class="docutils literal notranslate"><span class="pre">/settlement/{id}</span></code> only gets the status for the logged user.</p></li>
+<li><p>Postman collections are now updated</p></li>
+</ul>
+</details><details><summary> v1.0.0 [December 2019]</summary><hr><p><strong>What’s new in Settle API v1.0.0:</strong></p>
+<ul class="simple">
+<li><p>All basic settlement functionalities working: create, update, aggregate, and settle a settlement structure on the blockchain</p></li>
+<li><p>API visualisation and interaction through Swagger UI</p></li>
+<li><p>Ensuring the transparency through hash and merkle tree mechanisms</p></li>
+<li><p>Common errors management method implemented</p></li>
+<li><p>API integration testing with Hyperledger Fabric. Already successfully integrated with Hyperledger Fabric SDK and network and deployed through Kubernetes system with continuous integration and continuous deployment (CICD) mechanisms.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>All issues from previous releases (&lt; v1.0.0) are solved and closed</p></li>
+<li><p>API code is cleaned and improved and unnecessary files are removed from the repository</p></li>
+<li><p>Third party dependencies are handled through Go modules</p></li>
+</ul>
 </details><br></div>
-</div>
 <div class="section" id="trust-api">
 <h2>Trust API<a class="headerlink" href="#trust-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> Versions</summary><div class="section" id="id5">
-<h3>v1.0.0<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>What’s new in Trust v1.0.0:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae efficitur urna, nec molestie dui. Donec et ultrices libero. Pellentesque imperdiet nunc odio, in semper turpis tempus vel. Suspendisse nec nunc enim. Proin venenatis at augue nec feugiat. Integer tristique odio non justo sodales porta. Ut in cursus leo. Suspendisse tincidunt sed eros vel bibendum. Etiam tempor lorem nec varius blandit. Cras quis pretium lacus. Curabitur luctus ut dolor a egestas. Duis vehicula purus a vulputate posuere.</p>
+<details><summary> v1.0.0 [December 2019]</summary><hr><p><strong>What’s new in Trust API v1.0.0:</strong></p>
+<ul class="simple">
+<li><p>All basic trust functionalities working: create, manage and public register trust points</p></li>
+<li><p>API visualisation and interaction through Swagger UI</p></li>
+<li><p>Ensuring the transparency through hash and merkle tree mechanisms</p></li>
+<li><p>Common errors management method implemented</p></li>
+<li><p>API integration testing with Hyperledger Fabric. Already successfully integrated with Hyperledger Fabric SDK and network and deployed through Kubernetes system with continuous integration and continuous deployment (CICD) mechanisms.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>All issues from previous releases (&lt; v1.0.0) are solved and closed</p></li>
+<li><p>API code is cleaned and improved and unnecessary files are removed from the repository</p></li>
+<li><p>Third party dependencies are handled through Go modules</p></li>
+</ul>
 </details><br></div>
-</div>
 </div>
 
 
