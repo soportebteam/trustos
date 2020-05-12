@@ -1,7 +1,7 @@
 
 # TRUST ID
 
-TrustID is am standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID. 
+TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID. 
 
 These DIDs follow the W3C standard, and they serve as a unique ID to identify users. DIDs aggregate all the pieces of public information required to authenticate a user (i.e., their public key or X.509 certificate).
 
@@ -65,7 +65,7 @@ logic for identity management and interaction with TRUSTID networks.
 To start using the SDK a new wallet needs to be initialized. A wallet
 exposes the following methods:
     * `public setKeystore(keystore: Keystore): void`:
-    * `public generateDID(type: string, controller: string = "default", passphrase: string = ""): DID`
+    * `public generateDID(type: string, controller: string, passphrase): DID`
 
     And stores the following information:
 
@@ -78,10 +78,10 @@ exposes the following methods:
     * `private privkey: string`: Private Key of the DID.
 
     And exposes the following functions:
-    * `public unlockAccount(passphrase: string = ""): void`: Unlocks private key in order to use the DID.
+    * `public unlockAccount(passphrase: string): void`: Unlocks private key in order to use the DID.
     * `public lockAccount(): any`: Locks the private key for a DID.
-    * `public sign(payload: object, passphrase: string = ""): string`: Sign a payload with a specific DID.
-    * `public verify(signature: string, id: string = "default"): any`: Verifies a signature from a DID.
+    * `public sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
+    * `public verify(signature: string, id: string): any`: Verifies a signature from a DID.
 
 * `driver.ts`: Interface that enables the implementation of connection drivers with different TRUSTID networks. The only driver implemented currently is
 the `hfdriver.ts` enabling the interaction with Hyperledger Fabric TrustID
