@@ -1,5 +1,5 @@
 
-# TRUST ID
+# TrustID
 
 TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID. 
 
@@ -20,10 +20,12 @@ The TrustID project is conformed by the aforementioned chaincode and a client SD
 
 TrustID is designed to ease the management of identities for the case of TrustOS. Users shouldn’t need to hold a different set of credentials for each network or decentralized application they interact with. The same credentials used to access your owned Bitcoins and manage your tokens in Ethereum should let you update the state of a Fabric asset or launch a secondary market in TrustOS.
 
-## TRUSTID SDK
+<hr>
+
+## TrustID SDK
 
 This SDK exposes all the functionalities required to interact with
-TRUSTID-based DLT networks. 
+TrustID-based DLT networks. 
 
 ### Install
 * To install this library you need access to the private repo:
@@ -60,8 +62,10 @@ hfdriver.createIdentity(wal.getDID("default"))
 ### Structure
 The library has the following modules:
 
+#### Wallet
+
 * `wallet.ts`: Core module of the library. It wraps all the state and
-logic for identity management and interaction with TRUSTID networks.
+logic for identity management and interaction with TrustID networks.
 To start using the SDK a new wallet needs to be initialized. A wallet
 exposes the following methods:
     * `public setKeystore(keystore: Keystore): void`:
@@ -69,25 +73,27 @@ exposes the following methods:
 
     And stores the following information:
 
-* `class DID`: Has the following structure. 
-    * `public id: string`: Id string that identifies the DID.
-    * `public pubkey: string`: PublicKey of the DID.
-    * `public type: string`: Key type (RSA / EC / OKP).
-    * `public controller: string`: Verifier of the identity
-    * `public access: number`: Access level
-    * `private privkey: string`: Private Key of the DID.
+    * `class DID`: Has the following structure. 
+        * `public id: string`: Id string that identifies the DID.
+        * `public pubkey: string`: PublicKey of the DID.
+        * `public type: string`: Key type (RSA / EC / OKP).
+        * `public controller: string`: Verifier of the identity
+        * `public access: number`: Access level
+        * `private privkey: string`: Private Key of the DID.
 
-    And exposes the following functions:
-    * `public unlockAccount(passphrase: string): void`: Unlocks private key in order to use the DID.
-    * `public lockAccount(): any`: Locks the private key for a DID.
-    * `public sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
-    * `public verify(signature: string, id: string): any`: Verifies a signature from a DID.
+      And exposes the following functions:
+      * `public unlockAccount(passphrase: string): void`: Unlocks private key in order to use the DID.
+      * `public lockAccount(): any`: Locks the private key for a DID.
+      * `public sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
+      * `public verify(signature: string, id: string): any`: Verifies a signature from a DID.
 
-* `driver.ts`: Interface that enables the implementation of connection drivers with different TRUSTID networks. The only driver implemented currently is
+#### Driver
+
+* `driver.ts`: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is
 the `hfdriver.ts` enabling the interaction with Hyperledger Fabric TrustID
 networks.
 
-    * `setEndpoint(endpoint: string): void`: Sets the network endpoint to interact with the TRUSTID network.
+    * `setEndpoint(endpoint: string): void`: Sets the network endpoint to interact with the TrustID network.
     * `createIdentity(did: DID): Promise<object>`: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.
     * `verifyIdentity(adminDID: DID, id:string): Promise<object>`: Verifies an identity as an admin.
     * `getIdentity(did: DID, id: string): * Promise<object>`: Gets a registered identity from TrustID.
@@ -97,6 +103,8 @@ networks.
     * `getService(did: DID, serviceDID: string): Promise<object>`: Gets information from a registered service.
     * `invoke (did: DID, serviceDID: string, args: string[], channel: string): Promise<object>`: Invokes a function of a registered service in the TrustID network.
     * `query(did: DID, serviceDID: string, args: string[], channel: string): Promise<object>`: Queries a function of a registered service in the TrustID network
+
+#### Keystore
 
 * `keystore.ts`: Interface that enables the implementation of keystore storages.
     There are currently two implementations of keystore supported: `FileKeystore.ts` (to store DIDs in file keystore)and `MongoKeystore.ts` (to store DIDs in MongoDB). 
@@ -111,15 +119,14 @@ networks.
 If you want additional information of TrustID, its SDK and its functionality
 check the following [repo](https://github.com/telefonica-tid/coren-id-sdk).
 
+<hr>
+
 ## ID API
 
-TrustID API implementation. It wraps the functionality of the TRUSTID SDK
-in order to offer basic identity management services to users comfortable
-delegating the responsability of their keys to a custodian. ID API acts
-as the third-party custodian of the users keys.
+An abstraction TrustID API implementation. It wraps the functionality of the TrustID SDK in order to offer basic identity management services to users comfortable delegating the responsability of their keys to a custodian. ID API acts as the third-party custodian of the users keys.
 
 
-### API SPECIFICATIONS
+### API Specification
 
 The implementation considers that the API is the third-party custodial of
 TrustID keys. Currently the keystore is implemented with a FileKeystore,
@@ -127,11 +134,17 @@ MongoKeystore comming soon. Private keys from users are stored ciphered
 with a passphrase. In order to call every function and unlock the account
 the passphrase needs to be provided. The API has the following routes.
 
-*   `/id/login`: It return a JWT to interact with services authenticated
+### Methods
+
+#### POST   -   `/id/login`
+It return a JWT to interact with services authenticated
 using JWT using TrustID as identity backend. This functionality is offered
 for every user in the system (even those for which we are not the
 custodials of the keys). Some services may be still authenticated with JWT,
-and we want to support this authentication even of TRUST ID users.
+and we want to support this authentication even of TrustID users.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
 ```
 {
   "id": "did:vtn:trustid:ae0213fncasdf234",
@@ -142,9 +155,17 @@ and we want to support this authentication even of TRUST ID users.
   }
 }
 ```
-* `/id/refresh`: It refreshes a JWT login.
-* `/id/sign`: Requests a signature using a key in custody. Useful when a user has to
+</details><br>
+
+#### POST   -   `/id/refresh`
+It refreshes a JWT login.
+
+#### POST   -   `/id/sign`: 
+Requests a signature using a key in custody. Useful when a user has to
 share signed payloads off-chain.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "password": "passphrase",
@@ -154,37 +175,66 @@ share signed payloads off-chain.
   }
 }
 ```
-* `/id/revoke`: Sends a request to revoke a specific identity. You need to be
+</details><br>
+
+#### POST   -   `/id/revoke`
+Sends a request to revoke a specific identity. You need to be
 the owner of the identity or its controller to perform this task.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
 ```
 {
   "id": "did:vtn:test",
   "password": "passphrase"
 }
 ```
-* `/id/create`: Create a new identity with the key determined in type and a
+</details><br>
+
+#### POST   -    `/id/create`
+Create a new identity with the key determined in type and a
 passphrase to lock the private key.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
 ```
 {
   "password": "passphrase",
   "type": "RSA"
 }
 ```
-* `/id/verify`: Verification of a registered identity by a controller in the system.
+</details><br>
+
+#### POST   -   `/id/verify`
+Verification of a registered identity by a controller in the system.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "id": "did:vtn:test",
   "password": "passphrase"
 }
 ```
-* `/id/get`: Gets the information from a registered identity.
+</details><br>
+
+#### POST   -   `/id/get`
+Gets the information from a registered identity.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "id": "did:vtn:service:012343",
   "password": "passphrase"
 }
 ```
-* `/service/create`: Create a new service in the TRUSTID network.
+</details><br>
+
+#### POST   -   `/service/create`
+Create a new service in the TrustID network.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "serviceID": "coren-trustcc",
@@ -193,7 +243,12 @@ passphrase to lock the private key.
   "isPublic": true
 }
 ```
-* `/service/update`: Updates the information of a service.
+</details><br>
+
+#### POST   -   `/service/update`
+Updates the information of a service.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "serviceID": "coren-trustcc",
@@ -202,14 +257,24 @@ passphrase to lock the private key.
   "isPublic": true
 }
 ```
-* `/service/get`: Gets the registered information for a service.
+</details><br>
+
+#### POST   -   `/service/get`
+Gets the registered information for a service.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "serivceID": "did:vtn:service:012343",
   "password": "passphrase"
 }
 ```
-* `/service/invoke`: Invoke a function from a distributed service using TrustID.
+</details><br>
+
+#### POST   -   `/service/invoke`
+Invoke a function from a distributed service using TrustID.
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 ```
 {
   "serviceID": "did:vtn:trustos:123drfw",
@@ -223,9 +288,10 @@ passphrase to lock the private key.
   "function": "create"
 }
 ```
+</details><br>
 
 If you want additional information about this API implementation and its functionality
 check the following [repo](https://github.com/telefonica-tid/coren-id-api).
 
-## ROADMAP
+## Roadmap
 Work in progress...

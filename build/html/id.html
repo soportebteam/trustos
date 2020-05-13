@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TRUST ID &mdash; trustos master documentation</title>
+  <title>TrustID &mdash; trustos master documentation</title>
   
 
   
@@ -110,18 +110,37 @@
 <li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">TRUST ID</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#trustid-sdk">TRUSTID SDK</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TrustID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#trustid-sdk">TrustID SDK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example-of-use">Example of use</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wallet">Wallet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#driver">Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keystore">Keystore</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id-api">ID API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api-specifications">API SPECIFICATIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-specification">API Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-login">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-refresh">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-sign">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-revoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-create">POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-id-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-service-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-service-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-service-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-service-invoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#roadmap">ROADMAP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
@@ -173,7 +192,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>TRUST ID</li>
+      <li>TrustID</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,8 +211,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trust-id">
-<h1>TRUST ID<a class="headerlink" href="#trust-id" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="trustid">
+<h1>TrustID<a class="headerlink" href="#trustid" title="Permalink to this headline">¶</a></h1>
 <p>TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID.</p>
 <p>These DIDs follow the W3C standard, and they serve as a unique ID to identify users. DIDs aggregate all the pieces of public information required to authenticate a user (i.e., their public key or X.509 certificate).</p>
 <p><img alt="DID" src="_images/did.png" />
@@ -204,10 +223,10 @@
 <p><img alt="TrustID Flow" src="_images/trustid-flow.png" /></p>
 <p>The TrustID project is conformed by the aforementioned chaincode and a client SDK to ease the integration and interaction with TrustID-enabled networks.</p>
 <p>TrustID is designed to ease the management of identities for the case of TrustOS. Users shouldn’t need to hold a different set of credentials for each network or decentralized application they interact with. The same credentials used to access your owned Bitcoins and manage your tokens in Ethereum should let you update the state of a Fabric asset or launch a secondary market in TrustOS.</p>
-<div class="section" id="trustid-sdk">
-<h2>TRUSTID SDK<a class="headerlink" href="#trustid-sdk" title="Permalink to this headline">¶</a></h2>
+<hr><div class="section" id="trustid-sdk">
+<h2>TrustID SDK<a class="headerlink" href="#trustid-sdk" title="Permalink to this headline">¶</a></h2>
 <p>This SDK exposes all the functionalities required to interact with
-TRUSTID-based DLT networks.</p>
+TrustID-based DLT networks.</p>
 <div class="section" id="install">
 <h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -246,9 +265,11 @@ TRUSTID-based DLT networks.</p>
 <div class="section" id="structure">
 <h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
 <p>The library has the following modules:</p>
+<div class="section" id="wallet">
+<h4>Wallet<a class="headerlink" href="#wallet" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">wallet.ts</span></code>: Core module of the library. It wraps all the state and
-logic for identity management and interaction with TRUSTID networks.
+logic for identity management and interaction with TrustID networks.
 To start using the SDK a new wallet needs to be initialized. A wallet
 exposes the following methods:</p>
 <ul class="simple">
@@ -256,7 +277,7 @@ exposes the following methods:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">generateDID(type:</span> <span class="pre">string,</span> <span class="pre">controller:</span> <span class="pre">string,</span> <span class="pre">passphrase):</span> <span class="pre">DID</span></code></p></li>
 </ul>
 <p>And stores the following information:</p>
-</li>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">DID</span></code>: Has the following structure.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">id:</span> <span class="pre">string</span></code>: Id string that identifies the DID.</p></li>
@@ -274,11 +295,18 @@ exposes the following methods:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">verify(signature:</span> <span class="pre">string,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">any</span></code>: Verifies a signature from a DID.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">driver.ts</span></code>: Interface that enables the implementation of connection drivers with different TRUSTID networks. The only driver implemented currently is
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="driver">
+<h4>Driver<a class="headerlink" href="#driver" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">driver.ts</span></code>: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is
 the <code class="docutils literal notranslate"><span class="pre">hfdriver.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
 networks.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">setEndpoint(endpoint:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Sets the network endpoint to interact with the TRUSTID network.</p></li>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">setEndpoint(endpoint:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Sets the network endpoint to interact with the TrustID network.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">createIdentity(did:</span> <span class="pre">DID):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verifyIdentity(adminDID:</span> <span class="pre">DID,</span> <span class="pre">id:string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Verifies an identity as an admin.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getIdentity(did:</span> <span class="pre">DID,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">*</span> <span class="pre">Promise&lt;object&gt;</span></code>: Gets a registered identity from TrustID.</p></li>
@@ -290,9 +318,14 @@ networks.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">query(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">string[],</span> <span class="pre">channel:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Queries a function of a registered service in the TrustID network</p></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="section" id="keystore">
+<h4>Keystore<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">keystore.ts</span></code>: Interface that enables the implementation of keystore storages.
 There are currently two implementations of keystore supported: <code class="docutils literal notranslate"><span class="pre">FileKeystore.ts</span></code> (to store DIDs in file keystore)and <code class="docutils literal notranslate"><span class="pre">MongoKeystore.ts</span></code> (to store DIDs in MongoDB).</p>
-<ul class="simple">
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">getDID(id:</span> <span class="pre">string):</span> <span class="pre">DID</span></code>: Get specific DID from keystore.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">storeDID(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: Store DID in keystore.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">storeInMemory(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: Store DID inMemory for easy and performant use.</p></li>
@@ -303,29 +336,31 @@ There are currently two implementations of keystore supported: <code class="docu
 </ul>
 <p>If you want additional information of TrustID, its SDK and its functionality
 check the following <a class="reference external" href="https://github.com/telefonica-tid/coren-id-sdk">repo</a>.</p>
+<hr></div>
 </div>
 </div>
 <div class="section" id="id-api">
 <h2>ID API<a class="headerlink" href="#id-api" title="Permalink to this headline">¶</a></h2>
-<p>TrustID API implementation. It wraps the functionality of the TRUSTID SDK
-in order to offer basic identity management services to users comfortable
-delegating the responsability of their keys to a custodian. ID API acts
-as the third-party custodian of the users keys.</p>
-<div class="section" id="api-specifications">
-<h3>API SPECIFICATIONS<a class="headerlink" href="#api-specifications" title="Permalink to this headline">¶</a></h3>
+<p>An abstraction TrustID API implementation. It wraps the functionality of the TrustID SDK in order to offer basic identity management services to users comfortable delegating the responsability of their keys to a custodian. ID API acts as the third-party custodian of the users keys.</p>
+<div class="section" id="api-specification">
+<h3>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h3>
 <p>The implementation considers that the API is the third-party custodial of
 TrustID keys. Currently the keystore is implemented with a FileKeystore,
 MongoKeystore comming soon. Private keys from users are stored ciphered
 with a passphrase. In order to call every function and unlock the account
 the passphrase needs to be provided. The API has the following routes.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/login</span></code>: It return a JWT to interact with services authenticated
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="post-id-login">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code><a class="headerlink" href="#post-id-login" title="Permalink to this headline">¶</a></h4>
+<p>It return a JWT to interact with services authenticated
 using JWT using TrustID as identity backend. This functionality is offered
 for every user in the system (even those for which we are not the
 custodials of the keys). Some services may be still authenticated with JWT,
-and we want to support this authentication even of TRUST ID users.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+and we want to support this authentication even of TrustID users.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:ae0213fncasdf234&quot;</span><span class="p">,</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;pass&quot;</span><span class="p">,</span>
   <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -335,111 +370,140 @@ and we want to support this authentication even of TRUST ID users.</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code>: It refreshes a JWT login.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>: Requests a signature using a key in custody. Useful when a user has to
-share signed payloads off-chain.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;payload&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+</details><br></div>
+<div class="section" id="post-id-refresh">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code><a class="headerlink" href="#post-id-refresh" title="Permalink to this headline">¶</a></h4>
+<p>It refreshes a JWT login.</p>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code>: Sends a request to revoke a specific identity. You need to be
-the owner of the identity or its controller to perform this task.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="section" id="post-id-sign">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>:<a class="headerlink" href="#post-id-sign" title="Permalink to this headline">¶</a></h4>
+<p>Requests a signature using a key in custody. Useful when a user has to
+share signed payloads off-chain.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "password": "passphrase",
+  "payload": {
+    "arg1": "test",
+    "arg2": "payload"
+  }
+}
+```
+</details><br></div>
+<div class="section" id="post-id-revoke">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code><a class="headerlink" href="#post-id-revoke" title="Permalink to this headline">¶</a></h4>
+<p>Sends a request to revoke a specific identity. You need to be
+the owner of the identity or its controller to perform this task.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:test&quot;</span><span class="p">,</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/create</span></code>: Create a new identity with the key determined in type and a
-passphrase to lock the private key.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+</details><br></div>
+<div class="section" id="post-id-create">
+<h4>POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code><a class="headerlink" href="#post-id-create" title="Permalink to this headline">¶</a></h4>
+<p>Create a new identity with the key determined in type and a
+passphrase to lock the private key.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/verify</span></code>: Verification of a registered identity by a controller in the system.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:test&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/id/get</span></code>: Gets the information from a registered identity.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:service:012343&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/service/create</span></code>: Create a new service in the TRUSTID network.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;coren-trustcc&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaincode-name&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;isPublic&quot;</span><span class="p">:</span> <span class="n">true</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/service/update</span></code>: Updates the information of a service.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;coren-trustcc&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">&quot;isPublic&quot;</span><span class="p">:</span> <span class="n">true</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/service/get</span></code>: Gets the registered information for a service.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serivceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:service:012343&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code>: Invoke a function from a distributed service using TrustID.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustos:123drfw&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;a&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;200&quot;</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;create&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>If you want additional information about this API implementation and its functionality
+</details><br></div>
+<div class="section" id="post-id-verify">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code><a class="headerlink" href="#post-id-verify" title="Permalink to this headline">¶</a></h4>
+<p>Verification of a registered identity by a controller in the system.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "id": "did:vtn:test",
+  "password": "passphrase"
+}
+```
+</details><br></div>
+<div class="section" id="post-id-get">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code><a class="headerlink" href="#post-id-get" title="Permalink to this headline">¶</a></h4>
+<p>Gets the information from a registered identity.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "id": "did:vtn:service:012343",
+  "password": "passphrase"
+}
+```
+</details><br></div>
+<div class="section" id="post-service-create">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code><a class="headerlink" href="#post-service-create" title="Permalink to this headline">¶</a></h4>
+<p>Create a new service in the TrustID network.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID": "coren-trustcc",
+  "password": "passphrase",
+  "name": "chaincode-name",
+  "isPublic": true
+}
+```
+</details><br></div>
+<div class="section" id="post-service-update">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
+<p>Updates the information of a service.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID": "coren-trustcc",
+  "password": "passphrase",
+  "access": 0,
+  "isPublic": true
+}
+```
+</details><br></div>
+<div class="section" id="post-service-get">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
+<p>Gets the registered information for a service.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serivceID": "did:vtn:service:012343",
+  "password": "passphrase"
+}
+```
+</details><br></div>
+<div class="section" id="post-service-invoke">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code><a class="headerlink" href="#post-service-invoke" title="Permalink to this headline">¶</a></h4>
+<p>Invoke a function from a distributed service using TrustID.</p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID": "did:vtn:trustos:123drfw",
+  "password": "passphrase",
+  "args": [
+    "a",
+    "b",
+    "200"
+  ],
+  "channel": "channel1",
+  "function": "create"
+}
+```
+</details><br><p>If you want additional information about this API implementation and its functionality
 check the following <a class="reference external" href="https://github.com/telefonica-tid/coren-id-api">repo</a>.</p>
 </div>
 </div>
+</div>
 <div class="section" id="roadmap">
-<h2>ROADMAP<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
 <p>Work in progress…</p>
 </div>
 </div>
