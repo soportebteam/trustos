@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; trustos master documentation</title>
+  <title>Trust &mdash; trustos master documentation</title>
   
 
   
@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="}" href="id.html" />
-    <link rel="prev" title="}" href="settle.html" /> 
+    <link rel="next" title="TRUST ID" href="id.html" />
+    <link rel="prev" title="Settle" href="settle.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,34 +101,41 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="track.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id16">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id21">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id32">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id37">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id42">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id47">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id52">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id57">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html#id62">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html#id28">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html#id75">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html#id86">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html#id97">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html#id108">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settle.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id14">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id17">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id20">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id23">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id26">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id29">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id32">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id35">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="id.html#id38">}</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Trust</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trust-point">Trust Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid-history">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-trust-assetid-create">POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid-merkleroot">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid-merkleroot-history">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-trust-assetid-register">POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-trust-assetid-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#merkleroot">MerkleRoot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-of-the-project">Architecture of the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-we-run-the-application">How we run the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-the-application">Testing the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#errors-management">Errors management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="id.html">TRUST ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 
             
@@ -174,7 +181,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Trust</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,438 +200,377 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Trust</p>
+  <div class="section" id="trust">
+<h1>Trust<a class="headerlink" href="#trust" title="Permalink to this headline">¶</a></h1>
 <p>This API is used to create and register trust points on the private and public blockchain and verify the integrity of all the encapsulated data</p>
-<p>## API Specification</p>
+<div class="section" id="api-specification">
+<h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the asset functionalities</p>
-<p>### Trust Point
-A trust point is <cite>&lt;JSON&gt;</cite> object used to export the integrity of the transactions over an asset in a private blockchain such as Hyperledger Fabric, to public blockchains such as Ethereum, in order to provide an extra layer of security.</p>
+<div class="section" id="trust-point">
+<h3>Trust Point<a class="headerlink" href="#trust-point" title="Permalink to this headline">¶</a></h3>
+<p>A trust point is <code class="docutils literal notranslate"><span class="pre">&lt;JSON&gt;</span></code> object used to export the integrity of the transactions over an asset in a private blockchain such as Hyperledger Fabric, to public blockchains such as Ethereum, in order to provide an extra layer of security.</p>
 <p>This is the structure of a trust point:</p>
 <ul class="simple">
-<li><p><cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust point is made</p></li>
-<li><p><cite>init</cite> :  <cite>&lt;integer&gt;</cite> Timestamp for the previous trust point</p></li>
-<li><p><cite>end</cite> :  <cite>&lt;integer&gt;</cite> Timestamp at which this trust point is made</p></li>
-<li><p><cite>txRoot</cite> :  <cite>&lt;string&gt;</cite> Hash of all transactions in the interval</p></li>
-<li><p><cite>hfTxId</cite> :  <cite>&lt;string&gt;</cite> Current trust point transaction in Hyperledger Fabric</p></li>
-<li><p><cite>prevHfTxId</cite> :  <cite>&lt;string&gt;</cite>  Previous trust point transaction in Hyperledger Fabric</p></li>
-<li><p><cite>prevHash</cite> :  <cite>&lt;string&gt;</cite> Hash of the previous trust point</p></li>
-<li><p><cite>ethereumContractAddress</cite> :  <cite>&lt;string&gt;</cite> The smart contract in Ethereum to manage trust points</p></li>
-<li><p><cite>hash</cite> :  <cite>&lt;string&gt;</cite>  Hash of the trust point (as a JSON) to verify integrity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp for the previous trust point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp at which this trust point is made</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">txRoot</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of all transactions in the interval</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hfTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current trust point transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prevHfTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Previous trust point transaction in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prevHash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the previous trust point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Hash of the trust point (as a JSON) to verify integrity</p></li>
 </ul>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>js
-{</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“output”: {</dt><dd><p>“assetid”: “exampleAsset”,
-“init”: 0,
-“end”: 1557830077,
-“txRoot”: “DGjUiCplVGom99o6bbdIXAIEqNKgVoQGi7rFNwDX+to=”,
-“hfTxId”: “671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97”,
-“prevHfTxId”: “0”,
-“prevHash”: “0”,
-“ethereumContractAddress”: “0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b”,
-“hash”: “3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0=”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a>`
-&lt;/details&gt;
-&lt;br&gt;</p>
-<p>### Methods</p>
-<p>![TrustAPI methods](./images/trust_swagger.png)</p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Trust methods&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p>—</p>
-<p>#### GET  -   <cite>/trust/assetId</cite></p>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1557830077</span><span class="p">,</span>
+    <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;DGjUiCplVGom99o6bbdIXAIEqNKgVoQGi7rFNwDX+to=&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0=&quot;</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details>
+<br></div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p><img alt="TrustAPI methods" src="_images/trust_swagger.png" /></p>
+<details>
+  <summary><em><strong>Trust methods</strong></em> (Click to expand)</summary><hr class="docutils" />
+<div class="section" id="get-trust-assetid">
+<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code><a class="headerlink" href="#get-trust-assetid" title="Permalink to this headline">¶</a></h4>
 <p>Gets the last trust point in the system for a specific asset</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust point is made</p>
-<p><em>Output</em>
-- <cite>trustpoint</cite>    :  <cite>&lt;json&gt;</cite></p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a>js
-{</p>
-<blockquote>
-<div><dl>
-<dt>“output”: {</dt><dd><blockquote>
-<div><p>“assetId”: “exampleAsset”,
-“end”: 1567601354,
-“ethereumContractAddress”: “0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B”,
-“hash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“hfTxId”: “5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234”,
-“init”: 1567594895,
-“prevHash”: “Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=”,
-“prevHfTxId”: “70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee”,
-“txRoot”: “TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id11"><span class="problematic" id="id12">``</span></a>`
-&lt;/details&gt;</p>
-<p>—</p>
-<p>#### GET  -   <cite>/trust/assetId/history</cite></p>
-<p>Gets all trust point history in the system for a specific asset</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust point is made</p>
-<p><em>Output</em>
-- <cite>trustpoint</cite>    :  <cite>&lt;json&gt;</cite></p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a>js
-[{</p>
-<blockquote>
-<div><dl>
-<dt>“output”: [</dt><dd><dl class="simple">
-<dt>{</dt><dd><p>“assetId”: “exampleAsset”,
-“end”: 1567594895,
-“ethereumContractAddress”: “0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B”,
-“hash”: “Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=”,
-“hfTxId”: “70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee”,
-“init”: 0,
-“prevHfTxId”: “0”,
-“txRoot”: “oGFYgnxCcPvpa2d6G4vHLs92HQgY2z6S8uwIVM0Qg44=”</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“assetId”: “exampleAsset”,
-“end”: 1567601354,
-“ethereumContractAddress”: “0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B”,
-“hash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“hfTxId”: “5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234”,
-“init”: 1567594895,
-“prevHash”: “Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=”,
-“prevHfTxId”: “70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee”,
-“txRoot”: “TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>]</p>
-</div></blockquote>
-<p>]</p>
-<p><a href="#id17"><span class="problematic" id="id18">``</span></a>`
-&lt;/details&gt;</p>
-<p>—</p>
-<p>#### POST -  <cite>/trust/assetId/create</cite></p>
-<p>Creates a trust point in the system for a specific asset</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust point is made</p>
-<p><em>Output</em>
-- <cite>trustpoint</cite>    :  <cite>&lt;json&gt;</cite></p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id19"><span class="problematic" id="id20">``</span></a><a href="#id21"><span class="problematic" id="id22">`</span></a>js
-{</p>
-<blockquote>
-<div><dl>
-<dt>“output”: {</dt><dd><blockquote>
-<div><p>“assetId”: “exampleAsset”,
-“end”: 1567601354,
-“ethereumContractAddress”: “0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B”,
-“hash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“hfTxId”: “5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234”,
-“init”: 1567594895,
-“prevHash”: “Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=”,
-“prevHfTxId”: “70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee”,
-“txRoot”: “TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id23"><span class="problematic" id="id24">``</span></a>`
-&lt;/details&gt;</p>
-<p>—</p>
-<p>#### GET  -   <cite>/trust/{assetId}/merkleroot</cite></p>
-<p>Gets the last trust merkle root stored in the system</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust root is stored</p>
-<p><em>Output</em>
-- <cite>trustroot</cite>    :  <cite>&lt;json&gt;</cite></p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a>js
-{</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“output”: {</dt><dd><p>“timestamp”: 1567601354,
-“trustHash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“trustRoot”: “/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id29"><span class="problematic" id="id30">``</span></a>`
-&lt;/details&gt;</p>
-<p>—</p>
-<p>#### GET  -   <cite>/trust/{assetId}/merkleroot/history</cite></p>
-<p>Gets the trust merkle root history stored in the system</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust root is stored</p>
-<p><em>Output</em>
-- <cite>trustroot</cite>    :  <cite>&lt;json&gt;</cite></p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id31"><span class="problematic" id="id32">``</span></a><a href="#id33"><span class="problematic" id="id34">`</span></a>js
-{</p>
-<blockquote>
-<div><dl>
-<dt>“output”: [</dt><dd><dl class="simple">
-<dt>{</dt><dd><p>“timestamp”: 1567594895,
-“trustHash”: “Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=”,
-“trustRoot”: “Vz3ZFr+wTOt0FNbcfhEr+Ziy/Y/jsfNGz693KcqYa5E=”</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“timestamp”: 1567601354,
-“trustHash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“trustRoot”: “/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id35"><span class="problematic" id="id36">``</span></a>`
-&lt;/details&gt;</p>
-<p>—</p>
-<p>#### POST -  <cite>/trust/assetId/register</cite></p>
-<p>Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust point is made</p>
-<p><em>Output</em>
-- <cite>trustpoint</cite> :  <cite>&lt;json&gt;</cite></p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id37"><span class="problematic" id="id38">``</span></a><a href="#id39"><span class="problematic" id="id40">`</span></a>js
-{</p>
-<blockquote>
-<div><dl>
-<dt>“output”:  {</dt><dd><blockquote>
-<div><p>“assetId”: “exampleAsset”,
-“end”: 1567601354,
-“ethereumContractAddress”: “0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B”,
-“hash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“hfTxId”: “5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234”,
-“init”: 1567594895,
-“prevHash”: “Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=”,
-“prevHfTxId”: “70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee”,
-“txRoot”: “TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id41"><span class="problematic" id="id42">``</span></a>`
-&lt;/details&gt;</p>
-<p>—</p>
-<p>#### POST   -   <cite>/trust/assetId/verify</cite></p>
-<p>Verifies a trust point</p>
-<p><em>Input</em>
-- <cite>assetid</cite> :  <cite>&lt;string&gt;</cite> Identifier of the asset for which the trust point is made
-- <cite>timestamp</cite> : <cite>&lt;string&gt;</cite> Timestamp at which this trust point is made</p>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id43"><span class="problematic" id="id44">``</span></a><a href="#id45"><span class="problematic" id="id46">`</span></a>js
-{</p>
-<blockquote>
-<div><p>“timestamp”: “1559822594”,</p>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id47"><span class="problematic" id="id48">``</span></a>`
-&lt;/details&gt;</p>
-<p><em>Output</em>
-- <cite>ethereum</cite>:  <cite>&lt;json&gt;</cite> Ethereum info</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><cite>trustRoot</cite>:  <cite>&lt;string&gt;</cite> Trust points merkle root registered on Ethereum</p></li>
-<li><p><cite>lastEthTxId</cite>:  <cite>&lt;string&gt;</cite> Last transaction for the trust point in Ethereum</p></li>
-<li><p><cite>smartContractAddres</cite>:  <cite>&lt;string&gt;</cite> The smart contract in Ethereum to manage trust points</p></li>
-<li><p><cite>verified</cite>:  <cite>&lt;bool&gt;</cite> Boolean value to specify if the trust point is registered in Ethereum</p></li>
-</ul>
-</div></blockquote>
+<p><em>Input</em></p>
 <ul class="simple">
-<li><p><cite>hf</cite>:  <cite>&lt;json&gt;</cite> Hyperledger Fabric info
-- <cite>trustRoot</cite>:  <cite>&lt;string&gt;</cite> Trust points merkle root stored in HF
-- <cite>timestamp</cite>:  <cite>&lt;string&gt;</cite> Timestamp at which this trust point is made
-- <cite>verified</cite>:  <cite>&lt;bool&gt;</cite> Boolean value to specify if the trust point is registered in Ethereum and it is has not been modified</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
 </ul>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id49"><span class="problematic" id="id50">``</span></a><a href="#id51"><span class="problematic" id="id52">`</span></a>js</p>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“output”: {</dt><dd><dl class="simple">
-<dt>“ethereum”: {</dt><dd><p>“lastEthTxId”: “0x8ad8f928c261a5b7f2b6515320dfffe1f9f923b17c5e07f6f733f43703f95f87”,
-“smartContractAddres”: “0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B”,
-“trustHash”: “NGz693K+cqYasFNbcfhEr+Ziy/Y/jsfOt0FNKcqYa5E=”,
-“trustRoot”: “/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=”,
-“verified”: true</p>
-</dd>
-</dl>
-<p>},
-“hf”: {</p>
-<blockquote>
-<div><p>“timestamp”: 1567601354,
-“trustHash”: “NGz693K+cqYasFNbcfhEr+Ziy/Y/jsfOt0FNKcqYa5E=”,
-“trustRoot”: “/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=”,
-“verified”: true</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-<p><a href="#id53"><span class="problematic" id="id54">``</span></a>`
-&lt;/details&gt;
-&lt;/details&gt;
-&lt;br&gt;</p>
-<p>### MerkleRoot</p>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
+      <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="get-trust-assetid-history">
+<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code><a class="headerlink" href="#get-trust-assetid-history" title="Permalink to this headline">¶</a></h4>
+<p>Gets all trust point history in the system for a specific asset</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
+</ul>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
+      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;oGFYgnxCcPvpa2d6G4vHLs92HQgY2z6S8uwIVM0Qg44=&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
+      <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="post-trust-assetid-create">
+<h4>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code><a class="headerlink" href="#post-trust-assetid-create" title="Permalink to this headline">¶</a></h4>
+<p>Creates a trust point in the system for a specific asset</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
+</ul>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
+      <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="get-trust-assetid-merkleroot">
+<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot" title="Permalink to this headline">¶</a></h4>
+<p>Gets the last trust merkle root stored in the system</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust root is stored</p></li>
+</ul>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trustroot</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+    <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trustRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="get-trust-assetid-merkleroot-history">
+<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot-history" title="Permalink to this headline">¶</a></h4>
+<p>Gets the trust merkle root history stored in the system</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust root is stored</p></li>
+</ul>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trustroot</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
+      <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;Vz3ZFr+wTOt0FNbcfhEr+Ziy/Y/jsfNGz693KcqYa5E=&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+      <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="post-trust-assetid-register">
+<h4>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code><a class="headerlink" href="#post-trust-assetid-register" title="Permalink to this headline">¶</a></h4>
+<p>Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
+</ul>
+<p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span>  <span class="p">{</span>
+      <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+      <span class="s2">&quot;ethereumContractAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
+      <span class="s2">&quot;prevHash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;prevHfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;txRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="post-trust-assetid-verify">
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code><a class="headerlink" href="#post-trust-assetid-verify" title="Permalink to this headline">¶</a></h4>
+<p>Verifies a trust point</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Timestamp at which this trust point is made</p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="s2">&quot;1559822594&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details><p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ethereum</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Ethereum info</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">trustRoot</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Trust points merkle root registered on Ethereum</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lastEthTxId</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Last transaction for the trust point in Ethereum</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smartContractAddres</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verified</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;bool&gt;</span></code> Boolean value to specify if the trust point is registered in Ethereum</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hf</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Hyperledger Fabric info</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">trustRoot</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Trust points merkle root stored in HF</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Timestamp at which this trust point is made</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verified</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;bool&gt;</span></code> Boolean value to specify if the trust point is registered in Ethereum and it is has not been modified</p></li>
+</ul>
+</li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;ethereum&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0x8ad8f928c261a5b7f2b6515320dfffe1f9f923b17c5e07f6f733f43703f95f87&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;smartContractAddres&quot;</span><span class="o">:</span> <span class="s2">&quot;0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;NGz693K+cqYasFNbcfhEr+Ziy/Y/jsfOt0FNKcqYa5E=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;verified&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;hf&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+      <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;NGz693K+cqYasFNbcfhEr+Ziy/Y/jsfOt0FNKcqYa5E=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;trustRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;verified&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details>
+</details>
+<br></div>
+</div>
+<div class="section" id="merkleroot">
+<h3>MerkleRoot<a class="headerlink" href="#merkleroot" title="Permalink to this headline">¶</a></h3>
 <p>In order to achieve the integrity and inmutability of all trust points, every time a trust point is create a parallel process is executed. This process consist of the building of a trust-based merkle tree. All the trust points created until that moment are the leaves of the tree that generates a unique merkle root. That merkle root, called as trustRoot, is registered in HF as well as in Ethereum to proof the integrity. So, every time a new trust point is created, a new trustRoot is created too, and it could be registered in Ethereum or not, depends of the user neccessity</p>
 <p>This is the structure registered in HF and Ethereum, once the trust merkle tree is calculated:</p>
 <ul class="simple">
-<li><p><cite>timestamp</cite> :  <cite>&lt;integer&gt;</cite> Timestamp at which the related trust point is made</p></li>
-<li><p><cite>trustHash</cite> :  <cite>&lt;string&gt;</cite> Hash of the last trust point included to verify integrity</p></li>
-<li><p><cite>trustRoot</cite> :  <cite>&lt;string&gt;</cite> Root of the trust merkle tree calculated with all the trust points until that moment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Timestamp at which the related trust point is made</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trustHash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the last trust point included to verify integrity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trustRoot</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Root of the trust merkle tree calculated with all the trust points until that moment</p></li>
 </ul>
-<dl class="simple">
-<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
-</dd>
-</dl>
-<p><a href="#id55"><span class="problematic" id="id56">``</span></a><a href="#id57"><span class="problematic" id="id58">`</span></a>js
-{</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“output”: {</dt><dd><p>“timestamp”: 1567601354,
-“trustHash”: “7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=”,
-“trustRoot”: “/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-<p><a href="#id59"><span class="problematic" id="id60">``</span></a>`
-&lt;/details&gt;
-&lt;br&gt;</p>
-<p>## Architecture of the project
-The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.</p>
-<p><a href="#id61"><span class="problematic" id="id62">``</span></a>`
-coren-trustapi
-├── api</p>
-<blockquote>
-<div><p>├── handler           // HTTP logic
-├── model             // models used by the application
-├── service           // Usecases logic
-├── util              // Tools used by the application</p>
-<blockquote>
-<div><p>├── log           // Logger tool
-├── http          // Http util
-└── Config        // Tool to load the configuration from yaml files</p>
-</div></blockquote>
-<p>└── app.go            // Router application</p>
-</div></blockquote>
-<dl class="simple">
-<dt>├── config</dt><dd><p>└── config.yaml       // Config file</p>
-</dd>
-<dt>├── docs</dt><dd><p>└── docs.go           // Swagger doc file</p>
-</dd>
-<dt>├── postman                 // Postman collection and environment to test the API</dt><dd><p>├── collection
-└── environment</p>
-</dd>
-</dl>
-<p>├── docker-compose.yaml     // Instructions to build docker container
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
+    <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trustRoot&quot;</span><span class="o">:</span> <span class="s2">&quot;/unY4B8YDNq/+mdO1iL/Ztng+gbxBput2qnjG+LGMqU=&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details>
+<br></div>
+</div>
+<div class="section" id="architecture-of-the-project">
+<h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-trustapi
+├── api
+      ├── handler           // HTTP logic
+      ├── model             // models used by the application
+      ├── service           // Usecases logic
+      ├── util              // Tools used by the application
+          ├── log           // Logger tool
+          ├── http          // Http util
+          └── Config        // Tool to load the configuration from yaml files
+      └── app.go            // Router application
+├── config
+      └── config.yaml       // Config file
+├── docs
+      └── docs.go           // Swagger doc file
+├── postman                 // Postman collection and environment to test the API
+      ├── collection    
+      └── environment
+├── docker-compose.yaml     // Instructions to build docker container
 ├── Dockerfile              // Instructions to build docker image
 ├── init.sh                 // Script with global environment variables
-└── main.go                 // Main app</p>
-<blockquote>
-<div><p><a href="#id63"><span class="problematic" id="id64">``</span></a><a href="#id65"><span class="problematic" id="id66">`</span></a></p>
-</div></blockquote>
-<p>## How we run the application
-As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
-<p>## Testing the Application
-In postman folder there are the related collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trustapi module.</p>
+└── main.go                 // Main app
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-we-run-the-application">
+<h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
+<p>As you could see in the <a class="reference external" href="architecture.html">Architecture</a> module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
+</div>
+<div class="section" id="testing-the-application">
+<h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
+<p>In postman folder there are the related collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trustapi module.</p>
 <p>Also you can download the files in the links below:</p>
-<p>&lt;a href=”_static/trustapi.collection.json” download&gt; - Postman collection&lt;/a&gt;
-&lt;br&gt;
-&lt;a href=”_static/environment.json” download&gt; - Postman environment&lt;/a&gt;</p>
-<p>## Errors management</p>
-<blockquote>
-<div><p>Trust API errors are managed through the following nomenclature <strong>TRUST-XX</strong> which corresponds to:&lt;br&gt;</p>
-</div></blockquote>
-<p>&lt;style type=”text/css”&gt;
+<p><a href="_static/trustapi.collection.json" download> - Postman collection</a>
+<br>
+<a href="_static/environment.json" download> - Postman environment</a></p>
+</div>
+<div class="section" id="errors-management">
+<h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
+<p>Trust API errors are managed through the following nomenclature <strong>TRUST-XX</strong> which corresponds to:<br></p>
+<style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
-&lt;/style&gt;
-&lt;table class=”tg”&gt;</p>
-<blockquote>
-<div><dl class="simple">
-<dt>&lt;tr&gt;</dt><dd><p>&lt;th class=”tg-0pky”&gt;Code&lt;/th&gt;
-&lt;th class=”tg-0pky”&gt;Description&lt;/th&gt;</p>
-</dd>
-</dl>
-<p>&lt;/tr&gt;
-&lt;tr&gt;</p>
-<blockquote>
-<div><p>&lt;td class=”tg-0pky”&gt;TRUST-00&lt;/td&gt;
-&lt;td class=”tg-0pky”&gt;Service is down&lt;/td&gt;</p>
-</div></blockquote>
-<p>&lt;/tr&gt;
-&lt;tr&gt;</p>
-<blockquote>
-<div><p>&lt;td class=”tg-0pky”&gt;TRUST-01&lt;/td&gt;
-&lt;td class=”tg-0pky”&gt;Error parsing any data structure&lt;/td&gt;</p>
-</div></blockquote>
-<p>&lt;/tr&gt;
-&lt;tr&gt;</p>
-<blockquote>
-<div><p>&lt;td class=”tg-0lax”&gt;TRUST-02&lt;/td&gt;
-&lt;td class=”tg-0lax”&gt;Error of some kind of functionality&lt;/td&gt;</p>
-</div></blockquote>
-<p>&lt;/tr&gt;</p>
-</div></blockquote>
-<p>&lt;/table&gt;</p>
-<p>&lt;br&gt;</p>
+</style><table class="tg">
+  <tr>
+    <th class="tg-0pky">Code</th>
+    <th class="tg-0pky">Description</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TRUST-00</td>
+    <td class="tg-0pky">Service is down</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TRUST-01</td>
+    <td class="tg-0pky">Error parsing any data structure</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">TRUST-02</td>
+    <td class="tg-0lax">Error of some kind of functionality</td>
+  </tr>
+</table><br></div>
+</div>
 
 
            </div>
@@ -634,10 +580,10 @@ In postman folder there are the related collection and environment to interact a
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="id.html" class="btn btn-neutral float-right" title="}" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="id.html" class="btn btn-neutral float-right" title="TRUST ID" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="settle.html" class="btn btn-neutral" title="}" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="settle.html" class="btn btn-neutral" title="Settle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
