@@ -1,7 +1,7 @@
 TrustOS - The Trust Operating System 
 ========================================
 
-.. image:: images/trustos.png
+.. image:: images/trustos.svg
 
  
 A complete Blockchain solution which abstracts all the complexity of blockchain technology.
