@@ -4,6 +4,23 @@ TrustOS started with the initial v1.0.0 release. Since that several changes have
 
 ## Track API
 
+<details><summary> v2.0.0 [June 2020]</summary><hr>
+
+**What's new in Track API v2.0.0:**
+
+- Compatibility with Hyperledger Fabric v2.x.x
+- Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)
+- The Track chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.
+
+**Changes, fixes and deprecations:**
+
+- The model of user credentials (user, password) used for `/login` method is now used with did credentials (id, password)
+- Current user credentials are and looks like a DID credential: `did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893` instead of: `user:org1MSP`
+- The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID
+- Some minor fixes regarding API's HTTP response status code (2xx successful, 4xx client error, 5xx server error)
+
+</details>
+
 <details><summary> v1.1.0 [April 2020]</summary><hr>
 
 **What's new in Track API v1.1.0:**
@@ -38,6 +55,23 @@ TrustOS started with the initial v1.0.0 release. Since that several changes have
 </details><br>
 
 ## Token API
+
+<details><summary> v2.0.0 [June 2020]</summary><hr>
+
+**What's new in Token API v2.0.0:**
+
+- Compatibility with Hyperledger Fabric v2.x.x
+- Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)
+- The Token chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.
+
+**Changes, fixes and deprecations:**
+- Owner of a token automatically set from the transaction issuer. Removed manual set of owner in `/create`
+- The model of user credentials (user, password) used for `/login` method is now used with did credentials (id, password)
+- Current user credentials are and looks like a DID credential: `did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893` instead of: `user:org1MSP`
+- The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID
+- Some minor fixes regarding API's HTTP response status code (2xx successful, 4xx client error, 5xx server error)
+
+</details>
 
 <details><summary> v1.1.0 [March 2020]</summary><hr>
 
@@ -87,6 +121,23 @@ TrustOS started with the initial v1.0.0 release. Since that several changes have
 
 ## Settle API
 
+<details><summary> v2.0.0 [June 2020]</summary><hr>
+
+**What's new in Settle API v2.0.0:**
+
+- Compatibility with Hyperledger Fabric v2.x.x
+- Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)
+- The Settle chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.
+
+**Changes, fixes and deprecations:**
+
+- The model of user credentials (user, password) used for `/login` method is now used with did credentials (id, password)
+- Current user credentials are and looks like a DID credential: `did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893` instead of: `user:org1MSP`
+- The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID
+- Some minor fixes regarding API's HTTP response status code (2xx successful, 4xx client error, 5xx server error)
+
+</details>
+
 <details><summary> v1.1.0 [April 2020]</summary><hr>
 
 **What's new in Settle API v1.1.0:**
@@ -122,6 +173,24 @@ TrustOS started with the initial v1.0.0 release. Since that several changes have
 </details><br>
 
 ## Trust API
+
+<details><summary> v2.0.0 [June 2020]</summary><hr>
+
+**What's new in Trust API v2.0.0:**
+
+- Compatibility with Hyperledger Fabric v2.x.x
+- Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)
+- Some minor fixes regarding API's HTTP response status code (2xx successful, 4xx client error, 5xx server error)
+- The Trust chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.
+
+**Changes, fixes and deprecations:**
+
+- New body input field in `/register`and `/create` methods to allow to fill the asset's metadata once the /registration/creation of a trustpoint is done and the asset is updated with the trustpoint info (ethereum transaction & contract or hyperledger fabric transaction) 
+- The model of user credentials (user, password) used for `/login` method is now used with did credentials (id, password)
+-  Current user credentials are and looks like a DID credential: `did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893` instead of: `user:org1MSP`
+- The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID
+
+</details>
 
 <details><summary> v1.0.0 [December 2019]</summary><hr>
 

@@ -190,7 +190,20 @@
 <p>TrustOS started with the initial v1.0.0 release. Since that several changes have been implemented in order to improve the functionality and performance of each API. Take a look at the last changes.</p>
 <div class="section" id="track-api">
 <h2>Track API<a class="headerlink" href="#track-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> v1.1.0 [April 2020]</summary><hr><p><strong>What’s new in Track API v1.1.0:</strong></p>
+<details><summary> v2.0.0 [June 2020]</summary><hr><p><strong>What’s new in Track API v2.0.0:</strong></p>
+<ul class="simple">
+<li><p>Compatibility with Hyperledger Fabric v2.x.x</p></li>
+<li><p>Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)</p></li>
+<li><p>The Track chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>The model of user credentials (user, password) used for <code class="docutils literal notranslate"><span class="pre">/login</span></code> method is now used with did credentials (id, password)</p></li>
+<li><p>Current user credentials are and looks like a DID credential: <code class="docutils literal notranslate"><span class="pre">did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893</span></code> instead of: <code class="docutils literal notranslate"><span class="pre">user:org1MSP</span></code></p></li>
+<li><p>The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID</p></li>
+<li><p>Some minor fixes regarding API’s HTTP response status code (2xx successful, 4xx client error, 5xx server error)</p></li>
+</ul>
+</details><details><summary> v1.1.0 [April 2020]</summary><hr><p><strong>What’s new in Track API v1.1.0:</strong></p>
 <ul class="simple">
 <li><p>New trustpoint param in the Asset data model for grouping and showing information about trust points. Every call to createTrust or registerTrust functions (that is the creation/registration of the trust point in Hyperledger Fabric/Ethereum) involves an update of the trustpoint param in the asset. So this way allows to know when/where the trust point was generated.</p></li>
 <li><p>In order to increase the performance every update of the asset is now done in a separated and independent manner, so it doesn’t keep the last state, just the asset data that is immutable. (f.e. when there is a creation/registration of a trustpoint, the new transaction just fill the trustpoint field, but not the metadata contained in the last asset transaction)</p></li>
@@ -219,7 +232,21 @@
 </details><br></div>
 <div class="section" id="token-api">
 <h2>Token API<a class="headerlink" href="#token-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> v1.1.0 [March 2020]</summary><hr><p><strong>What’s new in Token API v1.1.0:</strong></p>
+<details><summary> v2.0.0 [June 2020]</summary><hr><p><strong>What’s new in Token API v2.0.0:</strong></p>
+<ul class="simple">
+<li><p>Compatibility with Hyperledger Fabric v2.x.x</p></li>
+<li><p>Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)</p></li>
+<li><p>The Token chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>Owner of a token automatically set from the transaction issuer. Removed manual set of owner in <code class="docutils literal notranslate"><span class="pre">/create</span></code></p></li>
+<li><p>The model of user credentials (user, password) used for <code class="docutils literal notranslate"><span class="pre">/login</span></code> method is now used with did credentials (id, password)</p></li>
+<li><p>Current user credentials are and looks like a DID credential: <code class="docutils literal notranslate"><span class="pre">did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893</span></code> instead of: <code class="docutils literal notranslate"><span class="pre">user:org1MSP</span></code></p></li>
+<li><p>The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID</p></li>
+<li><p>Some minor fixes regarding API’s HTTP response status code (2xx successful, 4xx client error, 5xx server error)</p></li>
+</ul>
+</details><details><summary> v1.1.0 [March 2020]</summary><hr><p><strong>What’s new in Token API v1.1.0:</strong></p>
 <ul class="simple">
 <li><p>New token data model: a single chaincode can handle multiple tokens. Since the creation of a new token incurs sometimes in a timeout response error because of the process time while installing and instantiating a new chaincode, there was a need to implement a new data model based on a one single chaincode</p></li>
 <li><p>News in Swagger UI: link to Readthedocs and data model section with proper nomenclature</p></li>
@@ -256,7 +283,20 @@
 </details><br></div>
 <div class="section" id="settle-api">
 <h2>Settle API<a class="headerlink" href="#settle-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> v1.1.0 [April 2020]</summary><hr><p><strong>What’s new in Settle API v1.1.0:</strong></p>
+<details><summary> v2.0.0 [June 2020]</summary><hr><p><strong>What’s new in Settle API v2.0.0:</strong></p>
+<ul class="simple">
+<li><p>Compatibility with Hyperledger Fabric v2.x.x</p></li>
+<li><p>Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)</p></li>
+<li><p>The Settle chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>The model of user credentials (user, password) used for <code class="docutils literal notranslate"><span class="pre">/login</span></code> method is now used with did credentials (id, password)</p></li>
+<li><p>Current user credentials are and looks like a DID credential: <code class="docutils literal notranslate"><span class="pre">did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893</span></code> instead of: <code class="docutils literal notranslate"><span class="pre">user:org1MSP</span></code></p></li>
+<li><p>The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID</p></li>
+<li><p>Some minor fixes regarding API’s HTTP response status code (2xx successful, 4xx client error, 5xx server error)</p></li>
+</ul>
+</details><details><summary> v1.1.0 [April 2020]</summary><hr><p><strong>What’s new in Settle API v1.1.0:</strong></p>
 <ul class="simple">
 <li><p>In order to increase the performance every update of the settlement with record is now done in a separated and independent way through composite keys implementation</p></li>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">/settlement/{id}/global</span></code> function to get global status of the settlement structure.</p></li>
@@ -285,7 +325,21 @@
 </details><br></div>
 <div class="section" id="trust-api">
 <h2>Trust API<a class="headerlink" href="#trust-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> v1.0.0 [December 2019]</summary><hr><p><strong>What’s new in Trust API v1.0.0:</strong></p>
+<details><summary> v2.0.0 [June 2020]</summary><hr><p><strong>What’s new in Trust API v2.0.0:</strong></p>
+<ul class="simple">
+<li><p>Compatibility with Hyperledger Fabric v2.x.x</p></li>
+<li><p>Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)</p></li>
+<li><p>Some minor fixes regarding API’s HTTP response status code (2xx successful, 4xx client error, 5xx server error)</p></li>
+<li><p>The Trust chaincode (smart contract in Hyperledger Fabric) is now deployed as external services. It makes possible to deploy, handle and upgrade as an external container in a simple and fast way.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<ul class="simple">
+<li><p>New body input field in <code class="docutils literal notranslate"><span class="pre">/register</span></code>and <code class="docutils literal notranslate"><span class="pre">/create</span></code> methods to allow to fill the asset’s metadata once the /registration/creation of a trustpoint is done and the asset is updated with the trustpoint info (ethereum transaction &amp; contract or hyperledger fabric transaction)</p></li>
+<li><p>The model of user credentials (user, password) used for <code class="docutils literal notranslate"><span class="pre">/login</span></code> method is now used with did credentials (id, password)</p></li>
+<li><p>Current user credentials are and looks like a DID credential: <code class="docutils literal notranslate"><span class="pre">did:vtn:trustid:289f893a9oir930pajklbx938ajzhd87as7893</span></code> instead of: <code class="docutils literal notranslate"><span class="pre">user:org1MSP</span></code></p></li>
+<li><p>The internal functions of invoking / querying a service (chaincode) are changed to new service model managed by TrustID</p></li>
+</ul>
+</details><details><summary> v1.0.0 [December 2019]</summary><hr><p><strong>What’s new in Trust API v1.0.0:</strong></p>
 <ul class="simple">
 <li><p>All basic trust functionalities working: create, manage and public register trust points</p></li>
 <li><p>API visualisation and interaction through Swagger UI</p></li>
