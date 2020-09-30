@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Demos &mdash; trustos master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Releases" href="releases.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+
+          
+            <a href="index.html" class="icon icon-home"> trustos
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+
+<br>
+<a style="width:100%;" href="index.html">
+    <h1 style="color: white; font-size:220%; margin-bottom:2px;">TrustOS</h1>
+</a>
+<img style="background:none; margin: auto;  width:30%; height:95%;" alt="Telefónica"
+    src="_static/images/telefonica_white.png" />
+
+<!-- 
+<a href="https://github.com/hyperledger/fabric"></a>
+&nbsp;<a href="https://stackoverflow.com/questions/tagged/hyperledger-fabric"><img style="padding: 0px; margin: auto auto auto auto;" alt="StackOverflow" src="_static/images/stackoverflow_button.png"/></a>
+&nbsp;<a href="https://chat.hyperledger.org"><img style="padding: 0px; margin: auto auto auto auto;" alt="Rocket Chat" src="_static/images/rocketchat_button.png"/></a>
+&nbsp;<a href="https://www.youtube.com/playlist?list=PL0MZ85B_96CH7wvtrRzV7SvtRY0sI0DEg"><img style="padding: 0px; margin: auto auto auto auto;" alt="Youtube Channel" src="_static/images/youtube_button.png"/></a> -->
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id.html">TrustID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#painting-tracker">Painting tracker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-into-the-platform">1 - Login into the platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-asset-la-gioconda">2 - Create asset: La Gioconda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first-update-of-the-asset-transport-update-1">3 - First update of the asset (transport update 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#second-update-of-the-asset-transport-update-2">4 - Second update of the asset (transport update 2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#last-update-of-the-asset-transport-update-3">5 - Last update of the asset (transport update 3)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demonstrator">6 - Demonstrator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vaccine-tracker">Vaccine tracker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 - Login into the platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-asset-vaccine-batch">2 - Create asset: Vaccine batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-rules-temperature-and-humidity-measures">3 - Add rules: Temperature and humidity measures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-asset-first-transport-update-lyon">4 - Update asset (first transport update - Lyon)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-asset-transport-update-with-temperature-alarm-barcelona">5 - Update asset (transport update with TEMPERATURE ALARM - Barcelona)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-asset-transport-update-with-humidity-alarm-zaragoza">6 - Update asset (transport update with HUMIDITY ALARM - Zaragoza)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-asset-last-transport-update-madrid">7 - Update asset (last transport update - Madrid)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">8 - Demonstrator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trustos-certs">TrustOS Certs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trustos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Demos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/demos.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="demos">
+<h1>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
+<p>In this section you will find snipets of code to make APIs calls to test and see the results for different use case examples. These demo applications allow to understand how easy and fast things are building a new blockchain-based solution or integrating your systems with TrustOS.</p>
+<div class="section" id="painting-tracker">
+<h2>Painting tracker<a class="headerlink" href="#painting-tracker" title="Permalink to this headline">¶</a></h2>
+<p>Painting Tracker is an easy demo based on TRACK API that allows us to follow the whole transport process for a piece of art from origin to destination.</p>
+<details>
+  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
+  <br><div class="section" id="login-into-the-platform">
+<h3>1 - Login into the platform<a class="headerlink" href="#login-into-the-platform" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/login</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;did:vtn:trustid:7474559eb655790c4e6d12200ada51729294432ecec07020015657c7ba2681ec&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;test&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-asset-la-gioconda">
+<h3>2 - Create asset: La Gioconda<a class="headerlink" href="#create-asset-la-gioconda" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
+  <span class="nt">&quot;assetId&quot;</span><span class="p">:</span> <span class="s2">&quot;piece001&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;La Gioconda&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Leonardo Da Vinci&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;century&quot;</span><span class="p">:</span> <span class="s2">&quot;XVI&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Permanent exhibition - Louvre Museum, Paris&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Louvre Museum, Paris&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="s2">&quot;48.8606111, 2.337644&quot;</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="first-update-of-the-asset-transport-update-1">
+<h3>3 - First update of the asset (transport update 1)<a class="headerlink" href="#first-update-of-the-asset-transport-update-1" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Ceded temporaly - On route&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span> <span class="s2">&quot;LDI&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span> <span class="s2">&quot;Antoine&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;vehicleNumberPlate&quot;</span><span class="p">:</span> <span class="s2">&quot;6842DLP&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;destination&quot;</span><span class="p">:</span> <span class="s2">&quot;Burdeos, Francia&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="s2">&quot;44.836151, -0.580816&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="second-update-of-the-asset-transport-update-2">
+<h3>4 - Second update of the asset (transport update 2)<a class="headerlink" href="#second-update-of-the-asset-transport-update-2" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Ceded temporaly - On route&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span> <span class="s2">&quot;Isys Logistics&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span> <span class="s2">&quot;Alexandre&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;vehicleNumberPlate&quot;</span><span class="p">:</span> <span class="s2">&quot;6842DLP&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;destination&quot;</span><span class="p">:</span> <span class="s2">&quot;Irun, España&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="s2">&quot;43.337814, -1.788811&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="last-update-of-the-asset-transport-update-3">
+<h3>5 - Last update of the asset (transport update 3)<a class="headerlink" href="#last-update-of-the-asset-transport-update-3" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Ceded temporaly - On route&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span> <span class="s2">&quot;Seur&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan Carlos&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;vehicleNumberPlate&quot;</span><span class="p">:</span> <span class="s2">&quot;3246ZUF&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;destination&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid, España&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="s2">&quot;40.416710, -3.703534&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="demonstrator">
+<h3>6 - Demonstrator<a class="headerlink" href="#demonstrator" title="Permalink to this headline">¶</a></h3>
+<p>Along the transport process all the information is displayed in the Painting Tracker application. You just need to put the identifier of your asset (assetId) to start seeing the whole tracking information.</p>
+<p>Endpoint: <code class="docutils literal notranslate"><span class="pre">/tracker</span></code></p>
+<p>Input (assetId): <input value="piece001"></input></p>
+</details>
+<br>
+<details>
+  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
+  <br><ul class="simple">
+<li><p>Tracking view</p></li>
+</ul>
+<p><img alt="Painting tracker demo" src="_images/painting_tracker.png" /></p>
+</details>
+<br></div>
+</div>
+<div class="section" id="vaccine-tracker">
+<h2>Vaccine tracker<a class="headerlink" href="#vaccine-tracker" title="Permalink to this headline">¶</a></h2>
+<p>Vaccine Tracker is an easy demo based on TRACK API that allows us to follow the whole transport process for a vaccine from origin to destination and to monitor constantly critical measures (e.g temperature, humidity)</p>
+<details>
+  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
+  <br><div class="section" id="id1">
+<h3>1 - Login into the platform<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/login</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;did:vtn:trustid:7474559eb655790c4e6d12200ada51729294432ecec07020015657c7ba2681ec&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;test&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-asset-vaccine-batch">
+<h3>2 - Create asset: Vaccine batch<a class="headerlink" href="#create-asset-vaccine-batch" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;assetId&quot;</span><span class="p">:</span><span class="s2">&quot;Vaccine_batch_001&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;data&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;lab&quot;</span><span class="p">:</span><span class="s2">&quot;BioNTech&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="s2">&quot;2020/12/12&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="s2">&quot;2020/08/08&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;batch&quot;</span><span class="p">:</span><span class="s2">&quot;123111&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;ALLE DEMI CV333&quot;</span>
+   <span class="p">},</span>
+   <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;51.165691, 10.451526&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="s2">&quot;15&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="mi">50</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-rules-temperature-and-humidity-measures">
+<h3>3 - Add rules: Temperature and humidity measures<a class="headerlink" href="#add-rules-temperature-and-humidity-measures" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/rules</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;rules&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+         <span class="nt">&quot;param&quot;</span><span class="p">:</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;15&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;range&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+         <span class="nt">&quot;param&quot;</span><span class="p">:</span><span class="s2">&quot;humidity&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span>
+         <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">60</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-asset-first-transport-update-lyon">
+<h3>4 - Update asset (first transport update - Lyon)<a class="headerlink" href="#update-asset-first-transport-update-lyon" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;45.74846, 4.84671&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="s2">&quot;Lyon&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="s2">&quot;15&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span><span class="s2">&quot;firm B&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span><span class="s2">&quot;David&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-asset-transport-update-with-temperature-alarm-barcelona">
+<h3>5 - Update asset (transport update with TEMPERATURE ALARM - Barcelona)<a class="headerlink" href="#update-asset-transport-update-with-temperature-alarm-barcelona" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;41.38879, 2.15899&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="s2">&quot;Barcelona&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span><span class="s2">&quot;firm C&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span><span class="s2">&quot;Pep&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-asset-transport-update-with-humidity-alarm-zaragoza">
+<h3>6 - Update asset (transport update with HUMIDITY ALARM - Zaragoza)<a class="headerlink" href="#update-asset-transport-update-with-humidity-alarm-zaragoza" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;41.65606, -0.87734 &quot;</span><span class="p">,</span>
+      <span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;Zaragoza&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="s2">&quot;15&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="mi">38</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span><span class="s2">&quot;firm C&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span><span class="s2">&quot;Pep&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-asset-last-transport-update-madrid">
+<h3>7 - Update asset (last transport update - Madrid)<a class="headerlink" href="#update-asset-last-transport-update-madrid" title="Permalink to this headline">¶</a></h3>
+<p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;40.4165, -3.70256 &quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="s2">&quot;Madrid&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="s2">&quot;15&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span>
+      <span class="nt">&quot;transportCompany&quot;</span><span class="p">:</span><span class="s2">&quot;firm C&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;transporter&quot;</span><span class="p">:</span><span class="s2">&quot;Pep&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>8 - Demonstrator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Along the transport process all the information is displayed in the Vaccine Tracker application. You just need to put the identifier of your asset (assetId) to start seeing the whole tracking information. Moreover, the application is connected to a WebSocket channel in order to listen and monitor all the critical measures that are out of the range or value stablished (e.g temperature and humidity). Every new alarm is displayed as a notification.</p>
+<p>Endpoint: <code class="docutils literal notranslate"><span class="pre">/tracker/vaccine</span></code></p>
+<p>Input (assetId): <input value="piece001"></input></p>
+</details><br>
+<details>
+  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
+  <br><ul class="simple">
+<li><p>Tracking &amp; monitoring view</p></li>
+</ul>
+<p><img alt="Painting tracker demo" src="_images/vaccine_tracker.png" /></p>
+</details><br><details open>
+  <summary><em><strong>Video</strong></em> (Click to expand)</summary>
+  <br>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/umDStd-JERc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</details>
+<br></div>
+</div>
+<div class="section" id="trustos-certs">
+<h2>TrustOS Certs<a class="headerlink" href="#trustos-certs" title="Permalink to this headline">¶</a></h2>
+<p>TrustOS Certs is a demo that combines the functionalities of TRACK API, ID API &amp; TRUST API and provides a platform to certify each document or process into Blockchain.</p>
+<details>
+  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
+  <br>
+  Work in progress... Stay tuned! :)
+</details><br>
+<details>
+  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
+  <br><ul class="simple">
+<li><p>Home view</p></li>
+<li><p>Certificate creation view</p></li>
+<li><p>Certificate verification view</p></li>
+</ul>
+</details>
+<br></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="releases.html" class="btn btn-neutral float-right" title="Releases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorials.html" class="btn btn-neutral" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <!-- <div role="contentinfo">
+    <p>
+        &copy; Copyright Telefónica 2020.
+
+    </p>
+  </div> -->
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

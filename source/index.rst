@@ -24,8 +24,9 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    settle
    trust
    id
-   tutorials
    use_cases
+   tutorials
+   demos
    releases
    contributing
 
