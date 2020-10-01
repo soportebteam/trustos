@@ -3,7 +3,7 @@
 In this section you will find snipets of code to make APIs calls to test and see the results for different use case examples. These demo applications allow to understand how easy and fast things are building a new blockchain-based solution or integrating your systems with TrustOS.
 
 ## Painting tracker
-Painting Tracker is an easy demo based on TRACK API that allows us to follow the whole transport process for a piece of art from origin to destination.
+Painting Tracker is an easy demo based on Track API that allows us to follow the whole transport process for a piece of art from origin to destination.
 
 <details>
   <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
@@ -103,7 +103,7 @@ Input (assetId): <input value="piece001"></input>
 <br>
 
 ## Vaccine tracker
-Vaccine Tracker is an easy demo based on TRACK API that allows us to follow the whole transport process for a vaccine from origin to destination and to monitor constantly critical measures (e.g temperature, humidity)
+Vaccine Tracker is an easy demo based on Track API that allows us to follow the whole transport process for a vaccine from origin to destination and to monitor constantly critical measures (e.g temperature, humidity)
 
 <details>
   <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
@@ -225,7 +225,7 @@ Along the transport process all the information is displayed in the Vaccine Trac
 
 Endpoint: `/tracker/vaccine`
 
-Input (assetId): <input value="piece001"></input>
+Input (assetId): <input value="Vaccine_batch_001"></input>
 
 
 </details><br>
@@ -248,7 +248,7 @@ Input (assetId): <input value="piece001"></input>
 
 
 ## TrustOS Certs
-TrustOS Certs is a demo that combines the functionalities of TRACK API, ID API & TRUST API and provides a platform to certify each document or process into Blockchain. 
+TrustOS Certs is a demo that combines the functionalities of Track API, ID API & Trust API and provides a platform to certify each document or process into Blockchain. 
 <details>
   <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
   <br>

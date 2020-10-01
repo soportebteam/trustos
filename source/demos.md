@@ -225,7 +225,7 @@ Along the transport process all the information is displayed in the Vaccine Trac
 
 Endpoint: `/tracker/vaccine`
 
-Input (assetId): <input value="piece001"></input>
+Input (assetId): <input value="Vaccine_batch_001"></input>
 
 
 </details><br>
