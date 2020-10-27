@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8a74be15-e3e5-4a6d-9065-e566ddfc37f9",
+		"_postman_id": "a5683654-d8ac-47fb-9423-6f5eb8295740",
 		"name": "coren-trackapi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4351cb51-574c-4175-b9b1-2f977c4c16a4",
+						"id": "e0285bda-b336-4b4d-b0db-d90ff8c3ca58",
 						"exec": [
 							"//Execution",
 							"",
@@ -49,7 +49,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"test\",\n\t\"password\": \"test\"\n\n}"
+					"raw": "{\n\t\"id\": \"did:vtn:test\",\n\t\"password\": \"test\"\n\n}"
 				},
 				"url": {
 					"raw": "{{URL}}/login",
@@ -71,73 +71,36 @@
 			"response": []
 		},
 		{
-			"name": "Refresh the loggin session",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4351cb51-574c-4175-b9b1-2f977c4c16a4",
-						"exec": [
-							"//Execution",
-							"",
-							"try {",
-							"",
-							"    // tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"    var jsonData = JSON.parse(responseBody);",
-							"    postman.setEnvironmentVariable(\"authToken\", jsonData.message);",
-							"}",
-							"catch(e) {",
-							"    console.error(e);",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "Healthcheck",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer {{authToken}}",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{URL}}/refresh",
+					"raw": "{{URL}}/healthcheck",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
-						"refresh"
-					],
-					"query": [
-						{
-							"key": "source",
-							"value": "",
-							"disabled": true
-						}
+						"healthcheck"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Create asset",
+			"name": "Create",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
+						"id": "190b9c67-7bdb-48a9-b502-556e98420463",
 						"exec": [
 							""
 						],
@@ -162,7 +125,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"assetid\": \"test\",\n  \"data\": {\n  \t\"color\": \"yellow\",\n  \t\"size\": \"big\"\n  },\n  \"metadata\": {\n  \t\"color\": \"blue\",\n  \t\"size\": \"big\"\n  }\n}"
+					"raw": "{\n  \"assetId\": \"test1\",\n  \"data\": {\n  \t\"color\": \"yellow\",\n  \t\"size\": \"big\"\n  },\n  \"metadata\": {\n  \t\"color\": \"blue\",\n  \t\"size\": \"big\"\n  }\n}"
 				},
 				"url": {
 					"raw": "{{URL}}/asset/create",
@@ -185,12 +148,12 @@
 			"response": []
 		},
 		{
-			"name": "Get asset",
+			"name": "Get Asset",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
+						"id": "bac58eba-3ea3-4dcb-96e2-2124451818fc",
 						"exec": [
 							""
 						],
@@ -224,15 +187,16 @@
 					],
 					"query": [
 						{
-							"key": "source",
-							"value": "",
+							"key": "isForeign",
+							"value": "true",
+							"description": "Flag to determine if it's authorised asset",
 							"disabled": true
 						}
 					],
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -240,12 +204,73 @@
 			"response": []
 		},
 		{
-			"name": "Get all asset transactions",
+			"name": "Update Asset",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
+						"id": "54ffaf58-fc7c-4845-a38d-9606f8f8afda",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"metadata\": {\n  \t\"color\": \"red\",\n  \t\"size\": \"medium\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/asset/:assetId/update",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"asset",
+						":assetId",
+						"update"
+					],
+					"query": [
+						{
+							"key": "isForeign",
+							"value": "true",
+							"description": "Flag to determine if it's authorised asset",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "assetId",
+							"value": "test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Asset Transactions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b52e19f5-565b-48ee-8a6e-56e48499d823",
 						"exec": [
 							""
 						],
@@ -288,7 +313,7 @@
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -296,12 +321,12 @@
 			"response": []
 		},
 		{
-			"name": "Get a specific range asset transactions",
+			"name": "Get Range Asset Transactions",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
+						"id": "86b1c179-8866-409f-ac75-253efa14d321",
 						"exec": [
 							""
 						],
@@ -326,30 +351,30 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"init\": \"0\",\r\n  \"end\": \"1586165488\"\r\n}"
+					"raw": "{\n  \"init\": \"0\",\n  \"end\": \"1575975331\"\n}"
 				},
 				"url": {
-					"raw": "{{URL}}/asset/:assetId/transactions/range",
+					"raw": "{{URL}}/asset/:assetId/rules",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"asset",
 						":assetId",
-						"transactions",
-						"range"
+						"rules"
 					],
 					"query": [
 						{
-							"key": "source",
-							"value": "",
+							"key": "isForeign",
+							"value": "true",
+							"description": "Flag to determine if it's authorised asset",
 							"disabled": true
 						}
 					],
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -357,132 +382,12 @@
 			"response": []
 		},
 		{
-			"name": "Transfer the ownership of an asset",
+			"name": "Get Asset for User",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer {{authToken}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"destinationId\": \"bteam:telefonicaMSP\"\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/asset/:assetId/transfer",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"asset",
-						":assetId",
-						"transfer"
-					],
-					"query": [
-						{
-							"key": "source",
-							"value": "",
-							"disabled": true
-						}
-					],
-					"variable": [
-						{
-							"key": "assetId",
-							"value": "test"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update asset metadata",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer {{authToken}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"metadata\": {\n  \t\"color\": \"red\",\n  \t\"size\": \"medium\"\n  }\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/asset/:assetId/update",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"asset",
-						":assetId",
-						"update"
-					],
-					"query": [
-						{
-							"key": "source",
-							"value": "",
-							"disabled": true
-						}
-					],
-					"variable": [
-						{
-							"key": "assetId",
-							"value": "test"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get asset for a user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "05cef51b-850d-4d94-971b-90d6dc5054d0",
+						"id": "9ab042e6-b909-436a-9b08-5c72acce6515",
 						"exec": [
 							""
 						],
@@ -515,8 +420,9 @@
 					],
 					"query": [
 						{
-							"key": "source",
-							"value": "",
+							"key": "isForeign",
+							"value": "true",
+							"description": "Flag to determine if it's authorised asset<",
 							"disabled": true
 						}
 					]
@@ -525,7 +431,247 @@
 			"response": []
 		},
 		{
-			"name": "Create trust point",
+			"name": "Transfer Asset",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1dff26b9-4bbf-454d-9fba-0168ae9c67fc",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"destinationId\": \"bteam\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/asset/:assetId/transfer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"asset",
+						":assetId",
+						"transfer"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "assetId",
+							"value": "test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorise Asset",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "57fa82a7-a8ed-48f3-bb9a-6f7215a7bdb7",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"bteam\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/asset/:assetId/authorise",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"asset",
+						":assetId",
+						"authorise"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "assetId",
+							"value": "test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unauthorise Asset",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05fb843b-e68a-4cd2-98b0-65ca44884319",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"bteam\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/asset/:assetId/unauthorise",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"asset",
+						":assetId",
+						"unauthorise"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "assetId",
+							"value": "test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Asset Rules",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ea334c2-bb3c-420a-9221-f74899475995",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"rules\": {\n    \"value\": [\n      {\n        \"param\": \"a\",\n        \"value\": \"b\"\n      }\n    ],\n    \"range\": [\n      {\n        \"param\": \"b\",\n        \"min\": 0,\n        \"max\": 100\n      }\n    ]\n  }\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/asset/:assetId/rules",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"asset",
+						":assetId",
+						"rules"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "assetId",
+							"value": "test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Trust",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -557,7 +703,7 @@
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -565,47 +711,7 @@
 			"response": []
 		},
 		{
-			"name": "Register trust point",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "Bearer {{authToken}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{URL}}/trust/:assetId/register",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"trust",
-						":assetId",
-						"register"
-					],
-					"variable": [
-						{
-							"key": "assetId",
-							"value": "test"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get trust point for an specific asset",
+			"name": "Get Trust",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -640,7 +746,7 @@
 			"response": []
 		},
 		{
-			"name": "Get trust point history for an specific asset",
+			"name": "Get Trust History",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -668,7 +774,7 @@
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -676,7 +782,47 @@
 			"response": []
 		},
 		{
-			"name": "Get trust merkle root",
+			"name": "Register Trust",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/trust/:assetId/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"trust",
+						":assetId",
+						"register"
+					],
+					"variable": [
+						{
+							"key": "assetId",
+							"value": "test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trust MerkleRoot",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -704,7 +850,7 @@
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -712,7 +858,7 @@
 			"response": []
 		},
 		{
-			"name": "Get trust merkle root history",
+			"name": "Get Trust MerkleRoot History",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -741,7 +887,7 @@
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}
@@ -749,7 +895,7 @@
 			"response": []
 		},
 		{
-			"name": "Verify trust point",
+			"name": "Verify Trust",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -766,7 +912,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"timestamp\": \"1586166654\"\n}"
+					"raw": "{\n  \"timestamp\": \"1568105335\"\n}"
 				},
 				"url": {
 					"raw": "{{URL}}/trust/:assetId/verify",
@@ -781,7 +927,7 @@
 					"variable": [
 						{
 							"key": "assetId",
-							"value": "test"
+							"value": "test1"
 						}
 					]
 				}

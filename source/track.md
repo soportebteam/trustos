@@ -60,7 +60,7 @@ Every asset has the following structure:
 ####     POST -  `/asset/create` 
 Ceate a digital asset on a Blockchain. 
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset
 - `data`    :  `<json>` JSON of **inmutable** data. It can have as many field as required
 - `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required
@@ -84,7 +84,7 @@ Ceate a digital asset on a Blockchain.
 </details> 
 <br>
 
-*Output*
+<u>*Output*</u>
 - `asset`    :  `<json>` 
 
 <details>
@@ -119,10 +119,10 @@ Ceate a digital asset on a Blockchain.
 
 Get asset from the blockchain identified by assetId
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset
   
-*Output*
+<u>*Output*</u>
 - `asset`    :  `<json>` 
 
 <details>
@@ -156,10 +156,10 @@ Get asset from the blockchain identified by assetId
 
 Get all transactions for the whole lifecycle of the asset
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset
 
-*Output*
+<u>*Output*</u>
 - `args`    :  `<string>` A list of all transactions
 
 <details>
@@ -212,7 +212,7 @@ Get all transactions for the whole lifecycle of the asset
 
 Transfer the ownership of the asset. The user has to be the owner of the asset.
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset
 - `destinationId` :  `<string>` The destination owner
 
@@ -227,7 +227,7 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
 </details> 
 <br>
 
-*Output*
+<u>*Output*</u>
 - `asset`    :  `<json>` 
 
 <details>
@@ -257,7 +257,7 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
 
 Updates the **mutable** ("metadata") of an asset
 
-*Input*
+<u>*Input*</u>
 
 - `assetid` :  `<string>` Unique identifier of the asset
 - `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required
@@ -276,7 +276,7 @@ Updates the **mutable** ("metadata") of an asset
 </details> 
 <br>
 
-*Output*
+<u>*Output*</u>
 - `asset`    :  `<json>` 
 
 <details>
@@ -308,15 +308,159 @@ Updates the **mutable** ("metadata") of an asset
 
 ---
 
+
+####   POST     - `/asset/{assetId}/authorise`  
+
+Authorise user access for an asset. Only the asset owner can do this.
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `userId` :  `<string>` The authorised user
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "userId": "did:bteam"
+}
+```
+</details> 
+<br>
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "message": "Successfully authorised user did:bteam for asset XXXXX",
+  }
+}
+```
+</details>
+
+---
+
+####   POST     - `/asset/{assetId}/unauthorise`  
+
+Unauthorise user access for an asset. Only the asset owner can do this.
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `userId` :  `<string>` The unauthorised user
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "userId": "did:bteam"
+}
+```
+</details>  
+<br>
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "message": "Successfully unauthorised user did:bteam for asset XXXXX",
+  }
+}
+```
+</details>
+
+---
+
+####   POST     - `/asset/{assetId}/rules`  
+
+Add rules to monitor asset parameters.
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `rules`:  `<json>` JSON of rules. It can have at least two fields: value & range, to specify a constant value or range of values that has to accomplish a parameter. Every rule (value, range) can contain as many conditions for different parameters as necessary. However it's noted that a use of quite many conditions affects the performance of the asset udpates.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "rules": {
+    "value": [
+      {
+        "param": "a",
+        "value": "b"
+      },
+      {
+        "param": "aa",
+        "value": "bb"
+      }
+    ],
+    "range": [
+      {
+        "param": "b",
+        "min": 0,
+        "max": 100
+      }
+    ]
+  }
+}
+```
+</details> 
+<br>
+
+<u>*Output*</u>
+- `rules`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+{
+  "rules": {
+    "value": [
+      {
+        "param": "a",
+        "value": "b"
+      },
+      {
+        "param": "aa",
+        "value": "bb"
+      }
+    ],
+    "range": [
+      {
+        "param": "b",
+        "min": 0,
+        "max": 100
+      }
+    ]
+  }
+}
+```
+</details>
+
+---
+
 #### GET   -    `/assets`  
 
 Lists all the assets of a user
 
-*Input*
+<u>*Input*</u>
 
 N/A. It returns all the assets which belong to the login user
 
-*Output*
+<u>*Output*</u>
 - `assetList`    :  `<json>` 
 
 <details>
@@ -334,13 +478,24 @@ N/A. It returns all the assets which belong to the login user
 </details>
 
 ---
+#### (*) authorised assets 
+If we deep into the technical part, it's important to be aware that every user has two types of assets: owned assets and authorised assets. These last ones, the `authorised assets or foreign assets` as we like to say, are assets created by other users that have granted you access allowing you to consult and update it.
+
+To interact with authorised or foreign assets, only it is necessary to put the `isForeign` flag to `true` as a query parameter in the URL (`...?isForeign=true`) as it is shown in the examples below:
+
+ GET  -     `/asset/{assetId}?isForeign=true`  
+ GET  -     `/asset/{assetId}/transactions?isForeign=true`  
+ GET  -     `/asset/{assetId}/transactions/range?isForeign=true`  
+ GET  -     `/assets`  
+ POST -     `/asset/{assetId}/update?isForeign=true`  
+
 
 #### (*) trustpoint parameter  
-The `trustpoint` parameter is only filled in after the creation/registration of a trust point. Thus every new trust point regarding to an asset results in a new transaction in the asset with only the update of that parameter.
+The `trustpoint` parameter is only filled in after the creation/registration of a trust point. Thus every new trust point regarding to an asset results in a new transaction in the asset with only the update of this `trustpoint` parameter.
 
 Transaction after creating a trustpoint in HF:
 
-*Output*
+<u>*Output*</u>
 - `asset`    :  `<json>` 
 
 <details>
@@ -372,7 +527,7 @@ Transaction after creating a trustpoint in HF:
 
 Transaction after registering a trustpoint in Ethereum:
 
-*Output*
+<u>*Output*</u>
 - `asset`    :  `<json>` 
 
 <details>

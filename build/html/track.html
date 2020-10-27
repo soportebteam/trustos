@@ -115,7 +115,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#get-asset-assetid-transactions">GET  -     <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transactions</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-transfer">POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transfer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-update">POST    <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-authorise">POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/authorise</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-unauthorise">POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/unauthorise</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-asset-assetid-rules">POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/rules</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-assets">GET   -    <code class="docutils literal notranslate"><span class="pre">/assets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authorised-assets">(*) authorised assets</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#trustpoint-parameter">(*) trustpoint parameter</a></li>
 </ul>
 </li>
@@ -252,7 +256,7 @@
 <div class="section" id="post-asset-create">
 <h4>POST -  <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code><a class="headerlink" href="#post-asset-create" title="Permalink to this headline">¶</a></h4>
 <p>Ceate a digital asset on a Blockchain.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>inmutable</strong> data. It can have as many field as required</p></li>
@@ -273,7 +277,7 @@
 </pre></div>
 </div>
 </details> 
-<br><p><em>Output</em></p>
+<br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -303,11 +307,11 @@
 <div class="section" id="get-asset-assetid">
 <h4>GET     -   <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}</span></code><a class="headerlink" href="#get-asset-assetid" title="Permalink to this headline">¶</a></h4>
 <p>Get asset from the blockchain identified by assetId</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -337,11 +341,11 @@
 <div class="section" id="get-asset-assetid-transactions">
 <h4>GET  -     <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transactions</span></code><a class="headerlink" href="#get-asset-assetid-transactions" title="Permalink to this headline">¶</a></h4>
 <p>Get all transactions for the whole lifecycle of the asset</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A list of all transactions</p></li>
 </ul>
@@ -389,7 +393,7 @@
 <div class="section" id="post-asset-assetid-transfer">
 <h4>POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transfer</span></code><a class="headerlink" href="#post-asset-assetid-transfer" title="Permalink to this headline">¶</a></h4>
 <p>Transfer the ownership of the asset. The user has to be the owner of the asset.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">destinationId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The destination owner</p></li>
@@ -401,7 +405,7 @@
 </pre></div>
 </div>
 </details> 
-<br><p><em>Output</em></p>
+<br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -427,7 +431,7 @@
 <div class="section" id="post-asset-assetid-update">
 <h4>POST    <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code><a class="headerlink" href="#post-asset-assetid-update" title="Permalink to this headline">¶</a></h4>
 <p>Updates the <strong>mutable</strong> (“metadata”) of an asset</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>mutable</strong> data. It can have as many field as required</p></li>
@@ -442,7 +446,7 @@
 </pre></div>
 </div>
 </details> 
-<br><p><em>Output</em></p>
+<br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -471,12 +475,134 @@
 </div>
 </details> </div>
 <hr class="docutils" />
+<div class="section" id="post-asset-assetid-authorise">
+<h4>POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/authorise</span></code><a class="headerlink" href="#post-asset-assetid-authorise" title="Permalink to this headline">¶</a></h4>
+<p>Authorise user access for an asset. Only the asset owner can do this.</p>
+<p><u><em>Input</em></u></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The authorised user</p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;userId&quot;</span><span class="o">:</span> <span class="s2">&quot;did:bteam&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details> 
+<br><p><u><em>Output</em></u></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Successfully authorised user did:bteam for asset XXXXX&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="post-asset-assetid-unauthorise">
+<h4>POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/unauthorise</span></code><a class="headerlink" href="#post-asset-assetid-unauthorise" title="Permalink to this headline">¶</a></h4>
+<p>Unauthorise user access for an asset. Only the asset owner can do this.</p>
+<p><u><em>Input</em></u></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The unauthorised user</p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;userId&quot;</span><span class="o">:</span> <span class="s2">&quot;did:bteam&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details>  
+<br><p><u><em>Output</em></u></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Successfully unauthorised user did:bteam for asset XXXXX&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="post-asset-assetid-rules">
+<h4>POST     - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/rules</span></code><a class="headerlink" href="#post-asset-assetid-rules" title="Permalink to this headline">¶</a></h4>
+<p>Add rules to monitor asset parameters.</p>
+<p><u><em>Input</em></u></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assetId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the asset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rules</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of rules. It can have at least two fields: value &amp; range, to specify a constant value or range of values that has to accomplish a parameter. Every rule (value, range) can contain as many conditions for different parameters as necessary. However it’s noted that a use of quite many conditions affects the performance of the asset udpates.</p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;rules&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;param&quot;</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;b&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;param&quot;</span><span class="o">:</span> <span class="s2">&quot;aa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;bb&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;range&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;param&quot;</span><span class="o">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;min&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;max&quot;</span><span class="o">:</span> <span class="mi">100</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details> 
+<br><p><u><em>Output</em></u></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rules</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">{</span>
+  <span class="s2">&quot;rules&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;param&quot;</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;b&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;param&quot;</span><span class="o">:</span> <span class="s2">&quot;aa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;bb&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;range&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;param&quot;</span><span class="o">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;min&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;max&quot;</span><span class="o">:</span> <span class="mi">100</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
 <div class="section" id="get-assets">
 <h4>GET   -    <code class="docutils literal notranslate"><span class="pre">/assets</span></code><a class="headerlink" href="#get-assets" title="Permalink to this headline">¶</a></h4>
 <p>Lists all the assets of a user</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <p>N/A. It returns all the assets which belong to the login user</p>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetList</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -492,11 +618,17 @@
 </div>
 </details></div>
 <hr class="docutils" />
+<div class="section" id="authorised-assets">
+<h4>(*) authorised assets<a class="headerlink" href="#authorised-assets" title="Permalink to this headline">¶</a></h4>
+<p>If we deep into the technical part, it’s important to be aware that every user has two types of assets: owned assets and authorised assets. These last ones, the <code class="docutils literal notranslate"><span class="pre">authorised</span> <span class="pre">assets</span> <span class="pre">or</span> <span class="pre">foreign</span> <span class="pre">assets</span></code> as we like to say, are assets created by other users that have granted you access allowing you to consult and update it.</p>
+<p>To interact with authorised or foreign assets, only it is necessary to put the <code class="docutils literal notranslate"><span class="pre">isForeign</span></code> flag to <code class="docutils literal notranslate"><span class="pre">true</span></code> as a query parameter in the URL (<code class="docutils literal notranslate"><span class="pre">...?isForeign=true</span></code>) as it is shown in the examples below:</p>
+<p>GET  -     <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}?isForeign=true</span></code><br />GET  -     <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transactions?isForeign=true</span></code><br />GET  -     <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transactions/range?isForeign=true</span></code><br />GET  -     <code class="docutils literal notranslate"><span class="pre">/assets</span></code><br />POST -     <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update?isForeign=true</span></code></p>
+</div>
 <div class="section" id="trustpoint-parameter">
 <h4>(*) trustpoint parameter<a class="headerlink" href="#trustpoint-parameter" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> parameter is only filled in after the creation/registration of a trust point. Thus every new trust point regarding to an asset results in a new transaction in the asset with only the update of that parameter.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> parameter is only filled in after the creation/registration of a trust point. Thus every new trust point regarding to an asset results in a new transaction in the asset with only the update of this <code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> parameter.</p>
 <p>Transaction after creating a trustpoint in HF:</p>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -523,7 +655,7 @@
 </div>
 </details> 
 <br><p>Transaction after registering a trustpoint in Ethereum:</p>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">asset</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
