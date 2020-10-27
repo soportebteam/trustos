@@ -58,10 +58,10 @@ This is the structure of a trust point:
 
 Gets the last trust point in the system for a specific asset
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made
   
-*Output*
+<u>*Output*</u>
 - `trustpoint`    :  `<json>`
 
 <details>
@@ -91,10 +91,10 @@ Gets the last trust point in the system for a specific asset
 
 Gets all trust point history in the system for a specific asset
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made
   
-*Output*
+<u>*Output*</u>
 - `trustpoint`    :  `<json>`
 
 <details>
@@ -138,10 +138,10 @@ Gets all trust point history in the system for a specific asset
 
 Creates a trust point in the system for a specific asset
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made
   
-*Output*
+<u>*Output*</u>
 - `trustpoint`    :  `<json>` 
 
 <details>
@@ -171,10 +171,10 @@ Creates a trust point in the system for a specific asset
 
 Gets the last trust merkle root stored in the system
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust root is stored
   
-*Output*
+<u>*Output*</u>
 - `trustroot`    :  `<json>`
 
 <details>
@@ -198,10 +198,10 @@ Gets the last trust merkle root stored in the system
 
 Gets the trust merkle root history stored in the system
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust root is stored
   
-*Output*
+<u>*Output*</u>
 - `trustroot`    :  `<json>`
 
 <details>
@@ -232,10 +232,10 @@ Gets the trust merkle root history stored in the system
 
 Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made
   
-*Output*
+<u>*Output*</u>
 - `trustpoint` :  `<json>` 
 
 <details>
@@ -265,7 +265,7 @@ Creates a trust point if does not exist and registers it in Ethereum. If the tru
 
 Verifies a trust point 
 
-*Input*
+<u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made
 - `timestamp` : `<string>` Timestamp at which this trust point is made
 
@@ -280,7 +280,7 @@ Verifies a trust point
 ```
 </details>
 
-*Output*
+<u>*Output*</u>
 - `ethereum`:  `<json>` Ethereum info
   - `trustRoot`:  `<string>` Trust points merkle root registered on Ethereum
   - `lastEthTxId`:  `<string>` Last transaction for the trust point in Ethereum

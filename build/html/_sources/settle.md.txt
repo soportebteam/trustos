@@ -54,7 +54,7 @@ main variable used to upload records.
 
 Creates a new settlement structure. 
 
-*Input*
+<u>*Input*</u>
 
 - `settleid` :  `<string>`    - Unique identifier of the settlement structure
 - `aggregates` : `<string >`  - Variables used as input for the aggregation operation.
@@ -85,7 +85,7 @@ main variable used to upload records.
  ```
 </details>
   
-*Output*
+<u>*Output*</u>
 - `settlementObject`    :  `<json>` 
 
 <details>
@@ -122,10 +122,10 @@ main variable used to upload records.
 Gets the current status of a settlement structure. It shows the current
 status of aggregates. 
 
-*Input*
+<u>*Input*</u>
 - `settleId` :  `<string>` 
   
-*Output*
+<u>*Output*</u>
 - `newSettlementObject`    :  `<json>` 
 
 <details>
@@ -167,12 +167,12 @@ status of aggregates.
 
 Gets the history of changes over a settlement structure according to updated records.
 
-*Input*
+<u>*Input*</u>
 - `settleId` :  `<string>` 
 
 
   
-*Output*
+<u>*Output*</u>
 - `newSettlementObject`    :  `<json>` 
 
 
@@ -232,11 +232,11 @@ Gets the history of changes over a settlement structure according to updated rec
 
 Gets all settlements performed over a specific settleId.
 
-*Input*
+<u>*Input*</u>
 - `settleId` :  `<string>` 
 
 
-*Output*
+<u>*Output*</u>
 - `newSettlementObject`    :  `<json>` 
 
 
@@ -270,7 +270,7 @@ It uploads a new record to a settlement structure updating
 the status of aggregates according to the `aggregationType` defined
 for the settling structure. 
 
-*Input*
+<u>*Input*</u>
 - `settlementObject` :  `<json>`
 
 <details>
@@ -301,7 +301,7 @@ for the settling structure.
 ```
 </details>
   
-*Output*
+<u>*Output*</u>
 - `newSettlementObject`    :  `<json>` 
 
 
@@ -346,10 +346,10 @@ Settles a given settlement structure. It aggregates according to the
 current status of aggregates and the `aggregationType` defined for the settlement
 structure.
 
-*Input*
+<u>*Input*</u>
 - `settleId` :  `<string>` 
   
-*Output*
+<u>*Output*</u>
 - `newSettlementObject`    :  `<json>` 
 
 <details>
@@ -379,10 +379,10 @@ Clears a settlement structure. It removes the current status of the aggregates.
 This may be used when unconsistent updates have been performed or errors have
 been detected in the updating of records.
 
-*Input*
+<u>*Input*</u>
 - `settleId` :  `<string>` 
   
-*Output*
+<u>*Output*</u>
 - `newSettlementObject`    :  `<json>` 
 
 <details>

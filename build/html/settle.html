@@ -245,7 +245,7 @@ main variable used to upload records.</p></li>
 <div class="section" id="post-settlement-create">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code><a class="headerlink" href="#post-settlement-create" title="Permalink to this headline">¶</a></h4>
 <p>Creates a new settlement structure.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>    - Unique identifier of the settlement structure</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">aggregates</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">&gt;</span></code>  - Variables used as input for the aggregation operation.</p></li>
@@ -271,7 +271,7 @@ main variable used to upload records.</p></li>
  <span class="p">}</span>
 </pre></div>
 </div>
-</details><p><em>Output</em></p>
+</details><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -301,11 +301,11 @@ main variable used to upload records.</p></li>
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code><a class="headerlink" href="#get-settlement-settleid" title="Permalink to this headline">¶</a></h4>
 <p>Gets the current status of a settlement structure. It shows the current
 status of aggregates.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -342,11 +342,11 @@ status of aggregates.</p>
 <div class="section" id="get-settlement-settleid-history">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code><a class="headerlink" href="#get-settlement-settleid-history" title="Permalink to this headline">¶</a></h4>
 <p>Gets the history of changes over a settlement structure according to updated records.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -400,11 +400,11 @@ status of aggregates.</p>
 <div class="section" id="get-settlement-settleid-settled">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code><a class="headerlink" href="#get-settlement-settleid-settled" title="Permalink to this headline">¶</a></h4>
 <p>Gets all settlements performed over a specific settleId.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -431,7 +431,7 @@ status of aggregates.</p>
 <p>It uploads a new record to a settlement structure updating
 the status of aggregates according to the <code class="docutils literal notranslate"><span class="pre">aggregationType</span></code> defined
 for the settling structure.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settlementObject</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -457,7 +457,7 @@ for the settling structure.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><p><em>Output</em></p>
+</details><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -496,11 +496,11 @@ for the settling structure.</p>
 <p>Settles a given settlement structure. It aggregates according to the
 current status of aggregates and the <code class="docutils literal notranslate"><span class="pre">aggregationType</span></code> defined for the settlement
 structure.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
@@ -524,11 +524,11 @@ structure.</p>
 <p>Clears a settlement structure. It removes the current status of the aggregates.
 This may be used when unconsistent updates have been performed or errors have
 been detected in the updating of records.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>

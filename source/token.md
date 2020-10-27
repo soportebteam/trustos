@@ -46,7 +46,7 @@ Every token has the following structure:
 
 Initialize a new token in the network with some specific information
 
-*Input*
+<u>*Input*</u>
 - `name` :  `<string>` Name of the token
 - `symbol` : `<string>` Shortname of the token
 - `owner` :  `identifier<string>:company<string>` Owner of the token contract
@@ -70,7 +70,7 @@ Initialize a new token in the network with some specific information
 </details>
  <br>
 
-*Output*
+<u>*Output*</u>
 - `message`    :  `<string>` 
 
 <details>
@@ -98,10 +98,10 @@ Initialize a new token in the network with some specific information
 
 Gets all the token information
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
   
-*Output*
+<u>*Output*</u>
 - `token`    :  `<string>` 
 
 <details>
@@ -130,12 +130,12 @@ Gets all the token information
 
 This call tells if some specific spender is allowed by some owner to performs actions over the token.
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
 - `ownerId`   :  `<string>`  Owner of the token
 - `spenderId` :  `<string>`  Person from whom we want to know how much he is allowed to spend
   
-*Output*
+<u>*Output*</u>
 - `allowed`  : `<integer>` Quantity of tokens he is allowed to spend
 
 <details>
@@ -157,7 +157,7 @@ This call tells if some specific spender is allowed by some owner to performs ac
 #### POST   -   `/token/{tokenId}/approve`
 Approve a different spender for a amount of token you own
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
 - `spender` :  `<string>` Name of the spender user
 - `value`   :  `<int>`    Amount that is allowed to spend
@@ -175,7 +175,7 @@ Approve a different spender for a amount of token you own
 </details>
 <br>
 
-*Output*
+<u>*Output*</u>
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
 
@@ -201,11 +201,11 @@ Approve a different spender for a amount of token you own
 #### GET   -   `/token/{tokenId}/balance/{userID}`
 Gets the token balance of a user
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
 - `userId`  :  `<string>`  Name of the user
   
-*Output*
+<u>*Output*</u>
 - `balance`    :  `<integer>`  User's balance
 - `blocked_balance`    :  `<integer>`  User's blocked balance
 
@@ -230,10 +230,10 @@ Gets the token balance of a user
 #### GET   -   `/token/{tokenId}/transactions`
 Get the token transaction history
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Id of the token
   
-*Output*
+<u>*Output*</u>
 - `list` :  `<json>`  List of transactions of the token
 
 <details>
@@ -268,7 +268,7 @@ Get the token transaction history
 #### POST   -   `/token/{tokenId}/transfer`
 Transfers individual tokens (balances of a token class)
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
 - `to`      :  `<string>`  Destination user
 - `value`   :  `<string>`  Balance to transfer
@@ -286,7 +286,7 @@ Transfers individual tokens (balances of a token class)
 ```
 </details> <br>
   
-*Output*
+<u>*Output*</u>
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
 
@@ -311,7 +311,7 @@ Transfers individual tokens (balances of a token class)
 
 Transfer / withdraw from a user. The user has to be approved to spend individual tokens
 
-*Input*
+<u>*Input*</u>
 - `from` :  `<string>`  Person who approves to spend. He has to have a positive balance
 - `to`   :  `<string>`  Destination user of the funds
 - `value`:  `<string>`  Amount of tokens
@@ -329,7 +329,7 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 ```
 </details><br>
 
-*Output*
+<u>*Output*</u>
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
 
@@ -352,7 +352,7 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 
 Transfer the ownership of a generic token
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
 - `to`      :  `<string>`  New owner
 
@@ -368,7 +368,7 @@ Transfer the ownership of a generic token
 ```
 </details><br>
 
-*Output*
+<u>*Output*</u>
 - `token`  :  `<json>`  Token with updated parameters
 
 <details>
@@ -394,7 +394,7 @@ Transfer the ownership of a generic token
 
 Transfer individual tokens as a blocked balance for a user
 
-*Input*
+<u>*Input*</u>
 - `tokenId` :  `<string>`  Name of the token
 - `to`      :  `<string>`  Destination user of the blocked funds
 - `value`   :  `<string>`  Amount of tokens to be blocked
@@ -412,7 +412,7 @@ Transfer individual tokens as a blocked balance for a user
 ```
 </details><br>
 
-*Output*
+<u>*Output*</u>
 - `blocked_id`    :  `<string>`  Id of the transaction
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
@@ -438,7 +438,7 @@ Transfer individual tokens as a blocked balance for a user
 
 Unblocks a blocked transfer being true equivalent to accept the blocked balance and false equivalent to returning the blocked balance to origin user
 
-*Input*
+<u>*Input*</u>
 - `tokenId`     :  `<string>`  Name of the token
 - `blocked_id`  :  `<string>`  Id of the blocked transaction
 - `accept`      :  `<string>`  Flag to determine the acceptance or not of the transaction
@@ -456,7 +456,7 @@ Unblocks a blocked transfer being true equivalent to accept the blocked balance 
 ```
 </details>
 
-*Output*
+<u>*Output*</u>
 - `id`    :  `<string>`  Id of the transaction
 - `message`    :  `<string>`  Message of the approve transaction
 

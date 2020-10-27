@@ -241,7 +241,7 @@
 <div class="section" id="post-token-create">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create</span></code><a class="headerlink" href="#post-token-create" title="Permalink to this headline">¶</a></h4>
 <p>Initialize a new token in the network with some specific information</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">symbol</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Shortname of the token</p></li>
@@ -260,7 +260,7 @@
 </pre></div>
 </div>
 </details>
- <br><p><em>Output</em></p>
+ <br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
@@ -281,11 +281,11 @@
 <div class="section" id="get-token-tokenid">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code><a class="headerlink" href="#get-token-tokenid" title="Permalink to this headline">¶</a></h4>
 <p>Gets all the token information</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
@@ -306,13 +306,13 @@
 <div class="section" id="get-token-tokenid-allowance-owner-spender">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/allowance/{owner}/{spender}</span></code><a class="headerlink" href="#get-token-tokenid-allowance-owner-spender" title="Permalink to this headline">¶</a></h4>
 <p>This call tells if some specific spender is allowed by some owner to performs actions over the token.</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ownerId</span></code>   :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Owner of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spenderId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Person from whom we want to know how much he is allowed to spend</p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">allowed</span></code>  : <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Quantity of tokens he is allowed to spend</p></li>
 </ul>
@@ -329,7 +329,7 @@
 <div class="section" id="post-token-tokenid-approve">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/approve</span></code><a class="headerlink" href="#post-token-tokenid-approve" title="Permalink to this headline">¶</a></h4>
 <p>Approve a different spender for a amount of token you own</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spender</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the spender user</p></li>
@@ -343,7 +343,7 @@
 </pre></div>
 </div>
 </details>
-<br><p><em>Output</em></p>
+<br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
@@ -362,12 +362,12 @@
 <div class="section" id="get-token-tokenid-balance-userid">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/balance/{userID}</span></code><a class="headerlink" href="#get-token-tokenid-balance-userid" title="Permalink to this headline">¶</a></h4>
 <p>Gets the token balance of a user</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">userId</span></code>  :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the user</p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>  User’s balance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">blocked_balance</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>  User’s blocked balance</p></li>
@@ -386,11 +386,11 @@
 <div class="section" id="get-token-tokenid-transactions">
 <h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transactions</span></code><a class="headerlink" href="#get-token-tokenid-transactions" title="Permalink to this headline">¶</a></h4>
 <p>Get the token transaction history</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the token</p></li>
 </ul>
-<p><em>Output</em></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>  List of transactions of the token</p></li>
 </ul>
@@ -418,7 +418,7 @@
 <div class="section" id="post-token-tokenid-transfer">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transfer</span></code><a class="headerlink" href="#post-token-tokenid-transfer" title="Permalink to this headline">¶</a></h4>
 <p>Transfers individual tokens (balances of a token class)</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Destination user</p></li>
@@ -431,7 +431,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> <br><p><em>Output</em></p>
+</details> <br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
@@ -450,7 +450,7 @@
 <div class="section" id="post-token-tokenid-transferfrom">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferfrom</span></code><a class="headerlink" href="#post-token-tokenid-transferfrom" title="Permalink to this headline">¶</a></h4>
 <p>Transfer / withdraw from a user. The user has to be approved to spend individual tokens</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">from</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Person who approves to spend. He has to have a positive balance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>   :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Destination user of the funds</p></li>
@@ -464,7 +464,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><br><p><em>Output</em></p>
+</details><br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
@@ -483,7 +483,7 @@
 <div class="section" id="post-token-tokenid-transferownership">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferownership</span></code><a class="headerlink" href="#post-token-tokenid-transferownership" title="Permalink to this headline">¶</a></h4>
 <p>Transfer the ownership of a generic token</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  New owner</p></li>
@@ -494,7 +494,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><br><p><em>Output</em></p>
+</details><br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>  :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>  Token with updated parameters</p></li>
 </ul>
@@ -515,7 +515,7 @@
 <div class="section" id="post-token-tokenid-transferblock">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferblock</span></code><a class="headerlink" href="#post-token-tokenid-transferblock" title="Permalink to this headline">¶</a></h4>
 <p>Transfer individual tokens as a blocked balance for a user</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Destination user of the blocked funds</p></li>
@@ -528,7 +528,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><br><p><em>Output</em></p>
+</details><br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">blocked_id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
@@ -549,7 +549,7 @@
 <div class="section" id="post-token-tokenid-transferunblock">
 <h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferunblock</span></code><a class="headerlink" href="#post-token-tokenid-transferunblock" title="Permalink to this headline">¶</a></h4>
 <p>Unblocks a blocked transfer being true equivalent to accept the blocked balance and false equivalent to returning the blocked balance to origin user</p>
-<p><em>Input</em></p>
+<p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code>     :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">blocked_id</span></code>  :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the blocked transaction</p></li>
@@ -562,7 +562,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><p><em>Output</em></p>
+</details><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
