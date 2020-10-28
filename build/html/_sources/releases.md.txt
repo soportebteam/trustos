@@ -4,6 +4,40 @@ TrustOS started with the initial v1.0.0 release. Since that several changes have
 
 ## Track API
 
+<details><summary> v2.1.0 [October 2020]</summary><hr>
+
+**What's new in Track API v2.0.0:**
+
+- ***New concept of "authorised asset"***:
+Until now every asset belong to the user that has created it and there was not possibility of being consulted or updated by others unless it was transferred. Now two types of assets are handled: `own assets and authorised assets`. Thus it's possible for a user not only have access to its own assets but also the ones created by others. Having access to an authorised assets means that it's able to get the current state, to get the history of transactions and to update the metadata of that asset.
+
+- ***New methods to handle authorisation and un-authorisation for an asset***:
+In this model two new methods are required in order to authorise or not a user to access a specific asset.  
+  `POST` - `.../asset/{assetId}/authorise`  
+  `POST` - `.../asset/{assetId}/unauthorise`  
+
+- ***New flag to determine whether the request involves an authorised asset or not***:
+The current methods for consulting and updating an asset have to handle whether the transaction involves an own or authorised asset. For that reason and based on simplicity, a flag `...?isAuthorised=true` is turned on in query for routes: `/asset/{assetId}`, `/asset/{assetId}/transactions`, `/asset/{assetId}/transactions/range`, `/asset/{assetId}/update` to specify that it is an authorised asset. By default, with no flag it refers to an own asset. An example is shown below:  
+`GET` - `.../asset/{assetId}?isAuthorised=true` <-- Gets an authorised asset.  
+`POST` - `.../asset/{assetId}/update?isAuthorised=true` <-- Updates an authorised asset.  
+
+- ***New Smart Contract functionality to emit events based on rules***:
+Smart contracts have been enhanced with event handling. That means it is possible to establish a set of rules some wanted parameters have to accomplish. Smart Contract monitors the values and emit an event, or alarm, every time a value has differed a constant value or exceeded range of values.
+
+- ***New method to establish rules for assets***:
+In this model a new method is required to define the rules the asset must follow. Thus it is possible to monitor the value or range of values for the parameters in every asset update.
+`POST - .../asset/{assetId}/rules`
+
+
+**Changes, future fixes and know issues:**
+
+- Every rule is applicable separately for every asset. So far it is not possible to re-use same rule for two or more assets. This would ease the usability and performance of this method. Moreover the rule can be add once the asset is created, and not during the creation that would be an interesting option. These features will be explored in future and included in a new release.
+- Authorise & un-authorise methods return only a message. So far it is not possible to know what users are authorised to consult / update the asset. This feature will be explored in future and included in a new release.
+
+
+</details>
+
+
 <details><summary> v2.0.0 [June 2020]</summary><hr>
 
 **What's new in Track API v2.0.0:**

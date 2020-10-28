@@ -191,7 +191,26 @@
 <p>TrustOS started with the initial v1.0.0 release. Since that several changes have been implemented in order to improve the functionality and performance of each API. Take a look at the last changes.</p>
 <div class="section" id="track-api">
 <h2>Track API<a class="headerlink" href="#track-api" title="Permalink to this headline">¶</a></h2>
-<details><summary> v2.0.0 [June 2020]</summary><hr><p><strong>What’s new in Track API v2.0.0:</strong></p>
+<details><summary> v2.1.0 [October 2020]</summary><hr><p><strong>What’s new in Track API v2.0.0:</strong></p>
+<ul class="simple">
+<li><p><em><strong>New concept of “authorised asset”</strong></em>:
+Until now every asset belong to the user that has created it and there was not possibility of being consulted or updated by others unless it was transferred. Now two types of assets are handled: <code class="docutils literal notranslate"><span class="pre">own</span> <span class="pre">assets</span> <span class="pre">and</span> <span class="pre">authorised</span> <span class="pre">assets</span></code>. Thus it’s possible for a user not only have access to its own assets but also the ones created by others. Having access to an authorised assets means that it’s able to get the current state, to get the history of transactions and to update the metadata of that asset.</p></li>
+<li><p><em><strong>New methods to handle authorisation and un-authorisation for an asset</strong></em>:
+In this model two new methods are required in order to authorise or not a user to access a specific asset.<br /><code class="docutils literal notranslate"><span class="pre">POST</span></code> - <code class="docutils literal notranslate"><span class="pre">.../asset/{assetId}/authorise</span></code><br /><code class="docutils literal notranslate"><span class="pre">POST</span></code> - <code class="docutils literal notranslate"><span class="pre">.../asset/{assetId}/unauthorise</span></code></p></li>
+<li><p><em><strong>New flag to determine whether the request involves an authorised asset or not</strong></em>:
+The current methods for consulting and updating an asset have to handle whether the transaction involves an own or authorised asset. For that reason and based on simplicity, a flag <code class="docutils literal notranslate"><span class="pre">...?isAuthorised=true</span></code> is turned on in query for routes: <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}</span></code>, <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transactions</span></code>, <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/transactions/range</span></code>, <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code> to specify that it is an authorised asset. By default, with no flag it refers to an own asset. An example is shown below:<br /><code class="docutils literal notranslate"><span class="pre">GET</span></code> - <code class="docutils literal notranslate"><span class="pre">.../asset/{assetId}?isAuthorised=true</span></code> &lt;– Gets an authorised asset.<br /><code class="docutils literal notranslate"><span class="pre">POST</span></code> - <code class="docutils literal notranslate"><span class="pre">.../asset/{assetId}/update?isAuthorised=true</span></code> &lt;– Updates an authorised asset.</p></li>
+<li><p><em><strong>New Smart Contract functionality to emit events based on rules</strong></em>:
+Smart contracts have been enhanced with event handling. That means it is possible to establish a set of rules some wanted parameters have to accomplish. Smart Contract monitors the values and emit an event, or alarm, every time a value has differed a constant value or exceeded range of values.</p></li>
+<li><p><em><strong>New method to establish rules for assets</strong></em>:
+In this model a new method is required to define the rules the asset must follow. Thus it is possible to monitor the value or range of values for the parameters in every asset update.
+<code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">-</span> <span class="pre">.../asset/{assetId}/rules</span></code></p></li>
+</ul>
+<p><strong>Changes, future fixes and know issues:</strong></p>
+<ul class="simple">
+<li><p>Every rule is applicable separately for every asset. So far it is not possible to re-use same rule for two or more assets. This would ease the usability and performance of this method. Moreover the rule can be add once the asset is created, and not during the creation that would be an interesting option. These features will be explored in future and included in a new release.</p></li>
+<li><p>Authorise &amp; un-authorise methods return only a message. So far it is not possible to know what users are authorised to consult / update the asset. This feature will be explored in future and included in a new release.</p></li>
+</ul>
+</details><details><summary> v2.0.0 [June 2020]</summary><hr><p><strong>What’s new in Track API v2.0.0:</strong></p>
 <ul class="simple">
 <li><p>Compatibility with Hyperledger Fabric v2.x.x</p></li>
 <li><p>Integration with TrustID (ID API) for interacting with the network and offer basic identity management services to users (create, import, export verify and sign)</p></li>
