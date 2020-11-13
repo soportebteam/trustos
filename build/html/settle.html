@@ -111,16 +111,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Settle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Settle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-settlement-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid-history">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-settlement-settleid-settled">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-settlement-settleid-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/update</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-settlement-settleid-settle">POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-settlement-settleid-clear">POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/clear</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#api-methods">API Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-settlement-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-settlement-settleid">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-settlement-settleid-history">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-settlement-settleid-settled">GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-settlement-settleid-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/update</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-settlement-settleid-settle">POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-settlement-settleid-clear">POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/clear</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#architecture-of-the-project">Architecture of the project</a></li>
@@ -130,6 +130,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html">Cert</a></li>
 <li class="toctree-l1"><a class="reference internal" href="id.html">TrustID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
@@ -237,13 +238,14 @@ main variable used to upload records.</p></li>
 </div>
 </details>
 <br></div>
-<div class="section" id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="api-methods">
+<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <p><img alt="SettleAPI methods" src="_images/settle_swagger.png" /></p>
 <details>
   <summary><em><strong>Settlement methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="post-settlement-create">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code><a class="headerlink" href="#post-settlement-create" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code><a class="headerlink" href="#post-settlement-create" title="Permalink to this headline">¶</a></h3>
 <p>Creates a new settlement structure.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -298,7 +300,7 @@ main variable used to upload records.</p></li>
 </details></div>
 <hr class="docutils" />
 <div class="section" id="get-settlement-settleid">
-<h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code><a class="headerlink" href="#get-settlement-settleid" title="Permalink to this headline">¶</a></h4>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code><a class="headerlink" href="#get-settlement-settleid" title="Permalink to this headline">¶</a></h3>
 <p>Gets the current status of a settlement structure. It shows the current
 status of aggregates.</p>
 <p><u><em>Input</em></u></p>
@@ -340,7 +342,7 @@ status of aggregates.</p>
 </details></div>
 <hr class="docutils" />
 <div class="section" id="get-settlement-settleid-history">
-<h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code><a class="headerlink" href="#get-settlement-settleid-history" title="Permalink to this headline">¶</a></h4>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code><a class="headerlink" href="#get-settlement-settleid-history" title="Permalink to this headline">¶</a></h3>
 <p>Gets the history of changes over a settlement structure according to updated records.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -398,7 +400,7 @@ status of aggregates.</p>
 </details></div>
 <hr class="docutils" />
 <div class="section" id="get-settlement-settleid-settled">
-<h4>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code><a class="headerlink" href="#get-settlement-settleid-settled" title="Permalink to this headline">¶</a></h4>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code><a class="headerlink" href="#get-settlement-settleid-settled" title="Permalink to this headline">¶</a></h3>
 <p>Gets all settlements performed over a specific settleId.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -427,7 +429,7 @@ status of aggregates.</p>
 </details></div>
 <hr class="docutils" />
 <div class="section" id="post-settlement-settleid-update">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/update</span></code><a class="headerlink" href="#post-settlement-settleid-update" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/update</span></code><a class="headerlink" href="#post-settlement-settleid-update" title="Permalink to this headline">¶</a></h3>
 <p>It uploads a new record to a settlement structure updating
 the status of aggregates according to the <code class="docutils literal notranslate"><span class="pre">aggregationType</span></code> defined
 for the settling structure.</p>
@@ -492,7 +494,7 @@ for the settling structure.</p>
 </details></div>
 <hr class="docutils" />
 <div class="section" id="post-settlement-settleid-settle">
-<h4>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settle</span></code><a class="headerlink" href="#post-settlement-settleid-settle" title="Permalink to this headline">¶</a></h4>
+<h3>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settle</span></code><a class="headerlink" href="#post-settlement-settleid-settle" title="Permalink to this headline">¶</a></h3>
 <p>Settles a given settlement structure. It aggregates according to the
 current status of aggregates and the <code class="docutils literal notranslate"><span class="pre">aggregationType</span></code> defined for the settlement
 structure.</p>
@@ -520,7 +522,7 @@ structure.</p>
 </details></div>
 <hr class="docutils" />
 <div class="section" id="post-settlement-settleid-clear">
-<h4>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/clear</span></code><a class="headerlink" href="#post-settlement-settleid-clear" title="Permalink to this headline">¶</a></h4>
+<h3>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/clear</span></code><a class="headerlink" href="#post-settlement-settleid-clear" title="Permalink to this headline">¶</a></h3>
 <p>Clears a settlement structure. It removes the current status of the aggregates.
 This may be used when unconsistent updates have been performed or errors have
 been detected in the updating of records.</p>
@@ -555,7 +557,6 @@ been detected in the updating of records.</p>
 </details>
 </details>
 <br></div>
-</div>
 </div>
 <div class="section" id="architecture-of-the-project">
 <h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>

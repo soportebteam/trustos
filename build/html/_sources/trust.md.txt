@@ -45,7 +45,7 @@ This is the structure of a trust point:
 </details>
 <br>
 
-### Methods
+## API Methods
 
 ![TrustAPI methods](./images/trust_swagger.png)
 

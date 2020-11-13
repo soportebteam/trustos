@@ -32,7 +32,7 @@ Every token has the following structure:
 </details>
 <br>
 
-### Methods
+## API Methods
 
 ![TokenAPI methods](./images/token_swagger.png)
 

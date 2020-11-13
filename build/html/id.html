@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Use cases" href="use_cases.html" />
-    <link rel="prev" title="Trust" href="trust.html" /> 
+    <link rel="prev" title="Cert" href="cert.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html">Cert</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">TrustID</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#trustid-sdk">TrustID SDK</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
@@ -124,20 +125,20 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id-api">ID API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api-specification">API Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-login">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-refresh">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-sign">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-revoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-create">POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-invoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#api-methods">API Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-login">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-refresh">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-sign">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-revoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-create">POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-id-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-service-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-service-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-service-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-service-invoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a></li>
@@ -351,10 +352,11 @@ MongoKeystore comming soon. Private keys from users are stored ciphered
 with a passphrase. In order to call every function and unlock the account
 the passphrase needs to be provided. The API has the following routes.</p>
 </div>
-<div class="section" id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="api-methods">
+<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="post-id-login">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code><a class="headerlink" href="#post-id-login" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code><a class="headerlink" href="#post-id-login" title="Permalink to this headline">¶</a></h3>
 <p>It return a JWT to interact with services authenticated
 using JWT using TrustID as identity backend. This functionality is offered
 for every user in the system (even those for which we are not the
@@ -373,11 +375,11 @@ and we want to support this authentication even of TrustID users.</p>
 </div>
 </details><br></div>
 <div class="section" id="post-id-refresh">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code><a class="headerlink" href="#post-id-refresh" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code><a class="headerlink" href="#post-id-refresh" title="Permalink to this headline">¶</a></h3>
 <p>It refreshes a JWT login.</p>
 </div>
 <div class="section" id="post-id-sign">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>:<a class="headerlink" href="#post-id-sign" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code>:<a class="headerlink" href="#post-id-sign" title="Permalink to this headline">¶</a></h3>
 <p>Requests a signature using a key in custody. Useful when a user has to
 share signed payloads off-chain.</p>
 <details>
@@ -393,7 +395,7 @@ share signed payloads off-chain.</p>
 ```
 </details><br></div>
 <div class="section" id="post-id-revoke">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code><a class="headerlink" href="#post-id-revoke" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code><a class="headerlink" href="#post-id-revoke" title="Permalink to this headline">¶</a></h3>
 <p>Sends a request to revoke a specific identity. You need to be
 the owner of the identity or its controller to perform this task.</p>
 <details>
@@ -405,7 +407,7 @@ the owner of the identity or its controller to perform this task.</p>
 </div>
 </details><br></div>
 <div class="section" id="post-id-create">
-<h4>POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code><a class="headerlink" href="#post-id-create" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code><a class="headerlink" href="#post-id-create" title="Permalink to this headline">¶</a></h3>
 <p>Create a new identity with the key determined in type and a
 passphrase to lock the private key.</p>
 <details>
@@ -417,7 +419,7 @@ passphrase to lock the private key.</p>
 </div>
 </details><br></div>
 <div class="section" id="post-id-verify">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code><a class="headerlink" href="#post-id-verify" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code><a class="headerlink" href="#post-id-verify" title="Permalink to this headline">¶</a></h3>
 <p>Verification of a registered identity by a controller in the system.</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -429,7 +431,7 @@ passphrase to lock the private key.</p>
 ```
 </details><br></div>
 <div class="section" id="post-id-get">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code><a class="headerlink" href="#post-id-get" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code><a class="headerlink" href="#post-id-get" title="Permalink to this headline">¶</a></h3>
 <p>Gets the information from a registered identity.</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -441,7 +443,7 @@ passphrase to lock the private key.</p>
 ```
 </details><br></div>
 <div class="section" id="post-service-create">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code><a class="headerlink" href="#post-service-create" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code><a class="headerlink" href="#post-service-create" title="Permalink to this headline">¶</a></h3>
 <p>Create a new service in the TrustID network.</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -455,7 +457,7 @@ passphrase to lock the private key.</p>
 ```
 </details><br></div>
 <div class="section" id="post-service-update">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h3>
 <p>Updates the information of a service.</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -469,7 +471,7 @@ passphrase to lock the private key.</p>
 ```
 </details><br></div>
 <div class="section" id="post-service-get">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h3>
 <p>Gets the registered information for a service.</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -481,7 +483,7 @@ passphrase to lock the private key.</p>
 ```
 </details><br></div>
 <div class="section" id="post-service-invoke">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code><a class="headerlink" href="#post-service-invoke" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code><a class="headerlink" href="#post-service-invoke" title="Permalink to this headline">¶</a></h3>
 <p>Invoke a function from a distributed service using TrustID.</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -502,7 +504,6 @@ passphrase to lock the private key.</p>
 check the following <a class="reference external" href="https://github.com/telefonica-tid/coren-id-api">repo</a>.</p>
 </div>
 </div>
-</div>
 <div class="section" id="roadmap">
 <h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
 <p>Work in progress…</p>
@@ -520,7 +521,7 @@ check the following <a class="reference external" href="https://github.com/telef
         <a href="use_cases.html" class="btn btn-neutral float-right" title="Use cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="trust.html" class="btn btn-neutral" title="Trust" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cert.html" class="btn btn-neutral" title="Cert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

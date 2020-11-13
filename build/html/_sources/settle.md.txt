@@ -42,7 +42,7 @@ main variable used to upload records.
 </details>
 <br>
 
-### Methods
+## API Methods
 
 ![SettleAPI methods](./images/settle_swagger.png)
 

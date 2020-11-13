@@ -23,6 +23,7 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    token
    settle
    trust
+   cert
    id
    use_cases
    tutorials

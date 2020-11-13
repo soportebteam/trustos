@@ -1,0 +1,779 @@
+# Cert
+
+Cert API is used to create, sign and verify **digital certificates** on the blockchain. The entire functionalities are based on a Smart Contract that handles the lifecycle of every certificate in the most autonomous and secure way.
+
+## API Specification
+
+An abstraction API with all the certificate functionalities
+
+### Certificate
+
+A certificate is a tamper-proof and verifiable collection of data that represents a process, a file/document, an accomplishment or any activity that can benefit from the inmmutability and authenticity.
+
+Thanks to certificates, it allows you to **assure any fact in your business case recording the information along with parameters that everyone can verify** (e.g. signatures, issuance/expiration time, network evidences, etc..). 
+
+Every certificate is identified by a unique ID and is composed of three complementary but different parts: Data, Metadata and Access.
+
+![Certificate model](./images/cert_model.png)
+
+Thus a certificate has the following structure:
+- `certID` :  `<string>` Unique identifier of the certificate 
+- `data`    :  `<json>`   JSON of certificate data that is inmutable
+- `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. signatures, revocation and public registration)
+- `access` :  `<json>` JSON ofgranted accesse to interact with the certificate (e.g. admin, sign, read access)
+<details>
+  <summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "certID": "...",
+  "data": {},
+  "metadata": [],
+  "access": {}
+}
+```
+</details> 
+<br/>
+
+
+#### <u>Certificate data</u>
+
+Data contains the **inmutable information about the certificate**: who issued it, when it was issued, when it will expire, how to verify it and of course what it is certified and what does it mean.
+
+The certificate `data` contains the following fields:
+- `badge` :  `<json>` JSON of **badge information** that characterises the certificate (e.g. name, description, type, content, issuer)
+- `issuedOn` :  `<date>` Datetime of when the certificate is issued
+- `expires` :  `<date>` Datetime of when the certificate should no longer be considered valid
+- `verification` :  `<json>` JSON of **verification information**. It contains the required signers
+- `hash` :  `<string>` Hash of the data information
+
+<details>
+  <summary><em><strong>Sample Data structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "badge":{
+      "certID": "...",
+      "name": "...",
+      "description": "...",
+      "type": "...",            // Type should be: file / asset
+      "content": [],            // Content to certify
+      "issuer": "did:vtn:admin"
+  },
+  "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
+  "expires": "2021-12-31 23:59:59 +0000 UTC",
+  "verification": {
+      "signers": []             // List of required signers
+  },
+  "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+}
+```
+</details> 
+<br/>
+
+
+#### <u>Certificate metadata</u>
+
+Metadata contains the **additional information that feeds the certificate** in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid (e.g. signatures)
+
+The certificate `metadata` contains the following fields:
+- `certID` :  `<string>` Unique identifier of the certificate 
+- `signatures` :  `<json>` JSON of **signatures** added for the verification of the certificate
+- `evidences` :  `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites
+- `revoked` :  `<bool>` Flag to determine that the certificate is revoked and is not longer valid
+- `datetime` :  `<string>` Datetime of when the transaction (signature, evidence or revocation) is done 
+- `hfTxId` :  `<string>` Current transaction identifier in Hyperledger Fabric
+- `hash` :  `<string>` Hash of the transaction
+
+<details>
+  <summary><em><strong>Sample Metadata structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "certID": "...",
+  "signatures": {},         // Collection of signatures
+  "evidences": {},          // Collection of evidences
+  "revoked": false,    
+  "datetime": "1592568489",
+  "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+  "hash": "oRj6yKH4EDGCGiKRjHzv3yuqX5wAEzwZFgLnE9jwRIs="
+}
+```
+</details> 
+<br/>
+
+#### <u>Certificate access</u>
+Access contains **list of authorised users depending on their role** (i.e. admin, sign, read) for a certificate in order to control the possible interaction of every user 
+
+The certificate `access` contains the following fields:
+- `admin` :  `<json>` Json of **admin**. An admin can manage, sign and revoke the certificate
+- `sign` :  `<json>` Json of **readers**. A signer can sign only once and read the certificate
+- `read` :  `<json>` Json of **readers**. A reader can only read and verify the certificate
+- `public` :  `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+
+<details>
+  <summary><em><strong>Sample Access structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "admin":{
+    "did:vtn:admin": 1
+  },
+  "sign":{
+    "did:vtn:signer1": 1,  // Signer has not signed yet
+    "did:vtn:signer2": 0   // Signer has already signed
+  },
+  "read":{
+    "did:vtn:reader1": 1,  
+    "did:vtn:reader2": 1  
+  },
+  "public": false         // The certificate is not visible for all
+}
+```
+</details> 
+<br/>
+
+## API Methods 
+
+![CertAPI Swagger](./images/cert_swagger.png)
+
+<details>
+  <summary><em><strong>API methods</strong></em> (Click to expand)</summary>
+
+---
+
+####     POST -  `/certificate/file/create` 
+Create a certificate from a file/document/collection of files on Blockchain. 
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+- `name`    :  `<string>` Name of the certificate
+- `description`    :  `<string>` Short description of the certificate
+- `content`    :  `<json>` Content to certify (*)
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
+- `readers`    :  `<string array>` List of readers, in case it is not public 
+- `signers`    :  `<string array>` List of required signers
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "certID": "certABC",
+  "name": "ABC Certificate",
+  "description": "This certificate is a tamper-proof and valid record of the ABC document file",
+  "content": {},   
+  "public": false,
+  "readers": [
+    "did:vtn:reader1",
+    "did:vtn:reader2"
+  ],
+  "signers": [
+    "did:vtn:signer1",
+    "did:vtn:signer2"
+  ]
+}
+```
+</details> 
+<br>
+
+(*) **Content** field is JSON format and open for every use case. An example is shown below:
+
+<details>
+  <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "content":{
+    "file_name":"example.pdf",
+    "file_hash":"3aAFa39ho53589gbxCSkFj239y90tiFAa78xZAuo=",
+    "file_size":"10KB"
+  }
+}
+```
+
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "certABC",
+    "data": {
+        "badge": {
+            "name": "ABC Certificate",
+            "description": "This certificate is a tamper-proof and valid record of the ABC document file",
+            "type": "file",
+            "content": []
+        },
+        "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
+        "expires": "",
+        "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+        },
+        "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
+    },
+    "metadata": [
+        {
+          "signatures": {},
+          "public_seeds": {},
+          "revoked": false
+        }
+    ],
+    "access": {
+        "admin": {
+            "did:vtn:admin": 1
+        },
+        "read": {
+            "did:vtn:reader1": 1,
+            "did:vtn:reader2": 1
+        },
+        "sign": {
+            "did:vtn:signer1": 1,
+            "did:vtn:signer2": 1
+        },
+        "public": false
+    }
+  }
+}
+```
+</details> 
+
+---
+
+####     POST -  `/certificate/asset/create` 
+Create a certificate from a file/document/collection of files on Blockchain. 
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+- `name`    :  `<string>` Name of the certificate
+- `description`    :  `<string>` Short description of the certificate
+- `assetID`    :  `<string>` Asset to certify (*)
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
+- `readers`    :  `<string array>` List of readers, in case it is not public 
+- `signers`    :  `<string array>` List of required signers
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "certID": "certABC",
+  "name": "ABC Certificate",
+  "description": "This certificate is a tamper-proof and valid record of the process",
+  "assetID": "asset_example1",   
+  "public": false,
+  "readers": [
+    "did:vtn:reader1",
+    "did:vtn:reader2"
+  ],
+  "signers": [
+    "did:vtn:signer1",
+    "did:vtn:signer2"
+  ]
+}
+```
+
+(*) **assetID** field is used for certify assets created with Track API. If you have already created some assets (f.e. asset_example1, asset_example2, asset_example3) you can choose what asset to certify and also what range of its transactions.
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "certABC",
+    "data": {
+        "badge": {
+            "name": "ABC Certificate",
+            "description": "This certificate is a tamper-proof and valid record of the process",
+            "type": "asset",
+            "content": []
+        },
+        "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
+        "expires": "",
+        "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+        },
+        "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
+    },
+    "metadata": [
+        {
+          "signatures": {},
+          "public_seeds": {},
+          "revoked": false
+        }
+    ],
+    "access": {
+        "admin": {
+            "did:vtn:admin": 1
+        },
+        "read": {
+            "did:vtn:reader1": 1,
+            "did:vtn:reader2": 1
+        },
+        "sign": {
+            "did:vtn:signer1": 1,
+            "did:vtn:signer2": 1
+        },
+        "public": false
+    }
+  }
+}
+```
+</details> 
+
+---
+
+####    GET     -   `/certificate/{certID}`  
+
+
+Get certificate from the blockchain
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+  
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "certABC",
+    "data": {
+        "badge": {
+            "name": "ABC Certificate",
+            "description": "This certificate is a tamper-proof and valid record of the process",
+            "type": "asset",
+            "content": []
+        },
+        "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
+        "expires": "",
+        "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+        },
+        "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
+    },
+    "metadata": [
+        {
+          "signatures": {},
+          "public_seeds": {},
+          "revoked": false
+        }
+    ],
+    "access": {}
+  }
+}
+```
+</details> 
+
+---
+
+####     POST -  `/certificate/{certID}/sign` 
+Sign a certificate 
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "signature": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTER2ZfZklCRVp3bUF...",
+    "signer": {
+        "controller": "did:vtn:controller",
+        "id": "did:vtn:trustid:signer1",
+        "publicKey": "-----BEGIN PUBLIC KEY----- ... -----END PUBLIC KEY-----"
+    },
+    "type": "SignedBadge"
+  }
+}
+```
+</details> 
+
+---
+
+####     POST -  `/certificate/{certID}/sign/external` 
+Sign a certificate with external identity and keys
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+- `signature`    :  `<string>` Name of the certificate
+- `publicKey`    :  `<string>` Short description of the certificate
+- `did`    :  `<string>` Asset to certify (*)
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "signature": "eyJSosd289ap389fa8uf3u8u4er8912rz....",
+  "publicKey": "--------BEGIN PUBLIC KEY-------- ... --------END PUBLIC KEY--------",
+  "did": "did:external:signer3"
+}
+```
+
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "signature": "eyJSosd289ap389fa8uf3u8u4er8912rz...",
+    "signer": {
+        "controller": "did:vtn:controller",
+        "id": "did:external:signer3",
+        "publicKey": "-----BEGIN PUBLIC KEY----- ... -----END PUBLIC KEY-----"
+    },
+    "type": "SignedBadge"
+  }
+}
+```
+</details> 
+
+---
+
+
+####     POST -  `/certificate/{certID}/register` 
+Register a certificate evidence in public network
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+- `network`    :  `<string>` Network to register the certificate evidence
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "network": "Ethereum"
+}
+```
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "message":"The certificate has been successfully registered"
+}
+```
+</details> 
+
+---
+
+####     POST -  `/certificate/{certID}/revoke` 
+Revoke a certificate 
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "message": "The certificate has been successfully revoked"
+}
+```
+</details> 
+
+--- 
+
+####   GET  -     `/certificate/{certID}/history`  
+
+Get all transactions for the whole lifecycle of the certificate
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+
+<u>*Output*</u>
+- `Certificate transactions`    :  `<string>` A list of all transactions
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "cert_1",
+    "data": {
+      "badge": {
+        "name": "",
+        "description": "",
+        "type": "cert_1",
+        "content": {}
+      },
+      "issuedOn": "2025-12-31T23:59:59+00:00",
+      "expires": "",
+      "verification": {}
+    },
+    "metadata": [
+      {
+      "signatures": {...},
+      "public_seeds": {...},
+      "revoked": true,
+      "datetime": "1592569999",
+      "hfTxId": "9e0593d86c67e057c873872cce40812d5c9fd9800083447ca1ef080aea316d84",
+      "hash": "GYzXS+DLPXVaZgFIqI3lE554Y5pb00ctkpkWb5K4Tyg="
+    },
+    {
+      "signatures": {...},
+      "public_seeds": {...},
+      "revoked": false,
+      "datetime": "1592568888",
+      "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+      "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+    },
+    
+      ...
+    
+    ],
+    "access": {}
+  }
+}
+
+```
+</details>
+
+---
+
+#### GET   -    `/certificates`  
+
+Lists all the certificates of a user
+
+<u>*Input*</u>
+ N/A. It returns all the certificates which belong to the login user
+
+<u>*Output*</u>
+- `Certificate list`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": [
+    "cert1",
+    "cert2",
+    "cert3"
+  ]
+}
+```
+</details>
+
+---
+
+####   GET  -     `/certificate/{certID}/access`  
+
+Get all granted accesses for the certificate
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+
+<u>*Output*</u>
+- `Access`    :  `<string>` A list of all accesses
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+		"admin": {
+			"did:vtn:admin": 1
+		},
+		"read": {
+			"did:vtn:reader1": 1,
+			"did:vtn:reader2": 1
+		},
+		"sign": {
+			"did:vtn:signer1": 1,
+			"did:vtn:signer2": 1
+		},
+		"public": false
+}
+```
+</details>
+
+---
+
+####   POST     - `/certificate/{certID}/access`  
+
+Authorise the reading access for a certificate. The user has to be the owner (admin) of the certificate. Readers are overwriten in every call
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
+- `readers`    :  `<string array>` List of readers, in case it is not public 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "public": false,
+		"readers": ["did:vtn:reader3","did:vtn:reader4"]
+}
+```
+</details> 
+<br>
+
+<u>*Output*</u>
+- `Access`    :  `<json>`  A list of all accesses
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+		"admin": {
+			"did:vtn:admin": 1
+		},
+		"read": {
+			"did:vtn:reader3": 1,
+			"did:vtn:reader4": 1
+		},
+		"sign": {
+			"did:vtn:signer1": 1,
+			"did:vtn:signer2": 1
+		},
+		"public": false
+}
+```
+</details>
+
+---
+
+####   GET  -     `/certificate/{certID}/signers`  
+
+Get the signers and their signatures for the certificate
+
+<u>*Input*</u>
+- `certID` :  `<string>` Unique identifier of the certificate
+
+<u>*Output*</u>
+- `Signers`    :  `<string>` A list of all signers with their signature and public key
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "did:vtn:signer1": {},
+    "did:vtn:signer2": {}
+  }
+}
+```
+</details>
+</details>
+<br/>
+
+## Architecture of the project
+```
+coren-certapi
+├── api
+      ├── handler           // HTTP logic
+      ├── model             // models used by the application
+      ├── service           // Usecases logic
+      ├── util              // Tools used by the application
+          ├── log           // Logger tool
+          ├── http          // Http util
+          └── Config        // Tool to load the configuration from yaml files
+      └── app.go            // Router application
+├── config
+      └── config.yaml       // Config file
+├── docs
+      └── docs.go           // Swagger doc file
+├── postman                 // Postman collection and environment to test the API
+      ├── collection    
+      └── environment
+├── docker-compose.yaml     // Instructions to build docker container
+├── Dockerfile              // Instructions to build docker image
+├── init.sh                 // Script with global environment variables
+└── main.go                 // Main app
+ ```   
+
+## How we run the Application
+As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
+
+## Testing the Application
+In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-certapi module
+
+Also you can download the files in the links below:
+
+<a href="#" download> - Postman collection</a>
+<br>
+<a href="_static/environment.json" download> - Postman environment</a>
+
+## Errors management
+  
+Cert API errors are managed through the following nomenclature **CERT-XX** which corresponds to:<br>
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0pky">Code</th>
+    <th class="tg-0pky">Description</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">CERT-00</td>
+    <td class="tg-0pky">Service is down</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">CERT-01</td>
+    <td class="tg-0pky">Error parsing any data structure</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CERT-02</td>
+    <td class="tg-0lax">Error of some kind of functionality</td>
+  </tr>
+</table>
+
+<br/>
+

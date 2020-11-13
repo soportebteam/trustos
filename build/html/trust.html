@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TrustID" href="id.html" />
+    <link rel="next" title="Cert" href="cert.html" />
     <link rel="prev" title="Settle" href="settle.html" /> 
 </head>
 
@@ -112,16 +112,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Trust</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#trust-point">Trust Point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid-history">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-trust-assetid-create">POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid-merkleroot">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-trust-assetid-merkleroot-history">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-trust-assetid-register">POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-trust-assetid-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#api-methods">API Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-trust-assetid">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-trust-assetid-history">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-trust-assetid-create">POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-trust-assetid-merkleroot">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-trust-assetid-merkleroot-history">GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-trust-assetid-register">POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-trust-assetid-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#merkleroot">MerkleRoot</a></li>
 </ul>
 </li>
@@ -131,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#errors-management">Errors management</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html">Cert</a></li>
 <li class="toctree-l1"><a class="reference internal" href="id.html">TrustID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
@@ -241,13 +242,14 @@
 </div>
 </details>
 <br></div>
-<div class="section" id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="api-methods">
+<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <p><img alt="TrustAPI methods" src="_images/trust_swagger.png" /></p>
 <details>
   <summary><em><strong>Trust methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="get-trust-assetid">
-<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code><a class="headerlink" href="#get-trust-assetid" title="Permalink to this headline">¶</a></h4>
+<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code><a class="headerlink" href="#get-trust-assetid" title="Permalink to this headline">¶</a></h3>
 <p>Gets the last trust point in the system for a specific asset</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -276,7 +278,7 @@
 </details></div>
 <hr class="docutils" />
 <div class="section" id="get-trust-assetid-history">
-<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code><a class="headerlink" href="#get-trust-assetid-history" title="Permalink to this headline">¶</a></h4>
+<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code><a class="headerlink" href="#get-trust-assetid-history" title="Permalink to this headline">¶</a></h3>
 <p>Gets all trust point history in the system for a specific asset</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -317,7 +319,7 @@
 </details></div>
 <hr class="docutils" />
 <div class="section" id="post-trust-assetid-create">
-<h4>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code><a class="headerlink" href="#post-trust-assetid-create" title="Permalink to this headline">¶</a></h4>
+<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code><a class="headerlink" href="#post-trust-assetid-create" title="Permalink to this headline">¶</a></h3>
 <p>Creates a trust point in the system for a specific asset</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -346,7 +348,7 @@
 </details></div>
 <hr class="docutils" />
 <div class="section" id="get-trust-assetid-merkleroot">
-<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot" title="Permalink to this headline">¶</a></h4>
+<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot" title="Permalink to this headline">¶</a></h3>
 <p>Gets the last trust merkle root stored in the system</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -369,7 +371,7 @@
 </details></div>
 <hr class="docutils" />
 <div class="section" id="get-trust-assetid-merkleroot-history">
-<h4>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot-history" title="Permalink to this headline">¶</a></h4>
+<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot-history" title="Permalink to this headline">¶</a></h3>
 <p>Gets the trust merkle root history stored in the system</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -399,7 +401,7 @@
 </details></div>
 <hr class="docutils" />
 <div class="section" id="post-trust-assetid-register">
-<h4>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code><a class="headerlink" href="#post-trust-assetid-register" title="Permalink to this headline">¶</a></h4>
+<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code><a class="headerlink" href="#post-trust-assetid-register" title="Permalink to this headline">¶</a></h3>
 <p>Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -428,7 +430,7 @@
 </details></div>
 <hr class="docutils" />
 <div class="section" id="post-trust-assetid-verify">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code><a class="headerlink" href="#post-trust-assetid-verify" title="Permalink to this headline">¶</a></h4>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code><a class="headerlink" href="#post-trust-assetid-verify" title="Permalink to this headline">¶</a></h3>
 <p>Verifies a trust point</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -482,7 +484,6 @@
 </details>
 </details>
 <br></div>
-</div>
 <div class="section" id="merkleroot">
 <h3>MerkleRoot<a class="headerlink" href="#merkleroot" title="Permalink to this headline">¶</a></h3>
 <p>In order to achieve the integrity and inmutability of all trust points, every time a trust point is create a parallel process is executed. This process consist of the building of a trust-based merkle tree. All the trust points created until that moment are the leaves of the tree that generates a unique merkle root. That merkle root, called as trustRoot, is registered in HF as well as in Ethereum to proof the integrity. So, every time a new trust point is created, a new trustRoot is created too, and it could be registered in Ethereum or not, depends of the user neccessity</p>
@@ -581,7 +582,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="id.html" class="btn btn-neutral float-right" title="TrustID" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cert.html" class="btn btn-neutral float-right" title="Cert" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="settle.html" class="btn btn-neutral" title="Settle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

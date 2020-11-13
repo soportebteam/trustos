@@ -48,7 +48,7 @@ Every asset has the following structure:
 </details> 
 <br>
 
-### Methods
+## API Methods
 
 ![TrackAPI methods](./images/track_swagger.png)
 

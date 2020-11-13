@@ -134,7 +134,7 @@ MongoKeystore comming soon. Private keys from users are stored ciphered
 with a passphrase. In order to call every function and unlock the account
 the passphrase needs to be provided. The API has the following routes.
 
-### Methods
+## API Methods
 
 #### POST   -   `/id/login`
 It return a JWT to interact with services authenticated
