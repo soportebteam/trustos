@@ -20,7 +20,7 @@ Thus a certificate has the following structure:
 - `certID` :  `<string>` Unique identifier of the certificate 
 - `data`    :  `<json>`   JSON of certificate data that is inmutable
 - `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. signatures, revocation and public registration)
-- `access` :  `<json>` JSON ofgranted accesse to interact with the certificate (e.g. admin, sign, read access)
+- `access` :  `<json>` JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)
 
 <details>
   <summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary>
