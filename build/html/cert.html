@@ -121,7 +121,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api-methods">API Methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#post-certificate-file-create">POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/file/create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-certificate-content-create">POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/content/create</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-certificate-asset-create">POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/asset/create</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-certificate-certid">GET     -   <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-certificate-certid-sign">POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign</span></code></a></li>
@@ -133,6 +133,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#get-certificate-certid-access">GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/access</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-certificate-certid-access">POST     - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/access</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-certificate-certid-signers">GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-certificate-certid-signers-add">POST  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers/add</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#architecture-of-the-project">Architecture of the project</a></li>
@@ -227,7 +228,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of certificate data that is inmutable</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json</span> <span class="pre">array&gt;</span></code> Array of transactions that feed the certificate (e.g. signatures, revocation and public registration)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json</span> <span class="pre">array&gt;</span></code> Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)</p></li>
 </ul>
 <details>
@@ -242,13 +243,12 @@
 </details> 
 <br/><div class="section" id="u-certificate-data-u">
 <h4><u>Certificate data</u><a class="headerlink" href="#u-certificate-data-u" title="Permalink to this headline">¶</a></h4>
-<p>Data contains the <strong>inmutable information about the certificate</strong>: who issued it, when it was issued, when it will expire, how to verify it and of course what it is certified and what does it mean.</p>
+<p>Data contains the <strong>inmutable information about the certificate</strong>: who issued it, when it was issued, when it will expire and of course what it is certified and what does it mean.</p>
 <p>The certificate <code class="docutils literal notranslate"><span class="pre">data</span></code> contains the following fields:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">badge</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>badge information</strong> that characterises the certificate (e.g. name, description, type, content, issuer)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">issuedOn</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;</span></code> Datetime of when the certificate is issued</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">expires</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;</span></code> Datetime of when the certificate should no longer be considered valid</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">verification</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>verification information</strong>. It contains the required signers</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the data information</p></li>
 </ul>
 <details>
@@ -257,15 +257,12 @@
       <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
       <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>            <span class="c1">// Type should be: file / asset</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>            <span class="c1">// Type should be: content / asset</span>
       <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="p">[],</span>            <span class="c1">// Content to certify</span>
       <span class="s2">&quot;issuer&quot;</span><span class="o">:</span> <span class="s2">&quot;did:vtn:admin&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;issuedOn&quot;</span><span class="o">:</span> <span class="s2">&quot;2020-11-12 12:00:34 +0000 UTC&quot;</span><span class="p">,</span>
   <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="s2">&quot;2021-12-31 23:59:59 +0000 UTC&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;signers&quot;</span><span class="o">:</span> <span class="p">[]</span>             <span class="c1">// List of required signers</span>
-  <span class="p">},</span>
   <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -274,12 +271,14 @@
 <br/></div>
 <div class="section" id="u-certificate-metadata-u">
 <h4><u>Certificate metadata</u><a class="headerlink" href="#u-certificate-metadata-u" title="Permalink to this headline">¶</a></h4>
-<p>Metadata contains the <strong>additional information that feeds the certificate</strong> in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid (e.g. signatures)</p>
+<p>Metadata contains the <strong>additional information that feeds the certificate</strong> in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid and know how to verify it (e.g. verification, signers, signatures)</p>
 <p>The certificate <code class="docutils literal notranslate"><span class="pre">metadata</span></code> contains the following fields:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Type of transaction (Signature/Revocation/Evidence/Adding signers)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verification</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>verification information</strong>. It contains the required signers</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">signatures</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>signatures</strong> added for the verification of the certificate</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evidences</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>certificate evidences</strong> registered in public networks, private databases and other sites</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public_evidences</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of <strong>certificate evidences</strong> registered in public networks, private databases and other sites</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">revoked</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;bool&gt;</span></code> Flag to determine that the certificate is revoked and is not longer valid</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Datetime of when the transaction (signature, evidence or revocation) is done</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hfTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current transaction identifier in Hyperledger Fabric</p></li>
@@ -288,9 +287,14 @@
 <details>
   <summary><em><strong>Sample Metadata structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{},</span>         <span class="c1">// Collection of signatures</span>
-  <span class="s2">&quot;evidences&quot;</span><span class="o">:</span> <span class="p">{},</span>          <span class="c1">// Collection of evidences</span>
-  <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>    
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Signature/Revocation/Evidence/Adding signers&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;SignedBadge&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;signers&quot;</span><span class="o">:</span> <span class="p">[]</span>              <span class="c1">// List of required signers</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{},</span>              <span class="c1">// Collection of signatures</span>
+  <span class="s2">&quot;public_evidences&quot;</span><span class="o">:</span> <span class="p">{},</span>        <span class="c1">// Collection of evidences</span>
+  <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="s2">&quot;1592568489&quot;</span><span class="p">,</span>
   <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291&quot;</span><span class="p">,</span>
   <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;oRj6yKH4EDGCGiKRjHzv3yuqX5wAEzwZFgLnE9jwRIs=&quot;</span>
@@ -335,12 +339,12 @@
 <p><img alt="CertAPI Swagger" src="_images/cert_swagger.png" /></p>
 <details>
   <summary><em><strong>API methods</strong></em> (Click to expand)</summary><hr class="docutils" />
-<div class="section" id="post-certificate-file-create">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/file/create</span></code><a class="headerlink" href="#post-certificate-file-create" title="Permalink to this headline">¶</a></h3>
-<p>Create a certificate from a file/document/collection of files on Blockchain.</p>
+<div class="section" id="post-certificate-content-create">
+<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/content/create</span></code><a class="headerlink" href="#post-certificate-content-create" title="Permalink to this headline">¶</a></h3>
+<p>Create a certificate from a specific content like file/document/collection of files on Blockchain.
+A unique and irrevocable identifier (<code class="docutils literal notranslate"><span class="pre">certID</span></code>) is generated for every certificate.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Short description of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">content</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Content to certify (*)</p></li>
@@ -350,7 +354,6 @@
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ABC Certificate&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;This certificate is a tamper-proof and valid record of the ABC document file&quot;</span><span class="p">,</span>
   <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="p">{},</span>   
@@ -396,13 +399,14 @@
         <span class="p">},</span>
         <span class="s2">&quot;issuedOn&quot;</span><span class="o">:</span> <span class="s2">&quot;2020-11-12 12:00:34 +0000 UTC&quot;</span><span class="p">,</span>
         <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">]</span>
-        <span class="p">},</span>
+
         <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c=&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
+          <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">]</span>
+          <span class="p">},</span>
           <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{},</span>
           <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{},</span>
           <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span>
@@ -430,10 +434,10 @@
 <hr class="docutils" />
 <div class="section" id="post-certificate-asset-create">
 <h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/asset/create</span></code><a class="headerlink" href="#post-certificate-asset-create" title="Permalink to this headline">¶</a></h3>
-<p>Create a certificate from a file/document/collection of files on Blockchain.</p>
+<p>Create a certificate from a file/document/collection of files on Blockchain.
+A unique and irrevocable identifier (<code class="docutils literal notranslate"><span class="pre">certID</span></code>) is generated for every certificate</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Short description of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assetID</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Asset to certify (*)</p></li>
@@ -443,7 +447,6 @@
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ABC Certificate&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;This certificate is a tamper-proof and valid record of the process&quot;</span><span class="p">,</span>
   <span class="s2">&quot;assetID&quot;</span><span class="o">:</span> <span class="s2">&quot;asset_example1&quot;</span><span class="p">,</span>   
@@ -478,13 +481,13 @@
         <span class="p">},</span>
         <span class="s2">&quot;issuedOn&quot;</span><span class="o">:</span> <span class="s2">&quot;2020-11-12 12:00:34 +0000 UTC&quot;</span><span class="p">,</span>
         <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">]</span>
-        <span class="p">},</span>
         <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c=&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
+          <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">]</span>
+          <span class="p">},</span>
           <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{},</span>
           <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{},</span>
           <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span>
@@ -534,13 +537,13 @@
         <span class="p">},</span>
         <span class="s2">&quot;issuedOn&quot;</span><span class="o">:</span> <span class="s2">&quot;2020-11-12 12:00:34 +0000 UTC&quot;</span><span class="p">,</span>
         <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">]</span>
-        <span class="p">},</span>
         <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c=&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
+          <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">]</span>
+          <span class="p">},</span>
           <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{},</span>
           <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{},</span>
           <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span>
@@ -586,9 +589,9 @@
 <p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">signature</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the certificate</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Short description of the certificate</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">did</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Asset to certify (*)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signature</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Signature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> External public key to verify the signature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">did</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Signer identifier</p></li>
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -640,7 +643,23 @@
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;message&quot;</span><span class="o">:</span><span class="s2">&quot;The certificate has been successfully registered&quot;</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;Evidence&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;verification&quot;</span><span class="o">:</span><span class="p">{...},</span>
+      <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{...},</span>
+      <span class="s2">&quot;public_evidences&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ethereum&quot;</span><span class="o">:</span><span class="p">{</span>
+          <span class="s2">&quot;transaction&quot;</span><span class="o">:</span><span class="s2">&quot;0x2389fafo39a0pg287aZhueH378ah521&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;contractAddress&quot;</span><span class="o">:</span><span class="s2">&quot;0x5GhueH37pg287a389fafo39a08ah521&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;evidenceHash&quot;</span><span class="o">:</span><span class="s2">&quot;Cz7jWoRj2xrfFPzyjk+oHB6ZVFhqBJYQG6GSml/ED4a=&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="s2">&quot;1592568489&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -659,7 +678,16 @@
 </ul>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;The certificate has been successfully revoked&quot;</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Revocation&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{...},</span>
+      <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{...},</span>
+      <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="s2">&quot;1592568489&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span>
+      <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -682,28 +710,31 @@
     <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;badge&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
         <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="p">{}</span>
       <span class="p">},</span>
       <span class="s2">&quot;issuedOn&quot;</span><span class="o">:</span> <span class="s2">&quot;2025-12-31T23:59:59+00:00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{}</span>
     <span class="p">},</span>
     <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
+      <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{...},</span>
       <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{...},</span>
       <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{...},</span>
       <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Revocation&quot;</span><span class="p">,</span>
       <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="s2">&quot;1592569999&quot;</span><span class="p">,</span>
       <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;9e0593d86c67e057c873872cce40812d5c9fd9800083447ca1ef080aea316d84&quot;</span><span class="p">,</span>
       <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;GYzXS+DLPXVaZgFIqI3lE554Y5pb00ctkpkWb5K4Tyg=&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
+      <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{...},</span>
       <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{...},</span>
       <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{...},</span>
       <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Signature ...&quot;</span><span class="p">,</span>
       <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="s2">&quot;1592568888&quot;</span><span class="p">,</span>
       <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291&quot;</span><span class="p">,</span>
       <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span>
@@ -754,18 +785,19 @@ N/A. It returns all the certificates which belong to the login user</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
-			<span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
-		<span class="p">},</span>
-		<span class="s2">&quot;read&quot;</span><span class="o">:</span> <span class="p">{</span>
-			<span class="s2">&quot;did:vtn:reader1&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-			<span class="s2">&quot;did:vtn:reader2&quot;</span><span class="o">:</span> <span class="mi">1</span>
-		<span class="p">},</span>
-		<span class="s2">&quot;sign&quot;</span><span class="o">:</span> <span class="p">{</span>
-			<span class="s2">&quot;did:vtn:signer1&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-			<span class="s2">&quot;did:vtn:signer2&quot;</span><span class="o">:</span> <span class="mi">1</span>
-		<span class="p">},</span>
-		<span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">false</span>
+      <span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;read&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;did:vtn:reader1&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;did:vtn:reader2&quot;</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;sign&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;did:vtn:signer1&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;did:vtn:signer2&quot;</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -784,7 +816,7 @@ N/A. It returns all the certificates which belong to the login user</p>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-		<span class="s2">&quot;readers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;did:vtn:reader3&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:reader4&quot;</span><span class="p">]</span>
+    <span class="s2">&quot;readers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;did:vtn:reader3&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:reader4&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -796,18 +828,19 @@ N/A. It returns all the certificates which belong to the login user</p>
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
-			<span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
-		<span class="p">},</span>
-		<span class="s2">&quot;read&quot;</span><span class="o">:</span> <span class="p">{</span>
-			<span class="s2">&quot;did:vtn:reader3&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-			<span class="s2">&quot;did:vtn:reader4&quot;</span><span class="o">:</span> <span class="mi">1</span>
-		<span class="p">},</span>
-		<span class="s2">&quot;sign&quot;</span><span class="o">:</span> <span class="p">{</span>
-			<span class="s2">&quot;did:vtn:signer1&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-			<span class="s2">&quot;did:vtn:signer2&quot;</span><span class="o">:</span> <span class="mi">1</span>
-		<span class="p">},</span>
-		<span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">false</span>
+      <span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;read&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;did:vtn:reader3&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;did:vtn:reader4&quot;</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;sign&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;did:vtn:signer1&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;did:vtn:signer2&quot;</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -830,6 +863,50 @@ N/A. It returns all the certificates which belong to the login user</p>
     <span class="s2">&quot;did:vtn:signer1&quot;</span><span class="o">:</span> <span class="p">{},</span>
     <span class="s2">&quot;did:vtn:signer2&quot;</span><span class="o">:</span> <span class="p">{}</span>
   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<hr class="docutils" />
+<div class="section" id="post-certificate-certid-signers-add">
+<h3>POST  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers/add</span></code><a class="headerlink" href="#post-certificate-certid-signers-add" title="Permalink to this headline">¶</a></h3>
+<p>Add new signers to the certificate</p>
+<p><em>Input</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signers</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of new signers</p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;signers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;did:vtn:signerNEW&quot;</span><span class="p">,</span> <span class="s2">&quot;did:vtn:signerNEW2&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details><p><em>Output</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Metadata</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> A JSON of current metadata information</p></li>
+</ul>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;Adding signers&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;verification&quot;</span><span class="o">:</span><span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;SignedBadge&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;signers&quot;</span><span class="o">:</span><span class="p">[</span>
+            <span class="s2">&quot;did:vtn:signer1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;did:vtn:signer2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;did:vtn:signerNEW&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;did:vtn:signerNEW2&quot;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;signatures&quot;</span><span class="o">:</span> <span class="p">{...},</span>
+      <span class="s2">&quot;public_seeds&quot;</span><span class="o">:</span> <span class="p">{...},</span>
+      <span class="s2">&quot;revoked&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;datetime&quot;</span><span class="o">:</span> <span class="s2">&quot;1592568489&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hfTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;hash&quot;</span><span class="o">:</span> <span class="s2">&quot;Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=&quot;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>

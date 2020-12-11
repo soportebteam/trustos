@@ -19,9 +19,8 @@ Every certificate is identified by a unique ID and is composed of three compleme
 Thus a certificate has the following structure:
 - `certID` :  `<string>` Unique identifier of the certificate 
 - `data`    :  `<json>`   JSON of certificate data that is inmutable
-- `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. signatures, revocation and public registration)
+- `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration)
 - `access` :  `<json>` JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)
-
 <details>
   <summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary>
 
@@ -39,13 +38,12 @@ Thus a certificate has the following structure:
 
 #### <u>Certificate data</u>
 
-Data contains the **inmutable information about the certificate**: who issued it, when it was issued, when it will expire, how to verify it and of course what it is certified and what does it mean.
+Data contains the **inmutable information about the certificate**: who issued it, when it was issued, when it will expire and of course what it is certified and what does it mean.
 
 The certificate `data` contains the following fields:
 - `badge` :  `<json>` JSON of **badge information** that characterises the certificate (e.g. name, description, type, content, issuer)
 - `issuedOn` :  `<date>` Datetime of when the certificate is issued
 - `expires` :  `<date>` Datetime of when the certificate should no longer be considered valid
-- `verification` :  `<json>` JSON of **verification information**. It contains the required signers
 - `hash` :  `<string>` Hash of the data information
 
 <details>
@@ -57,15 +55,12 @@ The certificate `data` contains the following fields:
       "certID": "...",
       "name": "...",
       "description": "...",
-      "type": "...",            // Type should be: file / asset
+      "type": "...",            // Type should be: content / asset
       "content": [],            // Content to certify
       "issuer": "did:vtn:admin"
   },
   "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
   "expires": "2021-12-31 23:59:59 +0000 UTC",
-  "verification": {
-      "signers": []             // List of required signers
-  },
   "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
 }
 ```
@@ -75,12 +70,14 @@ The certificate `data` contains the following fields:
 
 #### <u>Certificate metadata</u>
 
-Metadata contains the **additional information that feeds the certificate** in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid (e.g. signatures)
+Metadata contains the **additional information that feeds the certificate** in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid and know how to verify it (e.g. verification, signers, signatures)
 
 The certificate `metadata` contains the following fields:
 - `certID` :  `<string>` Unique identifier of the certificate 
+- `type` : `<string>` Type of transaction (Signature/Revocation/Evidence/Adding signers)
+- `verification` :  `<json>` JSON of **verification information**. It contains the required signers
 - `signatures` :  `<json>` JSON of **signatures** added for the verification of the certificate
-- `evidences` :  `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites
+- `public_evidences` :  `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites
 - `revoked` :  `<bool>` Flag to determine that the certificate is revoked and is not longer valid
 - `datetime` :  `<string>` Datetime of when the transaction (signature, evidence or revocation) is done 
 - `hfTxId` :  `<string>` Current transaction identifier in Hyperledger Fabric
@@ -92,9 +89,14 @@ The certificate `metadata` contains the following fields:
 ```js
 {
   "certID": "...",
-  "signatures": {},         // Collection of signatures
-  "evidences": {},          // Collection of evidences
-  "revoked": false,    
+  "type": "Signature/Revocation/Evidence/Adding signers",
+  "verification": {
+      "type":"SignedBadge",
+      "signers": []              // List of required signers
+  },
+  "signatures": {},              // Collection of signatures
+  "public_evidences": {},        // Collection of evidences
+  "revoked": false,
   "datetime": "1592568489",
   "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
   "hash": "oRj6yKH4EDGCGiKRjHzv3yuqX5wAEzwZFgLnE9jwRIs="
@@ -143,11 +145,11 @@ The certificate `access` contains the following fields:
 
 ---
 
-####     POST -  `/certificate/file/create` 
-Create a certificate from a file/document/collection of files on Blockchain. 
+####     POST -  `/certificate/content/create` 
+Create a certificate from a specific content like file/document/collection of files on Blockchain. 
+A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
 - `name`    :  `<string>` Name of the certificate
 - `description`    :  `<string>` Short description of the certificate
 - `content`    :  `<json>` Content to certify (*)
@@ -161,7 +163,6 @@ Create a certificate from a file/document/collection of files on Blockchain.
 
 ```js
 {
-  "certID": "certABC",
   "name": "ABC Certificate",
   "description": "This certificate is a tamper-proof and valid record of the ABC document file",
   "content": {},   
@@ -216,13 +217,14 @@ Create a certificate from a file/document/collection of files on Blockchain.
         },
         "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
         "expires": "",
-        "verification": {
-            "signers":["did:vtn:signer1","did:vtn:signer2"]
-        },
+
         "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
     },
     "metadata": [
         {
+          "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+          },
           "signatures": {},
           "public_seeds": {},
           "revoked": false
@@ -251,9 +253,9 @@ Create a certificate from a file/document/collection of files on Blockchain.
 
 ####     POST -  `/certificate/asset/create` 
 Create a certificate from a file/document/collection of files on Blockchain. 
+A unique and irrevocable identifier (`certID`) is generated for every certificate
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
 - `name`    :  `<string>` Name of the certificate
 - `description`    :  `<string>` Short description of the certificate
 - `assetID`    :  `<string>` Asset to certify (*)
@@ -267,7 +269,6 @@ Create a certificate from a file/document/collection of files on Blockchain.
 
 ```js
 {
-  "certID": "certABC",
   "name": "ABC Certificate",
   "description": "This certificate is a tamper-proof and valid record of the process",
   "assetID": "asset_example1",   
@@ -306,13 +307,13 @@ Create a certificate from a file/document/collection of files on Blockchain.
         },
         "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
         "expires": "",
-        "verification": {
-            "signers":["did:vtn:signer1","did:vtn:signer2"]
-        },
         "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
     },
     "metadata": [
         {
+          "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+          },
           "signatures": {},
           "public_seeds": {},
           "revoked": false
@@ -366,13 +367,13 @@ Get certificate from the blockchain
         },
         "issuedOn": "2020-11-12 12:00:34 +0000 UTC",
         "expires": "",
-        "verification": {
-            "signers":["did:vtn:signer1","did:vtn:signer2"]
-        },
         "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
     },
     "metadata": [
         {
+          "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+          },
           "signatures": {},
           "public_seeds": {},
           "revoked": false
@@ -420,9 +421,9 @@ Sign a certificate with external identity and keys
 
 <u>*Input*</u>
 - `certID` :  `<string>` Unique identifier of the certificate
-- `signature`    :  `<string>` Name of the certificate
-- `publicKey`    :  `<string>` Short description of the certificate
-- `did`    :  `<string>` Asset to certify (*)
+- `signature`    :  `<string>` Signature 
+- `publicKey`    :  `<string>` External public key to verify the signature
+- `did`    :  `<string>` Signer identifier
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -488,7 +489,23 @@ Register a certificate evidence in public network
 
 ```js
 {
-  "message":"The certificate has been successfully registered"
+  "output": {
+      "certID": "cert_1",
+      "type":"Evidence",
+      "verification":{...},
+      "signatures": {...},
+      "public_evidences": {
+        "ethereum":{
+          "transaction":"0x2389fafo39a0pg287aZhueH378ah521",
+          "contractAddress":"0x5GhueH37pg287a389fafo39a08ah521",
+          "evidenceHash":"Cz7jWoRj2xrfFPzyjk+oHB6ZVFhqBJYQG6GSml/ED4a="
+        }
+      },
+      "revoked": false,
+      "datetime": "1592568489",
+      "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+      "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+    }
 }
 ```
 </details> 
@@ -509,7 +526,16 @@ Revoke a certificate
 
 ```js
 {
-  "message": "The certificate has been successfully revoked"
+  "output": {
+      "certID": "certABC",
+      "type": "Revocation",
+      "signatures": {...},
+      "public_seeds": {...},
+      "revoked": true,
+      "datetime": "1592568489",
+      "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+      "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+      }
 }
 ```
 </details> 
@@ -535,28 +561,31 @@ Get all transactions for the whole lifecycle of the certificate
     "certID": "cert_1",
     "data": {
       "badge": {
-        "name": "",
-        "description": "",
+        "name": "...",
+        "description": "...",
         "type": "cert_1",
         "content": {}
       },
       "issuedOn": "2025-12-31T23:59:59+00:00",
       "expires": "",
-      "verification": {}
     },
     "metadata": [
       {
+      "verification": {...},
       "signatures": {...},
       "public_seeds": {...},
       "revoked": true,
+      "type": "Revocation",
       "datetime": "1592569999",
       "hfTxId": "9e0593d86c67e057c873872cce40812d5c9fd9800083447ca1ef080aea316d84",
       "hash": "GYzXS+DLPXVaZgFIqI3lE554Y5pb00ctkpkWb5K4Tyg="
     },
     {
+      "verification": {...},
       "signatures": {...},
       "public_seeds": {...},
       "revoked": false,
+      "type": "Signature ...",
       "datetime": "1592568888",
       "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
       "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
@@ -616,18 +645,19 @@ Get all granted accesses for the certificate
 ```js
 {
   "output": {
-		"admin": {
-			"did:vtn:admin": 1
-		},
-		"read": {
-			"did:vtn:reader1": 1,
-			"did:vtn:reader2": 1
-		},
-		"sign": {
-			"did:vtn:signer1": 1,
-			"did:vtn:signer2": 1
-		},
-		"public": false
+      "admin": {
+        "did:vtn:admin": 1
+      },
+      "read": {
+        "did:vtn:reader1": 1,
+        "did:vtn:reader2": 1
+      },
+      "sign": {
+        "did:vtn:signer1": 1,
+        "did:vtn:signer2": 1
+      },
+      "public": false
+  }
 }
 ```
 </details>
@@ -650,7 +680,7 @@ Authorise the reading access for a certificate. The user has to be the owner (ad
 {
   "output": {
     "public": false,
-		"readers": ["did:vtn:reader3","did:vtn:reader4"]
+    "readers": ["did:vtn:reader3","did:vtn:reader4"]
 }
 ```
 </details> 
@@ -665,18 +695,19 @@ Authorise the reading access for a certificate. The user has to be the owner (ad
 ```js
 {
   "output": {
-		"admin": {
-			"did:vtn:admin": 1
-		},
-		"read": {
-			"did:vtn:reader3": 1,
-			"did:vtn:reader4": 1
-		},
-		"sign": {
-			"did:vtn:signer1": 1,
-			"did:vtn:signer2": 1
-		},
-		"public": false
+      "admin": {
+        "did:vtn:admin": 1
+      },
+      "read": {
+        "did:vtn:reader3": 1,
+        "did:vtn:reader4": 1
+      },
+      "sign": {
+        "did:vtn:signer1": 1,
+        "did:vtn:signer2": 1
+      },
+      "public": false
+  }
 }
 ```
 </details>
@@ -702,6 +733,59 @@ Get the signers and their signatures for the certificate
     "did:vtn:signer1": {},
     "did:vtn:signer2": {}
   }
+}
+```
+</details>
+
+
+
+---
+
+####   POST  -     `/certificate/{certID}/signers/add`  
+
+Add new signers to the certificate
+
+*Input*
+- `certID` :  `<string>` Unique identifier of the certificate
+- `signers`:  `<string array>` List of new signers
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "signers": ["did:vtn:signerNEW", "did:vtn:signerNEW2"]
+}
+```
+</details>
+
+*Output*
+- `Metadata`    :  `<json>` A JSON of current metadata information
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+      "certID": "cert_1",
+      "type":"Adding signers",
+      "verification":{
+        "type":"SignedBadge",
+        "signers":[
+            "did:vtn:signer1",
+            "did:vtn:signer2",
+            "did:vtn:signerNEW",
+            "did:vtn:signerNEW2"
+        ]
+      },
+      "signatures": {...},
+      "public_seeds": {...},
+      "revoked": false,
+      "datetime": "1592568489",
+      "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+      "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+    }
 }
 ```
 </details>
