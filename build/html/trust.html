@@ -203,13 +203,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="trust">
-<h1>Trust<a class="headerlink" href="#trust" title="Permalink to this headline">¶</a></h1>
+<span id="trust"></span><h1>Trust<a class="headerlink" href="#trust" title="Permalink to this headline">¶</a></h1>
 <p>This API is used to create and register trust points on the private and public blockchain and verify the integrity of all the encapsulated data</p>
 <div class="section" id="api-specification">
-<h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
+<span id="api-specification"></span><h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the asset functionalities</p>
 <div class="section" id="trust-point">
-<h3>Trust Point<a class="headerlink" href="#trust-point" title="Permalink to this headline">¶</a></h3>
+<span id="trust-point"></span><h3>Trust Point<a class="headerlink" href="#trust-point" title="Permalink to this headline">¶</a></h3>
 <p>A trust point is <code class="docutils literal notranslate"><span class="pre">&lt;JSON&gt;</span></code> object used to export the integrity of the transactions over an asset in a private blockchain such as Hyperledger Fabric, to public blockchains such as Ethereum, in order to provide an extra layer of security.</p>
 <p>This is the structure of a trust point:</p>
 <ul class="simple">
@@ -223,8 +223,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">ethereumContractAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The smart contract in Ethereum to manage trust points</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Hash of the trust point (as a JSON) to verify integrity</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;assetid&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
     <span class="s2">&quot;init&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -240,16 +241,18 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details>
-<br></div>
+<p></details>
+<br></p>
+</div>
 </div>
 <div class="section" id="api-methods">
-<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
+<span id="api-methods"></span><h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <p><img alt="TrustAPI methods" src="_images/trust_swagger.png" /></p>
-<details>
-  <summary><em><strong>Trust methods</strong></em> (Click to expand)</summary><hr class="docutils" />
+<p><details>
+<summary><em><strong>Trust methods</strong></em> (Click to expand)</summary></p>
+<hr class="docutils" />
 <div class="section" id="get-trust-assetid">
-<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code><a class="headerlink" href="#get-trust-assetid" title="Permalink to this headline">¶</a></h3>
+<span id="get-trust-assetid"></span><h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId</span></code><a class="headerlink" href="#get-trust-assetid" title="Permalink to this headline">¶</a></h3>
 <p>Gets the last trust point in the system for a specific asset</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -259,8 +262,9 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
       <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
@@ -275,10 +279,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-trust-assetid-history">
-<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code><a class="headerlink" href="#get-trust-assetid-history" title="Permalink to this headline">¶</a></h3>
+<span id="get-trust-assetid-history"></span><h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/history</span></code><a class="headerlink" href="#get-trust-assetid-history" title="Permalink to this headline">¶</a></h3>
 <p>Gets all trust point history in the system for a specific asset</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -288,8 +293,9 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
@@ -316,10 +322,11 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-trust-assetid-create">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code><a class="headerlink" href="#post-trust-assetid-create" title="Permalink to this headline">¶</a></h3>
+<span id="post-trust-assetid-create"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/create</span></code><a class="headerlink" href="#post-trust-assetid-create" title="Permalink to this headline">¶</a></h3>
 <p>Creates a trust point in the system for a specific asset</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -329,8 +336,9 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
       <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
@@ -345,10 +353,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-trust-assetid-merkleroot">
-<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot" title="Permalink to this headline">¶</a></h3>
+<span id="get-trust-assetid-merkleroot"></span><h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot" title="Permalink to this headline">¶</a></h3>
 <p>Gets the last trust merkle root stored in the system</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -358,8 +367,9 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">trustroot</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
     <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
@@ -368,10 +378,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-trust-assetid-merkleroot-history">
-<h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot-history" title="Permalink to this headline">¶</a></h3>
+<span id="get-trust-assetid-merkleroot-history"></span><h3>GET  -   <code class="docutils literal notranslate"><span class="pre">/trust/{assetId}/merkleroot/history</span></code><a class="headerlink" href="#get-trust-assetid-merkleroot-history" title="Permalink to this headline">¶</a></h3>
 <p>Gets the trust merkle root history stored in the system</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -381,8 +392,9 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">trustroot</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567594895</span><span class="p">,</span>
@@ -398,10 +410,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-trust-assetid-register">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code><a class="headerlink" href="#post-trust-assetid-register" title="Permalink to this headline">¶</a></h3>
+<span id="post-trust-assetid-register"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/trust/assetId/register</span></code><a class="headerlink" href="#post-trust-assetid-register" title="Permalink to this headline">¶</a></h3>
 <p>Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -411,8 +424,9 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">trustpoint</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span>  <span class="p">{</span>
       <span class="s2">&quot;assetId&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleAsset&quot;</span><span class="p">,</span>
       <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
@@ -427,23 +441,26 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-trust-assetid-verify">
-<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code><a class="headerlink" href="#post-trust-assetid-verify" title="Permalink to this headline">¶</a></h3>
+<span id="post-trust-assetid-verify"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/trust/assetId/verify</span></code><a class="headerlink" href="#post-trust-assetid-verify" title="Permalink to this headline">¶</a></h3>
 <p>Verifies a trust point</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">assetid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the asset for which the trust point is made</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Timestamp at which this trust point is made</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="s2">&quot;1559822594&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><p><u><em>Output</em></u></p>
+<p></details></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ethereum</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Ethereum info</p>
 <ul>
@@ -461,8 +478,9 @@
 </ul>
 </li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;ethereum&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;lastEthTxId&quot;</span><span class="o">:</span> <span class="s2">&quot;0x8ad8f928c261a5b7f2b6515320dfffe1f9f923b17c5e07f6f733f43703f95f87&quot;</span><span class="p">,</span>
@@ -481,11 +499,12 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<p></details>
 </details>
-</details>
-<br></div>
+<br></p>
+</div>
 <div class="section" id="merkleroot">
-<h3>MerkleRoot<a class="headerlink" href="#merkleroot" title="Permalink to this headline">¶</a></h3>
+<span id="merkleroot"></span><h3>MerkleRoot<a class="headerlink" href="#merkleroot" title="Permalink to this headline">¶</a></h3>
 <p>In order to achieve the integrity and inmutability of all trust points, every time a trust point is create a parallel process is executed. This process consist of the building of a trust-based merkle tree. All the trust points created until that moment are the leaves of the tree that generates a unique merkle root. That merkle root, called as trustRoot, is registered in HF as well as in Ethereum to proof the integrity. So, every time a new trust point is created, a new trustRoot is created too, and it could be registered in Ethereum or not, depends of the user neccessity</p>
 <p>This is the structure registered in HF and Ethereum, once the trust merkle tree is calculated:</p>
 <ul class="simple">
@@ -493,8 +512,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">trustHash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the last trust point included to verify integrity</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">trustRoot</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Root of the trust merkle tree calculated with all the trust points until that moment</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1567601354</span><span class="p">,</span>
     <span class="s2">&quot;trustHash&quot;</span><span class="o">:</span> <span class="s2">&quot;7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=&quot;</span><span class="p">,</span>
@@ -503,11 +523,12 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details>
-<br></div>
+<p></details>
+<br></p>
+</div>
 </div>
 <div class="section" id="architecture-of-the-project">
-<h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
+<span id="architecture-of-the-project"></span><h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
 <p>The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-trustapi
 ├── api
@@ -534,11 +555,11 @@
 </div>
 </div>
 <div class="section" id="how-we-run-the-application">
-<h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
+<span id="how-we-run-the-application"></span><h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
 <p>As you could see in the <a class="reference external" href="architecture.html">Architecture</a> module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
 </div>
 <div class="section" id="testing-the-application">
-<h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
+<span id="testing-the-application"></span><h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
 <p>In postman folder there are the related collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trustapi module.</p>
 <p>Also you can download the files in the links below:</p>
 <p><a href="_static/trustapi.collection.json" download> - Postman collection</a>
@@ -546,7 +567,7 @@
 <a href="_static/environment.json" download> - Postman environment</a></p>
 </div>
 <div class="section" id="errors-management">
-<h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
+<span id="errors-management"></span><h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Trust API errors are managed through the following nomenclature <strong>TRUST-XX</strong> which corresponds to:<br></p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -554,7 +575,8 @@
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
-</style><table class="tg">
+</style>
+<table class="tg">
   <tr>
     <th class="tg-0pky">Code</th>
     <th class="tg-0pky">Description</th>
@@ -571,7 +593,8 @@
     <td class="tg-0lax">TRUST-02</td>
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
-</table><br></div>
+</table><p><br></p>
+</div>
 </div>
 
 

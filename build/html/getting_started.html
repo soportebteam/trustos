@@ -194,7 +194,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<span id="getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>Why worrying about the low-level of blockchain technology,
 and having to worry about building you network when you can leverage
 the benefits of the technology without having to know the details of
@@ -204,15 +204,15 @@ the power of blockchain technology.</p>
 <p>We have created several APIs for tracking the whole lifecycle of assets, for creating and managing transferable tokens, for offering agreement between diferent parts and ensuring confidence and integrity in the all the generated information.</p>
 <p>Before starting, it may be interesting for you to know about the <a class="reference external" href="architecture.html">architecture</a> and the different <a class="reference external" href="modules.html">modules</a> that compound TrustOS.</p>
 <div class="section" id="login">
-<h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
+<span id="login"></span><h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
 <p>In order to use the APIs, you need to have an active user and login to use the system. Every API has a login method, which asks for a user and password.</p>
 <div class="section" id="login-ui">
-<h3>Login UI<a class="headerlink" href="#login-ui" title="Permalink to this headline">¶</a></h3>
+<span id="login-ui"></span><h3>Login UI<a class="headerlink" href="#login-ui" title="Permalink to this headline">¶</a></h3>
 <p>To faccilitate the first interactions with TrustOS there is a login website so that the user can easily login and authenticate the next use of the website through cookies that contains the JWT and that expires after the JWT becomes invalid.</p>
 <p><img alt="Login UI" src="_images/login_ui.png" /></p>
 <!-- ![Login UI](./images/login.gif) --></div>
 <div class="section" id="login-request">
-<h3>Login request<a class="headerlink" href="#login-request" title="Permalink to this headline">¶</a></h3>
+<span id="login-request"></span><h3>Login request<a class="headerlink" href="#login-request" title="Permalink to this headline">¶</a></h3>
 <p>Once your solution has to madured, it would be nice to integrate the login process through API requests.</p>
 <p>A call to the login method will return a JWT token, of this form:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -223,10 +223,10 @@ the power of blockchain technology.</p>
 </div>
 </div>
 <div class="section" id="choose-and-api-and-start-developing">
-<h2>Choose and API and start developing<a class="headerlink" href="#choose-and-api-and-start-developing" title="Permalink to this headline">¶</a></h2>
+<span id="choose-and-api-and-start-developing"></span><h2>Choose and API and start developing<a class="headerlink" href="#choose-and-api-and-start-developing" title="Permalink to this headline">¶</a></h2>
 <p>Once the login is sucessfully done it is time to start developing your own solution based on one of the TrustOS modules.</p>
 <div class="section" id="swagger-ui">
-<h3>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h3>
+<span id="swagger-ui"></span><h3>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline">¶</a></h3>
 <p>We have created a simple website that aggregates all the accesible modules so that the user can easily reach and test all the functionalities.</p>
 <p><img alt="Swagger UI" src="_images/trustos_swagger.png" /></p>
 <!-- ![Swagger UI](./images/trustos_swagger.gif) --><p>If you have login using the Login UI, it is simple to see and copy the JWT Token just clicking the header green button <code class="docutils literal notranslate"><span class="pre">JWT</span></code>.</p>
@@ -238,7 +238,7 @@ the power of blockchain technology.</p>
 <p>You should now see that all the locks in swagger are closed, meaning that you are now authenticated!</p>
 </div>
 <div class="section" id="api-request">
-<h3>API request<a class="headerlink" href="#api-request" title="Permalink to this headline">¶</a></h3>
+<span id="api-request"></span><h3>API request<a class="headerlink" href="#api-request" title="Permalink to this headline">¶</a></h3>
 <p>Every call to the API, has to be authenticated, so the caller must provide this message as proof of his identity.</p>
 <p>Add the following header to your HTTP request in order to authenticate your call:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bearer</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0</span><span class="o">.</span><span class="n">M4PBSslERUImcOpWgg</span><span class="o">--</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">ZNW306BzWXTZVJgtdXWE</span>
@@ -247,7 +247,7 @@ the power of blockchain technology.</p>
 <div class="admonition note">
   <p class="admonition-title">Attention</p>
   <p>Please make sure you write "Bearer" before the JWT token</p>
-</div><p>If you are calling the APIs from Postman, you can set manually the headers (you can see an example in <a class="reference internal" href="tutorials.html"><span class="doc">tutorials</span></a> section):</p>
+</div><p>If you are calling the APIs from Postman, you can set manually the headers (you can see an example in <a class="reference external" href="./tutorials.md">tutorials</a> section):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MDAwMDE5MH0.M4PBSslERUImcOpWgg--N-2ZNW306BzWXTZVJgtdXWE&quot;</span>
 <span class="p">}</span>

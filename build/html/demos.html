@@ -127,20 +127,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#trustos-certs">TrustOS Certs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">1 - Login into the platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-into-the-platform">1 - Login into the platform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-certificate-from-a-file">2 - Create certificate from a file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">3 - Demonstrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demonstrator">3 - Demonstrator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sign-certificate">4 - Sign certificate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#register-and-revoke-certificate">4 - Register and revoke certificate</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#painting-tracker">Painting tracker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">1 - Login into the platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-into-the-platform">1 - Login into the platform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-asset-la-gioconda">2 - Create asset: La Gioconda</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#first-update-of-the-asset-transport-update-1">3 - First update of the asset (transport update 1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#second-update-of-the-asset-transport-update-2">4 - Second update of the asset (transport update 2)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#last-update-of-the-asset-transport-update-3">5 - Last update of the asset (transport update 3)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">6 - Demonstrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demonstrator">6 - Demonstrator</a></li>
 </ul>
 </li>
 </ul>
@@ -212,15 +212,16 @@
            <div itemprop="articleBody">
             
   <div class="section" id="demos">
-<h1>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
+<span id="demos"></span><h1>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
 <p>In this section you will find snipets of code to make APIs calls to test and see the results for different use case examples. These demo applications allow to understand how easy and fast things are building a new blockchain-based solution or integrating your systems with TrustOS.</p>
 <div class="section" id="vaccine-tracker">
-<h2>Vaccine tracker<a class="headerlink" href="#vaccine-tracker" title="Permalink to this headline">¶</a></h2>
+<span id="vaccine-tracker"></span><h2>Vaccine tracker<a class="headerlink" href="#vaccine-tracker" title="Permalink to this headline">¶</a></h2>
 <p>Vaccine Tracker is an easy demo based on Track API that allows us to follow the whole transport process for a vaccine from origin to destination and to monitor constantly critical measures (e.g temperature, humidity)</p>
-<details>
-  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
-  <br><div class="section" id="login-into-the-platform">
-<h3>1 - Login into the platform<a class="headerlink" href="#login-into-the-platform" title="Permalink to this headline">¶</a></h3>
+<p><details>
+<summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
+<br></p>
+<div class="section" id="login-into-the-platform">
+<span id="login-into-the-platform"></span><h3>1 - Login into the platform<a class="headerlink" href="#login-into-the-platform" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/login</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;did:vtn:trustid:8297475fa68e64de5128f0b819fae647f128969bad64bf5ad43f1797e5733eb0&quot;</span><span class="p">,</span>
@@ -230,7 +231,7 @@
 </div>
 </div>
 <div class="section" id="create-asset-vaccine-batch">
-<h3>2 - Create asset: Vaccine batch<a class="headerlink" href="#create-asset-vaccine-batch" title="Permalink to this headline">¶</a></h3>
+<span id="create-asset-vaccine-batch"></span><h3>2 - Create asset: Vaccine batch<a class="headerlink" href="#create-asset-vaccine-batch" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;assetId&quot;</span><span class="p">:</span><span class="s2">&quot;Vaccine_batch_001&quot;</span><span class="p">,</span>
@@ -253,7 +254,7 @@
 </div>
 </div>
 <div class="section" id="add-rules-temperature-and-humidity-measures">
-<h3>3 - Add rules: Temperature and humidity measures<a class="headerlink" href="#add-rules-temperature-and-humidity-measures" title="Permalink to this headline">¶</a></h3>
+<span id="add-rules-temperature-and-humidity-measures"></span><h3>3 - Add rules: Temperature and humidity measures<a class="headerlink" href="#add-rules-temperature-and-humidity-measures" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/rules</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;rules&quot;</span><span class="p">:{</span>
@@ -276,7 +277,7 @@
 </div>
 </div>
 <div class="section" id="update-asset-first-transport-update-lyon">
-<h3>4 - Update asset (first transport update - Lyon)<a class="headerlink" href="#update-asset-first-transport-update-lyon" title="Permalink to this headline">¶</a></h3>
+<span id="update-asset-first-transport-update-lyon"></span><h3>4 - Update asset (first transport update - Lyon)<a class="headerlink" href="#update-asset-first-transport-update-lyon" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
   <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
@@ -292,7 +293,7 @@
 </div>
 </div>
 <div class="section" id="update-asset-transport-update-with-temperature-alarm-barcelona">
-<h3>5 - Update asset (transport update with TEMPERATURE ALARM - Barcelona)<a class="headerlink" href="#update-asset-transport-update-with-temperature-alarm-barcelona" title="Permalink to this headline">¶</a></h3>
+<span id="update-asset-transport-update-with-temperature-alarm-barcelona"></span><h3>5 - Update asset (transport update with TEMPERATURE ALARM - Barcelona)<a class="headerlink" href="#update-asset-transport-update-with-temperature-alarm-barcelona" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
   <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
@@ -308,7 +309,7 @@
 </div>
 </div>
 <div class="section" id="update-asset-transport-update-with-humidity-alarm-zaragoza">
-<h3>6 - Update asset (transport update with HUMIDITY ALARM - Zaragoza)<a class="headerlink" href="#update-asset-transport-update-with-humidity-alarm-zaragoza" title="Permalink to this headline">¶</a></h3>
+<span id="update-asset-transport-update-with-humidity-alarm-zaragoza"></span><h3>6 - Update asset (transport update with HUMIDITY ALARM - Zaragoza)<a class="headerlink" href="#update-asset-transport-update-with-humidity-alarm-zaragoza" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
   <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
@@ -324,7 +325,7 @@
 </div>
 </div>
 <div class="section" id="update-asset-last-transport-update-madrid">
-<h3>7 - Update asset (last transport update - Madrid)<a class="headerlink" href="#update-asset-last-transport-update-madrid" title="Permalink to this headline">¶</a></h3>
+<span id="update-asset-last-transport-update-madrid"></span><h3>7 - Update asset (last transport update - Madrid)<a class="headerlink" href="#update-asset-last-transport-update-madrid" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   
   <span class="nt">&quot;metadata&quot;</span><span class="p">:{</span>
@@ -340,31 +341,34 @@
 </div>
 </div>
 <div class="section" id="demonstrator">
-<h3>8 - Demonstrator<a class="headerlink" href="#demonstrator" title="Permalink to this headline">¶</a></h3>
+<span id="demonstrator"></span><h3>8 - Demonstrator<a class="headerlink" href="#demonstrator" title="Permalink to this headline">¶</a></h3>
 <p>Along the transport process all the information is displayed in the Vaccine Tracker application. You just need to put the identifier of your asset (assetId) to start seeing the whole tracking information. Moreover, the application is connected to a WebSocket channel in order to listen and monitor all the critical measures that are out of the range or value stablished (e.g temperature and humidity). Every new alarm is displayed as a notification.</p>
 <p>Endpoint: <code class="docutils literal notranslate"><span class="pre">/tracker/vaccine</span></code></p>
 <p>Input (assetId): <input value="Vaccine_batch_001"></input></p>
-</details><br>
+<p></details><br>
 <details>
-  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
-  <br><ul class="simple">
+<summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
+<br></p>
+<ul class="simple">
 <li><p>Tracking &amp; monitoring view</p></li>
 </ul>
 <p><img alt="Painting tracker demo" src="_images/vaccine_tracker.png" /></p>
-</details><br><details open>
-  <summary><em><strong>Video</strong></em> (Click to expand)</summary>
-  <br>
+<p></details><br></p>
+<p><details open>
+<summary><em><strong>Video</strong></em> (Click to expand)</summary>
+<br></p>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/umDStd-JERc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </details>
 <br></div>
 </div>
 <div class="section" id="trustos-certs">
-<h2>TrustOS Certs<a class="headerlink" href="#trustos-certs" title="Permalink to this headline">¶</a></h2>
-<p>TrustOS Certs is a demo that is based on Cert API and provides a platform to certify each document, file or digital process into Blockchain.</p>
+<span id="trustos-certs"></span><h2>TrustOS Certs<a class="headerlink" href="#trustos-certs" title="Permalink to this headline">¶</a></h2>
+<p>TrustOS Certs is a demo that is based on Cert API and provides a platform to certify each document, file or digital process into Blockchain.
 <details>
-  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
-  <br><div class="section" id="id1">
-<h3>1 - Login into the platform<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
+<br></p>
+<div class="section" id="login-into-the-platform">
+<span id="id1"></span><h3>1 - Login into the platform<a class="headerlink" href="#login-into-the-platform" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/login</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;did:vtn:trustid:8297475fa68e64de5128f0b819fae647f128969bad64bf5ad43f1797e5733eb0&quot;</span><span class="p">,</span>
@@ -374,7 +378,7 @@
 </div>
 </div>
 <div class="section" id="create-certificate-from-a-file">
-<h3>2 - Create certificate from a file<a class="headerlink" href="#create-certificate-from-a-file" title="Permalink to this headline">¶</a></h3>
+<span id="create-certificate-from-a-file"></span><h3>2 - Create certificate from a file<a class="headerlink" href="#create-certificate-from-a-file" title="Permalink to this headline">¶</a></h3>
 <p>For this step we are going to use an API request, but also you could use the front-end demo to create the certificate in an easier way.</p>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/certificate/content/create</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -399,17 +403,18 @@
 </div>
 <p>Now we have a unique and irrevocable <code class="docutils literal notranslate"><span class="pre">certID</span></code> that can be used for the next interactions for this certificate. Remember to copy it because it will be useful for next steps.</p>
 </div>
-<div class="section" id="id2">
-<h3>3 - Demonstrator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="demonstrator">
+<span id="id2"></span><h3>3 - Demonstrator<a class="headerlink" href="#demonstrator" title="Permalink to this headline">¶</a></h3>
 <p>Now you can see the certificate in a more beautiful way though the simple demo that we’ve built.</p>
 <p><img alt="TrustOS Certs home" src="_images/trustos_certs_home.png" /></p>
-  <br>
-  You just need to put the `certID` (e.g. 95c46d70f26c1e6478f256af14ce91b976a47843f0b7f4cb542c1fb0a60375b1) to search for the information about the certificate: certificate information, signatures and other evidences.<p><br>  <br></p>
+<p><br>
+You just need to put the <code class="docutils literal notranslate"><span class="pre">certID</span></code> (e.g. 95c46d70f26c1e6478f256af14ce91b976a47843f0b7f4cb542c1fb0a60375b1) to search for the information about the certificate: certificate information, signatures and other evidences.</p>
+<p><br>  <br></p>
 <p><img alt="TrustOS Certs Verification" src="_images/certs_verificationview1.png" />
 <img alt="TrustOS Certs Verification" src="_images/certs_verificationview2.png" /></p>
 </div>
 <div class="section" id="sign-certificate">
-<h3>4 - Sign certificate<a class="headerlink" href="#sign-certificate" title="Permalink to this headline">¶</a></h3>
+<span id="sign-certificate"></span><h3>4 - Sign certificate<a class="headerlink" href="#sign-certificate" title="Permalink to this headline">¶</a></h3>
 <p>To continue the process, the certificate can require one or more signers to validate and sign the certificate. This process can be done in two ways: using TrustID identities or using external identities/certificates. Every signer can only signe once, but will be able read, check and verify the certificate every time needed.</p>
 <p>Now first we are simulating a signature from an external identity (<code class="docutils literal notranslate"><span class="pre">did:vtn:signer1</span></code>). The creator of the certificate is the responsable for this action, and it will appear as the “controller” once signed.</p>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign/external</span></code></p>
@@ -431,7 +436,7 @@
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign</span></code></p>
 </div>
 <div class="section" id="register-and-revoke-certificate">
-<h3>4 - Register and revoke certificate<a class="headerlink" href="#register-and-revoke-certificate" title="Permalink to this headline">¶</a></h3>
+<span id="register-and-revoke-certificate"></span><h3>4 - Register and revoke certificate<a class="headerlink" href="#register-and-revoke-certificate" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/register</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;Ethereum&quot;</span>
@@ -439,10 +444,11 @@
 </pre></div>
 </div>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/revoke</span></code></p>
-</details><br>
+<p></details><br>
 <details>
-  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
-  <br><ul class="simple">
+<summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
+<br></p>
+<ul class="simple">
 <li><p>Home view</p></li>
 </ul>
 <p><img alt="TrustOS Certs Home" src="_images/certs_homeview.png" /></p>
@@ -455,16 +461,18 @@
 </ul>
 <p><img alt="TrustOS Certs Verification" src="_images/certs_verificationview1.png" /></p>
 <p><img alt="TrustOS Certs Verification" src="_images/certs_verificationview2.png" /></p>
-</details>
-<br></div>
+<p></details>
+<br></p>
+</div>
 </div>
 <div class="section" id="painting-tracker">
-<h2>Painting tracker<a class="headerlink" href="#painting-tracker" title="Permalink to this headline">¶</a></h2>
+<span id="painting-tracker"></span><h2>Painting tracker<a class="headerlink" href="#painting-tracker" title="Permalink to this headline">¶</a></h2>
 <p>Painting Tracker is an easy demo based on Track API that allows us to follow the whole transport process for a piece of art from origin to destination.</p>
-<details>
-  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
-  <br><div class="section" id="id3">
-<h3>1 - Login into the platform<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><details>
+<summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
+<br></p>
+<div class="section" id="login-into-the-platform">
+<span id="id3"></span><h3>1 - Login into the platform<a class="headerlink" href="#login-into-the-platform" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/login</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;did:vtn:trustid:8297475fa68e64de5128f0b819fae647f128969bad64bf5ad43f1797e5733eb0&quot;</span><span class="p">,</span>
@@ -474,7 +482,7 @@
 </div>
 </div>
 <div class="section" id="create-asset-la-gioconda">
-<h3>2 - Create asset: La Gioconda<a class="headerlink" href="#create-asset-la-gioconda" title="Permalink to this headline">¶</a></h3>
+<span id="create-asset-la-gioconda"></span><h3>2 - Create asset: La Gioconda<a class="headerlink" href="#create-asset-la-gioconda" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/create</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
   <span class="nt">&quot;assetId&quot;</span><span class="p">:</span> <span class="s2">&quot;piece001&quot;</span><span class="p">,</span>
@@ -493,7 +501,7 @@
 </div>
 </div>
 <div class="section" id="first-update-of-the-asset-transport-update-1">
-<h3>3 - First update of the asset (transport update 1)<a class="headerlink" href="#first-update-of-the-asset-transport-update-1" title="Permalink to this headline">¶</a></h3>
+<span id="first-update-of-the-asset-transport-update-1"></span><h3>3 - First update of the asset (transport update 1)<a class="headerlink" href="#first-update-of-the-asset-transport-update-1" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
   <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -509,7 +517,7 @@
 </div>
 </div>
 <div class="section" id="second-update-of-the-asset-transport-update-2">
-<h3>4 - Second update of the asset (transport update 2)<a class="headerlink" href="#second-update-of-the-asset-transport-update-2" title="Permalink to this headline">¶</a></h3>
+<span id="second-update-of-the-asset-transport-update-2"></span><h3>4 - Second update of the asset (transport update 2)<a class="headerlink" href="#second-update-of-the-asset-transport-update-2" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  
   <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -525,7 +533,7 @@
 </div>
 </div>
 <div class="section" id="last-update-of-the-asset-transport-update-3">
-<h3>5 - Last update of the asset (transport update 3)<a class="headerlink" href="#last-update-of-the-asset-transport-update-3" title="Permalink to this headline">¶</a></h3>
+<span id="last-update-of-the-asset-transport-update-3"></span><h3>5 - Last update of the asset (transport update 3)<a class="headerlink" href="#last-update-of-the-asset-transport-update-3" title="Permalink to this headline">¶</a></h3>
 <p>POST - <code class="docutils literal notranslate"><span class="pre">/asset/{assetId}/update</span></code></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -540,21 +548,23 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>6 - Demonstrator<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="demonstrator">
+<span id="id4"></span><h3>6 - Demonstrator<a class="headerlink" href="#demonstrator" title="Permalink to this headline">¶</a></h3>
 <p>Along the transport process all the information is displayed in the Painting Tracker application. You just need to put the identifier of your asset (assetId) to start seeing the whole tracking information.</p>
 <p>Endpoint: <code class="docutils literal notranslate"><span class="pre">/tracker</span></code></p>
 <p>Input (assetId): <input value="piece001"></input></p>
-</details>
+<p></details>
 <br>
 <details>
-  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
-  <br><ul class="simple">
+<summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
+<br></p>
+<ul class="simple">
 <li><p>Tracking view</p></li>
 </ul>
 <p><img alt="Painting tracker demo" src="_images/painting_tracker.png" /></p>
-</details>
-<br></div>
+<p></details>
+<br></p>
+</div>
 </div>
 </div>
 

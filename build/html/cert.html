@@ -213,13 +213,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="cert">
-<h1>Cert<a class="headerlink" href="#cert" title="Permalink to this headline">¶</a></h1>
+<span id="cert"></span><h1>Cert<a class="headerlink" href="#cert" title="Permalink to this headline">¶</a></h1>
 <p>Cert API is used to create, sign and verify <strong>digital certificates</strong> on the blockchain. The entire functionalities are based on a Smart Contract that handles the lifecycle of every certificate in the most autonomous and secure way.</p>
 <div class="section" id="api-specification">
-<h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
+<span id="api-specification"></span><h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the certificate functionalities</p>
 <div class="section" id="certificate">
-<h3>Certificate<a class="headerlink" href="#certificate" title="Permalink to this headline">¶</a></h3>
+<span id="certificate"></span><h3>Certificate<a class="headerlink" href="#certificate" title="Permalink to this headline">¶</a></h3>
 <p>A certificate is a tamper-proof and verifiable collection of data that represents a process, a file/document, an accomplishment or any activity that can benefit from the inmmutability and authenticity.</p>
 <p>Thanks to certificates, it allows you to <strong>assure any fact in your business case recording the information along with parameters that everyone can verify</strong> (e.g. signatures, issuance/expiration time, network evidences, etc..).</p>
 <p>Every certificate is identified by a unique ID and is composed of three complementary but different parts: Data, Metadata and Access.</p>
@@ -229,10 +229,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>   JSON of certificate data that is inmutable</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;json</span> <span class="pre">array&gt;</span></code> Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)</p></li>
-</ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)
 <details>
-  <summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary></p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{},</span>
   <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">[],</span>
@@ -240,9 +241,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br/><div class="section" id="u-certificate-data-u">
-<h4><u>Certificate data</u><a class="headerlink" href="#u-certificate-data-u" title="Permalink to this headline">¶</a></h4>
+<p></details>
+<br/></p>
+<div class="section" id="u-certificate-data-u">
+<span id="u-certificate-data-u"></span><h4><u>Certificate data</u><a class="headerlink" href="#u-certificate-data-u" title="Permalink to this headline">¶</a></h4>
 <p>Data contains the <strong>inmutable information about the certificate</strong>: who issued it, when it was issued, when it will expire and of course what it is certified and what does it mean.</p>
 <p>The certificate <code class="docutils literal notranslate"><span class="pre">data</span></code> contains the following fields:</p>
 <ul class="simple">
@@ -251,8 +253,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">expires</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;</span></code> Datetime of when the certificate should no longer be considered valid</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the data information</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample Data structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample Data structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;badge&quot;</span><span class="o">:</span><span class="p">{</span>
       <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -267,10 +270,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br/></div>
+<p></details>
+<br/></p>
+</div>
 <div class="section" id="u-certificate-metadata-u">
-<h4><u>Certificate metadata</u><a class="headerlink" href="#u-certificate-metadata-u" title="Permalink to this headline">¶</a></h4>
+<span id="u-certificate-metadata-u"></span><h4><u>Certificate metadata</u><a class="headerlink" href="#u-certificate-metadata-u" title="Permalink to this headline">¶</a></h4>
 <p>Metadata contains the <strong>additional information that feeds the certificate</strong> in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid and know how to verify it (e.g. verification, signers, signatures)</p>
 <p>The certificate <code class="docutils literal notranslate"><span class="pre">metadata</span></code> contains the following fields:</p>
 <ul class="simple">
@@ -284,8 +288,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">hfTxId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Current transaction identifier in Hyperledger Fabric</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Hash of the transaction</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample Metadata structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample Metadata structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Signature/Revocation/Evidence/Adding signers&quot;</span><span class="p">,</span>
   <span class="s2">&quot;verification&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -301,10 +306,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br/></div>
+<p></details>
+<br/></p>
+</div>
 <div class="section" id="u-certificate-access-u">
-<h4><u>Certificate access</u><a class="headerlink" href="#u-certificate-access-u" title="Permalink to this headline">¶</a></h4>
+<span id="u-certificate-access-u"></span><h4><u>Certificate access</u><a class="headerlink" href="#u-certificate-access-u" title="Permalink to this headline">¶</a></h4>
 <p>Access contains <strong>list of authorised users depending on their role</strong> (i.e. admin, sign, read) for a certificate in order to control the possible interaction of every user</p>
 <p>The certificate <code class="docutils literal notranslate"><span class="pre">access</span></code> contains the following fields:</p>
 <ul class="simple">
@@ -313,8 +319,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">read</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Json of <strong>readers</strong>. A reader can only read and verify the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;bool&gt;</span></code> Flag to determine whether the certificate is public and readable for all users or not</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample Access structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample Access structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;admin&quot;</span><span class="o">:</span><span class="p">{</span>
     <span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
   <span class="p">},</span>
@@ -330,17 +337,19 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br/></div>
+<p></details>
+<br/></p>
+</div>
 </div>
 </div>
 <div class="section" id="api-methods">
-<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
+<span id="api-methods"></span><h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <p><img alt="CertAPI Swagger" src="_images/cert_swagger.png" /></p>
-<details>
-  <summary><em><strong>API methods</strong></em> (Click to expand)</summary><hr class="docutils" />
+<p><details>
+<summary><em><strong>API methods</strong></em> (Click to expand)</summary></p>
+<hr class="docutils" />
 <div class="section" id="post-certificate-content-create">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/content/create</span></code><a class="headerlink" href="#post-certificate-content-create" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-content-create"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/content/create</span></code><a class="headerlink" href="#post-certificate-content-create" title="Permalink to this headline">¶</a></h3>
 <p>Create a certificate from a specific content like file/document/collection of files on Blockchain.
 A unique and irrevocable identifier (<code class="docutils literal notranslate"><span class="pre">certID</span></code>) is generated for every certificate.</p>
 <p><u><em>Input</em></u></p>
@@ -352,8 +361,9 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <li><p><code class="docutils literal notranslate"><span class="pre">readers</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of readers, in case it is not public</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">signers</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of required signers</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ABC Certificate&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;This certificate is a tamper-proof and valid record of the ABC document file&quot;</span><span class="p">,</span>
   <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="p">{},</span>   
@@ -369,10 +379,12 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br><p>(*) <strong>Content</strong> field is JSON format and open for every use case. An example is shown below:</p>
-<details>
-  <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p></details>
+<br></p>
+<p>(*) <strong>Content</strong> field is JSON format and open for every use case. An example is shown below:</p>
+<p><details>
+<summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="p">{</span>
     <span class="s2">&quot;file_name&quot;</span><span class="o">:</span><span class="s2">&quot;example.pdf&quot;</span><span class="p">,</span>
     <span class="s2">&quot;file_hash&quot;</span><span class="o">:</span><span class="s2">&quot;3aAFa39ho53589gbxCSkFj239y90tiFAa78xZAuo=&quot;</span><span class="p">,</span>
@@ -381,13 +393,15 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br><p><u><em>Output</em></u></p>
+<p></details>
+<br></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -430,10 +444,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-asset-create">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/asset/create</span></code><a class="headerlink" href="#post-certificate-asset-create" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-asset-create"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/asset/create</span></code><a class="headerlink" href="#post-certificate-asset-create" title="Permalink to this headline">¶</a></h3>
 <p>Create a certificate from a file/document/collection of files on Blockchain.
 A unique and irrevocable identifier (<code class="docutils literal notranslate"><span class="pre">certID</span></code>) is generated for every certificate</p>
 <p><u><em>Input</em></u></p>
@@ -445,8 +460,9 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <li><p><code class="docutils literal notranslate"><span class="pre">readers</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of readers, in case it is not public</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">signers</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of required signers</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ABC Certificate&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;This certificate is a tamper-proof and valid record of the process&quot;</span><span class="p">,</span>
   <span class="s2">&quot;assetID&quot;</span><span class="o">:</span> <span class="s2">&quot;asset_example1&quot;</span><span class="p">,</span>   
@@ -462,14 +478,16 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>(*) <strong>assetID</strong> field is used for certify assets created with Track API. If you have already created some assets (f.e. asset_example1, asset_example2, asset_example3) you can choose what asset to certify and also what range of its transactions.</p>
-</details> 
-<br><p><u><em>Output</em></u></p>
+<p>(*) <strong>assetID</strong> field is used for certify assets created with Track API. If you have already created some assets (f.e. asset_example1, asset_example2, asset_example3) you can choose what asset to certify and also what range of its transactions.
+</details>
+<br></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -511,10 +529,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-certificate-certid">
-<h3>GET     -   <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}</span></code><a class="headerlink" href="#get-certificate-certid" title="Permalink to this headline">¶</a></h3>
+<span id="get-certificate-certid"></span><h3>GET     -   <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}</span></code><a class="headerlink" href="#get-certificate-certid" title="Permalink to this headline">¶</a></h3>
 <p>Get certificate from the blockchain</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -524,8 +543,9 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -554,10 +574,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-certid-sign">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign</span></code><a class="headerlink" href="#post-certificate-certid-sign" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-certid-sign"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign</span></code><a class="headerlink" href="#post-certificate-certid-sign" title="Permalink to this headline">¶</a></h3>
 <p>Sign a certificate</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -567,8 +588,9 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;signature&quot;</span><span class="o">:</span> <span class="s2">&quot;eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTER2ZfZklCRVp3bUF...&quot;</span><span class="p">,</span>
     <span class="s2">&quot;signer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -581,10 +603,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-certid-sign-external">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign/external</span></code><a class="headerlink" href="#post-certificate-certid-sign-external" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-certid-sign-external"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/sign/external</span></code><a class="headerlink" href="#post-certificate-certid-sign-external" title="Permalink to this headline">¶</a></h3>
 <p>Sign a certificate with external identity and keys</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -593,21 +616,24 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> External public key to verify the signature</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">did</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Signer identifier</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;signature&quot;</span><span class="o">:</span> <span class="s2">&quot;eyJSosd289ap389fa8uf3u8u4er8912rz....&quot;</span><span class="p">,</span>
   <span class="s2">&quot;publicKey&quot;</span><span class="o">:</span> <span class="s2">&quot;--------BEGIN PUBLIC KEY-------- ... --------END PUBLIC KEY--------&quot;</span><span class="p">,</span>
   <span class="s2">&quot;did&quot;</span><span class="o">:</span> <span class="s2">&quot;did:external:signer3&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br><p><u><em>Output</em></u></p>
+<p></details>
+<br></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;signature&quot;</span><span class="o">:</span> <span class="s2">&quot;eyJSosd289ap389fa8uf3u8u4er8912rz...&quot;</span><span class="p">,</span>
     <span class="s2">&quot;signer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -620,29 +646,33 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-certid-register">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/register</span></code><a class="headerlink" href="#post-certificate-certid-register" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-certid-register"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/register</span></code><a class="headerlink" href="#post-certificate-certid-register" title="Permalink to this headline">¶</a></h3>
 <p>Register a certificate evidence in public network</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">network</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Network to register the certificate evidence</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;network&quot;</span><span class="o">:</span> <span class="s2">&quot;Ethereum&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br><p><u><em>Output</em></u></p>
+<p></details>
+<br></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;Evidence&quot;</span><span class="p">,</span>
@@ -663,10 +693,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-certid-revoke">
-<h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/revoke</span></code><a class="headerlink" href="#post-certificate-certid-revoke" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-certid-revoke"></span><h3>POST -  <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/revoke</span></code><a class="headerlink" href="#post-certificate-certid-revoke" title="Permalink to this headline">¶</a></h3>
 <p>Revoke a certificate</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -676,8 +707,9 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certificate</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;certABC&quot;</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Revocation&quot;</span><span class="p">,</span>
@@ -691,10 +723,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> </div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-certificate-certid-history">
-<h3>GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/history</span></code><a class="headerlink" href="#get-certificate-certid-history" title="Permalink to this headline">¶</a></h3>
+<span id="get-certificate-certid-history"></span><h3>GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/history</span></code><a class="headerlink" href="#get-certificate-certid-history" title="Permalink to this headline">¶</a></h3>
 <p>Get all transactions for the whole lifecycle of the certificate</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -704,8 +737,9 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Certificate</span> <span class="pre">transactions</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A list of all transactions</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -748,10 +782,11 @@ A unique and irrevocable identifier (<code class="docutils literal notranslate">
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-certificates">
-<h3>GET   -    <code class="docutils literal notranslate"><span class="pre">/certificates</span></code><a class="headerlink" href="#get-certificates" title="Permalink to this headline">¶</a></h3>
+<span id="get-certificates"></span><h3>GET   -    <code class="docutils literal notranslate"><span class="pre">/certificates</span></code><a class="headerlink" href="#get-certificates" title="Permalink to this headline">¶</a></h3>
 <p>Lists all the certificates of a user</p>
 <p><u><em>Input</em></u>
 N/A. It returns all the certificates which belong to the login user</p>
@@ -759,8 +794,9 @@ N/A. It returns all the certificates which belong to the login user</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Certificate</span> <span class="pre">list</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="s2">&quot;cert1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cert2&quot;</span><span class="p">,</span>
@@ -769,10 +805,11 @@ N/A. It returns all the certificates which belong to the login user</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-certificate-certid-access">
-<h3>GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/access</span></code><a class="headerlink" href="#get-certificate-certid-access" title="Permalink to this headline">¶</a></h3>
+<span id="get-certificate-certid-access"></span><h3>GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/access</span></code><a class="headerlink" href="#get-certificate-certid-access" title="Permalink to this headline">¶</a></h3>
 <p>Get all granted accesses for the certificate</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -782,8 +819,9 @@ N/A. It returns all the certificates which belong to the login user</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Access</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A list of all accesses</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
@@ -801,10 +839,11 @@ N/A. It returns all the certificates which belong to the login user</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-certid-access">
-<h3>POST     - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/access</span></code><a class="headerlink" href="#post-certificate-certid-access" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-certid-access"></span><h3>POST     - <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/access</span></code><a class="headerlink" href="#post-certificate-certid-access" title="Permalink to this headline">¶</a></h3>
 <p>Authorise the reading access for a certificate. The user has to be the owner (admin) of the certificate. Readers are overwriten in every call</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -812,21 +851,24 @@ N/A. It returns all the certificates which belong to the login user</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;bool&gt;</span></code>  Flag to determine whether the certificate is public and readable for all users or not</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">readers</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of readers, in case it is not public</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="s2">&quot;readers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;did:vtn:reader3&quot;</span><span class="p">,</span><span class="s2">&quot;did:vtn:reader4&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details> 
-<br><p><u><em>Output</em></u></p>
+<p></details>
+<br></p>
+<p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Access</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>  A list of all accesses</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;did:vtn:admin&quot;</span><span class="o">:</span> <span class="mi">1</span>
@@ -844,10 +886,11 @@ N/A. It returns all the certificates which belong to the login user</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="get-certificate-certid-signers">
-<h3>GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers</span></code><a class="headerlink" href="#get-certificate-certid-signers" title="Permalink to this headline">¶</a></h3>
+<span id="get-certificate-certid-signers"></span><h3>GET  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers</span></code><a class="headerlink" href="#get-certificate-certid-signers" title="Permalink to this headline">¶</a></h3>
 <p>Get the signers and their signatures for the certificate</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -857,8 +900,9 @@ N/A. It returns all the certificates which belong to the login user</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Signers</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A list of all signers with their signature and public key</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;did:vtn:signer1&quot;</span><span class="o">:</span> <span class="p">{},</span>
     <span class="s2">&quot;did:vtn:signer2&quot;</span><span class="o">:</span> <span class="p">{}</span>
@@ -866,28 +910,32 @@ N/A. It returns all the certificates which belong to the login user</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details></div>
+<p></details></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="post-certificate-certid-signers-add">
-<h3>POST  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers/add</span></code><a class="headerlink" href="#post-certificate-certid-signers-add" title="Permalink to this headline">¶</a></h3>
+<span id="post-certificate-certid-signers-add"></span><h3>POST  -     <code class="docutils literal notranslate"><span class="pre">/certificate/{certID}/signers/add</span></code><a class="headerlink" href="#post-certificate-certid-signers-add" title="Permalink to this headline">¶</a></h3>
 <p>Add new signers to the certificate</p>
 <p><em>Input</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">certID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the certificate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">signers</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string</span> <span class="pre">array&gt;</span></code> List of new signers</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;signers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;did:vtn:signerNEW&quot;</span><span class="p">,</span> <span class="s2">&quot;did:vtn:signerNEW2&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</details><p><em>Output</em></p>
+<p></details></p>
+<p><em>Output</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Metadata</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> A JSON of current metadata information</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;certID&quot;</span><span class="o">:</span> <span class="s2">&quot;cert_1&quot;</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;Adding signers&quot;</span><span class="p">,</span>
@@ -910,12 +958,13 @@ N/A. It returns all the certificates which belong to the login user</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p></details>
 </details>
-</details>
-<br/></div>
+<br/></p>
+</div>
 </div>
 <div class="section" id="architecture-of-the-project">
-<h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
+<span id="architecture-of-the-project"></span><h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-certapi
 ├── api
       ├── handler           // HTTP logic
@@ -941,11 +990,11 @@ N/A. It returns all the certificates which belong to the login user</p>
 </div>
 </div>
 <div class="section" id="how-we-run-the-application">
-<h2>How we run the Application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
+<span id="how-we-run-the-application"></span><h2>How we run the Application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
 <p>As you could see in the <a class="reference external" href="architecture.html">Architecture</a> module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
 </div>
 <div class="section" id="testing-the-application">
-<h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
+<span id="testing-the-application"></span><h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
 <p>In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-certapi module</p>
 <p>Also you can download the files in the links below:</p>
 <p><a href="#" download> - Postman collection</a>
@@ -953,7 +1002,7 @@ N/A. It returns all the certificates which belong to the login user</p>
 <a href="_static/environment.json" download> - Postman environment</a></p>
 </div>
 <div class="section" id="errors-management">
-<h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
+<span id="errors-management"></span><h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Cert API errors are managed through the following nomenclature <strong>CERT-XX</strong> which corresponds to:<br></p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -961,7 +1010,8 @@ N/A. It returns all the certificates which belong to the login user</p>
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
-</style><table class="tg">
+</style>
+<table class="tg">
   <tr>
     <th class="tg-0pky">Code</th>
     <th class="tg-0pky">Description</th>
@@ -978,7 +1028,8 @@ N/A. It returns all the certificates which belong to the login user</p>
     <td class="tg-0lax">CERT-02</td>
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
-</table><br/></div>
+</table><p><br/></p>
+</div>
 </div>
 
 
