@@ -110,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Settle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#settle">Settle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Settle</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api-methods">API Methods</a><ul>
@@ -202,7 +202,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="settle">
-<span id="settle"></span><h1>Settle<a class="headerlink" href="#settle" title="Permalink to this headline">¶</a></h1>
+<h1>Settle<a class="headerlink" href="#settle" title="Permalink to this headline">¶</a></h1>
 <p>This API generates a general structure to perform the settlement of records. The API allows
 the settlement of a great gamut of record structures, aggregations and settlement operations.
 Currently two <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> and <code class="docutils literal notranslate"><span class="pre">settlement</span></code> operations are implemented, but further
@@ -210,10 +210,10 @@ settlement and aggregation operations will be implemented in future versions. Yo
 our development team through the Issues to ask for new settlement and aggregation operations
 to fit your use case.</p>
 <div class="section" id="api-specification">
-<span id="api-specification"></span><h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
+<h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the settlement functionalities.</p>
-<div class="section" id="settle">
-<span id="id1"></span><h3>Settle<a class="headerlink" href="#settle" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Settle<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>A settlement structure has the following parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settleid</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>    - Unique identifier of the settlement structure</p></li>
@@ -225,9 +225,8 @@ the status of the common record and generates a settled structure. The aggregati
 <li><p><code class="docutils literal notranslate"><span class="pre">record</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> - Sample record used to define the structure of records in the settlement structure. Also used as the
 main variable used to upload records.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;settleid&quot;</span><span class="o">:</span> <span class="s2">&quot;settle&quot;</span><span class="p">,</span>
   <span class="s2">&quot;aggregates&quot;</span><span class="o">:</span> <span class="s2">&quot;[&#39;msg&#39;]&quot;</span><span class="p">,</span>
   <span class="s2">&quot;aggregationType&quot;</span><span class="o">:</span> <span class="s2">&quot;mcCounter&quot;</span><span class="p">,</span>
@@ -237,18 +236,16 @@ main variable used to upload records.</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details>
-<br></p>
-</div>
+</details>
+<br></div>
 </div>
 <div class="section" id="api-methods">
-<span id="api-methods"></span><h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
+<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <p><img alt="SettleAPI methods" src="_images/settle_swagger.png" /></p>
-<p><details>
-<summary><em><strong>Settlement methods</strong></em> (Click to expand)</summary></p>
-<hr class="docutils" />
+<details>
+  <summary><em><strong>Settlement methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="post-settlement-create">
-<span id="post-settlement-create"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code><a class="headerlink" href="#post-settlement-create" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/create/</span></code><a class="headerlink" href="#post-settlement-create" title="Permalink to this headline">¶</a></h3>
 <p>Creates a new settlement structure.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -261,9 +258,8 @@ the status of the common record and generates a settled structure. The aggregati
 <li><p><code class="docutils literal notranslate"><span class="pre">record</span></code> : <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> - Sample record used to define the structure of records in the settlement structure. Also used as the
 main variable used to upload records.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;record&quot;</span><span class="o">:</span> <span class="p">{</span>
    <span class="s2">&quot;app&quot;</span><span class="o">:</span>  <span class="s2">&quot;4240e1f7-d287-46a9-8b92-f112510bd9f7&quot;</span><span class="p">,</span>
    <span class="s2">&quot;op&quot;</span><span class="o">:</span>  <span class="s2">&quot;CREATE&quot;</span><span class="p">,</span>
@@ -277,14 +273,12 @@ main variable used to upload records.</p></li>
  <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-<p><u><em>Output</em></u></p>
+</details><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;aggregationMetrics&quot;</span><span class="o">:</span> <span class="p">[</span>
       <span class="s2">&quot;op&quot;</span>
@@ -303,11 +297,10 @@ main variable used to upload records.</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-settlement-settleid">
-<span id="get-settlement-settleid"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code><a class="headerlink" href="#get-settlement-settleid" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}</span></code><a class="headerlink" href="#get-settlement-settleid" title="Permalink to this headline">¶</a></h3>
 <p>Gets the current status of a settlement structure. It shows the current
 status of aggregates.</p>
 <p><u><em>Input</em></u></p>
@@ -318,9 +311,8 @@ status of aggregates.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;aggregates&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;2344240e1f7-d287-46a9-8b92-f1232342431&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -347,11 +339,10 @@ status of aggregates.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-settlement-settleid-history">
-<span id="get-settlement-settleid-history"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code><a class="headerlink" href="#get-settlement-settleid-history" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/history</span></code><a class="headerlink" href="#get-settlement-settleid-history" title="Permalink to this headline">¶</a></h3>
 <p>Gets the history of changes over a settlement structure according to updated records.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -361,9 +352,8 @@ status of aggregates.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&quot;aggregates&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -407,11 +397,10 @@ status of aggregates.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-settlement-settleid-settled">
-<span id="get-settlement-settleid-settled"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code><a class="headerlink" href="#get-settlement-settleid-settled" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settled</span></code><a class="headerlink" href="#get-settlement-settleid-settled" title="Permalink to this headline">¶</a></h3>
 <p>Gets all settlements performed over a specific settleId.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -421,9 +410,8 @@ status of aggregates.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;aggregates&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;2344240e1f7-d287-46a9-8b92-f1232342431&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -438,11 +426,10 @@ status of aggregates.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-settlement-settleid-update">
-<span id="post-settlement-settleid-update"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/update</span></code><a class="headerlink" href="#post-settlement-settleid-update" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/update</span></code><a class="headerlink" href="#post-settlement-settleid-update" title="Permalink to this headline">¶</a></h3>
 <p>It uploads a new record to a settlement structure updating
 the status of aggregates according to the <code class="docutils literal notranslate"><span class="pre">aggregationType</span></code> defined
 for the settling structure.</p>
@@ -450,9 +437,8 @@ for the settling structure.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">settlementObject</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;record&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;app&quot;</span><span class="o">:</span>  <span class="s2">&quot;4240e1f7-d287-46a9-8b92-f112510bd9f7&quot;</span><span class="p">,</span>
@@ -473,14 +459,12 @@ for the settling structure.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-<p><u><em>Output</em></u></p>
+</details><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;aggregates&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;2344240e1f7-d287-46a9-8b92-f1232342431&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -507,11 +491,10 @@ for the settling structure.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-settlement-settleid-settle">
-<span id="post-settlement-settleid-settle"></span><h3>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settle</span></code><a class="headerlink" href="#post-settlement-settleid-settle" title="Permalink to this headline">¶</a></h3>
+<h3>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/settle</span></code><a class="headerlink" href="#post-settlement-settleid-settle" title="Permalink to this headline">¶</a></h3>
 <p>Settles a given settlement structure. It aggregates according to the
 current status of aggregates and the <code class="docutils literal notranslate"><span class="pre">aggregationType</span></code> defined for the settlement
 structure.</p>
@@ -523,9 +506,8 @@ structure.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;2344240e1f7-d287-46a9-8b92-f1232342431&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;op&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span>
@@ -537,11 +519,10 @@ structure.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-settlement-settleid-clear">
-<span id="post-settlement-settleid-clear"></span><h3>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/clear</span></code><a class="headerlink" href="#post-settlement-settleid-clear" title="Permalink to this headline">¶</a></h3>
+<h3>POST  -   <code class="docutils literal notranslate"><span class="pre">/settlement/{settleId}/clear</span></code><a class="headerlink" href="#post-settlement-settleid-clear" title="Permalink to this headline">¶</a></h3>
 <p>Clears a settlement structure. It removes the current status of the aggregates.
 This may be used when unconsistent updates have been performed or errors have
 been detected in the updating of records.</p>
@@ -553,9 +534,8 @@ been detected in the updating of records.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">newSettlementObject</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;aggregationMetrics&quot;</span><span class="o">:</span> <span class="p">[</span>
             <span class="s2">&quot;op&quot;</span>
@@ -574,13 +554,12 @@ been detected in the updating of records.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details>
 </details>
-<br></p>
-</div>
+</details>
+<br></div>
 </div>
 <div class="section" id="architecture-of-the-project">
-<span id="architecture-of-the-project"></span><h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
+<h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
 <p>The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-tokenapi
 ├── api
@@ -608,11 +587,11 @@ been detected in the updating of records.</p>
 </div>
 </div>
 <div class="section" id="how-we-run-the-application">
-<span id="how-we-run-the-application"></span><h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
+<h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
 <p>As you could see in the <a class="reference external" href="architecture.html">Architecture</a> module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
 </div>
 <div class="section" id="testing-the-application">
-<span id="testing-the-application"></span><h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
+<h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
 <p>In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-settleapi module</p>
 <p>Also you can download the files in the links below:</p>
 <p><a href="_static/settleapi.collection.json" download> - Postman collection</a>
@@ -620,7 +599,7 @@ been detected in the updating of records.</p>
 <a href="_static/environment.json" download> - Postman environment</a></p>
 </div>
 <div class="section" id="errors-management">
-<span id="errors-management"></span><h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
+<h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Settle API errors are managed through the following nomenclature <strong>SETTLE-XX</strong> which corresponds to:<br></p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -628,8 +607,7 @@ been detected in the updating of records.</p>
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
+</style><table class="tg">
   <tr>
     <th class="tg-0pky">Code</th>
     <th class="tg-0pky">Description</th>
@@ -646,8 +624,7 @@ been detected in the updating of records.</p>
     <td class="tg-0lax">SETTLE-02</td>
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
-</table><p><br></p>
-</div>
+</table><br></div>
 </div>
 
 

@@ -202,31 +202,27 @@
            <div itemprop="articleBody">
             
   <div class="section" id="tutorials">
-<span id="tutorials"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
 <p>In this section you will find snipets of code to integrate API calls to your page</p>
 <div class="section" id="postman">
-<span id="postman"></span><h2>Postman<a class="headerlink" href="#postman" title="Permalink to this headline">¶</a></h2>
+<h2>Postman<a class="headerlink" href="#postman" title="Permalink to this headline">¶</a></h2>
 <p>Postman is a fantastic software that lets us run requests against our APIs.</p>
 <p>One of the many great tools of Postman are collections, sets of grouped requests that can be exported/imported, in order to be run all together for testing purposes.</p>
 <div class="section" id="postman-collection">
-<span id="postman-collection"></span><h3>Postman collection<a class="headerlink" href="#postman-collection" title="Permalink to this headline">¶</a></h3>
+<h3>Postman collection<a class="headerlink" href="#postman-collection" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p>First, download the collections we have created on the folder <strong>miscelanea/postman</strong></p>
 <p>You will see 2 diferent files: <strong>collections</strong> and <strong>enviroment</strong>. Download both, as we will explain later what are enviroments for.</p>
 </li>
-</ol>
-<ol>
 <li><p>On Postman, click on “Import” , and then select <strong>Import file</strong>.</p>
 <p>After doing so, on the left pannel you should see the collection you just imported, as shown in the image</p>
 <p><img alt="alt text" src="_images/import.png" /></p>
 </li>
-</ol>
-<ol>
-<li><p>Now that we can see the collection, lets take alook at the URL for which the request is being made:</p>
+<li><p>Now that we can see the collection, lets take a<br />look at the URL for which the request is being made:</p>
 <p><img alt="alt text" src="_images/enviroment.png" /></p>
 </li>
 </ol>
-<p>We can see that the URL contains: ” {{url}} “</p>
+<p>We can see that the URL contains: “ {{url}} “</p>
 <p>This is a variable in POSTMAN. The nice things about using variables, is that we can change the endpoints of the APIs without having to modify the requests, but only the <strong>enviroment</strong> file, where the enviroment variables are specified.</p>
 <p>To load a specific enviroment file, click the configuration button, manage enviroment, and select the enviroment file you want to load.</p>
 <p><img alt="alt text" src="_images/manage.png" /></p>
@@ -246,11 +242,11 @@ When you execute the login request, the Auth token received is set as the value 
 </div>
 </div>
 <div class="section" id="managing-requests">
-<span id="managing-requests"></span><h2>Managing requests<a class="headerlink" href="#managing-requests" title="Permalink to this headline">¶</a></h2>
+<h2>Managing requests<a class="headerlink" href="#managing-requests" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="nodejs">
-<span id="nodejs"></span><h3>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">¶</a></h3>
+<h3>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="axios-library">
-<span id="axios-library"></span><h4>Axios library<a class="headerlink" href="#axios-library" title="Permalink to this headline">¶</a></h4>
+<h4>Axios library<a class="headerlink" href="#axios-library" title="Permalink to this headline">¶</a></h4>
 <p>Axios is a promise based HTTP client for the browser. Using promises is great when dealing with code that requres chains of events.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;axios&#39;</span><span class="p">);</span>
 
@@ -273,7 +269,7 @@ When you execute the login request, the Auth token received is set as the value 
 </div>
 </div>
 <div class="section" id="http">
-<span id="http"></span><h4>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h4>
+<h4>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h4>
 <p>If you dont want to use third party libraries,you can use node http standard module. However, this option is a little more verbose than the preceding one</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">)</span>
 
@@ -312,9 +308,9 @@ When you execute the login request, the Auth token received is set as the value 
 </div>
 </div>
 <div class="section" id="python">
-<span id="python"></span><h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="requests">
-<span id="requests"></span><h4>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h4>
+<h4>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h4>
 <p>You dont really want to use any other module!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -324,14 +320,14 @@ When you execute the login request, the Auth token received is set as the value 
 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://trustapi.tid.es/trust/asset&#39;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">hed</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="shell">
-<span id="shell"></span><h3>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h3>
+<h3>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h3>
 <p>Lets not forget our old friend curl. This way can also be integrated in any other programming language calling something like exec.shell(command)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -X POST <span class="s2">&quot;https://trustapi.tid.es/trust/asset/create&quot;</span> -H <span class="s2">&quot;accept: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2MTEyMjMwOX0.Qu28A580dTOXPAX9bKsnEuHRk8NxFLGL0iPkK5RuOKg&quot;</span> -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s2">&quot;{ \&quot;assetid\&quot;: \&quot;1\&quot;, \&quot;data\&quot;: {}, \&quot;metadata\&quot;: {}, \&quot;registerInEthereum\&quot;: \&quot;true/false\&quot;}&quot;</span>
 </pre></div>
@@ -339,7 +335,7 @@ When you execute the login request, the Auth token received is set as the value 
 </div>
 </div>
 <div class="section" id="reactjs">
-<span id="reactjs"></span><h2>ReactJS<a class="headerlink" href="#reactjs" title="Permalink to this headline">¶</a></h2>
+<h2>ReactJS<a class="headerlink" href="#reactjs" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

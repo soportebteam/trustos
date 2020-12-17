@@ -35,7 +35,7 @@ This is the structure that is stored in the DLT platform that belongs to an user
 Example
 ````
 {
-  "Did": "did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea",
+  "Did  ": "did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea",
   "Controller": "",
   "Access": 0, 
   "PubKey": "-----BEGIN PUBLIC KEY-----\r\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7cr\r\n5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmp\r\ngKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxB\r\nrWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1\r\nBZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHs\r\nU1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5\r\ntQIDAQAB\r\n-----END PUBLIC KEY-----\r\n"

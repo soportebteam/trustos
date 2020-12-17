@@ -825,7 +825,7 @@ In postman folder there are the collection and environment to interact and test 
 
 Also you can download the files in the links below:
 
-<a href="#" download> - Postman collection</a>
+<a href="_static/certapi.collection.json" download> - Postman collection</a>
 <br>
 <a href="_static/environment.json" download> - Postman environment</a>
 
