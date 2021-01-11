@@ -244,14 +244,27 @@ Create a new service in the TrustID network.
   "channel": "channel1"
 }
 ```
+
 </details><br>
 
-#### POST   -   `/service/update`
-Updates the information of a service.
+#### POST   -   `/service/get`
+Gets the registered information for a service.
+- `serviceID` :  `<string>` Identity that is going to identify the service
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serivceID": "did:vtn:service:012343",
+  "password": "passphrase"
+}
+```
+</details><br>
+
+#### POST   -   `/service/updateAccess`
+Updates the access of a service.
 - `serviceID` :  `<string>` Identity that is going to identify the service.
-- `name` :  `<string>` Name of the service deployed in Hyperledger Fabric
 - `access` :  `<json>` Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED
-- `channel` :  `<string>` Identificator of the HF network.
 
 The supported policies are the following:
 - PUBLIC, everyone with access on the network can call the service
@@ -273,23 +286,28 @@ The supported policies are the following:
   }
 }
 ```
-
-
 </details><br>
 
-#### POST   -   `/service/get`
-Gets the registered information for a service.
-- `serviceID` :  `<string>` Identity that is going to identify the service
+#### POST   -   `/service/update`
+
+Updates the information of a service.
+- `serviceID` :  `<string>` Identity that is going to identify the service.
+- `name` :  `<string>` Name of the service deployed in Hyperledger Fabric
+- `channel` :  `<string>` Identificator of the HF network.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
 ```
 {
-  "serivceID": "did:vtn:service:012343",
-  "password": "passphrase"
+  "serviceID":  "did:vtn:service:sacc",
+  "channel": "channel1",
+  "name":"sacc-chaincode"
 }
+
 ```
 </details><br>
+
 
 #### POST   -   `/service/invoke`
 

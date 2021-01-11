@@ -130,8 +130,9 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#services-methods">Services methods</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#post-service-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-service-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-service-updateaccess">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/updateAccess</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-service-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-service-invoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-service-invoke-jsonargs">POST   -  <code class="docutils literal notranslate"><span class="pre">/service/invoke/jsonArgs</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#post-service-query">POST   - <code class="docutils literal notranslate"><span class="pre">/service/query</span></code></a></li>
@@ -263,7 +264,7 @@
 </ul>
 <p>Example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;Did&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Did  &quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea&quot;</span><span class="p">,</span>
   <span class="s2">&quot;Controller&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="s2">&quot;Access&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
   <span class="s2">&quot;PubKey&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7cr</span><span class="se">\r\n</span><span class="s2">5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmp</span><span class="se">\r\n</span><span class="s2">gKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxB</span><span class="se">\r\n</span><span class="s2">rWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1</span><span class="se">\r\n</span><span class="s2">BZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHs</span><span class="se">\r\n</span><span class="s2">U1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5</span><span class="se">\r\n</span><span class="s2">tQIDAQAB</span><span class="se">\r\n</span><span class="s2">-----END PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">&quot;</span>
@@ -466,14 +467,28 @@ passphrase to lock the private key.</p>
 </div>
 <p></details><br></p>
 </div>
-<div class="section" id="post-service-update">
-<span id="post-service-update"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
-<p>Updates the information of a service.</p>
+<div class="section" id="post-service-get">
+<span id="post-service-get"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
+<p>Gets the registered information for a service.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service</p></li>
+</ul>
+<p><details>
+<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;serivceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:service:012343&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></details><br></p>
+</div>
+<div class="section" id="post-service-updateaccess">
+<span id="post-service-updateaccess"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/updateAccess</span></code><a class="headerlink" href="#post-service-updateaccess" title="Permalink to this headline">¶</a></h4>
+<p>Updates the access of a service.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the service deployed in Hyperledger Fabric</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identificator of the HF network.</p></li>
 </ul>
 <p>The supported policies are the following:</p>
 <ul class="simple">
@@ -498,17 +513,20 @@ the service</p></li>
 </div>
 <p></details><br></p>
 </div>
-<div class="section" id="post-service-get">
-<span id="post-service-get"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
-<p>Gets the registered information for a service.</p>
+<div class="section" id="post-service-update">
+<span id="post-service-update"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
+<p>Updates the information of a service.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the service deployed in Hyperledger Fabric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identificator of the HF network.</p></li>
 </ul>
 <p><details>
 <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serivceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:service:012343&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
+  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;did:vtn:service:sacc&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sacc-chaincode&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
