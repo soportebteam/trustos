@@ -32,7 +32,7 @@ POST - `/asset/create`
    },
    "metadata":{
       "location":"51.165691, 10.451526",
-      "ref":"Germany",
+      "ref":"Marburg, Germany",
       "temperature":"15",
       "humidity":50
    }
@@ -66,10 +66,10 @@ POST - `/asset/{assetId}/update`
 {   
   "metadata":{
       "location":"45.74846, 4.84671",
-      "ref":"Lyon",
+      "ref":"Lyon, France",
       "temperature":"15",
       "humidity":50,
-      "transportCompany":"firm B",
+      "transportCompany":"UPS",
       "transporter":"David"
    }
 }
@@ -81,10 +81,10 @@ POST - `/asset/{assetId}/update`
 {   
   "metadata":{
       "location":"41.38879, 2.15899",
-      "ref":"Barcelona",
+      "ref":"Barcelona, Spain",
       "temperature":"10",
       "humidity":50,
-      "transportCompany":"firm C",
+      "transportCompany":"SEUR",
       "transporter":"Pep"
    }
 }
@@ -96,10 +96,10 @@ POST - `/asset/{assetId}/update`
 {   
   "metadata":{
       "location":"41.65606, -0.87734 ",
-      "city":"Zaragoza",
+      "ref":"Zaragoza, Spain",
       "temperature":"15",
       "humidity":38,
-      "transportCompany":"firm C",
+      "transportCompany":"SEUR",
       "transporter":"Pep"
    }
 }
@@ -111,10 +111,10 @@ POST - `/asset/{assetId}/update`
 {   
   "metadata":{
       "location":"40.4165, -3.70256 ",
-      "ref":"Madrid",
+      "ref":"Madrid, Spain",
       "temperature":"15",
       "humidity":50,
-      "transportCompany":"firm C",
+      "transportCompany":"SEUR",
       "transporter":"Pep"
    }
 }

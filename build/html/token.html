@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Token</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-specification">API Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#token">Token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Token</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api-methods">API Methods</a><ul>
@@ -206,13 +206,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="token">
-<span id="token"></span><h1>Token<a class="headerlink" href="#token" title="Permalink to this headline">¶</a></h1>
+<h1>Token<a class="headerlink" href="#token" title="Permalink to this headline">¶</a></h1>
 <p>Token API allows developers to easily create, transfer and get transferable tokens on the Hyperledger Fabric network. Through this API giving transferable value to simple assets can generate new markets and gamification strategies.</p>
 <div class="section" id="api-specification">
-<span id="api-specification"></span><h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
+<h2>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction API with all the token functionalities.</p>
-<div class="section" id="token">
-<span id="id1"></span><h3>Token<a class="headerlink" href="#token" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Token<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>A token is an asset that gets a transferable value on the blockchain network and can represent whatever it can be imagined, either an abstract or real/physic thing. The term is a little bit confusing at first, since a token can represent the whole class, in which the total supply is declarated, or individual tokens (balances) transferable between users.</p>
 <p>Every token has the following structure:</p>
 <ul class="simple">
@@ -222,9 +222,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">ethereumAddress</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Address in the Ethereum blockchain, in case we want to link it to a public blockchain token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">totalSupply</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Total number of individual tokens issued</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;KARMA&quot;</span><span class="p">,</span>
       <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="s2">&quot;KRM&quot;</span><span class="p">,</span>
       <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="s2">&quot;bteam:org1MSP&quot;</span><span class="p">,</span>
@@ -233,18 +232,16 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details>
-<br></p>
-</div>
+</details>
+<br></div>
 </div>
 <div class="section" id="api-methods">
-<span id="api-methods"></span><h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
+<h2>API Methods<a class="headerlink" href="#api-methods" title="Permalink to this headline">¶</a></h2>
 <p><img alt="TokenAPI methods" src="_images/token_swagger.png" /></p>
-<p><details>
-<summary><em><strong>Token methods</strong></em> (Click to expand)</summary></p>
-<hr class="docutils" />
+<details>
+  <summary><em><strong>Token methods</strong></em> (Click to expand)</summary><hr class="docutils" />
 <div class="section" id="post-token-create">
-<span id="post-token-create"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create</span></code><a class="headerlink" href="#post-token-create" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/create</span></code><a class="headerlink" href="#post-token-create" title="Permalink to this headline">¶</a></h3>
 <p>Initialize a new token in the network with some specific information</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -254,9 +251,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">ethereumAddress</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> This address represents the smart contract in Ethereum associated to the token. At the moment is given as an input, but in future releases it will be created by the chaincode and given to the developer as a response</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">totalSupply</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>  Total amount of individual tokens that will be created</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;KARMA&quot;</span><span class="p">,</span>
   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="s2">&quot;KRM&quot;</span><span class="p">,</span>
   <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="s2">&quot;bteam:org1MSP&quot;</span><span class="p">,</span>
@@ -265,15 +261,13 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details>
-<br></p>
-<p><u><em>Output</em></u></p>
+</details>
+ <br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;KARMA&quot;</span><span class="p">,</span>
     <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="s2">&quot;KRM&quot;</span><span class="p">,</span>
@@ -284,11 +278,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-token-tokenid">
-<span id="get-token-tokenid"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code><a class="headerlink" href="#get-token-tokenid" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}</span></code><a class="headerlink" href="#get-token-tokenid" title="Permalink to this headline">¶</a></h3>
 <p>Gets all the token information</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -298,9 +291,8 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;KARMA&quot;</span><span class="p">,</span>
     <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="s2">&quot;KRM&quot;</span><span class="p">,</span>
@@ -311,11 +303,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-token-tokenid-allowance-owner-spender">
-<span id="get-token-tokenid-allowance-owner-spender"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/allowance/{owner}/{spender}</span></code><a class="headerlink" href="#get-token-tokenid-allowance-owner-spender" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/allowance/{owner}/{spender}</span></code><a class="headerlink" href="#get-token-tokenid-allowance-owner-spender" title="Permalink to this headline">¶</a></h3>
 <p>This call tells if some specific spender is allowed by some owner to performs actions over the token.</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -327,20 +318,18 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">allowed</span></code>  : <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Quantity of tokens he is allowed to spend</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;allowed&quot;</span><span class="o">:</span> <span class="mi">230</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-token-tokenid-approve">
-<span id="post-token-tokenid-approve"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/approve</span></code><a class="headerlink" href="#post-token-tokenid-approve" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/approve</span></code><a class="headerlink" href="#post-token-tokenid-approve" title="Permalink to this headline">¶</a></h3>
 <p>Approve a different spender for a amount of token you own</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -348,24 +337,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">spender</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the spender user</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>   :  <code class="docutils literal notranslate"><span class="pre">&lt;int&gt;</span></code>    Amount that is allowed to spend</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;spender&quot;</span><span class="o">:</span> <span class="s2">&quot;Satoshi:org1MSP&quot;</span><span class="p">,</span>
   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details>
-<br></p>
-<p><u><em>Output</em></u></p>
+</details>
+<br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;eaff9d6d289ca1894cffb4bbx0e540de4f58f69eb067a23efba2b7581c77e398&quot;</span><span class="p">,</span>
     <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Approve 230 from bteam:org1MSP to Satoshi:org1MSP&quot;</span>
@@ -373,11 +359,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-token-tokenid-balance-userid">
-<span id="get-token-tokenid-balance-userid"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/balance/{userID}</span></code><a class="headerlink" href="#get-token-tokenid-balance-userid" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/balance/{userID}</span></code><a class="headerlink" href="#get-token-tokenid-balance-userid" title="Permalink to this headline">¶</a></h3>
 <p>Gets the token balance of a user</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -389,9 +374,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>  User’s balance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">blocked_balance</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>  User’s blocked balance</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;balance&quot;</span><span class="o">:</span> <span class="mi">950</span><span class="p">,</span>
     <span class="s2">&quot;blocked_balance&quot;</span><span class="o">:</span> <span class="mi">50</span>
@@ -399,11 +383,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="get-token-tokenid-transactions">
-<span id="get-token-tokenid-transactions"></span><h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transactions</span></code><a class="headerlink" href="#get-token-tokenid-transactions" title="Permalink to this headline">¶</a></h3>
+<h3>GET   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transactions</span></code><a class="headerlink" href="#get-token-tokenid-transactions" title="Permalink to this headline">¶</a></h3>
 <p>Get the token transaction history</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -413,9 +396,8 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>  List of transactions of the token</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;eaff9d6d289ca4894cffb4bbb0e540de4f58f69eb067a23efba2b7581c77e398&quot;</span><span class="p">,</span>
@@ -433,11 +415,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-token-tokenid-transfer">
-<span id="post-token-tokenid-transfer"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transfer</span></code><a class="headerlink" href="#post-token-tokenid-transfer" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transfer</span></code><a class="headerlink" href="#post-token-tokenid-transfer" title="Permalink to this headline">¶</a></h3>
 <p>Transfers individual tokens (balances of a token class)</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -445,23 +426,20 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Destination user</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>   :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Balance to transfer</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;to&quot;</span><span class="o">:</span> <span class="s2">&quot;Alice:org1MSP&quot;</span><span class="p">,</span>
   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;40&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details> <br></p>
-<p><u><em>Output</em></u></p>
+</details> <br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;bb7f630b44a42b67abd437d4d9afb0b515fcd4b5794dd8cd6e3bf4f3510c5146&quot;</span><span class="p">,</span>
     <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Transfer 40 from bteam:org1MSP to Alice:org1MSP&quot;</span>
@@ -469,11 +447,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-token-tokenid-transferfrom">
-<span id="post-token-tokenid-transferfrom"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferfrom</span></code><a class="headerlink" href="#post-token-tokenid-transferfrom" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferfrom</span></code><a class="headerlink" href="#post-token-tokenid-transferfrom" title="Permalink to this headline">¶</a></h3>
 <p>Transfer / withdraw from a user. The user has to be approved to spend individual tokens</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -481,24 +458,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>   :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Destination user of the funds</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>:  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Amount of tokens</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;from&quot;</span><span class="o">:</span> <span class="s2">&quot;bteam:org1MSP&quot;</span><span class="p">,</span>
   <span class="s2">&quot;to&quot;</span><span class="o">:</span> <span class="s2">&quot;Satoshi:org1MSP&quot;</span><span class="p">,</span>
   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-<p><u><em>Output</em></u></p>
+</details><br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;7876322dbfe61fd2c293f63fd148875d36b3d4fbcec6635d55351bfab2e9e713&quot;</span><span class="p">,</span>
     <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;TransferFrom 20 from bteam:org1MSP to Satoshi:org1MSP&quot;</span>
@@ -506,32 +480,28 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-token-tokenid-transferownership">
-<span id="post-token-tokenid-transferownership"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferownership</span></code><a class="headerlink" href="#post-token-tokenid-transferownership" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferownership</span></code><a class="headerlink" href="#post-token-tokenid-transferownership" title="Permalink to this headline">¶</a></h3>
 <p>Transfer the ownership of a generic token</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokenId</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Name of the token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  New owner</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;to&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob:org1MSP&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-<p><u><em>Output</em></u></p>
+</details><br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>  :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code>  Token with updated parameters</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;ethereumAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;0x0&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;KARMA&quot;</span><span class="p">,</span>
@@ -542,11 +512,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-token-tokenid-transferblock">
-<span id="post-token-tokenid-transferblock"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferblock</span></code><a class="headerlink" href="#post-token-tokenid-transferblock" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferblock</span></code><a class="headerlink" href="#post-token-tokenid-transferblock" title="Permalink to this headline">¶</a></h3>
 <p>Transfer individual tokens as a blocked balance for a user</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -554,24 +523,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Destination user of the blocked funds</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>   :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Amount of tokens to be blocked</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;to&quot;</span><span class="o">:</span><span class="s2">&quot;Alice:org1MSP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="s2">&quot;50&quot;</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="s2">&quot;to&quot;</span><span class="o">:</span><span class="s2">&quot;Alice:org1MSP&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="s2">&quot;50&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-<p><u><em>Output</em></u></p>
+</details><br><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">blocked_id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;blocked_id&quot;</span><span class="o">:</span> <span class="s2">&quot;7c76500379b86967c04490baa1d25ecc52adfc9df9340d561805b548d8c87e72&quot;</span><span class="p">,</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;7c76500379b86967c04490baa1d25ecc52adfc9df9340d561805b548d8c87e72&quot;</span><span class="p">,</span>
@@ -580,11 +546,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-</div>
+</details></div>
 <hr class="docutils" />
 <div class="section" id="post-token-tokenid-transferunblock">
-<span id="post-token-tokenid-transferunblock"></span><h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferunblock</span></code><a class="headerlink" href="#post-token-tokenid-transferunblock" title="Permalink to this headline">¶</a></h3>
+<h3>POST   -   <code class="docutils literal notranslate"><span class="pre">/token/{tokenId}/transferunblock</span></code><a class="headerlink" href="#post-token-tokenid-transferunblock" title="Permalink to this headline">¶</a></h3>
 <p>Unblocks a blocked transfer being true equivalent to accept the blocked balance and false equivalent to returning the blocked balance to origin user</p>
 <p><u><em>Input</em></u></p>
 <ul class="simple">
@@ -592,23 +557,20 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">blocked_id</span></code>  :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the blocked transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">accept</span></code>      :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Flag to determine the acceptance or not of the transaction</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;blocked_id&quot;</span><span class="o">:</span> <span class="s2">&quot;b1cdd2e5df1d7565edb2c54ee39c0ab9931ea647d04627062cb52500ee82c0af&quot;</span><span class="p">,</span>
   <span class="s2">&quot;accept&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details></p>
-<p><u><em>Output</em></u></p>
+</details><p><u><em>Output</em></u></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Id of the transaction</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>  Message of the approve transaction</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;output&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;e309a55be8b1c842c3aaf475bb7b7b2b759101b09f622fbb5f8dc56aab3d3795&quot;</span><span class="p">,</span>
     <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Accepting blocked transaction b1cdd2e5df0d7565bdb2c54ee39c0ab9931ea647d04627062cb52500ee82c0af from bteam:org1MSP and token amount goes to bteam:org1MSP&quot;</span>
@@ -616,13 +578,12 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details>
 </details>
-<br></p>
-</div>
+</details>
+<br></div>
 </div>
 <div class="section" id="architecture-of-the-project">
-<span id="architecture-of-the-project"></span><h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
+<h2>Architecture of the project<a class="headerlink" href="#architecture-of-the-project" title="Permalink to this headline">¶</a></h2>
 <p>The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coren-tokenapi
 ├── api
@@ -649,11 +610,11 @@
 </div>
 </div>
 <div class="section" id="how-we-run-the-application">
-<span id="how-we-run-the-application"></span><h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
+<h2>How we run the application<a class="headerlink" href="#how-we-run-the-application" title="Permalink to this headline">¶</a></h2>
 <p>As you could see in the <a class="reference external" href="architecture.html">Architecture</a> module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.</p>
 </div>
 <div class="section" id="testing-the-application">
-<span id="testing-the-application"></span><h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
+<h2>Testing the Application<a class="headerlink" href="#testing-the-application" title="Permalink to this headline">¶</a></h2>
 <p>In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-tokenapi module</p>
 <p>Also you can download the files in the links below:</p>
 <p><a href="_static/tokenapi.collection.json" download> - Postman collection</a>
@@ -661,7 +622,7 @@
 <a href="_static/environment.json" download> - Postman environment</a></p>
 </div>
 <div class="section" id="errors-management">
-<span id="errors-management"></span><h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
+<h2>Errors management<a class="headerlink" href="#errors-management" title="Permalink to this headline">¶</a></h2>
 <p>Token API errors are managed through the following nomenclature <strong>TOKEN-XX</strong> which corresponds to:<br></p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -669,8 +630,7 @@
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
+</style><table class="tg">
   <tr>
     <th class="tg-0pky">Code</th>
     <th class="tg-0pky">Description</th>
@@ -687,8 +647,7 @@
     <td class="tg-0lax">TOKEN-02</td>
     <td class="tg-0lax">Error of some kind of functionality</td>
   </tr>
-</table><p><br></p>
-</div>
+</table><br></div>
 </div>
 
 

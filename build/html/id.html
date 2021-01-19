@@ -233,7 +233,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="trustid">
-<span id="trustid"></span><h1>TrustID<a class="headerlink" href="#trustid" title="Permalink to this headline">¶</a></h1>
+<h1>TrustID<a class="headerlink" href="#trustid" title="Permalink to this headline">¶</a></h1>
 <p>TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID.</p>
 <p>These DIDs follow the W3C standard, and they serve as a unique ID to identify users. DIDs aggregate all the pieces of public information required to authenticate a user (i.e., their public key or X.509 certificate).</p>
 <p>This is the structure of a DID Identity</p>
@@ -284,7 +284,7 @@
   <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;track&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trackscc&quot;</span><span class="p">,</span>
   <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLIC&quot;</span>
+  	<span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLIC&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;telefonicachannel&quot;</span>
 <span class="p">}</span>
@@ -297,10 +297,10 @@
 <p>The TrustID project is conformed by the aforementioned chaincode and a client SDK to ease the integration and interaction with TrustID-enabled networks.</p>
 <p>TrustID is designed to ease the management of identities for the case of TrustOS. Users shouldn’t need to hold a different set of credentials for each network or decentralized application they interact with. The same credentials used to access your owned Bitcoins and manage your tokens in Ethereum should let you update the state of a Fabric asset or launch a secondary market in TrustOS.</p>
 <hr><div class="section" id="id-api">
-<span id="id-api"></span><h2>ID API<a class="headerlink" href="#id-api" title="Permalink to this headline">¶</a></h2>
+<h2>ID API<a class="headerlink" href="#id-api" title="Permalink to this headline">¶</a></h2>
 <p>An abstraction TrustID API implementation. It wraps the functionality of the TrustID SDK in order to offer basic identity management services to users comfortable delegating the responsability of their keys to a custodian. ID API acts as the third-party custodian of the users keys.</p>
 <div class="section" id="api-specification">
-<span id="api-specification"></span><h3>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h3>
+<h3>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h3>
 <p>The implementation considers that the API is the third-party custodial of
 TrustID keys. Currently the keystore is implemented with a FileKeystore,
 MongoKeystore comming soon. Private keys from users are stored ciphered
@@ -308,9 +308,9 @@ with a passphrase. In order to call every function and unlock the account
 the passphrase needs to be provided. The API has the following routes.</p>
 </div>
 <div class="section" id="identity-methods">
-<span id="identity-methods"></span><h3>Identity Methods<a class="headerlink" href="#identity-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Identity Methods<a class="headerlink" href="#identity-methods" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="post-id-login">
-<span id="post-id-login"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code><a class="headerlink" href="#post-id-login" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code><a class="headerlink" href="#post-id-login" title="Permalink to this headline">¶</a></h4>
 <p>It return a JWT to interact with services authenticated
 using JWT using TrustID as identity backend. This functionality is offered
 for every user in the system (even those for which we are not the
@@ -320,22 +320,20 @@ and we want to support this authentication even of TrustID users.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the user</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Password of the user</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:ae0213fncasdf234&quot;</span><span class="p">,</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;pass&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-</div>
+</details><br></div>
 <div class="section" id="post-id-refresh">
-<span id="post-id-refresh"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code><a class="headerlink" href="#post-id-refresh" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code><a class="headerlink" href="#post-id-refresh" title="Permalink to this headline">¶</a></h4>
 <p>It refreshes a JWT login.</p>
 </div>
 <div class="section" id="post-id-create">
-<span id="post-id-create"></span><h4>POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code><a class="headerlink" href="#post-id-create" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code><a class="headerlink" href="#post-id-create" title="Permalink to this headline">¶</a></h4>
 <p>Create a new identity with the key determined in type and a
 passphrase to lock the private key.</p>
 <ul class="simple">
@@ -343,109 +341,100 @@ passphrase to lock the private key.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Algorithm used, right now only RSA is supported</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>Identificator of the HF network</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span><span class="p">,</span>
   <span class="s2">&quot;channel&quot;</span> <span class="s2">&quot;channel1&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-</div>
+</details><br></div>
 <div class="section" id="post-id-get">
-<span id="post-id-get"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code><a class="headerlink" href="#post-id-get" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code><a class="headerlink" href="#post-id-get" title="Permalink to this headline">¶</a></h4>
 <p>Gets the information from a registered identity.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier to query the identity.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:service:012343&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "id": "did:vtn:service:012343",
+  "password": "passphrase"
+}
+```
+</details><br></div>
 <div class="section" id="post-id-revoke">
-<span id="post-id-revoke"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code><a class="headerlink" href="#post-id-revoke" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code><a class="headerlink" href="#post-id-revoke" title="Permalink to this headline">¶</a></h4>
 <p>Sends a request to revoke a specific identity. You need to be the owner of the identity or its controller to perform this task.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to be revoked.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:test&quot;</span><span class="p">,</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-</div>
+</details><br></div>
 <div class="section" id="post-id-verify">
-<span id="post-id-verify"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code><a class="headerlink" href="#post-id-verify" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code><a class="headerlink" href="#post-id-verify" title="Permalink to this headline">¶</a></h4>
 <p>Verification of a registered identity by a controller in the system.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to be verified for the user that had been logged.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:test&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "id": "did:vtn:test",
+  "password": "passphrase"
+}
+```
+</details><br></div>
 </div>
 <div class="section" id="signature-methods">
-<span id="signature-methods"></span><h3>Signature methods<a class="headerlink" href="#signature-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Signature methods<a class="headerlink" href="#signature-methods" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="post-id-sign">
-<span id="post-id-sign"></span><h4>POST - <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code><a class="headerlink" href="#post-id-sign" title="Permalink to this headline">¶</a></h4>
+<h4>POST - <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code><a class="headerlink" href="#post-id-sign" title="Permalink to this headline">¶</a></h4>
 <p>Requests a signature using a key in custody.</p>
 <p><em>Body</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Payload that needs to be signed</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;payload&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "payload": {
+    "arg1": "test",
+    "arg2": "payload"
+  }
+}
+```
+</details><br></div>
 <div class="section" id="post-id-validate">
-<span id="post-id-validate"></span><h4>POST - <code class="docutils literal notranslate"><span class="pre">/id/validate</span></code><a class="headerlink" href="#post-id-validate" title="Permalink to this headline">¶</a></h4>
+<h4>POST - <code class="docutils literal notranslate"><span class="pre">/id/validate</span></code><a class="headerlink" href="#post-id-validate" title="Permalink to this headline">¶</a></h4>
 <p>Validates a signature using a key in custody.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the signer</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Payload that needs to be validated</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span>
   <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;eyaqwuqiiqiwiqaqiemasoiaiqiiaskqweioqweiuwe&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-</div>
+</details><br></div>
 </div>
 <div class="section" id="services-methods">
-<span id="services-methods"></span><h3>Services methods<a class="headerlink" href="#services-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Services methods<a class="headerlink" href="#services-methods" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="post-service-create">
-<span id="post-service-create"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code><a class="headerlink" href="#post-service-create" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code><a class="headerlink" href="#post-service-create" title="Permalink to this headline">¶</a></h4>
 <p>Create a new service in the TrustID network.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to be verified for the user that had been logged.</p></li>
@@ -453,38 +442,35 @@ passphrase to lock the private key.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identificator of the HF network.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;track&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trackscc&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLIC&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID":  "track",
+  "name": "trackscc",
+  "access": {
+  	"policy": "PUBLIC"
+  },
+  "channel": "channel1"
+}
+```</details><br></div>
 <div class="section" id="post-service-get">
-<span id="post-service-get"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
 <p>Gets the registered information for a service.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serivceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:service:012343&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serivceID": "did:vtn:service:012343",
+  "password": "passphrase"
+}
+```
+</details><br></div>
 <div class="section" id="post-service-updateaccess">
-<span id="post-service-updateaccess"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/updateAccess</span></code><a class="headerlink" href="#post-service-updateaccess" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/updateAccess</span></code><a class="headerlink" href="#post-service-updateaccess" title="Permalink to this headline">¶</a></h4>
 <p>Updates the access of a service.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
@@ -497,52 +483,48 @@ passphrase to lock the private key.</p>
 <li><p>FINE_GRAINED, only specific identities can access to
 the service</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;did:vtn:service:sacc&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="s2">&quot;FINE_GRAINED&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;did:vtn:trustid:c0fd6b4749329c4acec7f4ac273d46c2b755736e9f5cae6fc62acec8d04549c6&quot;</span><span class="p">:</span> <span class="mi">2</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID":  "did:vtn:service:sacc",
+  "access": {
+  	"policy": "FINE_GRAINED",
+  	"threshold": 0,
+  	"access": {
+  		"did:vtn:trustid:c0fd6b4749329c4acec7f4ac273d46c2b755736e9f5cae6fc62acec8d04549c6": 2
+  	}
+  }
+}
+```
+</details><br></div>
 <div class="section" id="post-service-update">
-<span id="post-service-update"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
 <p>Updates the information of a service.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the service deployed in Hyperledger Fabric</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identificator of the HF network.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;did:vtn:service:sacc&quot;</span><span class="p">,</span>
   <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sacc-chaincode&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-</div>
+</details><br></div>
 <div class="section" id="post-service-invoke">
-<span id="post-service-invoke"></span><h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code><a class="headerlink" href="#post-service-invoke" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code><a class="headerlink" href="#post-service-invoke" title="Permalink to this headline">¶</a></h4>
 <p>Invoke a function from a distributed service using TrustID.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Args of the function that is going to be called.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustos:123drfw&quot;</span><span class="p">,</span>
   <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
   <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -555,74 +537,70 @@ the service</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p></details><br></p>
-</div>
+</details><br></div>
 <div class="section" id="post-service-invoke-jsonargs">
-<span id="post-service-invoke-jsonargs"></span><h4>POST   -  <code class="docutils literal notranslate"><span class="pre">/service/invoke/jsonArgs</span></code><a class="headerlink" href="#post-service-invoke-jsonargs" title="Permalink to this headline">¶</a></h4>
+<h4>POST   -  <code class="docutils literal notranslate"><span class="pre">/service/invoke/jsonArgs</span></code><a class="headerlink" href="#post-service-invoke-jsonargs" title="Permalink to this headline">¶</a></h4>
 <p>Invoke a function from a distributed service using TrustID.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Args of the function that is going to be called in a json format.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustos:123drfw&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span>
-  <span class="p">},</span>  
-  <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;create&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID": "did:vtn:trustos:123drfw",
+  "args": {
+    "field": "value"
+  },  
+  "function": "create"
+}
+```
+</details><br></div>
 <div class="section" id="post-service-query">
-<span id="post-service-query"></span><h4>POST   - <code class="docutils literal notranslate"><span class="pre">/service/query</span></code><a class="headerlink" href="#post-service-query" title="Permalink to this headline">¶</a></h4>
+<h4>POST   - <code class="docutils literal notranslate"><span class="pre">/service/query</span></code><a class="headerlink" href="#post-service-query" title="Permalink to this headline">¶</a></h4>
 <p>Invoke a function from a distributed service using TrustID.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Args of the function that is going to be called.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustos:123drfw&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span>
-  <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;get&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID": "did:vtn:trustos:123drfw",
+  "args": [ "a"],
+  "function": "get"
+}
+```
+</details><br></div>
 <div class="section" id="post-service-query-jsonargs">
-<span id="post-service-query-jsonargs"></span><h4>POST - <code class="docutils literal notranslate"><span class="pre">/service/query/jsonArgs</span></code><a class="headerlink" href="#post-service-query-jsonargs" title="Permalink to this headline">¶</a></h4>
+<h4>POST - <code class="docutils literal notranslate"><span class="pre">/service/query/jsonArgs</span></code><a class="headerlink" href="#post-service-query-jsonargs" title="Permalink to this headline">¶</a></h4>
 <p>Invoke a function from a distributed service using TrustID.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Args of the function that is going to be called in a json format.</p></li>
 </ul>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustos:123drfw&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span>
-  <span class="p">},</span>  
-  <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;get&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  "serviceID": "did:vtn:trustos:123drfw",
+  "args": {
+    "field": "value"
+  },  
+  "function": "get"
+}
+```
+</details><br></div>
 </div>
 <div class="section" id="signed-transactions">
-<span id="signed-transactions"></span><h3>Signed Transactions<a class="headerlink" href="#signed-transactions" title="Permalink to this headline">¶</a></h3>
+<h3>Signed Transactions<a class="headerlink" href="#signed-transactions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="post-signed-id-import">
-<span id="post-signed-id-import"></span><h4>POST - <code class="docutils literal notranslate"><span class="pre">/signed/id/import</span></code><a class="headerlink" href="#post-signed-id-import" title="Permalink to this headline">¶</a></h4>
+<h4>POST - <code class="docutils literal notranslate"><span class="pre">/signed/id/import</span></code><a class="headerlink" href="#post-signed-id-import" title="Permalink to this headline">¶</a></h4>
 <p>Import an identity without custody in TrustID. Due to this, each transaction must be signed with the private key in custody by the user.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The publicKey to verify the signature of the transactions</p></li>
@@ -638,18 +616,17 @@ the service</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-       <span class="s2">&quot;publicKey&quot;</span><span class="p">:</span>  <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokZtVnCJ5KnQRmYqV6j3</span><span class="se">\r\n</span><span class="s2">1Oak7K0X/pBDe/QS+LG1UEwcvi2rzMutvJUouMnLgroTMjErYFq0gVJAq7io2Yo/</span><span class="se">\r\n</span><span class="s2">1/I0suueWSfU30kNYoVikHgMKrHtWZA1iCR9uzYffeC/KYBi0f+bLB5789+zJvr3</span><span class="se">\r\n</span><span class="s2">8ScaPu+S0LIoYN7j6b7CqWfTBIfqM8NNxyhPiWsGBykQOB1Gl3VEiivm9dp5vFuS</span><span class="se">\r\n</span><span class="s2">0OM/pe/+ToA4vHDIpr1NyxV0zM4TzLHbvWV70HMztsXmYp1yW8EQcLd412FOmtkU</span><span class="se">\r\n</span><span class="s2">kEqqsoNK1IYX6F1ooRUjSGeybxPNKobNwkAQqa4QPMW5eWBiIMvAxs2qVuPclkns</span><span class="se">\r\n</span><span class="s2">rQIDAQAB</span><span class="se">\r\n</span><span class="s2">-----END PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4YzQ4ZDNkMTcxN2VkYTJkNWE2YmIxNzg5NjJhODgxZjIxNjA3NTI3NDgwMTMzIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cclxuTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFva1p0Vm5DSjVLblFSbVlxVjZqM1xyXG4xT2FrN0swWC9wQkRlL1FTK0xHMVVFd2N2aTJyek11dHZKVW91TW5MZ&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+       "publicKey":  "-----BEGIN PUBLIC KEY-----\r\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokZtVnCJ5KnQRmYqV6j3\r\n1Oak7K0X/pBDe/QS+LG1UEwcvi2rzMutvJUouMnLgroTMjErYFq0gVJAq7io2Yo/\r\n1/I0suueWSfU30kNYoVikHgMKrHtWZA1iCR9uzYffeC/KYBi0f+bLB5789+zJvr3\r\n8ScaPu+S0LIoYN7j6b7CqWfTBIfqM8NNxyhPiWsGBykQOB1Gl3VEiivm9dp5vFuS\r\n0OM/pe/+ToA4vHDIpr1NyxV0zM4TzLHbvWV70HMztsXmYp1yW8EQcLd412FOmtkU\r\nkEqqsoNK1IYX6F1ooRUjSGeybxPNKobNwkAQqa4QPMW5eWBiIMvAxs2qVuPclkns\r\nrQIDAQAB\r\n-----END PUBLIC KEY-----\r\n",
+       "payload": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4YzQ4ZDNkMTcxN2VkYTJkNWE2YmIxNzg5NjJhODgxZjIxNjA3NTI3NDgwMTMzIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cclxuTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFva1p0Vm5DSjVLblFSbVlxVjZqM1xyXG4xT2FrN0swWC9wQkRlL1FTK0xHMVVFd2N2aTJyek11dHZKVW91TW5MZ"
+}
+```
+</details><br></div>
 <div class="section" id="post-signed-service-invoke">
-<span id="post-signed-service-invoke"></span><h4>POST - <code class="docutils literal notranslate"><span class="pre">/signed/service/invoke</span></code><a class="headerlink" href="#post-signed-service-invoke" title="Permalink to this headline">¶</a></h4>
+<h4>POST - <code class="docutils literal notranslate"><span class="pre">/signed/service/invoke</span></code><a class="headerlink" href="#post-signed-service-invoke" title="Permalink to this headline">¶</a></h4>
 <p>Write operation to a service signing the transaction with the private key guarded by the user.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The did to recover the public key</p></li>
@@ -666,19 +643,18 @@ the service</p></li>
 
 </pre></div>
 </div>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span>  <span class="s2">&quot;did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-</div>
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  {
+       "id":  "did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366",
+       "payload": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz"
+}
+```
+</details><br></div>
 <div class="section" id="post-signed-service-query">
-<span id="post-signed-service-query"></span><h4>POST -  <code class="docutils literal notranslate"><span class="pre">/signed/service/query</span></code><a class="headerlink" href="#post-signed-service-query" title="Permalink to this headline">¶</a></h4>
+<h4>POST -  <code class="docutils literal notranslate"><span class="pre">/signed/service/query</span></code><a class="headerlink" href="#post-signed-service-query" title="Permalink to this headline">¶</a></h4>
 <p>Read operation to a service signing the transaction with the private key guarded by the user.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The did to recover the public key</p></li>
@@ -694,27 +670,25 @@ the service</p></li>
     <span class="p">}</span>
 </pre></div>
 </div>
-<p><details>
-<summary><em><strong>Sample structure</strong></em> (Click to expand)</summary></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span>  <span class="s2">&quot;did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p></details><br></p>
-<p>If you want additional information about this API implementation and its functionality
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+```
+{
+  {
+       "id":  "did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366",
+       "payload": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz"
+}
+```</details><br><p>If you want additional information about this API implementation and its functionality
 check the following <a class="reference external" href="https://github.com/telefonica-tid/coren-id-api">repo</a>.</p>
 </div>
 </div>
 </div>
 <div class="section" id="trustid-sdk">
-<span id="trustid-sdk"></span><h2>TrustID SDK<a class="headerlink" href="#trustid-sdk" title="Permalink to this headline">¶</a></h2>
+<h2>TrustID SDK<a class="headerlink" href="#trustid-sdk" title="Permalink to this headline">¶</a></h2>
 <p>This SDK exposes all the functionalities required to interact with
 TrustID-based DLT networks.</p>
 <div class="section" id="install">
-<span id="install"></span><h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>To install this library you need access to the private repo:</p></li>
 </ul>
@@ -723,10 +697,10 @@ TrustID-based DLT networks.</p>
 </div>
 </div>
 <div class="section" id="structure">
-<span id="structure"></span><h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
 <p>The library has the following modules:</p>
 <div class="section" id="wallet">
-<span id="wallet"></span><h4>Wallet<a class="headerlink" href="#wallet" title="Permalink to this headline">¶</a></h4>
+<h4>Wallet<a class="headerlink" href="#wallet" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">wallet.ts</span></code>: Core module of the library. It wraps all the state and
 logic for identity management and interaction with TrustID networks.
@@ -740,7 +714,7 @@ exposes the following methods:</p>
 </ul>
 </div>
 <div class="section" id="class-did">
-<span id="class-did"></span><h4>Class DID<a class="headerlink" href="#class-did" title="Permalink to this headline">¶</a></h4>
+<h4>Class DID<a class="headerlink" href="#class-did" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">DID</span></code>: Has the following structure.</p>
 <ul>
@@ -763,7 +737,7 @@ exposes the following methods:</p>
 </ul>
 </div>
 <div class="section" id="trustid-operations">
-<span id="trustid-operations"></span><h4>TrustID operations<a class="headerlink" href="#trustid-operations" title="Permalink to this headline">¶</a></h4>
+<h4>TrustID operations<a class="headerlink" href="#trustid-operations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TrustID.ts</span></code>: Interface that enables the inteoperation  between the drivers and the different  functionalities of TrustID. The only component implemented currently is the <code class="docutils literal notranslate"><span class="pre">trustIDhf.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
 networks.</p>
@@ -783,7 +757,7 @@ networks.</p>
 </ul>
 </div>
 <div class="section" id="driver-operations">
-<span id="driver-operations"></span><h4>Driver operations<a class="headerlink" href="#driver-operations" title="Permalink to this headline">¶</a></h4>
+<h4>Driver operations<a class="headerlink" href="#driver-operations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">driver.ts</span></code>: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is
 the <code class="docutils literal notranslate"><span class="pre">hfdriver.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
@@ -799,7 +773,7 @@ networks.</p>
 </ul>
 </div>
 <div class="section" id="keystore">
-<span id="keystore"></span><h4>Keystore<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h4>
+<h4>Keystore<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">keystore.ts</span></code>: Interface that enables the implementation of keystore storages.
 There are currently two implementations of keystore supported: <code class="docutils literal notranslate"><span class="pre">FileKeystore.ts</span></code> (to store DIDs in file keystore)and <code class="docutils literal notranslate"><span class="pre">MongoKeystore.ts</span></code> (to store DIDs in MongoDB).</p>
@@ -818,7 +792,7 @@ check the following <a class="reference external" href="https://github.com/hyper
 </div>
 </div>
 <div class="section" id="example-of-use">
-<span id="example-of-use"></span><h3>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline">¶</a></h3>
+<h3>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use library</span>
 <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;trustos-trustid-sdk&#39;</span><span class="p">)</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Keystore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./keystore/keystore&#39;</span><span class="p">;</span>
@@ -886,7 +860,7 @@ check the following <a class="reference external" href="https://github.com/hyper
 <hr></div>
 </div>
 <div class="section" id="roadmap">
-<span id="roadmap"></span><h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>TrustID compatible with Hyperledger Indy, Verifiable Credentials, etc</p></li>
 <li><p>Anonymous authentication with anonymous transactions</p></li>
