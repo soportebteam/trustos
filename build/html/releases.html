@@ -119,6 +119,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#track-api">Track API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#token-api">Token API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#settle-api">Settle API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cert-api">Cert API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trust-api">Trust API</a></li>
 </ul>
 </li>
@@ -343,6 +344,42 @@ In this model a new method is required to define the rules the asset must follow
 <li><p>API code is cleaned and improved and unnecessary files are removed from the repository</p></li>
 <li><p>Third party dependencies are handled through Go modules</p></li>
 </ul>
+</details><br></div>
+<div class="section" id="cert-api">
+<h2>Cert API<a class="headerlink" href="#cert-api" title="Permalink to this headline">¶</a></h2>
+<details><summary> v1.0.0 [January 2021]</summary><hr><p><strong>What’s new in Cert API v1.0.0:</strong></p>
+<ul class="simple">
+<li><p>All basic trust functionalities working:</p>
+<ul>
+<li><p>Core methods: create, get, sign, register, revoke, and get history of certificates on blockchain.</p></li>
+<li><p>Other useful methods: healthcheck, get certificates by user, external sign and managing access / signers.</p></li>
+</ul>
+</li>
+<li><p>There are two possible digital signatures (Public Key Infrastructure):</p>
+<ul>
+<li><p>Sign with a certificate generated in TrustOS</p></li>
+<li><p>Sign with an external certificate (X.509 standard)</p></li>
+</ul>
+</li>
+<li><p>All functionalities are applicable to two types of certificates:</p>
+<ul>
+<li><p>Content certificate: Certificate with specific and customisable content like file/document/collection of files.</p></li>
+<li><p>Asset certificate: Certificate based on an existing asset generated in Track module.</p></li>
+</ul>
+</li>
+<li><p>All certificates follows the same data structure:</p>
+<ul>
+<li><p>CertID - Unique identifier of the certificate</p></li>
+<li><p>Data - JSON of certificate information that is inmutable</p></li>
+<li><p>Metadata - Array of JSON transactions that feed the certificate (e.g. signatures, revocation and public evidences)</p></li>
+<li><p>Access - JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)</p></li>
+</ul>
+</li>
+<li><p>API visualisation and interaction through Swagger UI</p></li>
+<li><p>API integration testing with Hyperledger Fabric. Already successfully integrated with Hyperledger Fabric SDK and network and deployed through Kubernetes system with continuous integration and continuous deployment (CICD) mechanisms.</p></li>
+</ul>
+<p><strong>Changes, fixes and deprecations:</strong></p>
+<p>None.</p>
 </details><br></div>
 <div class="section" id="trust-api">
 <h2>Trust API<a class="headerlink" href="#trust-api" title="Permalink to this headline">¶</a></h2>

@@ -206,6 +206,41 @@ In this model a new method is required to define the rules the asset must follow
 
 </details><br>
 
+
+## Cert API
+
+<details><summary> v1.0.0 [January 2021]</summary><hr>
+
+**What's new in Cert API v1.0.0:**
+
+- All basic trust functionalities working: 
+  - Core methods: create, get, sign, register, revoke, and get history of certificates on blockchain.
+  - Other useful methods: healthcheck, get certificates by user, external sign and managing access / signers.
+
+- There are two possible digital signatures (Public Key Infrastructure):
+  - Sign with a certificate generated in TrustOS
+  - Sign with an external certificate (X.509 standard)
+
+- All functionalities are applicable to two types of certificates:
+  - Content certificate: Certificate with specific and customisable content like file/document/collection of files.
+  - Asset certificate: Certificate based on an existing asset generated in Track module.
+
+- All certificates follows the same data structure:
+  - CertID - Unique identifier of the certificate
+  - Data - JSON of certificate information that is inmutable
+  - Metadata - Array of JSON transactions that feed the certificate (e.g. signatures, revocation and public evidences)
+  - Access - JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)
+
+- API visualisation and interaction through Swagger UI
+- API integration testing with Hyperledger Fabric. Already successfully integrated with Hyperledger Fabric SDK and network and deployed through Kubernetes system with continuous integration and continuous deployment (CICD) mechanisms.
+
+**Changes, fixes and deprecations:**
+
+None.
+
+</details><br>
+
+
 ## Trust API
 
 <details><summary> v2.0.0 [June 2020]</summary><hr>
@@ -243,5 +278,3 @@ In this model a new method is required to define the rules the asset must follow
 - Third party dependencies are handled through Go modules 
 
 </details><br>
-
-
