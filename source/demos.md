@@ -195,7 +195,8 @@ TrustOS Certs is a demo that is based on Cert API and provides a platform to cer
   ![TrustOS Certs home](./images/trustos_certs_home.png)
 
   <br>
-  You just need to put the `certID` (e.g. 95c46d70f26c1e6478f256af14ce91b976a47843f0b7f4cb542c1fb0a60375b1) to search for the information about the certificate: certificate information, signatures and other evidences.
+
+  You just need to put the `certID` (e.g. `95c46d70f26c1e6478f256af14ce91b976a47843f0b7f4cb542c1fb0a60375b1`) to search for the information about the certificate: certificate information, signatures and other evidences.
 
   <br>  <br>
 
@@ -232,6 +233,8 @@ TrustOS Certs is a demo that is based on Cert API and provides a platform to cer
 
   ### 4 - Register and revoke certificate
   
+  In case your process need more transparency, an evidence of the certificate can be register in any of the public blockhain.
+
   POST - `/certificate/{certID}/register`
   ```json
   {
@@ -239,6 +242,8 @@ TrustOS Certs is a demo that is based on Cert API and provides a platform to cer
   }
   ```
 
+  Once the issuer decides the certificate is no longer valid, it can be revoked.
+  
   POST - `/certificate/{certID}/revoke`
   
 
@@ -261,106 +266,6 @@ TrustOS Certs is a demo that is based on Cert API and provides a platform to cer
 
 ![TrustOS Certs Verification](./images/certs_verificationview2.png)
 
-
-</details>
-<br>
-
-## Painting tracker
-Painting Tracker is an easy demo based on Track API that allows us to follow the whole transport process for a piece of art from origin to destination.
-
-<details>
-  <summary><em><strong>Example JSON structures</strong></em> (Click to expand)</summary>
-  <br>
-
-### 1 - Login into the platform
-POST - `/login`
-```json
-{
-  "id":"did:vtn:trustid:8297475fa68e64de5128f0b819fae647f128969bad64bf5ad43f1797e5733eb0",
-  "password":"test"
-}
-```
-
-### 2 - Create asset: La Gioconda
-POST - `/asset/create`
-```json
-{  
-  "assetId": "piece001",
-      "data": {
-          "title": "La Gioconda",
-          "author": "Leonardo Da Vinci",
-          "century": "XVI"
-      },
-      "metadata": {
-          "status": "Permanent exhibition - Louvre Museum, Paris",
-          "location": "Louvre Museum, Paris",
-          "coordinates": "48.8606111, 2.337644"
-      }
-}
-```
-
-### 3 - First update of the asset (transport update 1)
-POST - `/asset/{assetId}/update`
-```json
-{  
-  "metadata": {
-      "status": "Ceded temporaly - On route",
-      "transportCompany": "LDI",
-      "transporter": "Antoine",
-      "vehicleNumberPlate": "6842DLP",
-      "destination": "Burdeos, Francia",
-      "coordinates": "44.836151, -0.580816"
-  }
-}
-```
-
-### 4 - Second update of the asset (transport update 2)
-
-POST - `/asset/{assetId}/update`
-```json
-{  
-  "metadata": {
-      "status": "Ceded temporaly - On route",
-      "transportCompany": "Isys Logistics",
-      "transporter": "Alexandre",
-      "vehicleNumberPlate": "6842DLP",
-      "destination": "Irun, España",
-      "coordinates": "43.337814, -1.788811"
-  }
-}
-```
-
-### 5 - Last update of the asset (transport update 3)
-POST - `/asset/{assetId}/update`
-```json
-{
-  "metadata": {
-      "status": "Ceded temporaly - On route",
-      "transportCompany": "Seur",
-      "transporter": "Juan Carlos",
-      "vehicleNumberPlate": "3246ZUF",
-      "destination": "Madrid, España",
-      "coordinates": "40.416710, -3.703534"
-  }
-}
-```
-
-### 6 - Demonstrator
-Along the transport process all the information is displayed in the Painting Tracker application. You just need to put the identifier of your asset (assetId) to start seeing the whole tracking information.
-
-Endpoint: `/tracker`
-
-Input (assetId): <input value="piece001"></input>
-
-</details>
-<br>
-<details>
-  <summary><em><strong>Front-end demo</strong></em> (Click to expand)</summary>
-  <br>
-  
--  Tracking view
-
-![Painting tracker demo](./images/painting_tracker.png)
 
 </details>
 <br>
