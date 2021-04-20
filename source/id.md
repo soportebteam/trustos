@@ -665,7 +665,7 @@ console.log("[*] Asset registered\n", res)
 ```
 <hr>
 
-## OpenID Connect Integration
+## OpenID Connect integration
 
 [OAuth 2.0](https://oauth.net/2/) is the industry-standard protocol for authorization. It is a framework for delegating access authorisation to APIs that allows the reuse of authentication mechanisms so that apps do not have to manage identities.
 
@@ -673,7 +673,7 @@ console.log("[*] Asset registered\n", res)
 
 TrustID has integration with OpenID Connect enabling the onboarding and use of the TrustOS modules to identities generated in different identity providers such as Google or Microsoft.
 
-### TrustOS integration with OpenID
+### OpenID integration
 ![OpenID Integration](./images/openid_integration.png)
 
 The OAuth 2.0 flow used by TrustID is Authorization code grant type:
@@ -706,7 +706,7 @@ TrustID manages the identity token to provide access to TrustOS to the end-users
 
 The first time an identity token arrives, an onboarding flow is triggered. This means that a TrustOS identity is generated for the issued token as it is necessary to generate keys for the user to be able to sign transactions within the platform.
 
-### OpenID Identity Onboarding flow
+### OpenID identity onboarding flow
 ![OpenID Authorization Flow](./images/openid_authorization_flow.png)
 
 When a request arrives authenticated by an Identity Token, TrustID checks the following:
@@ -717,7 +717,7 @@ When a request arrives authenticated by an Identity Token, TrustID checks the fo
 
 If all conditions are satisfied the request is validated, the end-user has access to the requested module and is able to sign transactions.
 
-### Resource Request Flow
+### Resource request flow
 ![OpenID Request Flow](./images/openid_request_flow.png)
 
 <hr>
