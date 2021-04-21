@@ -120,8 +120,7 @@ Create a new identity with the key determined in type and a
 passphrase to lock the private key.
 - `id` :  `<string>` Unique identifier of the user
 - `type`    :  `<string>` Algorithm used, right now only RSA is supported
-- `channel`: `<string>`Identificator of the HF network
-
+- `channel`: `<string>`Identificator of the HF network, only required for admin user
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
@@ -179,6 +178,104 @@ Verification of a registered identity by a controller in the system.
 }
 ```
 </details><br>
+
+
+
+#### POST - `/id/update/password`
+Updates the old password with a new one.
+- `password`: `<string>` New password selected
+- `oldPassword` :  `<string>` Actual password
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```
+{
+  "password": "newpass"
+  "oldPassword": "test"
+}
+```
+</details><br>
+
+#### POST - `/id/recover/create`
+Creates the mechanism to recover the password. The recovery operation will need and email to send the info to the user and a group of custodians, in order to have a social recovery wallet.
+- `email`: `<string>` Email that will own the user in order to recover their identity
+- `guardians` :  `<array>` List of guardians
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```
+{
+  "email": "email@mail.com",
+  "guardians": [
+    {
+      "value": "mail@email.com",
+      "type": "email"
+    }
+  ]  
+}
+```
+</details><br>
+
+#### POST - `/id/recover/update/email`
+Updates the recovery email associated with the identity in order to recover the identity. This email was regestirated in /id/recover/create.
+
+- `email`: `<string>` Email that will own the user in order to recover their identity
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```
+{
+  "email": "email@mail.com"
+}
+```
+</details><br>
+
+
+
+#### POST - `/id/recover/init`
+Initialized the recovery process in order to recover an identity, the user will receive an email with a sigle use code.
+- `email`: `<string>` Email that will own the user in order to recover their identity
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```
+{
+  "email": "email@mail.com"
+}
+```
+</details><br>
+
+#### POST - `/id/recover/password`
+Finishes the process to recover the password. THe params required are the single use coded received in the users email and the secrets that were sent to the guardians.
+- `code`: `<string>` Email that will own the user in order to recover their identity
+- `guardians`: `<array,objects>` Email of the guardiands and their respective secrets
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```
+{
+  "code": "a12f120c912b12e12bd",
+  "guardians": [
+    {
+      "secret": "asdasdads",
+      "email": "email@emal.com"
+    }
+  ],
+  "newPassword": "testPassword"
+}
+```
+</details><br>
+
 
 ### OpenID Methods
 #### GET - `/openId/AuthorizationUrl`
@@ -240,6 +337,8 @@ Validates a signature using a key in custody.
 }
 ```
 </details><br>
+
+
 
 ### Services methods
 #### POST   -   `/service/create`
