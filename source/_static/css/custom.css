@@ -38,11 +38,11 @@ p {
 /* Links */
 
 a {
-    color: #6ca158
+    color: #0066ffa6
 }
 
 a:hover {
-    color: #6ca158
+    color: #0066FF
 }
 
 a:visited {
@@ -53,7 +53,7 @@ a:visited {
 /* Side navigation bar */
 
 .wy-side-nav-search {
-    background-color: #2593b5;
+    background-color: #0066FF;
 }
 
 .wy-side-nav-search a.icon-home {
