@@ -550,9 +550,6 @@ Read operation to a service signing the transaction with the private key guarded
 </details><br>
 
 
-If you want additional information about this API implementation and its functionality
-check the following [repo](https://github.com/telefonica-tid/coren-id-api).
-
 
 ## OpenID Connect integration
 
