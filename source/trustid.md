@@ -99,42 +99,42 @@ The library has the following modules:
 logic for identity management and interaction with TrustID networks.
 To start using the SDK a new wallet needs to be initialized. A wallet
 exposes the following methods:
-    * `public setKeystore(keystore: Keystore): void`: Sets a type of keystore, supported: In memory, filesystem, mongodb
-    * `public generateDID(type: string, controller: string, passphrase): DID`: Generates an identity
-    * `public  storeDID(did: DID): Promise<boolean>`: Stores the did in the keystore
-    * `public updateDID(did: DID): Promise<boolean> `: Updates info from DID
-    * `public listDID(): string[]`: Returns dids stored in keystore
-    * `public recoverKeySSS(id: string, secrets: Buffer[], newPassword: string): Promise<void>`: Recovers the key 
-    * `public updatePassword(id: string, oldPassphrase:,passphrase: string=""): Promise<void> `: Updates the password to unlock the did
-    * `public updateTempKeyDID(id: string, passphrase:,tempPassphrase: string=""): Promise<void>`: Unlocks the account with a temporal key
-    * `public addNetwork(id: string, network: TrustID): void`: Adds a new network to interact to.
+    * `setKeystore(keystore: Keystore): void`: Sets a type of keystore, supported: In memory, filesystem, mongodb
+    * `generateDID(type: string, controller: string, passphrase): DID`: Generates an identity
+    * ` storeDID(did: DID): Promise<boolean>`: Stores the did in the keystore
+    * `updateDID(did: DID): Promise<boolean> `: Updates info from DID
+    * `listDID(): string[]`: Returns dids stored in keystore
+    * `recoverKeySSS(id: string, secrets: Buffer[], newPassword: string): Promise<void>`: Recovers the key 
+    * `updatePassword(id: string, oldPassphrase:,passphrase: string=""): Promise<void> `: Updates the password to unlock the did
+    * `updateTempKeyDID(id: string, passphrase:,tempPassphrase: string=""): Promise<void>`: Unlocks the account with a temporal key
+    * `addNetwork(id: string, network: TrustID): void`: Adds a new network to interact to.
     
 
 #### Class DID
 * `class DID`: Has the following structure. 
-  * `public id: string`: Id string that identifies the DID.
-  * `public pubkey: string`: PublicKey of the DID.
-  * `public type: string`: Key type (RSA / EC / OKP).
-  * `public controller: string`: Verifier of the identity
-  * `public access: number`: Access level
+  * `id: string`: Id string that identifies the DID.
+  * `pubkey: string`: PublicKey of the DID.
+  * `type: string`: Key type (RSA / EC / OKP).
+  * `controller: string`: Verifier of the identity
+  * `access: number`: Access level
   * `private privkey: string`: Private Key of the DID.
   * `private recoveryKey: string`: Private Key to recover the DID.
 
 And exposes the following functions:
-  * `public unlockAccount(passphrase: string): void`: Unlocks private key in order to use the DID.
-  * `public unlockAccountTemp(passphrase: string): void`: Unlocks private key with a temporal key in order to use the DID.
-  * `public lockAccount(): any`: Locks the private key for a DID.
-  * `public sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
-  * `public verify(signature: string, id: string): any`: Verifies a signature from a DID.
-  * `public updatePassword(oldPassphrase:, passphrase:): Promise < DID >`: Updates the password
-  * `public generateRecoveryKey(password:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing.
-  * `public generateRecoveryKeyTemp(passwordTemp:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing unlocking the account with the temporal Key.
+  * `unlockAccount(passphrase: string): void`: Unlocks private key in order to use the DID.
+  * `unlockAccountTemp(passphrase: string): void`: Unlocks private key with a temporal key in order to use the DID.
+  * `lockAccount(): any`: Locks the private key for a DID.
+  * `sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
+  * `verify(signature: string, id: string): any`: Verifies a signature from a DID.
+  * `updatePassword(oldPassphrase:, passphrase:): Promise < DID >`: Updates the password
+  * `generateRecoveryKey(password:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing.
+  * `generateRecoveryKeyTemp(passwordTemp:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing unlocking the account with the temporal Key.
 
-  * `public recoverKey(secrets: Buffer[], newPassword: string): Promise < DID >`: Recovers the key using the secrets generated with Shamirs secrets sharing algorithm.
-  * `public exportDID(withPrivate: boolean)` : Exports a Did stored in the keystore.
-  * `public importDID(obj: any)`: Imports a DID and stores it in the keystore.
-  * `public sign(payload: object): Promise < string >`: Generates a JWS from a payload using an id from the wallet
-  * `public verify(signature: string, did: DID): Promise < any > `: Verifies a JWS from a payload using a did
+  * `recoverKey(secrets: Buffer[], newPassword: string): Promise < DID >`: Recovers the key using the secrets generated with Shamirs secrets sharing algorithm.
+  * `exportDID(withPrivate: boolean)` : Exports a Did stored in the keystore.
+  * `importDID(obj: any)`: Imports a DID and stores it in the keystore.
+  * `sign(payload: object): Promise < string >`: Generates a JWS from a payload using an id from the wallet
+  * `verify(signature: string, did: DID): Promise < any > `: Verifies a JWS from a payload using a did
 
 #### TrustID operations
 
@@ -193,9 +193,9 @@ networks.
     * `abstract getDID(id: string): DID`: It gets specific DID from keystore.
     * `abstract storeDID(did: DID): boolean`: It stores DID in keystore.
     * `abstract updateDID(did: DID): boolean`: It updates DID in keystore.
-    * `public storeInMemory(did: DID): boolean`: Stores DID inMemory for easy and performant use.
-    * `public listDID(): string[]`: List DIDs in memory.
-    * `public setDefault(did: DID): boolean`: Set DID as default identity for the keystore wallet.
+    * `storeInMemory(did: DID): boolean`: Stores DID inMemory for easy and performant use.
+    * `listDID(): string[]`: List DIDs in memory.
+    * `setDefault(did: DID): boolean`: Set DID as default identity for the keystore wallet.
 
 
 If you want additional information of TrustID, its SDK and its functionality
