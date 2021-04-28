@@ -201,7 +201,7 @@ Finishes the process to recover the password. THe params required are the single
 
 
 ### OpenID Methods
-#### GET - `/openId/AuthorizationUrl`
+#### GET - `/openId/authorizationUrl`
 Gets the OpenID autorization URL to initiate an authentication flow.
 
 <u>*Input*</u>
@@ -219,6 +219,25 @@ Gets the OpenID autorization URL to initiate an authentication flow.
   "message": {
     "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth?client_id=3168832523525320-4cb3nmfohpvh3c4p5pstnd6url5k80md.apps.googleusercontent.com&scope=openid%20email%20profile&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A9090%2Fopenid%2FauthorizationCallback"
   }
+}
+```
+</details><br>
+
+#### GET - `/openId/authorizationToken`
+Gets the autorization token generated for the requesting identity in the JWT standard.
+
+<u>*Input*</u>
+- `code` :  `<string>` Authorization code served to the application needed to request the authorization token.
+
+<u>*Output*</u>
+- `message`    :  `<string>` The identity token in the JWT standard.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "message": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImJXOFpjTWpCQ25KWlMtaWJYNVVRRE5TdHZ4NCJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJQUo5MGVzR3otNnJOazRhQnYySEpRIiwiYXVkIjoiY2FmZjZmNDEtZDZiZS00MjhmLWE5YTUtMDViNDcyNTI5N2RmIiwiZXhwIjoxNjE5MTAwMjQxLCJpYXQiOjE2MTkwMTM1NDEsIm5iZiI6MTYxOTAxMzU0MSwibmFtZSI6ImNlc2FyIFIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJjZXNhcl85M18xMEBob3RtYWlsLmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC1lNTgxLTEyZTdhYTIwOTIzYyIsImVtYWlsIjoiY2VzYXJfOTNfMTBAaG90bWFpbC5jb20iLCJ0aWQiOiI5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJhaW8iOiJEVGxJR2VwT241U3N4ZjlSUEhMWTVZekNQZXMwdU1nYU5CQTN2TFloQUpieldWSWRxd1RlRXhPR25hMDl5MDdHemxub2owbzVCRWNxaFM1VXF3QkFVKlIwWXRzVEkxMU1PUkpRRTYxc1JweFdzeUtjSWZVeXRJQW9QQWgzejVPSXpXSFMxek40RzJLb0d4YWlEWHZXTzYwJCJ8.yhaqvrx9VUmTGJNGTZQYMv-jRIv4OP-sYb4UP4XRADY6FAn7-G5OHj_VHc96yHzPxx-2wxzzrPGF4hxA9T4M5FSuuw4LqrQXT5H7oey27LYAE_gFJ8Uo8xY0fMb3yh8Q6HPbmAEuPjLHi_X6roB1dZR3AZj1OnxQr4_0wZRKpvBOkvX943bJtvMKYdrewVaqlI9JfxsPX89pdGh9zNqkyU6mdqAKt_BeucotUQ-Kbpj9Y_mYzXKiHxMzN_uhM_UtEeY_hbpBf87YrC9Jd9Iv3oBZ3aSTLXHHpN8tRrywRXAG-f23TgldldjTuCIuTXVg2xiGJwo9tIGoH0dRmnUl_Q"
 }
 ```
 </details><br>
@@ -576,7 +595,7 @@ TrustID manages the identity token to provide access to TrustOS to the end-users
 
 The first time an identity token arrives, an onboarding flow is triggered. This means that a TrustOS identity is generated for the issued token as it is necessary to generate keys for the user to be able to sign transactions within the platform.
 
-### OpenID identity onboarding flow
+### General OpenID identity onboarding flow
 ![OpenID Authorization Flow](./images/openid_authorization_flow.png)
 
 When a request arrives authenticated by an Identity Token, TrustID checks the following:
@@ -587,7 +606,27 @@ When a request arrives authenticated by an Identity Token, TrustID checks the fo
 
 If all conditions are satisfied the request is validated, the end-user has access to the requested module and is able to sign transactions.
 
+### OpenID flow details and requirements
+When a OpenID flow is initialized, an application callback endpoint should be passed as query parameter. The goal of the endpoint is to receive a code from the authorization server to authenticate the application and request the identity token. Thus, it is mandatory for the endpoint to be in a public domain and you should contact [soporte-bteam@telefonica.com](mailto:usoporte-bteam@telefonica.com) as we need to provision it on the OpenID clients managed by TrustOS. An example is shown below:
+```
+authCallback = "https://yourapp.com/authCb"
+```
+When the authorization URL is requested and the callback is received from the Authorization Server, an authorization code is served to the application. At this point the application should call the TrustID authorization token function (/authorizationToken) specifying the authorization code. This function allows the application verification on the authorization server checking its authorization code (passed as query parameter). An example of a request is shown below:
+```
+/openid/authorizationToken?code=M.R3_BAY.36b026d5-b621-4252-124e-e43a00aeb68b
+````
+Once the Authorization Server validates the code, it sends the JWT which contains the Identity Token to TrustID and, after the onboarding process, sends it to the final application. From then on, the application can send requests to the TrustOS modules by including the JWT in the authentication header in the following way:
+```
+bearer JWT
+```
+The sequence diagram of the process is shown below:
+
+![Authorization Sequence Flow](./images/openid_sequence_flow.png)
+
 ### Resource request flow
+
+The final application should store the user's JWT. If for example it is a web application, it could store it in a session cookie:
+
 ![OpenID Request Flow](./images/openid_request_flow.png)
 
 <hr>
