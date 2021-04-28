@@ -127,14 +127,14 @@ And exposes the following functions:
   * `public sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
   * `public verify(signature: string, id: string): any`: Verifies a signature from a DID.
   * `public updatePassword(oldPassphrase:, passphrase:): Promise < DID >`: Updates the password
-  * `public async generateRecoveryKey(password:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing.
-  * `public async generateRecoveryKeyTemp(passwordTemp:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing unlocking the account with the temporal Key.
+  * `public generateRecoveryKey(password:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing.
+  * `public generateRecoveryKeyTemp(passwordTemp:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing unlocking the account with the temporal Key.
 
-  * `public async recoverKey(secrets: Buffer[], newPassword: string): Promise < DID >`: Recovers the key using the secrets generated with Shamirs secrets sharing algorithm.
+  * `public recoverKey(secrets: Buffer[], newPassword: string): Promise < DID >`: Recovers the key using the secrets generated with Shamirs secrets sharing algorithm.
   * `public exportDID(withPrivate: boolean)` : Exports a Did stored in the keystore.
   * `public importDID(obj: any)`: Imports a DID and stores it in the keystore.
-  * `public async sign(payload: object): Promise < string >`: Generates a JWS from a payload using an id from the wallet
-  * `public async verify(signature: string, did: DID): Promise < any > `: Verifies a JWS from a payload using a did
+  * `public sign(payload: object): Promise < string >`: Generates a JWS from a payload using an id from the wallet
+  * `public verify(signature: string, did: DID): Promise < any > `: Verifies a JWS from a payload using a did
 
 #### TrustID operations
 
@@ -146,7 +146,7 @@ networks.
   * `createIdentity(did: DID): Promise<object>`: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.
   * `importIdentity(did: DID, controller?: DID)`: Imports an existing identity to the chaincode
   * `verifyIdentity(adminDID: DID, id:string): Promise<object>`: Verifies an identity as an admin.
-  * `getIdentity(did: DID, id: string): * Promise<object>`: Gets a registered identity from TrustID.
+  * `getIdentity(did: DID, id: string): Promise<object>`: Gets a registered identity from TrustID.
   * `revokeIdentity(adminDID: DID, id: string): Promise<object>`: Revokes a registered identity. Only supported by the owner or controller of the DID.
   * `createService(did: DID, serviceDID: string, name: string, isPublic: boolean): Promise<object>`: Creates a new service in the TrustID network.
   * `updateService(did: DID, serviceDID: string, access: Access, isPublic: boolean): Promise<object>`: Updates the information from a service.
