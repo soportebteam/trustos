@@ -44,6 +44,7 @@ passphrase to lock the private key.
 - `id` :  `<string>` Unique identifier of the user
 - `type`    :  `<string>` Algorithm used, right now only RSA is supported
 - `channel`: `<string>`Identificator of the HF network, only required for admin user
+
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
