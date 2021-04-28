@@ -25,6 +25,7 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    trust
    cert
    id
+   trustid
    use_cases
    tutorials
    demos

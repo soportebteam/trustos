@@ -1,0 +1,1552 @@
+{
+	"info": {
+		"_postman_id": "0cc3f855-1edb-4700-9084-125f4525ad50",
+		"name": "TrustOS ID API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Identity Operations",
+			"item": [
+				{
+					"name": "Login Controller",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    // tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"authToken\", jsonData.message);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"did:vtn:trustid:29222201b6662e5b2a07815f7f98b8653b306e3af3830dbaf2387da49ec744db\",\n\t\"password\": \"test\",\n\t\"channel\": \"channel1\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    // tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"authToken\", jsonData.message);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"did:vtn:trustid:c248058c80ab126dfa15a5c7a182dd2d2e4e69ab265de83d182f2b47457f176b\",\n\t\"password\": \"test\"\t\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"test\",\n\t\"type\": \"RSA\",\n\t\"channel\": \"channel1\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"id\": \"did:vtn:trustid:e000298c65e0cd65d65f74e0cfa2a4535d25f5c22724ce9eebed2aa77c1bcbf9\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/id/get",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"id\": \"did:vtn:trustid:2c4d85122da936ac43a468af477638bfa0afc86cc0c283600f0d8cb48b23461d\"\n\t\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/verify",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"did:vtn:trustid:e000298c65e0cd65d65f74e0cfa2a4535d25f5c22724ce9eebed2aa77c1bcbf9\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/revoke",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"tost\",\n    \"oldPassword\": \"test\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/update/password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"update",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Email",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"user@telefonica.com\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/update/email",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"update",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Recovery",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"email@mail.com\",\n  \"guardians\": [\n    {\n      \"value\": \"mail@email.com\",\n      \"type\": \"email\"\n    }\n  ]  \n}"
+						},
+						"url": {
+							"raw": "{{URL}}/id/recover/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"recover",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Init recovery",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"user@telefonica.com\"\n}\n\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/recover/code",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"recover",
+								"code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recover password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"f23fe087183abf05\",\n   \"guardians\": [\n\t   {\n\t\t   \"value\": \"mail@email.com\",\n\t\t   \"secret\": \"email\"\n\t   }\n   ]\n\n}\n\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/recover/password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"recover",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"id\": \"did:vtn:trustid:49ce335b929cddb809bfee8894359e97c69389f5c2c60d0b3f0e17b1ff2d6679\",\n        \"type\": \"RSA\",\n        \"pubkey\": \"-----BEGIN PUBLIC KEY-----\\r\\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlQfL6BO1Nz3nb995kL16\\r\\nOfv0PIcLlFWSe+f+uaBRNX6kdU6SUONU5tjAlGRs+hpTiilToCM1wepxHAnLnhbv\\r\\nFcTFbklznZ9hvC8lfyBZLcaw9eKaUO1xj89FKdATRZXRta2arTQIMvqNOqEiPvuz\\r\\n11QfPXBX/iIt+1AtNYLDnWxkuzFtROU39dqQWQPbsrObQUS2QawUO/sU3F0+PXIJ\\r\\ntRx0gOc0WvvVvKVjCX3CeBoFfDEkplT3YrXeG1PwgmlzURFdR/TzOLs34/Ko8/T4\\r\\n5p7KfY/gf7SX7tWCgEsJyJnaxy/SaL6JpWIXlhT9rhPcuMtR9H2tF8tl4cqqyweM\\r\\nKQIDAQAB\\r\\n-----END PUBLIC KEY-----\\r\\n\",\n        \"privkey\": \"U2FsdGVkX1/WVGV7OX5TDRtwCGNkuL5HuddbARu9ZAHT6YIxNAh1TChkU7iqLDZwS8A9ag+FCahB1lSjwCaWbRDWfo87v77Jlppkc7HuX8Wx/omNdmIs5LTiHIdM56oIRWCKfuRZ6jfVHUWRqaeeZVmCcGs9sZO7RsGhSNrrzOXb0lz3jGkM0Pkpv+rGVQ1U9Vb9Lx8Vz5NWV7cY0rq2OnACDBYBasJfMGktoZypqukpaAUhuVHM3B0zQpBusufjzUTa4Ce0f/spCHoE0Ot/Vo/2GU4p4dZYeyEzKTJNDBmwSvtTWJivbYX1uOO80sYN6CBfxmQffNKF9qUPkHIsEbyS6OLZUwBvSMfAVUGBmOSbF50VqjGhNFgysPq7qTExGZ44Al6GVFM2FIAevDqvRQkPSxaQUpJpKCfYDYRhQCJUbZWEDT4wF78fOZ6nIsswhNawZzYk6Wr4TXsZDOBS7xDPiFTbqVl/LTenRw2fXmu1cWpUloR4qheHTDv1lpr6IpP08U5NagxxrHa1CTTJbP7JO7QbnG6l568wr5XBfYvDJliTJ0bRzVVqioWKmtfjCB6uIPAk2yVE8TZO8j7RQkdPbwAaTQ7hwJEAYhJT/B83ygCcvRU8cCMtvIKa0B74JGJGM30uPpg1NUq7kAx0Z/SqTruZG38ecxF/d6HVnGum2iJLXoXVX1aGZ7bd9j4gC7vyCLS3Wx2R8wFsIsBrCH9YGO2+zhWYL1j1X72GvZ0X7FWEHbNLlVVi5zFnuHXjn6gHgBKr4/5QgQEO/d4aaRO+HLGU+2bjQSqil4o1h4Wasp8O/wSt833Hu5TmX+RQU1On9guRrg3Jqn7McM5r8der3bsepU5mrvQtmwwHvgv3f2DIUCVBfQrxZ/i279hZLNwMa6Y9nUu28UuAs5uI+ureaqR1ygjHQxa4mX3YOSmo4u/VnQshpEGoTkn91G1D/Y2O8aHpCpE/TioZT1I2zc1YiJtmDzRNDvB9GNimlSpU4lj5rBsYLaWQlqF3D4YNAnIeVCMuOAKAbgubqKx+mLzxPcNvYvUkDvTJwCcQ8NeU+43PW6nhOT1Gi+iXv/AgzDhg19P0SwpQc2KXr4XT+QHqzzR1PDOY4dBzWcHsaItlTa9mvhy8/XkqgS1QpZ28F+djwUciUdDtZ0k0iKp7G8wOU1OOklsppwm9LKW3xDT6s1eus5zRtujQ+3LfPgiw974nzTD5hkSbPn06NHwfZHVLJ0ImurJTiABZsTHYHmZximwO52zu7cBu7wLxLBMeDHZrlN5WYleLUUdEyD02OZ26RdjNt7Kz9qJAROqLlL8Njyq8qSuxf0jKYdWIg6b0/AKsmXMJrcgWMSr2V6Wv8VBsCwM+8+izb3yDmkKvx4RE0lncQgE9pu/YDxEfTgfKb/VhAwHy4xyc2HriY4EauCeFAIQyDuErnoSGapvv4O88feGTzDB9rLZiUZykZ56wGNgss5ROsbqG+7y1Jq4KS3667Fmt1k8AX6OqFQik1TlctFE/E01w6HmaTsSdVPUa2MBSke4Wnq6b7QDsexz8DK4tMA06cU07mnfY3AQ+2DswEcaan3rEVWpSzfZnRib0oBrfW74JdSq1k+jxf8MnI4DWnrt9KC3F6eB+lSgeE5mzPCF33DnnX7+bqvCK39Vf0IBEpR/FDnFGAq7QcL5JqulAY1BEaEXeroAi+Vu0+diVzDUGvgjtJ3kUC5V2qakncdJVzLsGtScOBjYcgTiuziOWn0mwbihK/Z7GkwEo5Ik9589tmJUTvNtDbpCzWBXtVvhxBjc0e7eC10vuf3jfGNpVWRVZlv5dGSj/zQloDe8wQFJLuvos65DcVnoO8xa1Z6LFDfiBjpgI7lQUYOk/ctMz5ifRUzs+Ymzrm1kvd/GhKORm8VDH7mKpJ3reFCt0wUMipUBOykjXThA3C/mNnumaSHZWKn8pVxVQiBfDbbdJfGFMGH6yFBVEOS3ZMtIJHArkFyCiSz/xGMS2R7fi9ycZVIXFu5ecITd1htCyiQGEMvw3VC4fHDH7vyOgkoA3a/M0tlF+1QvXewZwsvwVUrLDdm4VnyWKk+e9VEMiCQ8gEClNKO0fDTzSvufwqIYOy+WNEBLSSh2Sl18NL1WtdWiOxWzWRc857R0ibo5fP+PkSXRPdrjvjn14E8NW5AgBj6qI+Zez8TWKPdDoWd6kFXhI64iodZBUjQkD4PGn8ixz4tWawC2kPouWuJdHSwUkrXmft7GkmRGWVzbGIKcxr7Fr4PB6st0wy3RrVguir9pZI87Nzv8OwMlhCmRKN5HU\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/import",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Identity Signed",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"publicKey\":  \"-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokZtVnCJ5KnQRmYqV6j31Oak7K0X/pBDe/QS+LG1UEwcvi2rzMutvJUouMnLgroTMjErYFq0gVJAq7io2Yo/1/I0suueWSfU30kNYoVikHgMKrHtWZA1iCR9uzYffeC/KYBi0f+bLB5789+zJvr38ScaPu+S0LIoYN7j6b7CqWfTBIfqM8NNxyhPiWsGBykQOB1Gl3VEiivm9dp5vFuS0OM/pe/+ToA4vHDIpr1NyxV0zM4TzLHbvWV70HMztsXmYp1yW8EQcLd412FOmtkUkEqqsoNK1IYX6F1ooRUjSGeybxPNKobNwkAQqa4QPMW5eWBiIMvAxs2qVuPclknsrQIDAQAB-----END PUBLIC KEY-----\",\n       \"payload\": \"eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4YzQ4ZDNkMTcxN2VkYTJkNWE2YmIxNzg5NjJhODgxZjIxNjA2ODE0MjUyMDU4IiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cclxuTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFva1p0Vm5DSjVLblFSbVlxVjZqM1xyXG4xT2FrN0swWC9wQkRlL1FTK0xHMVVFd2N2aTJyek11dHZKVW91TW5MZ3JvVE1qRXJZRnEwZ1ZKQXE3aW8yWW8vXHJcbjEvSTBzdXVlV1NmVTMwa05Zb1Zpa0hnTUtySHRXWkExaUNSOXV6WWZmZUMvS1lCaTBmK2JMQjU3ODkrekp2cjNcclxuOFNjYVB1K1MwTElvWU43ajZiN0NxV2ZUQklmcU04Tk54eWhQaVdzR0J5a1FPQjFHbDNWRWlpdm05ZHA1dkZ1U1xyXG4wT00vcGUvK1RvQTR2SERJcHIxTnl4VjB6TTRUekxIYnZXVjcwSE16dHNYbVlwMXlXOEVRY0xkNDEyRk9tdGtVXHJcbmtFcXFzb05LMUlZWDZGMW9vUlVqU0dleWJ4UE5Lb2JOd2tBUXFhNFFQTVc1ZVdCaUlNdkF4czJxVnVQY2xrbnNcclxuclFJREFRQUJcclxuLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tXHJcbiJ9fQ.KnJzLOyMwj8Fci-HxQgUxTVwVe1JZ16i-DbA79I2gycFBYX59k53CHiO0nJwgtV_AA4UQay2qZUSiVoEn28ra46G92Rl0fCOHe5SQYP6VJ7z76bmp2lhUrfH59h37xSReE84BHmZ7rg9Uva1OqsFgfUL9j95jpv6bePgaBNsfZGeHZojYgI2tyowp9xkoGp-18cERszfyhL7RgV47bBQqZBeMQmudUPh52lIZVsFOV6goD2wopBfOznYe-bMbYjFi7bFha37FbYvOSPw_0FIwJBI5FkRHTR7BzkSWXKgbMlXzJ906yF7h-44wCqwgfPZ12DsaessE3F4SWOa84Dtog\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/signed/id/import",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"signed",
+								"id",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"privkey\": true\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/id/export",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"id",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Payload with Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"payload\": {\"arg1\": \"as\", \"arg2\": \"as\"}\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/signature/sign",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"signature",
+								"sign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Payload with Identity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"did:vtn:trustid:29222201b6662e5b2a07815f7f98b8653b306e3af3830dbaf2387da49ec744db\",\n\t\"signature\": \"eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoiYlBVcXZGalM4TndYUHU4Y0hrTEhfNkZ5MHYzQW8xdmxzYW5zNnI1NUJ5RSJ9.eyJhcmcxIjoiYXMiLCJhcmcyIjoiYXMifQ.mMOhoqUKBhChLAa6OTKOE2D54ao4fc_1oI0mJZ3Eq8_XRqvTyA3BIT39rw4gPq_klTv88LjFB_ykB_SLKyvB8MPW0hyp4uzWzRVyseZ_OAqrkh8dAp4pbOcdep8t-JeYDHPE_OnxF968bSTMDwBUdrzeQHomck-QPgptzSfDiDq_39gsh-uNNtiPaGIEwMmFPg_QYS2Mavyfd3pAW6Ly-wpfZWldbAHHbIIUUmUs5cEQtvQHqaAVnDbu7ECWimXQx7QDf8672FpzmfNZORHsCccaADqv2IkfQzJZcoXbWKERCDBEaQl6NaLOHo3TfPKqeY3EZ0qkQZWKMUhJDpiXiA\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/signature/validate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"signature",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Operations",
+			"item": [
+				{
+					"name": "Create Service",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceID\":  \"coren-trackscc\",\n  \"name\": \"coren-trackscc\",\n  \"access\": {\n  \t\"policy\": \"SAME_CONTROLLER\"\n  },\n  \"channel\": \"channel1\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceID\":  \"coren-trackscc\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/get",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceID\":  \"did:vtn:service:sacc\",\n  \"name\": \"sacc-chaincode\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/service/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service Access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceID\":  \"coren-trackscc6\",\n  \"access\": {\n  \t\"policy\": \"FINE_GRAINED\",\n  \t\"threshold\": 0,\n  \t\"access\": {\n  \t\t\"did:vtn:trustid:c0fd6b4749329c4acec7f4ac273d46c2b755736e9f5cae6fc62acec8d04549c6\": 2\n  \t}\n  }\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}/service/updateAccess",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"updateAccess"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invoke Service",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\n\t  \"serviceID\":  \"did:vtn:service:sacc\",\n\t  \"function\": \"set\",\n\t  \"args\":[ \"a\", \"101\" ]\n\t}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/invoke",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invokeService Json Args",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t  \"serviceID\":  \"coren-trackscc\",\n\t  \"function\": \"createAsset\",\n\t  \"args\": {\n\t\t    \"assetId\": \"9898998134\",\n\t\t    \"data\": {\n\t\t\t  \"author\": \"Edgar Degas\",\n\t\t\t  \"century\": \"XIX\",\n\t\t      \"title\": \"The Ballet Class\",\n\t\t\t\"image\": \"http://www.ibiblio.org/wm/paint/auth/degas/ballet/degas.classe-danse.jpg\"\n\t\t    },\n\t\t    \"metadata\" : {\n\t\t      \"a\": \"5\",\n\t\t\t  \"b\" : \"40\"\n\t\t    }\n\t\t}\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/invoke/jsonArgs",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"invoke",
+								"jsonArgs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoke Service Signed",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"id\":  \"did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606814252058\",\n       \"payload\": \"eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4YzQ4ZDNkMTcxN2VkYTJkNWE2YmIxNzg5NjJhODgxZjIxNjA2ODI4OTM4MzY2IiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cclxuTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFva1p0Vm5DSjVLblFSbVlxVjZqM1xyXG4xT2FrN0swWC9wQkRlL1FTK0xHMVVFd2N2aTJyek11dHZKVW91TW5MZ3JvVE1qRXJZRnEwZ1ZKQXE3aW8yWW8vXHJcbjEvSTBzdXVlV1NmVTMwa05Zb1Zpa0hnTUtySHRXWkExaUNSOXV6WWZmZUMvS1lCaTBmK2JMQjU3ODkrekp2cjNcclxuOFNjYVB1K1MwTElvWU43ajZiN0NxV2ZUQklmcU04Tk54eWhQaVdzR0J5a1FPQjFHbDNWRWlpdm05ZHA1dkZ1U1xyXG4wT00vcGUvK1RvQTR2SERJcHIxTnl4VjB6TTRUekxIYnZXVjcwSE16dHNYbVlwMXlXOEVRY0xkNDEyRk9tdGtVXHJcbmtFcXFzb05LMUlZWDZGMW9vUlVqU0dleWJ4UE5Lb2JOd2tBUXFhNFFQTVc1ZVdCaUlNdkF4czJxVnVQY2xrbnNcclxuclFJREFRQUJcclxuLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tXHJcbiJ9fQ.JwiI1UcLlk-9zjE9iH-BUnd0xMv8d7kNh9hrbhCIiJdW0lJhtKTlG5ZoyFicqPfy3JFfy4MOYQhpEgIhJczEV9hGqM6yzmeuYy-siRdHk9apTzEJNiOrxeuZSZ-4KXCAeIaKHDgYRKHBWHWmqRUlpnFR387vlbEIQvTQFzcs6ijSqbeTG3aYuWrZFfJLmI7Y69oaqr12ShrIKl4rL87Y6E7QxexQae3LD3lPh2Kj6ZtF0CjnqlaW3ufP9Fp09Jx-Tlkz3suyxqZ9QdF_f3_kTJ5OCJ-ZQP7-vCGGmKQvPV6iKbRn4zIq9LIl_B7XfknZqLKGYFMGXIqtc9hdBVu8wg\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/signed/service/invoke",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"signed",
+								"service",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Service",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"serviceID\":  \"did:vtn:service:sacc\",\n\t\"function\": \"get\",\n\t\"args\":[ \"a\"]\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/query",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Service Json Args",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceID\":  \"coren-trackscc\",\n  \"function\": \"getAsset\",\n  \"args\": {\n  \t\"assetId\": \"98989981\"\n\t  }\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/query/jsonArgs",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"query",
+								"jsonArgs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Service Signed",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let payload = \"eyJhbGdvcml0aG0iOiJQUzI1NiIsImFsZyI6IlBTMjU2In0.eyJkaWQiOiJkaWQ6dnRuOnRydXN0b3M6dGVsZWZvbmljYToxIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cbk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdTA0ZTlWTE5uMUpIZ1lOSU1SclVcblE0SkhoSG4wd1p4UENEOWtjUHo2M1NNQmlZbkN0Uk0yNHBLODZnQWFUdU00RDhWMkxqckE2ZHZCV3dCT2YydUZcbi80aXJJUlhNT2FJNTh1dFhFQ3NBMHI2Q3cyU3BDWVNWOEJLMXk4aHBuc3cwMi9UMHhZUkRiRnFmaHZxY3NCSjJcbjRMSTZGNHRDb2JQb2VnRXBiQ1RXb0xNdU1FVDNXWkZMeW1ZU2lHNDJObWJjWjBLVEdrd1R6aUx5bEwyMm41d0FcblpUbGZ1dnVCUURSYksvUzlmTld6WGpvbWhKbXFzeVFtbzJZQVIwRkExYVhuN1BlcW8vMHRDZnRKazhKaldvemRcblBnM25UZUdlbDVmeE51VjdybWxOMjZ4QlU2cDB4TmcxMnR6KzRnZ3JFZXE5OWR6Z2tmUCtLUXBZbHpaVkJMTmRcbm1RSURBUUFCXG4tLS0tLUVORCBQVUJMSUMgS0VZLS0tLS1cbiIsImFjY2VzcyI6MX0.XYaCvgrLuT8dO2rq4-ktAN6IvR2tDNOx3EtHBlrEYy7JIPGwaccQHsmlsrsV17aIgPHBAlnA1UAUfHb7jAY7-xhgqKn98XNLAghftERFS50yVH-PZAfeBDx9jvMR4cnYh4niK2fWu5Z-cT5R-bq2CJwELnF2dUr4WIYiXaTsmBpbupje6_EUwVAvN7QMQ0a7nlZ64eoOuzVOhWfFBpJP6jjnSfERwujpSDGHMYCQw-wBL6pEKzjMahd_8VyReEMzeQwpnyGJzmqdiC8zaCJqz0DcugLgWGNzkRtnnRaIZF4N1dvX9Ld6vs2tDMCcZACHRBQBJ774vZPP7ZH2rTm-lg\"",
+									"",
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    postman.setEnvironmentVariable(\"payload\", payload);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"id\":  \"-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokZtVnCJ5KnQRmYqV6j31Oak7K0X/pBDe/QS+LG1UEwcvi2rzMutvJUouMnLgroTMjErYFq0gVJAq7io2Yo/1/I0suueWSfU30kNYoVikHgMKrHtWZA1iCR9uzYffeC/KYBi0f+bLB5789+zJvr38ScaPu+S0LIoYN7j6b7CqWfTBIfqM8NNxyhPiWsGBykQOB1Gl3VEiivm9dp5vFuS0OM/pe/+ToA4vHDIpr1NyxV0zM4TzLHbvWV70HMztsXmYp1yW8EQcLd412FOmtkUkEqqsoNK1IYX6F1ooRUjSGeybxPNKobNwkAQqa4QPMW5eWBiIMvAxs2qVuPclknsrQIDAQAB-----END PUBLIC KEY-----\",\n       \"payload\": \"eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6Imludm9rZSIsInBhcmFtcyI6eyJpZCI6InNlcnZpY2UxIiwiYXJncyI6WyJnZXQiLCJhIl0sImNoYW5uZWwiOiJ0ZWxlZm9uaWNhY2hhbm5lbCJ9fQ.R1dDwL8dxU5owpEmdykloCKlHtU8DeEYDwuEAZPAqxfKQVdn6WPj_qsOR0lKeOsY2VYDOt7245_Ac5RV7-LCtOAExXv5KqHafhI2ihVhfIykpwB_HWJccJsGOK0HyAlIC4EkrvtBXWCOEDd2vUOgr7qBixrGqyvrkGe_qc6ZJGN3tSHZLEGe95QsarRf_2eY3dc2g_TP4dr9BsHVniKVJnwLP8PnD23xJs90xrDZTbaWbc1x0gWD6DBRv9tVqei-zJXUt0yasbagxCpJKj59ITL4i7t-_PghyzZFa1ZwxtQp2WUxNMWOKMcouttywFCUJ8wPFe39D8JM8mVMJ5xdIA\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}/signed/service/query",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"signed",
+								"service",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe Event",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceID\": \"did:vtn:corentrack\",\n  \"eventName\": \"track-event\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/service/event/subscribe",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"service",
+								"event",
+								"subscribe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
