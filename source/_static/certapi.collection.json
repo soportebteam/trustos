@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4aa0a8b9-a490-4710-9bf4-40a0d2ba0b9b",
+		"_postman_id": "9c7b69b4-fac1-4e29-af8a-08ff9ab6cfc5",
 		"name": "Cert API",
 		"description": " **#Certification**  \n\n---\n\n  Cert API is used to create and verify **digital certificates** on the blockchain. A certificate is a tamper-proof and verifiable amount of data that represents a process, a file/document or anything else and that is handled by a Smart Contract. Through this API different type of certificates can be easily created, recorded and signed by the involved parties as a verifiable certificate. \n \n Take a look at the [**documentation**](https://trustos.readthedocs.io/en/latest/cert.html) and in case you have some questions or need more detailed information about the use of this API, don't hesitate to contact with the blockchain team:\n\nContact Support:\n Name: Blockchain Team\n Email: soporte-bteam@telefonica.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -8,209 +8,182 @@
 	"item": [
 		{
 			"name": "Login",
-			"event": [
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "378a3fb5-b818-438b-9597-6891d4778dc4",
-						"exec": [
-							"//Execution",
-							"",
-							"try {",
-							"",
-							"    // tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"    var jsonData = JSON.parse(responseBody);",
-							"    postman.setEnvironmentVariable(\"authToken\", jsonData.message);",
-							"}",
-							"catch(e) {",
-							"    console.error(e);",
-							"}",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": \"did:vtn:trustid:user\",\n    \"password\": \"<string>\"\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/login",
-					"host": [
-						"{{URL}}"
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Execution",
+									"",
+									"try {",
+									"",
+									"    // tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"authToken\", jsonData.message);",
+									"}",
+									"catch(e) {",
+									"    console.error(e);",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"login"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "OK",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"did:vtn:trustid:a998f37f73186dd381c4476d0e56059eed31437d06f2e860780108e8684df445\",\n    \"password\": \"test\"\n}"
+							"raw": "{\n    \"id\": \"did:vtn:trustid:user\",\n    \"password\": \"<string>\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/login",
+							"raw": "{{URL}}/login",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"login"
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n \"message\": \"eyJ0iXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2OTkyNDg3NH0.G6ri56bF7m8Rs68n1IWE2DbfZKPGiVp-lXWzz23NUDo\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Refresh the login session",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"did:vtn:trustid:a998f37f73186dd381c4476d0e56059eed31437d06f2e860780108e8684df445\",\n    \"password\": \"test\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"message\": \"eyJ0iXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2OTkyNDg3NH0.G6ri56bF7m8Rs68n1IWE2DbfZKPGiVp-lXWzz23NUDo\"\n}"
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/refresh",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"refresh"
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Refresh the login session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/refresh",
+							"raw": "{{URL}}/refresh",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"refresh"
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"message\": \"eyJ0iXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2OTkyNDg3NH0.G6ri56bF7m8Rs68n1IWE2DbfZKPGiVp-lXWzz23NUDo\"\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n \"message\": \"eyJ0iXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCIsImV4cCI6MTU2OTkyNDg3NH0.G6ri56bF7m8Rs68n1IWE2DbfZKPGiVp-lXWzz23NUDo\"\n}"
+					]
 				}
 			]
 		},
 		{
-			"name": "Create a new certificate from customised content",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content\": {},\n    \"public\": false,\n    \"readers\": [\"did:vtn:reader1\", \"did:vtn:reader2\"],\n    \"signers\": [\"did:vtn:signer1\", \"did:vtn:signer2\"]\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/certificate/content/create",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						"content",
-						"create"
-					]
-				}
-			},
-			"response": [
+			"name": "Certificate",
+			"item": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Create a new certificate from customised content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Certificate name\",\n    \"description\": \"Certificate short description\",\n    \"content\": \"<object>\",\n    \"public\": \"<bool>\",\n    \"readers\": \"<string>\",\n    \"signers\": \"<string>\"\n}"
+							"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content\": {},\n    \"public\": false,\n    \"readers\": [\"did:vtn:reader1\", \"did:vtn:reader2\"],\n    \"signers\": [\"did:vtn:signer1\", \"did:vtn:signer2\"]\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/certificate/content/create",
+							"raw": "{{URL}}/certificate/content/create",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -219,79 +192,76 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Create a new certificate from an asset",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Certificate name\",\n    \"description\": \"Certificate short description\",\n    \"content\": \"<object>\",\n    \"public\": \"<bool>\",\n    \"readers\": \"<string>\",\n    \"signers\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/certificate/content/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										"content",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"assetID\": \"<assetId>\",\n    \"public\": false,\n    \"readers\": [\"did:vtn:reader1\", \"did:vtn:reader2\"],\n    \"signers\": [\"did:vtn:signer1\", \"did:vtn:signer2\"]\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/certificate/asset/create",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						"asset",
-						"create"
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Create a new certificate from an asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Certificate name\",\n    \"description\": \"Certificate short description\",\n    \"assetID\": \"example1\",\n    \"public\": \"<bool>\",\n    \"readers\": \"<string>\",\n    \"signers\": \"<string>\"\n}"
+							"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"assetID\": \"<assetId>\",\n    \"public\": false,\n    \"readers\": [\"did:vtn:reader1\", \"did:vtn:reader2\"],\n    \"signers\": [\"did:vtn:signer1\", \"did:vtn:signer2\"]\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/certificate/asset/create",
+							"raw": "{{URL}}/certificate/asset/create",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -300,72 +270,67 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Get the current certificate information",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Certificate name\",\n    \"description\": \"Certificate short description\",\n    \"assetID\": \"example1\",\n    \"public\": \"<bool>\",\n    \"readers\": \"<string>\",\n    \"signers\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/certificate/asset/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										"asset",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificate/:certID",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Get the current certificate information",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID",
+							"raw": "{{URL}}/certificate/:certID",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -373,78 +338,74 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Sign a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/sign",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"sign"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Sign a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/sign",
+							"raw": "{{URL}}/certificate/:certID/sign",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -453,92 +414,84 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n \"output\": {\n  \"signature\": \"yJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2IiwiacxX0NJUzZudXhvRWYwZGxRVG5JdjJJTSJ9.eyJwYXlsb2Fb24iOiJDZXJ0aWZpY2F0ZSBzaG9ydCBkZXNjcmlwdGlvbiIsImlzc3VlciI6ImRpZDp2dG46dHJ1c3RpZDpkNzNkYTUxNzNiOWZkYjZiMDEyOGNiODBhNTRhMmEwMTZkYTY1YzJkYTRmYWRkZmFlN2UxZDE5MzcwOWM0MjlmIiwibmFtZSI6IkNlcnRpZmljYXRlIG5hbWUiLCJ0eXBlIjoiZmlsZSJ9LCJjZXJ0SUQiOiJhM2ExIiwiZXhwaXJlcyI6IjIwMjUtMTItMzFUMjM6NTk6NTkrMDA6MFBditId1c3K2FqY0JkNXJIdXU2MD0iLCJpc3N1ZWRPbiI6IjIwMjAtMTEtMTIgMDg6NDU6NDMgKzAwMDAgVVRDIiwidmVyaWZpY2F0aW9uIjp7InNpZ25lcnMiOlsiZGlkOnZ0bjpzaWduZXIxIiwiZGlkOnZ0bjpzaWduZXIyJ9fX0.EHihtUXTWtHUsRjdGhoQEP9BTpo92KjTReBBwMMXty1moVM09pa-btd3XkPf6wBI-ZdP-a96TVCBua_XkYYMIy4WOmwqhRkdG93Sdsb7EBxWTjT7nZeTKg\",\n  \"signer\": {\n   \"id\": \"did:vtn:trustid:signer1\",\n   \"publicKey\": \"-----BEGIN PUBLIC KEY----- .... -----END PUBLIC KEY-----\",\n   \"controller\": \"did:vtn:trustid:controller\",\n   \"type\": \"SignedBadge\"\n  }\n }\n}"
-				}
-			]
-		},
-		{
-			"name": "Sign a certificate with external key",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/sign",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"sign"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"output\": {\n  \"signature\": \"yJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2IiwiacxX0NJUzZudXhvRWYwZGxRVG5JdjJJTSJ9.eyJwYXlsb2Fb24iOiJDZXJ0aWZpY2F0ZSBzaG9ydCBkZXNjcmlwdGlvbiIsImlzc3VlciI6ImRpZDp2dG46dHJ1c3RpZDpkNzNkYTUxNzNiOWZkYjZiMDEyOGNiODBhNTRhMmEwMTZkYTY1YzJkYTRmYWRkZmFlN2UxZDE5MzcwOWM0MjlmIiwibmFtZSI6IkNlcnRpZmljYXRlIG5hbWUiLCJ0eXBlIjoiZmlsZSJ9LCJjZXJ0SUQiOiJhM2ExIiwiZXhwaXJlcyI6IjIwMjUtMTItMzFUMjM6NTk6NTkrMDA6MFBditId1c3K2FqY0JkNXJIdXU2MD0iLCJpc3N1ZWRPbiI6IjIwMjAtMTEtMTIgMDg6NDU6NDMgKzAwMDAgVVRDIiwidmVyaWZpY2F0aW9uIjp7InNpZ25lcnMiOlsiZGlkOnZ0bjpzaWduZXIxIiwiZGlkOnZ0bjpzaWduZXIyJ9fX0.EHihtUXTWtHUsRjdGhoQEP9BTpo92KjTReBBwMMXty1moVM09pa-btd3XkPf6wBI-ZdP-a96TVCBua_XkYYMIy4WOmwqhRkdG93Sdsb7EBxWTjT7nZeTKg\",\n  \"signer\": {\n   \"id\": \"did:vtn:trustid:signer1\",\n   \"publicKey\": \"-----BEGIN PUBLIC KEY----- .... -----END PUBLIC KEY-----\",\n   \"controller\": \"did:vtn:trustid:controller\",\n   \"type\": \"SignedBadge\"\n  }\n }\n}"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"signature\": \"<string>\",\n    \"publicKey\": \"<string>\",\n    \"did\": \"<string>\"\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/sign/external",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"sign",
-						"external"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Sign a certificate with external key",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"signature\": \"eyJSosd289ap389fa8uf3u8u4er8912rz....\",\n    \"publicKey\": \"-----BEGIN PUBLIC KEY----- .... -----END PUBLIC KEY-----\",\n    \"did\": \"did:external:test\"\n}"
+							"raw": "{\n    \"signature\": \"<string>\",\n    \"publicKey\": \"<string>\",\n    \"did\": \"<string>\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/sign/external",
+							"raw": "{{URL}}/certificate/:certID/sign/external",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -548,171 +501,80 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n \"output\": {\n  \"signature\": \"yJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2IiwiacxX0NJUzZudXhvRWYwZGxRVG5JdjJJTSJ9.eyJwYXlsb2Fb24iOiJDZXJ0aWZpY2F0ZSBzaG9ydCBkZXNjcmlwdGlvbiIsImlzc3VlciI6ImRpZDp2dG46dHJ1c3RpZDpkNzNkYTUxNzNiOWZkYjZiMDEyOGNiODBhNTRhMmEwMTZkYTY1YzJkYTRmYWRkZmFlN2UxZDE5MzcwOWM0MjlmIiwibmFtZSI6IkNlcnRpZmljYXRlIG5hbWUiLCJ0eXBlIjoiZmlsZSJ9LCJjZXJ0SUQiOiJhM2ExIiwiZXhwaXJlcyI6IjIwMjUtMTItMzFUMjM6NTk6NTkrMDA6MFBditId1c3K2FqY0JkNXJIdXU2MD0iLCJpc3N1ZWRPbiI6IjIwMjAtMTEtMTIgMDg6NDU6NDMgKzAwMDAgVVRDIiwidmVyaWZpY2F0aW9uIjp7InNpZ25lcnMiOlsiZGlkOnZ0bjpzaWduZXIxIiwiZGlkOnZ0bjpzaWduZXIyJ9fX0.EHihtUXTWtHUsRjdGhoQEP9BTpo92KjTReBBwMMXty1moVM09pa-btd3XkPf6wBI-ZdP-a96TVCBua_XkYYMIy4WOmwqhRkdG93Sdsb7EBxWTjT7nZeTKg\",\n  \"signer\": {\n   \"id\": \"did:vtn:trustid:signer1\",\n   \"publicKey\": \"-----BEGIN PUBLIC KEY----- .... -----END PUBLIC KEY-----\",\n   \"controller\": \"did:vtn:trustid:controller\",\n   \"type\": \"SignedBadge\"\n  }\n }\n}"
-				}
-			]
-		},
-		{
-			"name": "Register evidences of a certificate in public network",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"network\": \"Ethereum\"\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/register",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"register"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "OK",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"signature\": \"eyJSosd289ap389fa8uf3u8u4er8912rz....\",\n    \"publicKey\": \"-----BEGIN PUBLIC KEY----- .... -----END PUBLIC KEY-----\",\n    \"did\": \"did:external:test\"\n}"
 								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"network\": \"Ethereum\"\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/register",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"certificate",
-								":certID",
-								"register"
-							],
-							"variable": [
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/sign/external",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"sign",
+										"external"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
 								{
-									"key": "certID"
+									"key": "Content-Type",
+									"value": "application/json"
 								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Revoke a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							],
+							"cookie": [],
+							"body": "{\n \"output\": {\n  \"signature\": \"yJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2IiwiacxX0NJUzZudXhvRWYwZGxRVG5JdjJJTSJ9.eyJwYXlsb2Fb24iOiJDZXJ0aWZpY2F0ZSBzaG9ydCBkZXNjcmlwdGlvbiIsImlzc3VlciI6ImRpZDp2dG46dHJ1c3RpZDpkNzNkYTUxNzNiOWZkYjZiMDEyOGNiODBhNTRhMmEwMTZkYTY1YzJkYTRmYWRkZmFlN2UxZDE5MzcwOWM0MjlmIiwibmFtZSI6IkNlcnRpZmljYXRlIG5hbWUiLCJ0eXBlIjoiZmlsZSJ9LCJjZXJ0SUQiOiJhM2ExIiwiZXhwaXJlcyI6IjIwMjUtMTItMzFUMjM6NTk6NTkrMDA6MFBditId1c3K2FqY0JkNXJIdXU2MD0iLCJpc3N1ZWRPbiI6IjIwMjAtMTEtMTIgMDg6NDU6NDMgKzAwMDAgVVRDIiwidmVyaWZpY2F0aW9uIjp7InNpZ25lcnMiOlsiZGlkOnZ0bjpzaWduZXIxIiwiZGlkOnZ0bjpzaWduZXIyJ9fX0.EHihtUXTWtHUsRjdGhoQEP9BTpo92KjTReBBwMMXty1moVM09pa-btd3XkPf6wBI-ZdP-a96TVCBua_XkYYMIy4WOmwqhRkdG93Sdsb7EBxWTjT7nZeTKg\",\n  \"signer\": {\n   \"id\": \"did:vtn:trustid:signer1\",\n   \"publicKey\": \"-----BEGIN PUBLIC KEY----- .... -----END PUBLIC KEY-----\",\n   \"controller\": \"did:vtn:trustid:controller\",\n   \"type\": \"SignedBadge\"\n  }\n }\n}"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/revoke",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"revoke"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Revoke a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/revoke",
+							"raw": "{{URL}}/certificate/:certID/revoke",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -721,78 +583,165 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Get the history of a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/revoke",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"revoke"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/history",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"history"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
-						"method": "GET",
+					"name": "Register evidences of a certificate in public network",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
 						"header": [
 							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"network\": \"Ethereum\"\n}"
+						},
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/history",
+							"raw": "{{URL}}/certificate/:certID/register",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
+							],
+							"path": [
+								"certificate",
+								":certID",
+								"register"
+							],
+							"variable": [
+								{
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"network\": \"Ethereum\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"register"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						}
+					]
+				},
+				{
+					"name": "Get the history of a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/certificate/:certID/history",
+							"host": [
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -801,142 +750,141 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Get all certificates for a user",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/history",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"history"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificates",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificates"
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Get all certificates for a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/certificates",
+							"raw": "{{URL}}/certificates",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificates"
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificates",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificates"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"output\": {\n  \"certID\": \"exercitation mollit\"\n }\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n \"output\": {\n  \"certID\": \"exercitation mollit\"\n }\n}"
+					]
 				}
 			]
 		},
 		{
-			"name": "Get the granted accesses for a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/access",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"access"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
+			"name": "Advanced methods",
+			"item": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Get the granted accesses for a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/access",
+							"raw": "{{URL}}/certificate/:certID/access",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -945,91 +893,84 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Modify the access for a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/access",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"access"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"public\": false,\n    \"readers\": [\"did:vtn:reader3\", \"did:vtn:reader4\"]\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/access",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"access"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Modify the access for a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"public\": \"<bool>\",\n    \"readers\": \"<string>\"\n}"
+							"raw": "{\n    \"public\": false,\n    \"readers\": [\"did:vtn:reader3\", \"did:vtn:reader4\"]\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/access",
+							"raw": "{{URL}}/certificate/:certID/access",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -1038,78 +979,79 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "null"
-				}
-			]
-		},
-		{
-			"name": "Get the signers and signatures for a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"public\": \"<bool>\",\n    \"readers\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/access",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"access"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/signers",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"signers"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Get the signers and signatures for a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/signers",
+							"raw": "{{URL}}/certificate/:certID/signers",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -1118,92 +1060,84 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n \"output\": {\n  \"did:vtn:signer1\": {},\n  \"did:vtn:signer2\": {}\n }\n}"
-				}
-			]
-		},
-		{
-			"name": "Add new signers for a certificate",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{authToken}}",
-							"type": "string"
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/signers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"signers"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"output\": {\n  \"did:vtn:signer1\": {},\n  \"did:vtn:signer2\": {}\n }\n}"
 						}
 					]
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"signers\":[\"did:vtn:signer3\", \"did:vtn:signer4\"]\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/certificate/:certID/signers/add",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"certificate",
-						":certID",
-						"signers",
-						"add"
-					],
-					"variable": [
-						{
-							"key": "certID",
-							"value": "<string>",
-							"description": "(Required) Certificate ID"
-						}
-					]
-				}
-			},
-			"response": [
 				{
-					"name": "OK",
-					"originalRequest": {
+					"name": "Add new signers for a certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"description": {
-									"content": "Added as a part of security scheme: apikey",
-									"type": "text/plain"
-								},
-								"key": "Authorization",
-								"value": "<API Key>"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"signers\": \"<string>\"\n}"
+							"raw": "{\n    \"signers\":[\"did:vtn:signer3\", \"did:vtn:signer4\"]\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/certificate/:certID/signers/add",
+							"raw": "{{URL}}/certificate/:certID/signers/add",
 							"host": [
-								"{{baseUrl}}"
+								"{{URL}}"
 							],
 							"path": [
 								"certificate",
@@ -1213,33 +1147,417 @@
 							],
 							"variable": [
 								{
-									"key": "certID"
+									"key": "certID",
+									"value": "<string>",
+									"description": "(Required) Certificate ID"
 								}
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json"
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"signers\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/signers/add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"signers",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
 						}
-					],
-					"cookie": [],
-					"body": "null"
+					]
+				}
+			]
+		},
+		{
+			"name": "Advanced Signature",
+			"item": [
+				{
+					"name": "Initialize advance signature",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"platform\": \"VIDSigner\",\n  \"signers\": [\n    {\n      \"email\": \"mail@mail.com\",\n      \"name\": \"Signer Test\",\n      \"did\": \"did:vtn:trustid:...\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/certificate/:cert/advancedsign/init",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"certificate",
+								":cert",
+								"advancedsign",
+								"init"
+							],
+							"variable": [
+								{
+									"key": "cert",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/access",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"access"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						}
+					]
+				},
+				{
+					"name": "Get status of signed document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"platform\": \"VIDSigner\",\n  \"signers\": [\n    {\n      \"email\": \"mail@mail.com\",\n      \"name\": \"Signer Test\",\n      \"did\": \"did:vtn:trustid:...\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/certificate/:cert/advancedsign/status",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"certificate",
+								":cert",
+								"advancedsign",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "cert",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/access",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"access"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						}
+					]
+				},
+				{
+					"name": "Get Signed document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"platform\": \"VIDSigner\",\n  \"signers\": [\n    {\n      \"email\": \"mail@mail.com\",\n      \"name\": \"Signer Test\",\n      \"did\": \"did:vtn:trustid:...\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/certificate/:cert/advancedsign/document",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"certificate",
+								":cert",
+								"advancedsign",
+								"document"
+							],
+							"variable": [
+								{
+									"key": "cert",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/access",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"access"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						}
+					]
+				},
+				{
+					"name": "Receive notifications from advanced signature",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/certificate/advancedsign/notification",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"certificate",
+								"advancedsign",
+								"notification"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/certificate/:certID/access",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"certificate",
+										":certID",
+										"access"
+									],
+									"variable": [
+										{
+											"key": "certID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						}
+					]
 				}
 			]
 		}
 	],
 	"variable": [
 		{
-			"id": "baseUrl",
 			"key": "baseUrl",
 			"value": "/cert",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
