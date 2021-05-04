@@ -1,5 +1,5 @@
 
-# ID API
+# ID
 
 An abstraction TrustID API implementation. It wraps the functionality of the TrustID SDK in order to offer basic identity management services to users comfortable delegating the responsability of their keys to a custodian. ID API acts as the third-party custodian of the users keys.
 
