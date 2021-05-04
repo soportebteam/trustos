@@ -425,10 +425,6 @@ Also you can download the files in the links below:
 <br>
 <a href="_static/environment.json" download> - Postman environment</a>
 
-## Errors management
-  
-  Settle API errors are managed through the following nomenclature **SETTLE-XX** which corresponds to:<br>
-
 
 ## Errors management
   
