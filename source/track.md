@@ -48,6 +48,17 @@ Every asset has the following structure:
 </details> 
 <br>
 
+
+There are two types of assets: owned assets and authorised assets. These last ones, the `authorised assets`  are assets created by other users that have granted you access allowing you to consult and update it. 
+
+In order to interact with both assets in some functions it is necessary to put a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to put the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
+
+ GET  -     `/asset/{assetId}?isAuthorised=true`  
+ GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
+ GET  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
+ GET  -     `/assets`  
+ POST -     `/asset/{assetId}/update?isAuthorised=true`  
+
 ## API Methods
 
 ![TrackAPI methods](./images/track_swagger.png)
@@ -114,13 +125,14 @@ Ceate a digital asset on a Blockchain.
 
 ---
 
-####    GET     -   `/asset/{assetId}`  
+####    GET     -   `/asset/{assetId}?isAuthorised=boolean`  
 
 
 Get asset from the blockchain identified by assetId
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset
+- 
   
 <u>*Output*</u>
 - `asset`    :  `<json>` 
@@ -381,6 +393,158 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 
 ---
 
+
+####   POST     - `/asset/{assetId}/admin/create`  
+
+Creates an admin user that is going to be able to authorise other users. Only the asset owner can do this. There can be more than one admin user and the admin can be admin from different assets of different owners.
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `userId` :  `<string>` The user that is going to manage the asset access
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "userId": "did:bteam"
+}
+```
+</details>  
+<br>
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "message": "Successfully authorised admin user did:vtn:trustid: for asset XX"
+  }
+}
+```
+</details>
+
+---
+
+
+
+####   POST     - `/asset/{assetId}/admin/authorise`  
+
+Authorise user access for an asset. Only the asset admin can do this.
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `userId` :  `<string>` The authorised user
+- `ownerId` :  `<string>` The asset's owner
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "userId": "did:bteam",
+  "ownerId": "did:bteam"
+}
+```
+</details> 
+<br>
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "message": "Successfully authorised user did:bteam for asset XXXXX",
+  }
+}
+```
+</details>
+
+---
+
+####   POST     - `/asset/{assetId}/admin/unauthorise`  
+
+Unauthorise user access for an asset. Only the asset owner can do this.
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `userId` :  `<string>` The unauthorised user
+- `ownerId` :  `<string>` The asset's owner
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "userId": "did:bteam",
+  "ownerId": "did:bteam"
+
+}
+```
+</details>  
+<br>
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "message": "Successfully unauthorised user did:bteam for asset XXXXX",
+  }
+}
+```
+</details>
+
+---
+
+####   POST     - `/asset/{assetId}/admin/delete`  
+
+Delete an admin user that is not going to be able to authorise other users. Only the asset owner can do this. 
+
+<u>*Input*</u>
+- `assetId` :  `<string>` Unique identifier of the asset
+- `userId` :  `<string>` The user that is going to manage the asset access
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "userId": "did:bteam"
+}
+```
+</details>  
+<br>
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "message": "Successfully unauthorised admin user did:vtn:trustid: for asset XX"
+  }
+}
+```
+</details>
+
+---
+
 ####   POST     - `/asset/{assetId}/rules`  
 
 Add rules to monitor asset parameters.
@@ -478,16 +642,7 @@ N/A. It returns all the assets which belong to the login user
 </details>
 
 ---
-#### (*) authorised assets 
-If we deep into the technical part, it's important to be aware that every user has two types of assets: owned assets and authorised assets. These last ones, the `authorised assets or foreign assets` as we like to say, are assets created by other users that have granted you access allowing you to consult and update it.
 
-To interact with authorised or foreign assets, only it is necessary to put the `isForeign` flag to `true` as a query parameter in the URL (`...?isForeign=true`) as it is shown in the examples below:
-
- GET  -     `/asset/{assetId}?isForeign=true`  
- GET  -     `/asset/{assetId}/transactions?isForeign=true`  
- GET  -     `/asset/{assetId}/transactions/range?isForeign=true`  
- GET  -     `/assets`  
- POST -     `/asset/{assetId}/update?isForeign=true`  
 
 
 #### (*) trustpoint parameter  

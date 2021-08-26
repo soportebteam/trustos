@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TrustID &mdash; trustos master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Use cases" href="use_cases.html" />
+    <link rel="prev" title="ID API" href="id.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+
+          
+            <a href="index.html" class="icon icon-home"> trustos
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                master
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+
+<br>
+<a style="width:100%;" href="index.html">
+    <h1 style="color: white; font-size:220%; margin-bottom:2px;">TrustOS</h1>
+</a>
+<img style="background:none; margin: auto;  width:30%; height:95%;" alt="Telefónica"
+    src="_static/images/telefonica_white.png" />
+
+<!-- 
+<a href="https://github.com/hyperledger/fabric"></a>
+&nbsp;<a href="https://stackoverflow.com/questions/tagged/hyperledger-fabric"><img style="padding: 0px; margin: auto auto auto auto;" alt="StackOverflow" src="_static/images/stackoverflow_button.png"/></a>
+&nbsp;<a href="https://chat.hyperledger.org"><img style="padding: 0px; margin: auto auto auto auto;" alt="Rocket Chat" src="_static/images/rocketchat_button.png"/></a>
+&nbsp;<a href="https://www.youtube.com/playlist?list=PL0MZ85B_96CH7wvtrRzV7SvtRY0sI0DEg"><img style="padding: 0px; margin: auto auto auto auto;" alt="Youtube Channel" src="_static/images/youtube_button.png"/></a> -->
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html">Cert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id.html">ID API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TrustID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#trustid-sdk">TrustID SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wallet">Wallet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#class-did">Class DID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trustid-operations">TrustID operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#driver-operations">Driver operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keystore">Keystore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-use">Example of use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trustos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>TrustID</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/trustid.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="trustid">
+<span id="trustid"></span><h1>TrustID<a class="headerlink" href="#trustid" title="Permalink to this headline">¶</a></h1>
+<p>TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID.</p>
+<p>TrustID is an opensource project and it was released as an opensource project under the umbrella of the Hyperledger Labs</p>
+<p>These DIDs follow the W3C standard, and they serve as a unique ID to identify users. DIDs aggregate all the pieces of public information required to authenticate a user (i.e., their public key or X.509 certificate).</p>
+<p>This is the structure of a DID Identity</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the identity using the W3C standard</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pubkey</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Public key of the identity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">privkey</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Private key of the identity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Algorithm used in order to generate the keys</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">controller</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Verifier of the identity. In future, an identity should have more than one controller</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;controller&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;privkey&quot;</span><span class="p">:</span> <span class="s2">&quot;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&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;pubkey&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7cr</span><span class="se">\r\n</span><span class="s2">5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmp</span><span class="se">\r\n</span><span class="s2">gKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxB</span><span class="se">\r\n</span><span class="s2">rWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1</span><span class="se">\r\n</span><span class="s2">BZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHs</span><span class="se">\r\n</span><span class="s2">U1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5</span><span class="se">\r\n</span><span class="s2">tQIDAQAB</span><span class="se">\r\n</span><span class="s2">-----END PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is the structure that is stored in the DLT platform that belongs to an user or device identity:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Did</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the identity using the W3C standard</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PubKey</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Public key of the identity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Controller</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Verifier of the identity. In future, an identity should have more than one controller</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Policy of the identity in order of identity operations, 0 root, 1 admin, 2 user.</p></li>
+</ul>
+<p>Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;Did  &quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Controller&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Access&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+  <span class="s2">&quot;PubKey&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7cr</span><span class="se">\r\n</span><span class="s2">5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmp</span><span class="se">\r\n</span><span class="s2">gKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxB</span><span class="se">\r\n</span><span class="s2">rWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1</span><span class="se">\r\n</span><span class="s2">BZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHs</span><span class="se">\r\n</span><span class="s2">U1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5</span><span class="se">\r\n</span><span class="s2">tQIDAQAB</span><span class="se">\r\n</span><span class="s2">-----END PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is the structure of a service identity</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier for the service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Chaincode or smart contract identifier at the DLT level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Controller</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Owner/admin of the service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Access policy to the service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Network ID of the service</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;track&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trackscc&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLIC&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;telefonicachannel&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to uniquely identify chaincodes and services deployed in TrustOS, we decided to also give them DIDs so that they could be seamlessly discovered and accessed even if they “live” in independent channels not shared by all the organizations of the network.</p>
+<p>All the authentication and management of identities in the system is performed on-chain through an “Identity Chaincode.”</p>
+<p>If user A wants to start interacting with the network, he requests the generation of a new DID. The related keys to this DID could be an existing X.509 issued by a valid organization, or even an Ethereum-related public key (internally we use all the JWS, JWE, JWK, secp256k1, etc. RFCs to make our Fabric infrastructure compatible with identities of any nature for the sake of interoperability). This DID generation request has to be validated by a valid organization of the network. Once verified, every transaction signed by user A and directed through a Proxy chaincode is authenticated successfully and delegated to the corresponding chaincode.</p>
+<p><img alt="TrustID Flow" src="_images/trustid-flow.png" /></p>
+<p>The TrustID project is conformed by the aforementioned chaincode and a client SDK to ease the integration and interaction with TrustID-enabled networks.</p>
+<p>TrustID is designed to ease the management of identities for the case of TrustOS. Users shouldn’t need to hold a different set of credentials for each network or decentralized application they interact with. The same credentials used to access your owned Bitcoins and manage your tokens in Ethereum should let you update the state of a Fabric asset or launch a secondary market in TrustOS.</p>
+<div class="section" id="trustid-sdk">
+<span id="trustid-sdk"></span><h2>TrustID SDK<a class="headerlink" href="#trustid-sdk" title="Permalink to this headline">¶</a></h2>
+<p>This SDK exposes all the functionalities required to interact with
+TrustID-based DLT networks.</p>
+<div class="section" id="install">
+<span id="install"></span><h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>To install this library you need access to the private repo:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">trustos</span><span class="o">-</span><span class="n">trustid</span><span class="o">-</span><span class="n">sdk</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structure">
+<span id="structure"></span><h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<p>The library has the following modules:</p>
+<div class="section" id="wallet">
+<span id="wallet"></span><h4>Wallet<a class="headerlink" href="#wallet" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wallet.ts</span></code>: Core module of the library. It wraps all the state and
+logic for identity management and interaction with TrustID networks.
+To start using the SDK a new wallet needs to be initialized. A wallet
+exposes the following methods:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">setKeystore(keystore:</span> <span class="pre">Keystore):</span> <span class="pre">void</span></code>: Sets a type of keystore, supported: In memory, filesystem, mongodb</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">generateDID(type:</span> <span class="pre">string,</span> <span class="pre">controller:</span> <span class="pre">string,</span> <span class="pre">passphrase):</span> <span class="pre">DID</span></code>: Generates an identity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">storeDID(did:</span> <span class="pre">DID):</span> <span class="pre">Promise&lt;boolean&gt;</span></code>: Stores the did in the keystore</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">updateDID(did:</span> <span class="pre">DID):</span> <span class="pre">Promise&lt;boolean&gt;</span></code>: Updates info from DID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">listDID():</span> <span class="pre">string[]</span></code>: Returns dids stored in keystore</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">recoverKeySSS(id:</span> <span class="pre">string,</span> <span class="pre">secrets:</span> <span class="pre">Buffer[],</span> <span class="pre">newPassword:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;void&gt;</span></code>: Recovers the key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">updatePassword(id:</span> <span class="pre">string,</span> <span class="pre">oldPassphrase:,passphrase:</span> <span class="pre">string=&quot;&quot;):</span> <span class="pre">Promise&lt;void&gt;</span></code>: Updates the password to unlock the did</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">updateTempKeyDID(id:</span> <span class="pre">string,</span> <span class="pre">passphrase:,tempPassphrase:</span> <span class="pre">string=&quot;&quot;):</span> <span class="pre">Promise&lt;void&gt;</span></code>: Unlocks the account with a temporal key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">addNetwork(id:</span> <span class="pre">string,</span> <span class="pre">network:</span> <span class="pre">TrustID):</span> <span class="pre">void</span></code>: Adds a new network to interact to.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="class-did">
+<span id="class-did"></span><h4>Class DID<a class="headerlink" href="#class-did" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">DID</span></code>: Has the following structure.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">id:</span> <span class="pre">string</span></code>: Id string that identifies the DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pubkey:</span> <span class="pre">string</span></code>: PublicKey of the DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">type:</span> <span class="pre">string</span></code>: Key type (RSA / EC / OKP).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">controller:</span> <span class="pre">string</span></code>: Verifier of the identity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">access:</span> <span class="pre">number</span></code>: Access level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">privkey:</span> <span class="pre">string</span></code>: Private Key of the DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">recoveryKey:</span> <span class="pre">string</span></code>: Private Key to recover the DID.</p></li>
+</ul>
+</li>
+</ul>
+<p>And exposes the following functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">unlockAccount(passphrase:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Unlocks private key in order to use the DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">unlockAccountTemp(passphrase:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Unlocks private key with a temporal key in order to use the DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">lockAccount():</span> <span class="pre">any</span></code>: Locks the private key for a DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">sign(payload:</span> <span class="pre">object,</span> <span class="pre">passphrase:</span> <span class="pre">string):</span> <span class="pre">string</span></code>: Sign a payload with a specific DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">verify(signature:</span> <span class="pre">string,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">any</span></code>: Verifies a signature from a DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">updatePassword(oldPassphrase:,</span> <span class="pre">passphrase:):</span> <span class="pre">Promise</span> <span class="pre">&lt;</span> <span class="pre">DID</span> <span class="pre">&gt;</span></code>: Updates the password</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">async</span> <span class="pre">generateRecoveryKey(password:string,</span> <span class="pre">shares:</span> <span class="pre">number,</span> <span class="pre">threshold:</span> <span class="pre">number):</span> <span class="pre">Promise</span> <span class="pre">&lt;Buffer[]&gt;</span></code>: Generates the recovery key using shamirs secrets sharing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">async</span> <span class="pre">generateRecoveryKeyTemp(passwordTemp:string,</span> <span class="pre">shares:</span> <span class="pre">number,</span> <span class="pre">threshold:</span> <span class="pre">number):</span> <span class="pre">Promise</span> <span class="pre">&lt;Buffer[]&gt;</span></code>: Generates the recovery key using shamirs secrets sharing unlocking the account with the temporal Key.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">async</span> <span class="pre">recoverKey(secrets:</span> <span class="pre">Buffer[],</span> <span class="pre">newPassword:</span> <span class="pre">string):</span> <span class="pre">Promise</span> <span class="pre">&lt;</span> <span class="pre">DID</span> <span class="pre">&gt;</span></code>: Recovers the key using the secrets generated with Shamirs secrets sharing algorithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">exportDID(withPrivate:</span> <span class="pre">boolean)</span></code> : Exports a Did stored in the keystore.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">importDID(obj:</span> <span class="pre">any)</span></code>: Imports a DID and stores it in the keystore.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">async</span> <span class="pre">sign(payload:</span> <span class="pre">object):</span> <span class="pre">Promise</span> <span class="pre">&lt;</span> <span class="pre">string</span> <span class="pre">&gt;</span></code>: Generates a JWS from a payload using an id from the wallet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">async</span> <span class="pre">verify(signature:</span> <span class="pre">string,</span> <span class="pre">did:</span> <span class="pre">DID):</span> <span class="pre">Promise</span> <span class="pre">&lt;</span> <span class="pre">any</span> <span class="pre">&gt;</span></code>: Verifies a JWS from a payload using a did</p></li>
+</ul>
+</div>
+<div class="section" id="trustid-operations">
+<span id="trustid-operations"></span><h4>TrustID operations<a class="headerlink" href="#trustid-operations" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TrustID.ts</span></code>: Interface that enables the inteoperation  between the drivers and the different  functionalities of TrustID. The only component implemented currently is the <code class="docutils literal notranslate"><span class="pre">trustIDhf.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
+networks.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">configureDriver(endpoint:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Sets the network endpoint to interact with the TrustID network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disconnectDriver(endpoint:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Disconects the network endpoint to interact with the TrustID network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createIdentity(did:</span> <span class="pre">DID):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">importIdentity(did:</span> <span class="pre">DID,</span> <span class="pre">controller?:</span> <span class="pre">DID)</span></code>: Imports an existing identity to the chaincode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verifyIdentity(adminDID:</span> <span class="pre">DID,</span> <span class="pre">id:string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Verifies an identity as an admin.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getIdentity(did:</span> <span class="pre">DID,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">*</span> <span class="pre">Promise&lt;object&gt;</span></code>: Gets a registered identity from TrustID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revokeIdentity(adminDID:</span> <span class="pre">DID,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Revokes a registered identity. Only supported by the owner or controller of the DID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createService(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">name:</span> <span class="pre">string,</span> <span class="pre">isPublic:</span> <span class="pre">boolean):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Creates a new service in the TrustID network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateService(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">access:</span> <span class="pre">Access,</span> <span class="pre">isPublic:</span> <span class="pre">boolean):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Updates the information from a service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateServiceAccess(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">access:</span> <span class="pre">AccessPolicy):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Updates the access from a service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getService(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Gets information from a registered service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">invoke</span> <span class="pre">(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">string[],</span> <span class="pre">channel:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Invokes a function of a registered service in the TrustID network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">query(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">string[],</span> <span class="pre">channel:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Queries a function of a registered service in the TrustID network</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PolicyType</span> <span class="pre">(policy:</span> <span class="pre">PolicyType,</span> <span class="pre">threshold:?Number,</span> <span class="pre">registry:?object)</span></code>: It
+defined the policyType to be used for a service. There are currently three
+types of policyTypes supported (more could be easily added according to
+your needs)
+* PublicPolicy: Grants public access by any user to your service.
+* SameControllerPolicy: Only verified identities whose controller is the
+same controller who created the service has access to the service (this
+policy comes pretty handy when you want to define “corporate-wide” services).
+* FineGrainedPolicy: Grants fine-grained access to users to your service.
+In this policy you explicitly define the access of users to the service.
+There are two ways of using this policyType, you can define a threshold
+so every user with an access level equal or higher than the threshold
+is granted access to the service; or you could use fine-grained
+access levels defined in the registry, where you would add the following
+tuple: <code class="docutils literal notranslate"><span class="pre">{&lt;did&gt;,</span> <span class="pre">&lt;access_role&gt;}</span></code>. Thus, only users in the registry
+with an access level over the threshold will be granted access to the
+service with <code class="docutils literal notranslate"><span class="pre">access_role</span></code> permissions.</p></li>
+</ul>
+</div>
+<div class="section" id="driver-operations">
+<span id="driver-operations"></span><h4>Driver operations<a class="headerlink" href="#driver-operations" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">driver.ts</span></code>: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is
+the <code class="docutils literal notranslate"><span class="pre">hfdriver.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
+networks.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect(config:</span> <span class="pre">object):</span> <span class="pre">Promise&lt;object&gt;;</span></code>: Connects with a DLT networks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disconnect(config:</span> <span class="pre">object):</span> <span class="pre">void</span></code>: Disconnects of a DLT network</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkConnection(channelName?:string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Check the connection with a DLT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callContractTransaction(id:</span> <span class="pre">string,</span> <span class="pre">fcn:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">any,</span> <span class="pre">channel?:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Write operation in the DLT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getContractTransaction(id:</span> <span class="pre">string,</span> <span class="pre">fcn:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">any,</span> <span class="pre">channel?:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Read operation in the DLT</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="keystore">
+<span id="keystore"></span><h4>Keystore<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keystore.ts</span></code>: Interface that enables the implementation of keystore storages.
+There are currently two implementations of keystore supported: <code class="docutils literal notranslate"><span class="pre">FileKeystore.ts</span></code> (to store DIDs in file keystore)and <code class="docutils literal notranslate"><span class="pre">MongoKeystore.ts</span></code> (to store DIDs in MongoDB).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">getDID(id:</span> <span class="pre">string):</span> <span class="pre">DID</span></code>: It gets specific DID from keystore.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">storeDID(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: It stores DID in keystore.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">updateDID(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: It updates DID in keystore.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">storeInMemory(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: Stores DID inMemory for easy and performant use.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">listDID():</span> <span class="pre">string[]</span></code>: List DIDs in memory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">setDefault(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: Set DID as default identity for the keystore wallet.</p></li>
+</ul>
+</li>
+</ul>
+<p>If you want additional information of TrustID, its SDK and its functionality
+check the following <a class="reference external" href="https://github.com/hyperledger-labs/TrustID">repo</a>.</p>
+</div>
+</div>
+<div class="section" id="example-of-use">
+<span id="example-of-use"></span><h3>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use library</span>
+<span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;trustos-trustid-sdk&#39;</span><span class="p">)</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Keystore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./keystore/keystore&#39;</span><span class="p">;</span>
+
+<span class="c1">// Initialize wallet</span>
+<span class="nx">wal</span> <span class="o">=</span> <span class="nx">id</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">.</span><span class="nx">Instance</span><span class="p">;</span>
+
+<span class="c1">// Initialize new FileKeystore with storage at ./keystore</span>
+<span class="kr">const</span> <span class="nx">ks</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sdk</span><span class="p">.</span><span class="nx">FileKeystore</span><span class="p">(</span><span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="s2">&quot;./keystore&quot;</span><span class="p">);</span>
+<span class="nx">wal</span><span class="p">.</span><span class="nx">setKeystore</span><span class="p">(</span><span class="nx">ks</span><span class="p">)</span>
+<span class="c1">// ccp is the configu file of a Hyperledger Fabric network</span>
+<span class="kr">const</span> <span class="nx">ccp</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s2">&quot;../ccp-dev-dsn.json&quot;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// additional config to connect with hyperledger fabric</span>
+    <span class="nx">stateStore</span><span class="o">:</span> <span class="s1">&#39;/tmp/statestore&#39;</span><span class="p">,</span>
+    <span class="nx">caURL</span><span class="o">:</span> <span class="s1">&#39;https://ca:7054&#39;</span><span class="p">,</span>
+    <span class="nx">caName</span><span class="o">:</span> <span class="s1">&#39;ca&#39;</span><span class="p">,</span>
+    <span class="nx">caAdmin</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+    <span class="nx">caPassword</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+    <span class="nx">tlsOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">trustedRoots</span><span class="o">:</span> <span class="s2">&quot;Certificate&quot;</span><span class="p">,</span>
+        <span class="nx">verify</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">mspId</span><span class="o">:</span> <span class="s1">&#39;telefonicaMSP&#39;</span><span class="p">,</span>
+    <span class="nx">walletID</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+    <span class="nx">asLocalhost</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">ccp</span><span class="o">:</span> <span class="nx">ccp</span><span class="p">,</span>
+    <span class="nx">chaincodeName</span><span class="o">:</span> <span class="s2">&quot;identitycc&quot;</span><span class="p">,</span> <span class="c1">//name of the trustid contract deployed on fabric</span>
+    <span class="nx">fcn</span><span class="o">:</span> <span class="s2">&quot;proxy&quot;</span><span class="p">,</span>
+    <span class="nx">channel</span><span class="o">:</span> <span class="s2">&quot;channel1&quot;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Create HF driver to interact with a hyperledger fabric network</span>
+<span class="kd">var</span> <span class="nx">trustID</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sdk</span><span class="p">.</span><span class="nx">TrustIdHf</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+<span class="c1">// Add and configure the network driver in our wallet.</span>
+<span class="nx">wal</span><span class="p">.</span><span class="nx">addNetwork</span><span class="p">(</span><span class="s2">&quot;hf&quot;</span><span class="p">,</span> <span class="nx">trustID</span><span class="p">);</span>
+<span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">[</span><span class="s2">&quot;hf&quot;</span><span class="p">].</span><span class="nx">configureDriver</span><span class="p">()</span>
+
+<span class="c1">// IDENTITY OPERATION</span>
+ <span class="c1">// Generate key pair locally.</span>
+<span class="kr">const</span> <span class="nx">did</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">generateDID</span><span class="p">(</span><span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">did</span><span class="p">.</span><span class="nx">unlockAccount</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="c1">// Register in the platform.</span>
+<span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">createSelfIdentity</span><span class="p">(</span><span class="nx">did</span><span class="p">)</span>
+ <span class="nx">wal</span><span class="p">.</span><span class="nx">setDefault</span><span class="p">(</span><span class="nx">did</span><span class="p">)</span>
+<span class="c1">// Get the registered identity.</span>
+<span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">getIdentity</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="nx">did</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[*] Get registered identity\n&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+
+<span class="c1">//SERVICES OPERATIONS</span>
+<span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">createService</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,</span> <span class="s2">&quot;track&quot;</span><span class="p">,</span> <span class="s2">&quot;PUBLIC&quot;</span><span class="p">,</span> <span class="s2">&quot;channel1&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">)</span>
+<span class="c1">// Create an asset in the service: Track operation via trustid</span>
+<span class="kr">const</span> <span class="nx">asset</span> <span class="o">=</span> <span class="p">{</span><span class="nx">assetId</span><span class="o">:</span> <span class="s2">&quot;test&quot;</span><span class="o">+</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">data</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">:</span><span class="mi">2</span><span class="p">},</span> <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">}}</span>
+<span class="kr">const</span> <span class="nx">assetStr</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">asset</span><span class="p">)</span>
+<span class="c1">// Invoke tract</span>
+<span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,[</span><span class="s2">&quot;createAsset&quot;</span><span class="p">,</span> <span class="nx">assetStr</span><span class="p">],</span> <span class="s2">&quot;channel1&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[*] Asset creation:\n&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+    <span class="c1">// Get the created asset.</span>
+<span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,[</span><span class="s2">&quot;getAsset&quot;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">assetId</span><span class="o">:</span> <span class="nx">asset</span><span class="p">.</span><span class="nx">assetId</span><span class="p">})],</span> <span class="s2">&quot;channel1&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[*] Asset registered\n&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr></div>
+</div>
+<div class="section" id="roadmap">
+<span id="roadmap"></span><h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>TrustID compatible with Hyperledger Indy, Verifiable Credentials, etc</p></li>
+<li><p>Anonymous authentication with anonymous transactions</p></li>
+<li><p>Integration with other Identity Providers, related with the non-blockchain world.</p></li>
+<li><p>Support for other Keys algorithms, now only RSA is supported</p></li>
+<li><p>Compatibility with Ethereum keys.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="use_cases.html" class="btn btn-neutral float-right" title="Use cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="id.html" class="btn btn-neutral" title="ID API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <!-- <div role="contentinfo">
+    <p>
+        &copy; Copyright Telefónica 2020.
+
+    </p>
+  </div> -->
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
