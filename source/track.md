@@ -54,9 +54,13 @@ There are two types of assets: owned assets and authorised assets. These last on
 In order to interact with both assets in some functions it is necessary to put a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to put the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
 
  GET  -     `/asset/{assetId}?isAuthorised=true`  
+
  GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
+
  GET  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
+
  GET  -     `/assets`  
+ 
  POST -     `/asset/{assetId}/update?isAuthorised=true`  
 
 ## API Methods
