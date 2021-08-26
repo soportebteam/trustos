@@ -1,0 +1,42 @@
+What's new in trustos-id-api
+------------------------------
+
+-  ***Identity Functionalities***:
+Update password, functionalities to recover the password (create guardians, update email, init recovery process and recover password).
+
+-  ***Service Functionalities***:
+Update service information and update service access.
+
+- ***New methods to password recovery***:
+POST - `.../id/update/password`: Updates the old password with a new one.
+POST - `.../id/recover/create`: Creates the mechanism to recover the password. The recovery operation will need and email to send the info to the user and a group of custodians, in order to have a social recovery wallet.
+POST - `.../id/recover/update/email`: Updates the recovery email associated with the identity in order to recover the identity. This email was regestirated in /id/recover/create.
+POST - `.../id/recover/init`: Initialized the recovery process in order to recover an identity, the user will receive an email with a sigle use code.
+POST - `.../id/recover/password`: Finishes the process to recover the password. THe params required are the single use coded received in the users email and the secrets that were sent to the guardians.
+
+- ***New methods to change service information***:
+POST - `.../service/updateAccess`: Updates the access of a service.
+POST - `.../service/update`: Updates the information of a service.
+
+- ***OpenID Connect authorization service***:
+TrustID now has integration with OpenID Connect enabling the onboarding and use of the TrustOS modules to identities generated in different identity providers such as Google or Microsoft. TrustID manages the identity token to provide access to TrustOS to the end-users. The identity token is represented by a JWT signed by the Identity Provider (using RS256 algorithm), it is a claim which contains user’s information as payload.
+
+- ***New methods to OpenID Connect Authorization***:
+GET - `.../openid/authorizationUrl`: Gets the OpenID autorization URL to initiate an authentication flow.
+GET - `.../openid/authorizationToken`: Gets the autorization token generated for the requesting identity in the JWT standard.
+
+Important Fixes
+---------------
+-  Fixed event disconnection
+
+Changes, Known Issues, and Workarounds
+------------------------------------------
+None
+
+Resolved Vulnerabilities
+------------------------
+None
+
+Deprecations
+------------
+None

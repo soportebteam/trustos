@@ -1,43 +1,46 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>TrustID &mdash; trustos master documentation</title>
+  <title>Example: &mdash; trustos master documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Use cases" href="use_cases.html" />
-    <link rel="prev" title="Cert" href="cert.html" /> 
+    <link rel="next" title="&lt;no title&gt;" href="use_cases.html" />
+    <link rel="prev" title="}" href="cert.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,6 +97,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -102,77 +106,87 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track.html">Track</a></li>
-<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settle.html">Settle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trust.html">Trust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cert.html">Cert</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">TrustID</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id-api">ID API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#api-specification">API Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#identity-methods">Identity Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-login">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-refresh">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-create">POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-revoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-verify">POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#signature-methods">Signature methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-sign">POST - <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-id-validate">POST - <code class="docutils literal notranslate"><span class="pre">/id/validate</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#services-methods">Services methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-create">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-get">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-updateaccess">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/updateAccess</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-update">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-invoke">POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-invoke-jsonargs">POST   -  <code class="docutils literal notranslate"><span class="pre">/service/invoke/jsonArgs</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-query">POST   - <code class="docutils literal notranslate"><span class="pre">/service/query</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-service-query-jsonargs">POST - <code class="docutils literal notranslate"><span class="pre">/service/query/jsonArgs</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#signed-transactions">Signed Transactions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#post-signed-id-import">POST - <code class="docutils literal notranslate"><span class="pre">/signed/id/import</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-signed-service-invoke">POST - <code class="docutils literal notranslate"><span class="pre">/signed/service/invoke</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-signed-service-query">POST -  <code class="docutils literal notranslate"><span class="pre">/signed/service/query</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#trustid-sdk">TrustID SDK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#wallet">Wallet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#class-did">Class DID</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#trustid-operations">TrustID operations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#driver-operations">Driver operations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#keystore">Keystore</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#example-of-use">Example of use</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id16">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id21">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id32">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id37">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id42">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id47">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id52">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id57">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id62">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id67">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id72">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id77">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id82">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id87">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track.html#id92">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html#id28">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html#id75">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html#id86">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html#id97">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html#id108">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settle.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id10">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id15">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id20">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id25">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id30">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id35">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id40">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id45">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id50">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id55">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id60">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id65">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id70">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id75">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id80">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id91">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id96">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id101">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id106">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id111">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id116">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cert.html#id121">}</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id3">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id6">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id9">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id14">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id17">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id20">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id23">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id26">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id29">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id32">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id35">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id38">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id45">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id48">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id51">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id54">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id57">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id60">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id63">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id66">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html#id10">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html#id15">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html#id20">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html#id25">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html#id30">}</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -207,18 +221,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>TrustID</li>
+      <li>Example:</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/id.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -232,643 +248,724 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trustid">
-<h1>TrustID<a class="headerlink" href="#trustid" title="Permalink to this headline">¶</a></h1>
+  <p># TrustID</p>
 <p>TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID.</p>
 <p>These DIDs follow the W3C standard, and they serve as a unique ID to identify users. DIDs aggregate all the pieces of public information required to authenticate a user (i.e., their public key or X.509 certificate).</p>
 <p>This is the structure of a DID Identity</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the identity using the W3C standard</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pubkey</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Public key of the identity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">privkey</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Private key of the identity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Algorithm used in order to generate the keys</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">controller</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Verifier of the identity. In future, an identity should have more than one controller</p></li>
+<li><p><cite>id</cite> :  <cite>&lt;string&gt;</cite> Unique identifier of the identity using the W3C standard</p></li>
+<li><p><cite>pubkey</cite> :  <cite>&lt;String&gt;</cite> Public key of the identity</p></li>
+<li><p><cite>privkey</cite> :  <cite>&lt;string&gt;</cite> Private key of the identity</p></li>
+<li><p><cite>type</cite> :  <cite>&lt;string&gt;</cite> Algorithm used in order to generate the keys</p></li>
+<li><p><cite>controller</cite> :  <cite>&lt;String&gt;</cite> Verifier of the identity. In future, an identity should have more than one controller</p></li>
 </ul>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;controller&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">&quot;privkey&quot;</span><span class="p">:</span> <span class="s2">&quot;U2FsdGVkX1+t4HgMMEsla3Kw050Td00gS0Crs5Q/D95LQ0Q8KAM3D8CIDQSbWf2fVlZZqvn2Rw5rr8nVkQRPVCAXQcLf3ufw53qLyB2pOqZh3hWWJ8T0jwc1esn6ONkDR4oyKXMWU1dJjilfmkpcv9u87YqTJAUxkfXRgAN+X5d/rO4Q0yOTMDyJpQe7DsCusRYAU42Xf2ZTV+v2ZnPHMm/aN18Zmk3xRh7/KH1Sz8LjJNpDgatYcETupYfIrdKES21mNAbSikn7UXzXB3gPrHIP9JucQqckgStpwgwf1qnI2P7xEXB6pZKBb9v5riCzxCygbWajDyDApGt9K3Jx8ULNNHeZ4BZ4FVgZ6NI4gYSrurdF4GXe0c+DZlnexJwpYAIQmq5r49ZrxC7mVK0gs4o2lXOt0P5adwDh1zbDUPMEJ6jrRV2b7/nthyUEJy10JlK0BCpwms+AnJ8JY5nn25z8JD4+p5i6zpq4IOuZaOf1qsja3fuGstH/0tPlGHvu556gqN8vIVGMt9QwzUIE+kH+GxmyHEi/TV8MRQmyGeCFtsZT9EoS5io1bP7mMC3+KvwvAXuqZXnvHBh5k7RreykIX6VpuJdUwibv5ram7DxV9wXLyVc8zbFWAWwoaFE9XVYxykTFFiD5Soui7Ddrf5dR5UPZ0Gs5SW79A6BxLlnGSgIOt4yuDIprHSRL0QglBvUVf1spUM4w1s8tcRWZmYy6rEeH3kIDLcUoAKDfhqUcQKkNkPrq9mLNMnHB178KJbpwjyFUly7tqZER67hfnYoc0CHPpryD2PhSjrMsJ23bc3xLm2bjRtqeBB3NB7lJhaZ6mshsFy3TIBdnBmb8cafENTDUEYLGFKaVf9gn+tqMMU5dAj2VT46UHMnrwqD0jRE8yKLzcUNxR1bWI+oB5cbtijbkf8O1W4js6yZgkEHd9QVcoS3pGladPPNKxKavPyNEJOSOAZ6KBLhsLgrNyYHMdcaJdMwcDc9/0uMlJ+4PW21GxdmV9uw8NdocpxWjusfHjsmPl5bno0nq9HcmOvKKdU5cwQKJS/eaQc8GS104tDHjurxriS7KXHBLDGllzDl3QOskMw7RDb5jOLUbq2Zl0p0nznitKnLrHTc7/xMfAY8d8OXD5yhzps/JQUEQDWy0OoheJ8CPmmsF22HmNce+/ylRfI1bv2/cHYN8oz+7wGO/LCFW9cPv0s5Dlwvix6NsHfXHzLu0Vo9lbsn+LcPgA5+JMOBDnJ+ba2ps4QGRc/i5gCF8NrFaa+tc2EXRLpAD33r1sxicCVm7CSK4jVWTg6MCkGbqGaaQTEx+x9RUp5og8Ap0IZ2OxjUVe9BaMpHwdyfcfjzG1J0sR485wMQS4FZvf2s10fhqV6GJxnr8dxgZMfZD8gBpJRveumqMAHD2PCs3LY+eIQzIio2wG7hy6fuZ6rZFZn5TOAxPT4t8IOEHluzUUukHzh0uBxBTLahQJAREFMKXzekU7WJlHxyBl5ISRBn2lrfjjskAclCW5JiusqJKWx7DDHaZLIYdxvszTi9MCLHJyCc6B/wfxw5sTC6rCoAt8n+pcdIiAXfuzyMtkthsdELXtrXJ84BeSc0YAob0/duPfHVikNDdQOcFNWWKH1f/6Y5R0Qcf1QaDIkfdjX77smM2duO6jkV3g1xrGpwUyFiHM+YHYp0UsPOa/YzVEpWRJu/tIivCmxiSZwTom1QNo7Y7PtkReIeW3RvA8vlhEGMYGrg6jzZOA4aXjYpYxM5O8zWTANRhQbs4DtBOSXGrw7YtKmTdC9B1waiKs3SG6npmNquO3IyMWEHfrDjEsYoca4XoEdT1/egKjPQi4rgqvjLYmcTkWYD27XaP2NM8L+pcBeeTN2f3MCCfhM4niuDF1l09GG9G703Z3GHmWJP8dHWCs+CVJgn06/OET9Eo25i5XdUwOEGgB2fqJSLxt5Gflm6TPeehqGM6q4ivFad9CQ8mUDcCWtw+DYvRTxXAy1TiBGgs9UbMy7lFMayUHfWNh5clhhOHxxTmHdsIO3gw7OkTwVQ2bLBliKLJdTr46D4gUka1vmfo7vTUU3c05OtPV2zwWkoButbRR+8koEKNoSfw0gBMjgu3u17tLASg2JGBJ1WLp1SOn571FsgKOWyepZDObrDFO8P+nCCc4LPocOpjds4fWXMvOaS4XU0BHrKF5YWvxpLIA2zMHVd3I/szcPvRgsM73WByrmZLAKAetOgv4li2OwjitLZsrOKZ5+58EiMcqr8LgiiMyVSC3c8luuL14BT1cFN0BaUKLVtzOuIv48bQhFeE&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;pubkey&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7cr</span><span class="se">\r\n</span><span class="s2">5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmp</span><span class="se">\r\n</span><span class="s2">gKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxB</span><span class="se">\r\n</span><span class="s2">rWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1</span><span class="se">\r\n</span><span class="s2">BZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHs</span><span class="se">\r\n</span><span class="s2">U1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5</span><span class="se">\r\n</span><span class="s2">tQIDAQAB</span><span class="se">\r\n</span><span class="s2">-----END PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="section" id="example">
+<h1>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>{</dt><dd><p>“id”: “did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea”,
+“type”: “RSA”,
+“controller”: “”,
+“access”: 0,
+“privkey”: “U2FsdGVkX1+t4HgMMEsla3Kw050Td00gS0Crs5Q/D95LQ0Q8KAM3D8CIDQSbWf2fVlZZqvn2Rw5rr8nVkQRPVCAXQcLf3ufw53qLyB2pOqZh3hWWJ8T0jwc1esn6ONkDR4oyKXMWU1dJjilfmkpcv9u87YqTJAUxkfXRgAN+X5d/rO4Q0yOTMDyJpQe7DsCusRYAU42Xf2ZTV+v2ZnPHMm/aN18Zmk3xRh7/KH1Sz8LjJNpDgatYcETupYfIrdKES21mNAbSikn7UXzXB3gPrHIP9JucQqckgStpwgwf1qnI2P7xEXB6pZKBb9v5riCzxCygbWajDyDApGt9K3Jx8ULNNHeZ4BZ4FVgZ6NI4gYSrurdF4GXe0c+DZlnexJwpYAIQmq5r49ZrxC7mVK0gs4o2lXOt0P5adwDh1zbDUPMEJ6jrRV2b7/nthyUEJy10JlK0BCpwms+AnJ8JY5nn25z8JD4+p5i6zpq4IOuZaOf1qsja3fuGstH/0tPlGHvu556gqN8vIVGMt9QwzUIE+kH+GxmyHEi/TV8MRQmyGeCFtsZT9EoS5io1bP7mMC3+KvwvAXuqZXnvHBh5k7RreykIX6VpuJdUwibv5ram7DxV9wXLyVc8zbFWAWwoaFE9XVYxykTFFiD5Soui7Ddrf5dR5UPZ0Gs5SW79A6BxLlnGSgIOt4yuDIprHSRL0QglBvUVf1spUM4w1s8tcRWZmYy6rEeH3kIDLcUoAKDfhqUcQKkNkPrq9mLNMnHB178KJbpwjyFUly7tqZER67hfnYoc0CHPpryD2PhSjrMsJ23bc3xLm2bjRtqeBB3NB7lJhaZ6mshsFy3TIBdnBmb8cafENTDUEYLGFKaVf9gn+tqMMU5dAj2VT46UHMnrwqD0jRE8yKLzcUNxR1bWI+oB5cbtijbkf8O1W4js6yZgkEHd9QVcoS3pGladPPNKxKavPyNEJOSOAZ6KBLhsLgrNyYHMdcaJdMwcDc9/0uMlJ+4PW21GxdmV9uw8NdocpxWjusfHjsmPl5bno0nq9HcmOvKKdU5cwQKJS/eaQc8GS104tDHjurxriS7KXHBLDGllzDl3QOskMw7RDb5jOLUbq2Zl0p0nznitKnLrHTc7/xMfAY8d8OXD5yhzps/JQUEQDWy0OoheJ8CPmmsF22HmNce+/ylRfI1bv2/cHYN8oz+7wGO/LCFW9cPv0s5Dlwvix6NsHfXHzLu0Vo9lbsn+LcPgA5+JMOBDnJ+ba2ps4QGRc/i5gCF8NrFaa+tc2EXRLpAD33r1sxicCVm7CSK4jVWTg6MCkGbqGaaQTEx+x9RUp5og8Ap0IZ2OxjUVe9BaMpHwdyfcfjzG1J0sR485wMQS4FZvf2s10fhqV6GJxnr8dxgZMfZD8gBpJRveumqMAHD2PCs3LY+eIQzIio2wG7hy6fuZ6rZFZn5TOAxPT4t8IOEHluzUUukHzh0uBxBTLahQJAREFMKXzekU7WJlHxyBl5ISRBn2lrfjjskAclCW5JiusqJKWx7DDHaZLIYdxvszTi9MCLHJyCc6B/wfxw5sTC6rCoAt8n+pcdIiAXfuzyMtkthsdELXtrXJ84BeSc0YAob0/duPfHVikNDdQOcFNWWKH1f/6Y5R0Qcf1QaDIkfdjX77smM2duO6jkV3g1xrGpwUyFiHM+YHYp0UsPOa/YzVEpWRJu/tIivCmxiSZwTom1QNo7Y7PtkReIeW3RvA8vlhEGMYGrg6jzZOA4aXjYpYxM5O8zWTANRhQbs4DtBOSXGrw7YtKmTdC9B1waiKs3SG6npmNquO3IyMWEHfrDjEsYoca4XoEdT1/egKjPQi4rgqvjLYmcTkWYD27XaP2NM8L+pcBeeTN2f3MCCfhM4niuDF1l09GG9G703Z3GHmWJP8dHWCs+CVJgn06/OET9Eo25i5XdUwOEGgB2fqJSLxt5Gflm6TPeehqGM6q4ivFad9CQ8mUDcCWtw+DYvRTxXAy1TiBGgs9UbMy7lFMayUHfWNh5clhhOHxxTmHdsIO3gw7OkTwVQ2bLBliKLJdTr46D4gUka1vmfo7vTUU3c05OtPV2zwWkoButbRR+8koEKNoSfw0gBMjgu3u17tLASg2JGBJ1WLp1SOn571FsgKOWyepZDObrDFO8P+nCCc4LPocOpjds4fWXMvOaS4XU0BHrKF5YWvxpLIA2zMHVd3I/szcPvRgsM73WByrmZLAKAetOgv4li2OwjitLZsrOKZ5+58EiMcqr8LgiiMyVSC3c8luuL14BT1cFN0BaUKLVtzOuIv48bQhFeE”,
+“pubkey”: “—–BEGIN PUBLIC KEY—–rnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7crrn5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmprngKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxBrnrWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1rnBZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHsrnU1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5rntQIDAQABrn—–END PUBLIC KEY—–rn”</p>
+</dd>
+</dl>
 </div>
+<div class="section" id="id1">
+<h1>}<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>This is the structure that is stored in the DLT platform that belongs to an user or device identity:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Did</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the identity using the W3C standard</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PubKey</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Public key of the identity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Controller</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;String&gt;</span></code> Verifier of the identity. In future, an identity should have more than one controller</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> Policy of the identity in order of identity operations, 0 root, 1 admin, 2 user.</p></li>
+<li><p><cite>Did</cite> :  <cite>&lt;string&gt;</cite> Unique identifier of the identity using the W3C standard</p></li>
+<li><p><cite>PubKey</cite> :  <cite>&lt;String&gt;</cite> Public key of the identity</p></li>
+<li><p><cite>Controller</cite> :  <cite>&lt;String&gt;</cite> Verifier of the identity. In future, an identity should have more than one controller</p></li>
+<li><p><cite>Access</cite> :  <cite>&lt;integer&gt;</cite> Policy of the identity in order of identity operations, 0 root, 1 admin, 2 user.</p></li>
 </ul>
-<p>Example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;Did  &quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Controller&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Access&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-  <span class="s2">&quot;PubKey&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7cr</span><span class="se">\r\n</span><span class="s2">5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmp</span><span class="se">\r\n</span><span class="s2">gKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxB</span><span class="se">\r\n</span><span class="s2">rWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1</span><span class="se">\r\n</span><span class="s2">BZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHs</span><span class="se">\r\n</span><span class="s2">U1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5</span><span class="se">\r\n</span><span class="s2">tQIDAQAB</span><span class="se">\r\n</span><span class="s2">-----END PUBLIC KEY-----</span><span class="se">\r\n</span><span class="s2">&quot;</span>
-<span class="p">}</span>
-</pre></div>
 </div>
+<div class="section" id="id2">
+<h1>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>{</dt><dd><p>“Did  “: “did:vtn:trustid:d830c50977703f421a0ed5a8707ecfe50559fe73dd2bf90c261b76a1379acbea”,
+“Controller”: “”,
+“Access”: 0,
+“PubKey”: “—–BEGIN PUBLIC KEY—–rnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxfun1NH3jOlNRuX0z7crrn5eFWCt/xUSKwikYg7NRoaNn/NNAQln/BDSamVG3RwlmM/dvUt783Hp7YqeHscXmprngKwWiF/RycT3Sx9l3qC0MfLlbmsQJ0ZqO+Iuy+vjAxq4RGTS1dzuCjipPy4yBCxBrnrWT/q3lFboWaEAoFA+DFm0Hwt47P+lApAfcMc0JduW31gaULUNpqTZyQJBwBKfk1rnBZPrurutwnEuOxOOOFNXXL/IUSqneC+71drGO4xA1Sq1bKtsJE9WYW3U8w4C8dHsrnU1rq9z/MOAsUlz+DGzyIMI16ypjTC8T4BkWg9vGPgf/C8ropgsbx+9fMKBSisHG5rntQIDAQABrn—–END PUBLIC KEY—–rn”</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h1>}<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
 <p>This is the structure of a service identity</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier for the service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Chaincode or smart contract identifier at the DLT level</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Controller</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Owner/admin of the service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Access policy to the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Network ID of the service</p></li>
+<li><p><cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Unique identifier for the service</p></li>
+<li><p><cite>Name</cite> :  <cite>&lt;string&gt;</cite> Chaincode or smart contract identifier at the DLT level</p></li>
+<li><p><cite>Controller</cite> :  <cite>&lt;string&gt;</cite> Owner/admin of the service</p></li>
+<li><p><cite>Access</cite> :  <cite>&lt;string&gt;</cite> Access policy to the service.</p></li>
+<li><p><cite>Channel</cite> :  <cite>&lt;string&gt;</cite> Network ID of the service</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;track&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trackscc&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
-  	<span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLIC&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;telefonicachannel&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<p><a href="#id4"><span class="problematic" id="id5">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”:  “track”,
+“name”: “trackscc”,
+“access”: {</p>
+<blockquote>
+<div><p>“policy”: “PUBLIC”</p>
+</div></blockquote>
+<p>},
+“channel”: “telefonicachannel”</p>
+</div></blockquote>
 </div>
+<div class="section" id="id6">
+<h1>}<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
 <p>In order to uniquely identify chaincodes and services deployed in TrustOS, we decided to also give them DIDs so that they could be seamlessly discovered and accessed even if they “live” in independent channels not shared by all the organizations of the network.</p>
 <p>All the authentication and management of identities in the system is performed on-chain through an “Identity Chaincode.”</p>
 <p>If user A wants to start interacting with the network, he requests the generation of a new DID. The related keys to this DID could be an existing X.509 issued by a valid organization, or even an Ethereum-related public key (internally we use all the JWS, JWE, JWK, secp256k1, etc. RFCs to make our Fabric infrastructure compatible with identities of any nature for the sake of interoperability). This DID generation request has to be validated by a valid organization of the network. Once verified, every transaction signed by user A and directed through a Proxy chaincode is authenticated successfully and delegated to the corresponding chaincode.</p>
-<p><img alt="TrustID Flow" src="_images/trustid-flow.png" /></p>
+<p>![TrustID Flow](./images/trustid-flow.png)</p>
 <p>The TrustID project is conformed by the aforementioned chaincode and a client SDK to ease the integration and interaction with TrustID-enabled networks.</p>
 <p>TrustID is designed to ease the management of identities for the case of TrustOS. Users shouldn’t need to hold a different set of credentials for each network or decentralized application they interact with. The same credentials used to access your owned Bitcoins and manage your tokens in Ethereum should let you update the state of a Fabric asset or launch a secondary market in TrustOS.</p>
-<hr><div class="section" id="id-api">
-<h2>ID API<a class="headerlink" href="#id-api" title="Permalink to this headline">¶</a></h2>
+<p>&lt;hr&gt;</p>
+<p>## ID API</p>
 <p>An abstraction TrustID API implementation. It wraps the functionality of the TrustID SDK in order to offer basic identity management services to users comfortable delegating the responsability of their keys to a custodian. ID API acts as the third-party custodian of the users keys.</p>
-<div class="section" id="api-specification">
-<h3>API Specification<a class="headerlink" href="#api-specification" title="Permalink to this headline">¶</a></h3>
+<p>### API Specification</p>
 <p>The implementation considers that the API is the third-party custodial of
 TrustID keys. Currently the keystore is implemented with a FileKeystore,
 MongoKeystore comming soon. Private keys from users are stored ciphered
 with a passphrase. In order to call every function and unlock the account
 the passphrase needs to be provided. The API has the following routes.</p>
-</div>
-<div class="section" id="identity-methods">
-<h3>Identity Methods<a class="headerlink" href="#identity-methods" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="post-id-login">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/login</span></code><a class="headerlink" href="#post-id-login" title="Permalink to this headline">¶</a></h4>
-<p>It return a JWT to interact with services authenticated
+<p>### Identity Methods</p>
+<p>#### POST   -   <cite>/id/login</cite>
+It return a JWT to interact with services authenticated
 using JWT using TrustID as identity backend. This functionality is offered
 for every user in the system (even those for which we are not the
 custodials of the keys). Some services may be still authenticated with JWT,
-and we want to support this authentication even of TrustID users.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the user</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Password of the user</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustid:ae0213fncasdf234&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;pass&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
+and we want to support this authentication even of TrustID users.
+- <cite>id</cite> :  <cite>&lt;string&gt;</cite> Unique identifier of the user
+- <cite>password</cite>    :  <cite>&lt;string&gt;</cite> Password of the user</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id7"><span class="problematic" id="id8">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“id”: “did:vtn:trustid:ae0213fncasdf234”,
+“password”: “pass”,</p>
+</div></blockquote>
 </div>
-</details><br></div>
-<div class="section" id="post-id-refresh">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/refresh</span></code><a class="headerlink" href="#post-id-refresh" title="Permalink to this headline">¶</a></h4>
-<p>It refreshes a JWT login.</p>
+<div class="section" id="id9">
+<h1>}<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/id/refresh</cite>
+It refreshes a JWT login.</p>
+<p>#### POST   -    <cite>/id/create</cite>
+Create a new identity with the key determined in type and a
+passphrase to lock the private key.
+- <cite>id</cite> :  <cite>&lt;string&gt;</cite> Unique identifier of the user
+- <cite>type</cite>    :  <cite>&lt;string&gt;</cite> Algorithm used, right now only RSA is supported
+- <cite>channel</cite>: <a href="#id10"><span class="problematic" id="id11">`</span></a>&lt;string&gt;`Identificator of the HF network</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id12"><span class="problematic" id="id13">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“password”: “passphrase”,
+“type”: “RSA”,
+“channel” “channel1”</p>
+</div></blockquote>
 </div>
-<div class="section" id="post-id-create">
-<h4>POST   -    <code class="docutils literal notranslate"><span class="pre">/id/create</span></code><a class="headerlink" href="#post-id-create" title="Permalink to this headline">¶</a></h4>
-<p>Create a new identity with the key determined in type and a
-passphrase to lock the private key.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier of the user</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>    :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Algorithm used, right now only RSA is supported</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>Identificator of the HF network</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;channel&quot;</span> <span class="s2">&quot;channel1&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="section" id="id14">
+<h1>}<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/id/get</cite>
+Gets the information from a registered identity.
+- <cite>id</cite> :  <cite>&lt;string&gt;</cite> Unique identifier to query the identity.</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id15"><span class="problematic" id="id16">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“id”: “did:vtn:service:012343”,
+“password”: “passphrase”</p>
+</div></blockquote>
 </div>
-</details><br></div>
-<div class="section" id="post-id-get">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/get</span></code><a class="headerlink" href="#post-id-get" title="Permalink to this headline">¶</a></h4>
-<p>Gets the information from a registered identity.</p>
+<div class="section" id="id17">
+<h1>}<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/id/revoke</cite>
+Sends a request to revoke a specific identity. You need to be the owner of the identity or its controller to perform this task.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Unique identifier to query the identity.</p></li>
+<li><p><cite>id</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to be revoked.</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "id": "did:vtn:service:012343",
-  "password": "passphrase"
-}
-```
-</details><br></div>
-<div class="section" id="post-id-revoke">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/revoke</span></code><a class="headerlink" href="#post-id-revoke" title="Permalink to this headline">¶</a></h4>
-<p>Sends a request to revoke a specific identity. You need to be the owner of the identity or its controller to perform this task.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to be revoked.</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:test&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id18"><span class="problematic" id="id19">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“id”: “did:vtn:test”,
+“password”: “passphrase”</p>
+</div></blockquote>
 </div>
-</details><br></div>
-<div class="section" id="post-id-verify">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/id/verify</span></code><a class="headerlink" href="#post-id-verify" title="Permalink to this headline">¶</a></h4>
-<p>Verification of a registered identity by a controller in the system.</p>
+<div class="section" id="id20">
+<h1>}<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/id/verify</cite>
+Verification of a registered identity by a controller in the system.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to be verified for the user that had been logged.</p></li>
+<li><p><cite>id</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to be verified for the user that had been logged.</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "id": "did:vtn:test",
-  "password": "passphrase"
-}
-```
-</details><br></div>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id21"><span class="problematic" id="id22">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“id”: “did:vtn:test”,
+“password”: “passphrase”</p>
+</div></blockquote>
 </div>
-<div class="section" id="signature-methods">
-<h3>Signature methods<a class="headerlink" href="#signature-methods" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="post-id-sign">
-<h4>POST - <code class="docutils literal notranslate"><span class="pre">/id/sign</span></code><a class="headerlink" href="#post-id-sign" title="Permalink to this headline">¶</a></h4>
-<p>Requests a signature using a key in custody.</p>
-<p><em>Body</em></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Payload that needs to be signed</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "payload": {
-    "arg1": "test",
-    "arg2": "payload"
-  }
-}
-```
-</details><br></div>
-<div class="section" id="post-id-validate">
-<h4>POST - <code class="docutils literal notranslate"><span class="pre">/id/validate</span></code><a class="headerlink" href="#post-id-validate" title="Permalink to this headline">¶</a></h4>
-<p>Validates a signature using a key in custody.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identifier of the signer</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Payload that needs to be validated</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span>
-  <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;eyaqwuqiiqiwiqaqiemasoiaiqiiaskqweioqweiuwe&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="section" id="id23">
+<h1>}<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>### Signature methods</p>
+<p>#### POST - <cite>/id/sign</cite>
+Requests a signature using a key in custody.</p>
+<p><em>Body</em>
+- <cite>payload</cite> :  <cite>&lt;json&gt;</cite> Payload that needs to be signed</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id24"><span class="problematic" id="id25">``</span></a>`
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“payload”: {</dt><dd><p>“arg1”: “test”,
+“arg2”: “payload”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
 </div>
-</details><br></div>
+<div class="section" id="id26">
+<h1>}<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST - <cite>/id/validate</cite>
+Validates a signature using a key in custody.
+- <cite>id</cite>: <cite>&lt;string&gt;</cite> Identifier of the signer
+- <cite>payload</cite> :  <cite>&lt;string&gt;</cite> Payload that needs to be validated</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id27"><span class="problematic" id="id28">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“id”
+“payload”: “eyaqwuqiiqiwiqaqiemasoiaiqiiaskqweioqweiuwe”</p>
+</div></blockquote>
 </div>
-<div class="section" id="services-methods">
-<h3>Services methods<a class="headerlink" href="#services-methods" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="post-service-create">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/create</span></code><a class="headerlink" href="#post-service-create" title="Permalink to this headline">¶</a></h4>
-<p>Create a new service in the TrustID network.</p>
+<div class="section" id="id29">
+<h1>}<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>### Services methods
+#### POST   -   <cite>/service/create</cite>
+Create a new service in the TrustID network.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to be verified for the user that had been logged.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the service deployed in Hyperledger Fabric</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identificator of the HF network.</p></li>
+<li><p><cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to be verified for the user that had been logged.</p></li>
+<li><p><cite>name</cite> :  <cite>&lt;string&gt;</cite> Name of the service deployed in Hyperledger Fabric</p></li>
+<li><p><cite>access</cite> :  <cite>&lt;json&gt;</cite> Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED</p></li>
+<li><p><cite>channel</cite> :  <cite>&lt;string&gt;</cite> Identificator of the HF network.</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "serviceID":  "track",
-  "name": "trackscc",
-  "access": {
-  	"policy": "PUBLIC"
-  },
-  "channel": "channel1"
-}
-```</details><br></div>
-<div class="section" id="post-service-get">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/get</span></code><a class="headerlink" href="#post-service-get" title="Permalink to this headline">¶</a></h4>
-<p>Gets the registered information for a service.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "serivceID": "did:vtn:service:012343",
-  "password": "passphrase"
-}
-```
-</details><br></div>
-<div class="section" id="post-service-updateaccess">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/updateAccess</span></code><a class="headerlink" href="#post-service-updateaccess" title="Permalink to this headline">¶</a></h4>
-<p>Updates the access of a service.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">access</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED</p></li>
-</ul>
-<p>The supported policies are the following:</p>
-<ul class="simple">
-<li><p>PUBLIC, everyone with access on the network can call the service</p></li>
-<li><p>SAME_CONTROLLER, identities with the controller that created the service, can call the service</p></li>
-<li><p>FINE_GRAINED, only specific identities can access to
-the service</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "serviceID":  "did:vtn:service:sacc",
-  "access": {
-  	"policy": "FINE_GRAINED",
-  	"threshold": 0,
-  	"access": {
-  		"did:vtn:trustid:c0fd6b4749329c4acec7f4ac273d46c2b755736e9f5cae6fc62acec8d04549c6": 2
-  	}
-  }
-}
-```
-</details><br></div>
-<div class="section" id="post-service-update">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/update</span></code><a class="headerlink" href="#post-service-update" title="Permalink to this headline">¶</a></h4>
-<p>Updates the information of a service.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Name of the service deployed in Hyperledger Fabric</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identificator of the HF network.</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span>  <span class="s2">&quot;did:vtn:service:sacc&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sacc-chaincode&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id30"><span class="problematic" id="id31">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”:  “track”,
+“name”: “trackscc”,
+“access”: {</p>
+<blockquote>
+<div><p>“policy”: “PUBLIC”</p>
+</div></blockquote>
+<p>},
+“channel”: “channel1”</p>
+</div></blockquote>
 </div>
-</details><br></div>
-<div class="section" id="post-service-invoke">
-<h4>POST   -   <code class="docutils literal notranslate"><span class="pre">/service/invoke</span></code><a class="headerlink" href="#post-service-invoke" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id32">
+<h1>}<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/service/get</cite>
+Gets the registered information for a service.
+- <cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id33"><span class="problematic" id="id34">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serivceID”: “did:vtn:service:012343”,
+“password”: “passphrase”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id35">
+<h1>}<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/service/updateAccess</cite>
+Updates the access of a service.
+- <cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service.
+- <cite>access</cite> :  <cite>&lt;json&gt;</cite> Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED</p>
+<p>The supported policies are the following:
+- PUBLIC, everyone with access on the network can call the service
+- SAME_CONTROLLER, identities with the controller that created the service, can call the service
+- FINE_GRAINED, only specific identities can access to</p>
+<blockquote>
+<div><p>the service</p>
+</div></blockquote>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id36"><span class="problematic" id="id37">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”:  “did:vtn:service:sacc”,
+“access”: {</p>
+<blockquote>
+<div><p>“policy”: “FINE_GRAINED”,
+“threshold”: 0,
+“access”: {</p>
+<blockquote>
+<div><p>“did:vtn:trustid:c0fd6b4749329c4acec7f4ac273d46c2b755736e9f5cae6fc62acec8d04549c6”: 2</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id38">
+<h1>}<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/service/update</cite></p>
+<p>Updates the information of a service.
+- <cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service.
+- <cite>name</cite> :  <cite>&lt;string&gt;</cite> Name of the service deployed in Hyperledger Fabric
+- <cite>channel</cite> :  <cite>&lt;string&gt;</cite> Identificator of the HF network.</p>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id39"><span class="problematic" id="id40">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”:  “did:vtn:service:sacc”,
+“channel”: “channel1”,
+“name”:”sacc-chaincode”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id41"><span class="problematic" id="id42">``</span></a>`
+&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   -   <cite>/service/invoke</cite></p>
 <p>Invoke a function from a distributed service using TrustID.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Args of the function that is going to be called.</p></li>
+<li><p><cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service.</p></li>
+<li><p><cite>function</cite> :  <cite>&lt;string&gt;</cite> Function that is going to be called.</p></li>
+<li><p><cite>args</cite> :  <cite>&lt;string&gt;</cite> Args of the function that is going to be called.</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;serviceID&quot;</span><span class="p">:</span> <span class="s2">&quot;did:vtn:trustos:123drfw&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;passphrase&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;a&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;200&quot;</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;create&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id43"><span class="problematic" id="id44">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”: “did:vtn:trustos:123drfw”,
+“password”: “passphrase”,
+“args”: [</p>
+<blockquote>
+<div><p>“a”,
+“b”,
+“200”</p>
+</div></blockquote>
+<p>],
+“channel”: “channel1”,
+“function”: “create”</p>
+</div></blockquote>
 </div>
-</details><br></div>
-<div class="section" id="post-service-invoke-jsonargs">
-<h4>POST   -  <code class="docutils literal notranslate"><span class="pre">/service/invoke/jsonArgs</span></code><a class="headerlink" href="#post-service-invoke-jsonargs" title="Permalink to this headline">¶</a></h4>
-<p>Invoke a function from a distributed service using TrustID.</p>
+<div class="section" id="id45">
+<h1>}<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<dl class="simple">
+<dt>#### POST   -  <cite>/service/invoke/jsonArgs</cite></dt><dd><p>Invoke a function from a distributed service using TrustID.</p>
+</dd>
+</dl>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Args of the function that is going to be called in a json format.</p></li>
+<li><p><cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service.</p></li>
+<li><p><cite>function</cite> :  <cite>&lt;string&gt;</cite> Function that is going to be called.</p></li>
+<li><p><cite>args</cite> :  <cite>&lt;json&gt;</cite> Args of the function that is going to be called in a json format.</p></li>
 </ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "serviceID": "did:vtn:trustos:123drfw",
-  "args": {
-    "field": "value"
-  },  
-  "function": "create"
-}
-```
-</details><br></div>
-<div class="section" id="post-service-query">
-<h4>POST   - <code class="docutils literal notranslate"><span class="pre">/service/query</span></code><a class="headerlink" href="#post-service-query" title="Permalink to this headline">¶</a></h4>
-<p>Invoke a function from a distributed service using TrustID.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Args of the function that is going to be called.</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "serviceID": "did:vtn:trustos:123drfw",
-  "args": [ "a"],
-  "function": "get"
-}
-```
-</details><br></div>
-<div class="section" id="post-service-query-jsonargs">
-<h4>POST - <code class="docutils literal notranslate"><span class="pre">/service/query/jsonArgs</span></code><a class="headerlink" href="#post-service-query-jsonargs" title="Permalink to this headline">¶</a></h4>
-<p>Invoke a function from a distributed service using TrustID.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serviceID</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Identity that is going to identify the service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Function that is going to be called.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> :  <code class="docutils literal notranslate"><span class="pre">&lt;json&gt;</span></code> Args of the function that is going to be called in a json format.</p></li>
-</ul>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  "serviceID": "did:vtn:trustos:123drfw",
-  "args": {
-    "field": "value"
-  },  
-  "function": "get"
-}
-```
-</details><br></div>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id46"><span class="problematic" id="id47">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”: “did:vtn:trustos:123drfw”,
+“args”: {</p>
+<blockquote>
+<div><p>“field”: “value”</p>
+</div></blockquote>
+<p>},
+“function”: “create”</p>
+</div></blockquote>
 </div>
-<div class="section" id="signed-transactions">
-<h3>Signed Transactions<a class="headerlink" href="#signed-transactions" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="post-signed-id-import">
-<h4>POST - <code class="docutils literal notranslate"><span class="pre">/signed/id/import</span></code><a class="headerlink" href="#post-signed-id-import" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id48">
+<h1>}<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST   - <cite>/service/query</cite>
+Invoke a function from a distributed service using TrustID.</p>
+<ul class="simple">
+<li><p><cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service.</p></li>
+<li><p><cite>function</cite> :  <cite>&lt;string&gt;</cite> Function that is going to be called.</p></li>
+<li><p><cite>args</cite> :  <cite>&lt;string&gt;</cite> Args of the function that is going to be called.</p></li>
+</ul>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id49"><span class="problematic" id="id50">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”: “did:vtn:trustos:123drfw”,
+“args”: [ “a”],
+“function”: “get”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id51">
+<h1>}<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST - <cite>/service/query/jsonArgs</cite>
+Invoke a function from a distributed service using TrustID.</p>
+<ul class="simple">
+<li><p><cite>serviceID</cite> :  <cite>&lt;string&gt;</cite> Identity that is going to identify the service.</p></li>
+<li><p><cite>function</cite> :  <cite>&lt;string&gt;</cite> Function that is going to be called.</p></li>
+<li><p><cite>args</cite> :  <cite>&lt;json&gt;</cite> Args of the function that is going to be called in a json format.</p></li>
+</ul>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id52"><span class="problematic" id="id53">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“serviceID”: “did:vtn:trustos:123drfw”,
+“args”: {</p>
+<blockquote>
+<div><p>“field”: “value”</p>
+</div></blockquote>
+<p>},
+“function”: “get”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id54">
+<h1>}<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>### Signed Transactions
+#### POST - <cite>/signed/id/import</cite></p>
 <p>Import an identity without custody in TrustID. Due to this, each transaction must be signed with the private key in custody by the user.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The publicKey to verify the signature of the transactions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A JWS signed with the private Key.</p></li>
+<li><p><cite>publicKey</cite>: <cite>&lt;string&gt;</cite> The publicKey to verify the signature of the transactions</p></li>
+<li><p><cite>payload</cite>: <cite>&lt;string&gt;</cite> A JWS signed with the private Key.</p></li>
 </ul>
-<p>In order to create the JWS for the payload body, the JSON structure that is needed to be signed is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;function&quot;</span><span class="p">:</span><span class="s2">&quot;createSelfIdentity&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;params&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;did&quot;</span><span class="p">:</span><span class="s2">&quot;$id&quot;</span><span class="p">,</span> 
-      <span class="s2">&quot;publicKey&quot;</span><span class="p">:</span><span class="s2">&quot;$pubkey&quot;</span> 
-   <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<p>In order to create the JWS for the payload body, the JSON structure that is needed to be signed is the following:
+<a href="#id55"><span class="problematic" id="id56">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“function”:”createSelfIdentity”,
+“params”:{</p>
+<blockquote>
+<div><p>“did”:”$id”,
+“publicKey”:”$pubkey”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
 </div>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-       "publicKey":  "-----BEGIN PUBLIC KEY-----\r\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokZtVnCJ5KnQRmYqV6j3\r\n1Oak7K0X/pBDe/QS+LG1UEwcvi2rzMutvJUouMnLgroTMjErYFq0gVJAq7io2Yo/\r\n1/I0suueWSfU30kNYoVikHgMKrHtWZA1iCR9uzYffeC/KYBi0f+bLB5789+zJvr3\r\n8ScaPu+S0LIoYN7j6b7CqWfTBIfqM8NNxyhPiWsGBykQOB1Gl3VEiivm9dp5vFuS\r\n0OM/pe/+ToA4vHDIpr1NyxV0zM4TzLHbvWV70HMztsXmYp1yW8EQcLd412FOmtkU\r\nkEqqsoNK1IYX6F1ooRUjSGeybxPNKobNwkAQqa4QPMW5eWBiIMvAxs2qVuPclkns\r\nrQIDAQAB\r\n-----END PUBLIC KEY-----\r\n",
-       "payload": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4YzQ4ZDNkMTcxN2VkYTJkNWE2YmIxNzg5NjJhODgxZjIxNjA3NTI3NDgwMTMzIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cclxuTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFva1p0Vm5DSjVLblFSbVlxVjZqM1xyXG4xT2FrN0swWC9wQkRlL1FTK0xHMVVFd2N2aTJyek11dHZKVW91TW5MZ"
-}
-```
-</details><br></div>
-<div class="section" id="post-signed-service-invoke">
-<h4>POST - <code class="docutils literal notranslate"><span class="pre">/signed/service/invoke</span></code><a class="headerlink" href="#post-signed-service-invoke" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id57">
+<h1>}<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id58"><span class="problematic" id="id59">``</span></a>`
+{</p>
+<blockquote>
+<div><p>“publicKey”:  “—–BEGIN PUBLIC KEY—–rnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokZtVnCJ5KnQRmYqV6j3rn1Oak7K0X/pBDe/QS+LG1UEwcvi2rzMutvJUouMnLgroTMjErYFq0gVJAq7io2Yo/rn1/I0suueWSfU30kNYoVikHgMKrHtWZA1iCR9uzYffeC/KYBi0f+bLB5789+zJvr3rn8ScaPu+S0LIoYN7j6b7CqWfTBIfqM8NNxyhPiWsGBykQOB1Gl3VEiivm9dp5vFuSrn0OM/pe/+ToA4vHDIpr1NyxV0zM4TzLHbvWV70HMztsXmYp1yW8EQcLd412FOmtkUrnkEqqsoNK1IYX6F1ooRUjSGeybxPNKobNwkAQqa4QPMW5eWBiIMvAxs2qVuPclknsrnrQIDAQABrn—–END PUBLIC KEY—–rn”,
+“payload”: “eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4YzQ4ZDNkMTcxN2VkYTJkNWE2YmIxNzg5NjJhODgxZjIxNjA3NTI3NDgwMTMzIiwicHVibGljS2V5IjoiLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS1cclxuTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFva1p0Vm5DSjVLblFSbVlxVjZqM1xyXG4xT2FrN0swWC9wQkRlL1FTK0xHMVVFd2N2aTJyek11dHZKVW91TW5MZ”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id60">
+<h1>}<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST - <cite>/signed/service/invoke</cite></p>
 <p>Write operation to a service signing the transaction with the private key guarded by the user.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The did to recover the public key</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A JWS signed with the private key. The payload is the signature of the JSON explained below.</p></li>
+<li><p><cite>publicKey</cite>: <cite>&lt;string&gt;</cite> The did to recover the public key</p></li>
+<li><p><cite>payload</cite>: <cite>&lt;string&gt;</cite> A JWS signed with the private key. The payload is the signature of the JSON explained below.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;invoke&quot;</span><span class="p">,</span> 
-        <span class="n">params</span><span class="p">:</span> <span class="p">{</span>
-            <span class="n">did</span><span class="p">:</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,</span>  <span class="o">//</span> <span class="n">did</span> <span class="n">of</span> <span class="n">the</span> <span class="n">service</span>
-            <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;createAsset&quot;</span><span class="p">,</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="o">**</span><span class="p">)],</span> <span class="o">//</span> <span class="n">function</span> <span class="n">to</span> <span class="n">call</span> <span class="n">the</span> <span class="n">chaincode</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">respective</span> <span class="n">params</span>
-            <span class="n">channel</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span> <span class="o">//</span> <span class="n">channel</span> <span class="n">where</span> <span class="ow">is</span> <span class="n">deployed</span> <span class="n">the</span> <span class="n">chaincode</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-</pre></div>
+<blockquote>
+<div><blockquote>
+<div><p>“function”: “invoke”,
+params: {</p>
+<blockquote>
+<div><p>did: “coren-trackscc”,  // did of the service
+args: [“createAsset”, JSON.stringify(<strong>args</strong>)], // function to call the chaincode and the respective params
+channel: “channel1” // channel where is deployed the chaincode</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<hr class="docutils" />
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id61"><span class="problematic" id="id62">``</span></a>`
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“id”:  “did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366”,
+“payload”: “eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz”</p>
+</dd>
+</dl>
+</div></blockquote>
 </div>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  {
-       "id":  "did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366",
-       "payload": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz"
-}
-```
-</details><br></div>
-<div class="section" id="post-signed-service-query">
-<h4>POST -  <code class="docutils literal notranslate"><span class="pre">/signed/service/query</span></code><a class="headerlink" href="#post-signed-service-query" title="Permalink to this headline">¶</a></h4>
-<p>Read operation to a service signing the transaction with the private key guarded by the user.</p>
+<div class="section" id="id63">
+<h1>}<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>#### POST -  <cite>/signed/service/query</cite>
+Read operation to a service signing the transaction with the private key guarded by the user.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">publicKey</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> The did to recover the public key</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code>: <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> A JWS signed with the private key. The payload is the params explained below.</p></li>
+<li><p><cite>publicKey</cite>: <cite>&lt;string&gt;</cite> The did to recover the public key</p></li>
+<li><p><cite>payload</cite>: <cite>&lt;string&gt;</cite> A JWS signed with the private key. The payload is the params explained below.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;invoke&quot;</span><span class="p">,</span> 
-        <span class="n">params</span><span class="p">:</span> <span class="p">{</span>
-            <span class="n">did</span><span class="p">:</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,</span>  <span class="o">//</span> <span class="n">did</span> <span class="n">of</span> <span class="n">the</span> <span class="n">service</span>
-            <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;getAsset&quot;</span><span class="p">,</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="o">**</span><span class="p">)],</span> <span class="o">//</span> <span class="n">function</span> <span class="n">to</span> <span class="n">call</span> <span class="n">the</span> <span class="n">chaincode</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">respective</span> <span class="n">params</span>
-            <span class="n">channel</span><span class="p">:</span> <span class="s2">&quot;channel1&quot;</span> <span class="o">//</span> <span class="n">channel</span> <span class="n">where</span> <span class="ow">is</span> <span class="n">deployed</span> <span class="n">the</span> <span class="n">chaincode</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-</pre></div>
+<blockquote>
+<div><blockquote>
+<div><p>“function”: “invoke”,
+params: {</p>
+<blockquote>
+<div><p>did: “coren-trackscc”,  // did of the service
+args: [“getAsset”, JSON.stringify(<strong>args</strong>)], // function to call the chaincode and the respective params
+channel: “channel1” // channel where is deployed the chaincode</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<hr class="docutils" />
+<dl class="simple">
+<dt>&lt;details&gt;</dt><dd><p>&lt;summary&gt;&lt;em&gt;&lt;strong&gt;Sample structure&lt;/strong&gt;&lt;/em&gt; (Click to expand)&lt;/summary&gt;</p>
+</dd>
+</dl>
+<p><a href="#id64"><span class="problematic" id="id65">``</span></a>`
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“id”:  “did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366”,
+“payload”: “eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz”</p>
+</dd>
+</dl>
+</div></blockquote>
 </div>
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-```
-{
-  {
-       "id":  "did:vtn:trustid:b806f3bef9967f903db9467eb809eb138c48d3d1717eda2d5a6bb178962a881f21606828938366",
-       "payload": "eyJjdHkiOiJqd2sranNvbiIsImFsZyI6IlJTMjU2Iiwia2lkIjoidlB2MnhmLUUxcTEyVVhjUmtJMzZBcDU2blpzUktFSWpKYnJvWkRYTENGUSJ9.eyJmdW5jdGlvbiI6ImNyZWF0ZVNlbGZJZGVudGl0eSIsInBhcmFtcyI6eyJkaWQiOiJkaWQ6dnRuOnRydXN0aWQ6YjgwNmYzYmVmOTk2N2Y5MDNkYjk0NjdlYjgwOWViMTM4Yz"
-}
-```</details><br><p>If you want additional information about this API implementation and its functionality
-check the following <a class="reference external" href="https://github.com/telefonica-tid/coren-id-api">repo</a>.</p>
-</div>
-</div>
-</div>
-<div class="section" id="trustid-sdk">
-<h2>TrustID SDK<a class="headerlink" href="#trustid-sdk" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id66">
+<h1>}<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h1>
+<p>&lt;/details&gt;&lt;br&gt;</p>
+<p>If you want additional information about this API implementation and its functionality
+check the following [repo](<a class="reference external" href="https://github.com/telefonica-tid/coren-id-api">https://github.com/telefonica-tid/coren-id-api</a>).</p>
+<p>## TrustID SDK</p>
 <p>This SDK exposes all the functionalities required to interact with
 TrustID-based DLT networks.</p>
-<div class="section" id="install">
-<h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
+<p>### Install
+* To install this library you need access to the private repo:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">npm</span> <span class="pre">install</span> <span class="pre">trustos-trustid-sdk</span>
+<span class="pre">`</span></code></p>
+<p>### Structure
+The library has the following modules:</p>
+<p>#### Wallet</p>
 <ul class="simple">
-<li><p>To install this library you need access to the private repo:</p></li>
+<li><p><cite>wallet.ts</cite>: Core module of the library. It wraps all the state and</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">trustos</span><span class="o">-</span><span class="n">trustid</span><span class="o">-</span><span class="n">sdk</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="structure">
-<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
-<p>The library has the following modules:</p>
-<div class="section" id="wallet">
-<h4>Wallet<a class="headerlink" href="#wallet" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">wallet.ts</span></code>: Core module of the library. It wraps all the state and
-logic for identity management and interaction with TrustID networks.
+<p>logic for identity management and interaction with TrustID networks.
 To start using the SDK a new wallet needs to be initialized. A wallet
 exposes the following methods:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">setKeystore(keystore:</span> <span class="pre">Keystore):</span> <span class="pre">void</span></code>:</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">generateDID(type:</span> <span class="pre">string,</span> <span class="pre">controller:</span> <span class="pre">string,</span> <span class="pre">passphrase):</span> <span class="pre">DID</span></code></p></li>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>public setKeystore(keystore: Keystore): void</cite>:</p></li>
+<li><p><cite>public generateDID(type: string, controller: string, passphrase): DID</cite></p></li>
 </ul>
-</li>
+</div></blockquote>
+<p>#### Class DID
+* <cite>class DID</cite>: Has the following structure.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>public id: string</cite>: Id string that identifies the DID.</p></li>
+<li><p><cite>public pubkey: string</cite>: PublicKey of the DID.</p></li>
+<li><p><cite>public type: string</cite>: Key type (RSA / EC / OKP).</p></li>
+<li><p><cite>public controller: string</cite>: Verifier of the identity</p></li>
+<li><p><cite>public access: number</cite>: Access level</p></li>
+<li><p><cite>private privkey: string</cite>: Private Key of the DID.</p></li>
 </ul>
-</div>
-<div class="section" id="class-did">
-<h4>Class DID<a class="headerlink" href="#class-did" title="Permalink to this headline">¶</a></h4>
+</div></blockquote>
+<dl class="simple">
+<dt>And exposes the following functions:</dt><dd><ul class="simple">
+<li><p><cite>public unlockAccount(passphrase: string): void</cite>: Unlocks private key in order to use the DID.</p></li>
+<li><p><cite>public unlockAccount(passphrase: string): void</cite>: Unlocks private key with a temporal key in order to use the DID.</p></li>
+<li><p><cite>public lockAccount(): any</cite>: Locks the private key for a DID.</p></li>
+<li><p><cite>public sign(payload: object, passphrase: string): string</cite>: Sign a payload with a specific DID.</p></li>
+<li><p><cite>public verify(signature: string, id: string): any</cite>: Verifies a signature from a DID.</p></li>
+</ul>
+</dd>
+</dl>
+<p>#### TrustID operations</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">DID</span></code>: Has the following structure.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">id:</span> <span class="pre">string</span></code>: Id string that identifies the DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pubkey:</span> <span class="pre">string</span></code>: PublicKey of the DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">type:</span> <span class="pre">string</span></code>: Key type (RSA / EC / OKP).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">controller:</span> <span class="pre">string</span></code>: Verifier of the identity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">access:</span> <span class="pre">number</span></code>: Access level</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">privkey:</span> <span class="pre">string</span></code>: Private Key of the DID.</p></li>
+<li><p><cite>TrustID.ts</cite>: Interface that enables the inteoperation  between the drivers and the different  functionalities of TrustID. The only component implemented currently is the <cite>trustIDhf.ts</cite> enabling the interaction with Hyperledger Fabric TrustID</p></li>
 </ul>
-</li>
+<p>networks.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>setEndpoint(endpoint: string): void</cite>: Sets the network endpoint to interact with the TrustID network.</p></li>
+<li><p><cite>createIdentity(did: DID): Promise&lt;object&gt;</cite>: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.</p></li>
+<li><p><cite>verifyIdentity(adminDID: DID, id:string): Promise&lt;object&gt;</cite>: Verifies an identity as an admin.</p></li>
+<li><p><cite>getIdentity(did: DID, id: string): * Promise&lt;object&gt;</cite>: Gets a registered identity from TrustID.</p></li>
+<li><p><cite>revokeIdentity(adminDID: DID, id: string): Promise&lt;object&gt;</cite>: Revokes a registered identity. Only supported by the owner or controller of the DID.</p></li>
+<li><p><cite>createService(did: DID, serviceDID: string, name: string, isPublic: boolean): Promise&lt;object&gt;</cite>: Creates a new service in the TrustID network.</p></li>
+<li><p><cite>updateService(did: DID, serviceDID: string, access: Access, isPublic: boolean): Promise&lt;object&gt;</cite>: Updates the information from a service.</p></li>
+<li><p><cite>getService(did: DID, serviceDID: string): Promise&lt;object&gt;</cite>: Gets information from a registered service.</p></li>
+<li><p><cite>invoke (did: DID, serviceDID: string, args: string[], channel: string): Promise&lt;object&gt;</cite>: Invokes a function of a registered service in the TrustID network.</p></li>
+<li><p><cite>query(did: DID, serviceDID: string, args: string[], channel: string): Promise&lt;object&gt;</cite>: Queries a function of a registered service in the TrustID network</p></li>
 </ul>
-<p>And exposes the following functions:</p>
+</div></blockquote>
+<p>#### Driver operations</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">unlockAccount(passphrase:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Unlocks private key in order to use the DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">unlockAccount(passphrase:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Unlocks private key with a temporal key in order to use the DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">lockAccount():</span> <span class="pre">any</span></code>: Locks the private key for a DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">sign(payload:</span> <span class="pre">object,</span> <span class="pre">passphrase:</span> <span class="pre">string):</span> <span class="pre">string</span></code>: Sign a payload with a specific DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">verify(signature:</span> <span class="pre">string,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">any</span></code>: Verifies a signature from a DID.</p></li>
+<li><p><cite>driver.ts</cite>: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is</p></li>
 </ul>
-</div>
-<div class="section" id="trustid-operations">
-<h4>TrustID operations<a class="headerlink" href="#trustid-operations" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">TrustID.ts</span></code>: Interface that enables the inteoperation  between the drivers and the different  functionalities of TrustID. The only component implemented currently is the <code class="docutils literal notranslate"><span class="pre">trustIDhf.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
+<p>the <cite>hfdriver.ts</cite> enabling the interaction with Hyperledger Fabric TrustID
 networks.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">setEndpoint(endpoint:</span> <span class="pre">string):</span> <span class="pre">void</span></code>: Sets the network endpoint to interact with the TrustID network.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">createIdentity(did:</span> <span class="pre">DID):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">verifyIdentity(adminDID:</span> <span class="pre">DID,</span> <span class="pre">id:string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Verifies an identity as an admin.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getIdentity(did:</span> <span class="pre">DID,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">*</span> <span class="pre">Promise&lt;object&gt;</span></code>: Gets a registered identity from TrustID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">revokeIdentity(adminDID:</span> <span class="pre">DID,</span> <span class="pre">id:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Revokes a registered identity. Only supported by the owner or controller of the DID.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">createService(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">name:</span> <span class="pre">string,</span> <span class="pre">isPublic:</span> <span class="pre">boolean):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Creates a new service in the TrustID network.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">updateService(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">access:</span> <span class="pre">Access,</span> <span class="pre">isPublic:</span> <span class="pre">boolean):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Updates the information from a service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getService(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Gets information from a registered service.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">invoke</span> <span class="pre">(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">string[],</span> <span class="pre">channel:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Invokes a function of a registered service in the TrustID network.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">query(did:</span> <span class="pre">DID,</span> <span class="pre">serviceDID:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">string[],</span> <span class="pre">channel:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Queries a function of a registered service in the TrustID network</p></li>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>connect(config: object): Promise&lt;object&gt;;</cite>: Connects with a DLT networks</p></li>
+<li><p><cite>disconnect(config: object): void</cite>: Disconnects of a DLT network</p></li>
+<li><p><cite>checkConnection(channelName?:string): Promise&lt;object&gt;</cite>: Check the connection with a DLT</p></li>
+<li><p><cite>callContractTransaction(id: string, fcn: string, args: any, channel?: string): Promise&lt;object&gt;</cite>: Write operation in the DLT</p></li>
+<li><p><cite>getContractTransaction(id: string, fcn: string, args: any, channel?: string): Promise&lt;object&gt;</cite>: Read operation in the DLT</p></li>
 </ul>
-</li>
-</ul>
-</div>
-<div class="section" id="driver-operations">
-<h4>Driver operations<a class="headerlink" href="#driver-operations" title="Permalink to this headline">¶</a></h4>
+</div></blockquote>
+<p>#### Keystore</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">driver.ts</span></code>: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is
-the <code class="docutils literal notranslate"><span class="pre">hfdriver.ts</span></code> enabling the interaction with Hyperledger Fabric TrustID
-networks.</p>
+<li><dl class="simple">
+<dt><cite>keystore.ts</cite>: Interface that enables the implementation of keystore storages.</dt><dd><p>There are currently two implementations of keystore supported: <cite>FileKeystore.ts</cite> (to store DIDs in file keystore)and <cite>MongoKeystore.ts</cite> (to store DIDs in MongoDB).</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">connect(config:</span> <span class="pre">object):</span> <span class="pre">Promise&lt;object&gt;;</span></code>: Connects with a DLT networks</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">disconnect(config:</span> <span class="pre">object):</span> <span class="pre">void</span></code>: Disconnects of a DLT network</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">checkConnection(channelName?:string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Check the connection with a DLT</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">callContractTransaction(id:</span> <span class="pre">string,</span> <span class="pre">fcn:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">any,</span> <span class="pre">channel?:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Write operation in the DLT</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getContractTransaction(id:</span> <span class="pre">string,</span> <span class="pre">fcn:</span> <span class="pre">string,</span> <span class="pre">args:</span> <span class="pre">any,</span> <span class="pre">channel?:</span> <span class="pre">string):</span> <span class="pre">Promise&lt;object&gt;</span></code>: Read operation in the DLT</p></li>
+<li><p><cite>abstract getDID(id: string): DID</cite>: It gets specific DID from keystore.</p></li>
+<li><p><cite>abstract storeDID(did: DID): boolean</cite>: It stores DID in keystore.</p></li>
+<li><p><cite>abstract updateDID(did: DID): boolean</cite>: It updates DID in keystore.</p></li>
+<li><p><cite>public storeInMemory(did: DID): boolean</cite>: Stores DID inMemory for easy and performant use.</p></li>
+<li><p><cite>public listDID(): string[]</cite>: List DIDs in memory.</p></li>
+<li><p><cite>public setDefault(did: DID): boolean</cite>: Set DID as default identity for the keystore wallet.</p></li>
 </ul>
-</li>
-</ul>
-</div>
-<div class="section" id="keystore">
-<h4>Keystore<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">keystore.ts</span></code>: Interface that enables the implementation of keystore storages.
-There are currently two implementations of keystore supported: <code class="docutils literal notranslate"><span class="pre">FileKeystore.ts</span></code> (to store DIDs in file keystore)and <code class="docutils literal notranslate"><span class="pre">MongoKeystore.ts</span></code> (to store DIDs in MongoDB).</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">getDID(id:</span> <span class="pre">string):</span> <span class="pre">DID</span></code>: It gets specific DID from keystore.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">storeDID(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: It stores DID in keystore.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">updateDID(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: It updates DID in keystore.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">storeInMemory(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: Stores DID inMemory for easy and performant use.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">listDID():</span> <span class="pre">string[]</span></code>: List DIDs in memory.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">setDefault(did:</span> <span class="pre">DID):</span> <span class="pre">boolean</span></code>: Set DID as default identity for the keystore wallet.</p></li>
-</ul>
+</dd>
+</dl>
 </li>
 </ul>
 <p>If you want additional information of TrustID, its SDK and its functionality
-check the following <a class="reference external" href="https://github.com/hyperledger-labs/TrustID">repo</a>.</p>
-</div>
-</div>
-<div class="section" id="example-of-use">
-<h3>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use library</span>
-<span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;trustos-trustid-sdk&#39;</span><span class="p">)</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Keystore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./keystore/keystore&#39;</span><span class="p">;</span>
-
-<span class="c1">// Initialize wallet</span>
-<span class="nx">wal</span> <span class="o">=</span> <span class="nx">id</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">.</span><span class="nx">Instance</span><span class="p">;</span>
-
-<span class="c1">// Initialize new FileKeystore with storage at ./keystore</span>
-<span class="kr">const</span> <span class="nx">ks</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sdk</span><span class="p">.</span><span class="nx">FileKeystore</span><span class="p">(</span><span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="s2">&quot;./keystore&quot;</span><span class="p">);</span>
-<span class="nx">wal</span><span class="p">.</span><span class="nx">setKeystore</span><span class="p">(</span><span class="nx">ks</span><span class="p">)</span>
-<span class="c1">// ccp is the configu file of a Hyperledger Fabric network</span>
-<span class="kr">const</span> <span class="nx">ccp</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s2">&quot;../ccp-dev-dsn.json&quot;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">));</span>
-<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// additional config to connect with hyperledger fabric</span>
-    <span class="nx">stateStore</span><span class="o">:</span> <span class="s1">&#39;/tmp/statestore&#39;</span><span class="p">,</span>
-    <span class="nx">caURL</span><span class="o">:</span> <span class="s1">&#39;https://ca:7054&#39;</span><span class="p">,</span>
-    <span class="nx">caName</span><span class="o">:</span> <span class="s1">&#39;ca&#39;</span><span class="p">,</span>
-    <span class="nx">caAdmin</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
-    <span class="nx">caPassword</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
-    <span class="nx">tlsOptions</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">trustedRoots</span><span class="o">:</span> <span class="s2">&quot;Certificate&quot;</span><span class="p">,</span>
-        <span class="nx">verify</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nx">mspId</span><span class="o">:</span> <span class="s1">&#39;telefonicaMSP&#39;</span><span class="p">,</span>
-    <span class="nx">walletID</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
-    <span class="nx">asLocalhost</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nx">ccp</span><span class="o">:</span> <span class="nx">ccp</span><span class="p">,</span>
-    <span class="nx">chaincodeName</span><span class="o">:</span> <span class="s2">&quot;identitycc&quot;</span><span class="p">,</span> <span class="c1">//name of the trustid contract deployed on fabric</span>
-    <span class="nx">fcn</span><span class="o">:</span> <span class="s2">&quot;proxy&quot;</span><span class="p">,</span>
-    <span class="nx">channel</span><span class="o">:</span> <span class="s2">&quot;channel1&quot;</span>
-<span class="p">}</span>
-
-
-<span class="c1">// Create HF driver to interact with a hyperledger fabric network</span>
-<span class="kd">var</span> <span class="nx">trustID</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sdk</span><span class="p">.</span><span class="nx">TrustIdHf</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
-<span class="c1">// Add and configure the network driver in our wallet.</span>
-<span class="nx">wal</span><span class="p">.</span><span class="nx">addNetwork</span><span class="p">(</span><span class="s2">&quot;hf&quot;</span><span class="p">,</span> <span class="nx">trustID</span><span class="p">);</span>
-<span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">[</span><span class="s2">&quot;hf&quot;</span><span class="p">].</span><span class="nx">configureDriver</span><span class="p">()</span>
-
-<span class="c1">// IDENTITY OPERATION</span>
- <span class="c1">// Generate key pair locally.</span>
-<span class="kr">const</span> <span class="nx">did</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">generateDID</span><span class="p">(</span><span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span>
-<span class="nx">await</span> <span class="nx">did</span><span class="p">.</span><span class="nx">unlockAccount</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-    <span class="c1">// Register in the platform.</span>
-<span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">createSelfIdentity</span><span class="p">(</span><span class="nx">did</span><span class="p">)</span>
- <span class="nx">wal</span><span class="p">.</span><span class="nx">setDefault</span><span class="p">(</span><span class="nx">did</span><span class="p">)</span>
-<span class="c1">// Get the registered identity.</span>
-<span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">getIdentity</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="nx">did</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[*] Get registered identity\n&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
-
-<span class="c1">//SERVICES OPERATIONS</span>
-<span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">createService</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,</span> <span class="s2">&quot;track&quot;</span><span class="p">,</span> <span class="s2">&quot;PUBLIC&quot;</span><span class="p">,</span> <span class="s2">&quot;channel1&quot;</span><span class="p">)</span>
-
-<span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">)</span>
-<span class="c1">// Create an asset in the service: Track operation via trustid</span>
-<span class="kr">const</span> <span class="nx">asset</span> <span class="o">=</span> <span class="p">{</span><span class="nx">assetId</span><span class="o">:</span> <span class="s2">&quot;test&quot;</span><span class="o">+</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">data</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">:</span><span class="mi">2</span><span class="p">},</span> <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">}}</span>
-<span class="kr">const</span> <span class="nx">assetStr</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">asset</span><span class="p">)</span>
-<span class="c1">// Invoke tract</span>
-<span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,[</span><span class="s2">&quot;createAsset&quot;</span><span class="p">,</span> <span class="nx">assetStr</span><span class="p">],</span> <span class="s2">&quot;channel1&quot;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[*] Asset creation:\n&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
-    <span class="c1">// Get the created asset.</span>
-<span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wal</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">hf</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="nx">did</span><span class="p">,</span> <span class="s2">&quot;coren-trackscc&quot;</span><span class="p">,[</span><span class="s2">&quot;getAsset&quot;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">assetId</span><span class="o">:</span> <span class="nx">asset</span><span class="p">.</span><span class="nx">assetId</span><span class="p">})],</span> <span class="s2">&quot;channel1&quot;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[*] Asset registered\n&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
-</pre></div>
-</div>
-<hr></div>
-</div>
-<div class="section" id="roadmap">
-<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>TrustID compatible with Hyperledger Indy, Verifiable Credentials, etc</p></li>
-<li><p>Anonymous authentication with anonymous transactions</p></li>
-<li><p>Integration with other Identity Providers, related with the non-blockchain world.</p></li>
-<li><p>Support for other Keys algorithms, now only RSA is supported</p></li>
-<li><p>Compatibility with Ethereum keys.</p></li>
-</ul>
-</div>
+check the following [repo](<a class="reference external" href="https://github.com/hyperledger-labs/TrustID">https://github.com/hyperledger-labs/TrustID</a>).</p>
+<p>### Example of use
+<a href="#id67"><span class="problematic" id="id68">``</span></a><a href="#id69"><span class="problematic" id="id70">`</span></a>js
+// Use library
+var id = require(‘trustos-trustid-sdk’)
+import { Keystore } from ‘./keystore/keystore’;</p>
+<p>// Initialize wallet
+wal = id.Wallet.Instance;</p>
+<p>// Initialize new FileKeystore with storage at ./keystore
+const ks = new sdk.FileKeystore(“file”, “./keystore”);
+wal.setKeystore(ks)
+// ccp is the configu file of a Hyperledger Fabric network
+const ccp = JSON.parse(fs.readFileSync(“../ccp-dev-dsn.json”, ‘utf8’));
+const config = { // additional config to connect with hyperledger fabric</p>
+<blockquote>
+<div><p>stateStore: ‘/tmp/statestore’,
+caURL: ‘<a class="reference external" href="https://ca:7054">https://ca:7054</a>’,
+caName: ‘ca’,
+caAdmin: ‘admin’,
+caPassword: ‘password’,
+tlsOptions: {</p>
+<blockquote>
+<div><p>trustedRoots: “Certificate”,
+verify: false</p>
+</div></blockquote>
+<p>},
+mspId: ‘telefonicaMSP’,
+walletID: ‘admin’,
+asLocalhost: false,
+ccp: ccp,
+chaincodeName: “identitycc”, //name of the trustid contract deployed on fabric
+fcn: “proxy”,
+channel: “channel1”</p>
+</div></blockquote>
+<p>}</p>
+<p>// Create HF driver to interact with a hyperledger fabric network
+var trustID = new sdk.TrustIdHf(config);
+// Add and configure the network driver in our wallet.
+wal.addNetwork(“hf”, trustID);
+await wal.networks[“hf”].configureDriver()</p>
+<dl class="simple">
+<dt>// IDENTITY OPERATION</dt><dd><p>// Generate key pair locally.</p>
+</dd>
+</dl>
+<p>const did = await wal.generateDID(“RSA”, “test”, “test”)
+await did.unlockAccount(“test”)</p>
+<blockquote>
+<div><p>// Register in the platform.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>await wal.networks.hf.createSelfIdentity(did)</dt><dd><p>wal.setDefault(did)</p>
+</dd>
+</dl>
+<p>// Get the registered identity.
+let res = await wal.networks.hf.getIdentity(did, did.id)
+console.log(“[*] Get registered identityn”, res)</p>
+<p>//SERVICES OPERATIONS
+await wal.networks.hf.createService(did, “coren-trackscc”, “track”, “PUBLIC”, “channel1”)</p>
+<p>let res = await wal.networks.hf.getService(did, “coren-trackscc”)
+// Create an asset in the service: Track operation via trustid
+const asset = {assetId: “test”+Date.now(), data:{“a”:1, “b”:2}, metadata: {“c”: 4}}
+const assetStr = JSON.stringify(asset)
+// Invoke tract
+res = await wal.networks.hf.invoke(did, “coren-trackscc”,[“createAsset”, assetStr], “channel1”)
+console.log(“[*] Asset creation:n”, res)</p>
+<blockquote>
+<div><p>// Get the created asset.</p>
+</div></blockquote>
+<p>res = await wal.networks.hf.invoke(did, “coren-trackscc”,[“getAsset”, JSON.stringify({assetId: asset.assetId})], “channel1”)
+console.log(“[*] Asset registeredn”, res)</p>
+<p><a href="#id71"><span class="problematic" id="id72">``</span></a>`
+&lt;hr&gt;</p>
+<p>## Roadmap
+- TrustID compatible with Hyperledger Indy, Verifiable Credentials, etc
+- Anonymous authentication with anonymous transactions
+- Integration with other Identity Providers, related with the non-blockchain world.
+- Support for other Keys algorithms, now only RSA is supported
+- Compatibility with Ethereum keys.</p>
 </div>
 
 
@@ -879,10 +976,10 @@ check the following <a class="reference external" href="https://github.com/hyper
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="use_cases.html" class="btn btn-neutral float-right" title="Use cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="use_cases.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cert.html" class="btn btn-neutral" title="Cert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cert.html" class="btn btn-neutral" title="}" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -905,7 +1002,6 @@ check the following <a class="reference external" href="https://github.com/hyper
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
