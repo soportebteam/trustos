@@ -411,33 +411,7 @@ been detected in the updating of records.
 </details>
 <br>
 
-## Architecture of the project
-The project is based on the open-source programming language: Golang. An abstraction of its skeleton is depicted in the diagram below.
 
-```
-coren-tokenapi
-├── api
-      ├── handler           // HTTP logic
-      ├── model             // models used by the application
-      ├── service           // Usecases logic
-      ├── util              // Tools used by the application
-          ├── log           // Logger tool
-          ├── http          // Http util
-          └── Config        // Tool to load the configuration from yaml files
-      └── app.go            // Router application
-├── config
-      └── config.yaml       // Config file
-├── docs
-      └── docs.go           // Swagger doc file
-├── postman                 // Postman collection and environment to test the API
-      ├── collection    
-      └── environment
-├── vendor                  // Package discovery folder
-├── docker-compose.yaml     // Instructions to build docker container
-├── Dockerfile              // Instructions to build docker image
-├── init.sh                 // Script with global environment variables
-└── main.go                 // Main app
- ```   
 
 ## How we run the application
 As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
@@ -451,35 +425,18 @@ Also you can download the files in the links below:
 <br>
 <a href="_static/environment.json" download> - Postman environment</a>
 
+
 ## Errors management
   
-  Settle API errors are managed through the following nomenclature **SETTLE-XX** which corresponds to:<br>
+Settle API errors are managed through the following JSON:
+```
+{
+  "error": {
+    "code": "HTTP status code",
+    "function": "function in which the error was generated",
+    "message": "error description"
+  }
+}
+```
 
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-  <tr>
-    <th class="tg-0pky">Code</th>
-    <th class="tg-0pky">Description</th>
-  </tr>
-  <tr>
-    <td class="tg-0pky">SETTLE-00</td>
-    <td class="tg-0pky">Service is down</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">SETTLE-01</td>
-    <td class="tg-0pky">Error parsing any data structure</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">SETTLE-02</td>
-    <td class="tg-0lax">Error of some kind of functionality</td>
-  </tr>
-</table>
-
-<br>
+<br/>

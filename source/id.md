@@ -1,5 +1,5 @@
 
-# ID API
+# ID
 
 An abstraction TrustID API implementation. It wraps the functionality of the TrustID SDK in order to offer basic identity management services to users comfortable delegating the responsability of their keys to a custodian. ID API acts as the third-party custodian of the users keys.
 
@@ -103,8 +103,6 @@ Verification of a registered identity by a controller in the system.
 ```
 </details><br>
 
-
-
 #### POST - `/id/update/password`
 Updates the old password with a new one.
 - `password`: `<string>` New password selected
@@ -122,10 +120,12 @@ Updates the old password with a new one.
 ```
 </details><br>
 
+### Identity Recovery Methods
+
 #### POST - `/id/recover/create`
-Creates the mechanism to recover the password. The recovery operation will need and email to send the info to the user and a group of custodians, in order to have a social recovery wallet.
-- `email`: `<string>` Email that will own the user in order to recover their identity
-- `guardians` :  `<array>` List of guardians
+Creates the mechanism to recover the user password. Recovery operation needs an email to send the recovery code in case of password change and a group of custodians, in order to have a social recovery wallet. Each custodian will receive a secret that must be provided when the user wants to recover the password.
+- `email`: `<string>` Email that will own the user in order to recover their identity.
+- `guardians` :  `<array>` List of guardians.
 
 
 <details>
@@ -133,38 +133,36 @@ Creates the mechanism to recover the password. The recovery operation will need 
 
 ```
 {
-  "email": "email@mail.com",
   "guardians": [
     {
-      "value": "mail@email.com",
+      "value": "bob@email.com",
       "type": "email"
     }
-  ]  
+  ],
+  "email": "alice@email.com"
 }
 ```
 </details><br>
 
 #### POST - `/id/recover/update/email`
-Updates the recovery email associated with the identity in order to recover the identity. This email was regestirated in /id/recover/create.
+Updates the recovery email associated with the identity in order to recover the identity. The email must match with the one registered in /id/recover/create.
 
-- `email`: `<string>` Email that will own the user in order to recover their identity
-
+- `email`: `<string>` The new user mail.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```
 {
-  "email": "email@mail.com"
+  "email": "john@email.com"
 }
 ```
 </details><br>
 
-
-
 #### POST - `/id/recover/init`
-Initialized the recovery process in order to recover an identity, the user will receive an email with a sigle use code.
-- `email`: `<string>` Email that will own the user in order to recover their identity
+Initialises the recovery process in order to recover an identity account, the user will receive an email with a sigle use code.
+
+- `email`: `<string>` Email to send the verification code to the user in order to start the account recovery process.
 
 
 <details>
@@ -172,15 +170,15 @@ Initialized the recovery process in order to recover an identity, the user will 
 
 ```
 {
-  "email": "email@mail.com"
+  "email": "john@email.com"
 }
 ```
 </details><br>
 
 #### POST - `/id/recover/password`
-Finishes the process to recover the password. THe params required are the single use coded received in the users email and the secrets that were sent to the guardians.
-- `code`: `<string>` Email that will own the user in order to recover their identity
-- `guardians`: `<array,objects>` Email of the guardiands and their respective secrets
+Finishes the process to recover the password. The params required are the single use code received in the users email and the secrets that were sent to the guardians.
+- `code`: `<string>` An single use access code sent to the user mail in /id/recover/init function.
+- `guardians`: `<array,objects>` Email of the guardiands and their respective secrets.
 
 
 <details>
@@ -191,15 +189,14 @@ Finishes the process to recover the password. THe params required are the single
   "code": "a12f120c912b12e12bd",
   "guardians": [
     {
-      "secret": "asdasdads",
-      "email": "email@emal.com"
+      "secret": "234895738256",
+      "email": "bob@email.com"
     }
   ],
   "newPassword": "testPassword"
 }
 ```
 </details><br>
-
 
 ### OpenID Methods
 #### GET - `/openId/authorizationUrl`
@@ -215,7 +212,7 @@ Gets the OpenID autorization URL to initiate an authentication flow.
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
-```js
+```
 {
   "message": {
     "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth?client_id=3168832523525320-4cb3nmfohpvh3c4p5pstnd6url5k80md.apps.googleusercontent.com&scope=openid%20email%20profile&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A9090%2Fopenid%2FauthorizationCallback"
@@ -236,7 +233,7 @@ Gets the autorization token generated for the requesting identity in the JWT sta
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
-```js
+```
 {
   "message": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImJXOFpjTWpCQ25KWlMtaWJYNVVRRE5TdHZ4NCJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJQUo5MGVzR3otNnJOazRhQnYySEpRIiwiYXVkIjoiY2FmZjZmNDEtZDZiZS00MjhmLWE5YTUtMDViNDcyNTI5N2RmIiwiZXhwIjoxNjE5MTAwMjQxLCJpYXQiOjE2MTkwMTM1NDEsIm5iZiI6MTYxOTAxMzU0MSwibmFtZSI6ImNlc2FyIFIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJjZXNhcl85M18xMEBob3RtYWlsLmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC1lNTgxLTEyZTdhYTIwOTIzYyIsImVtYWlsIjoiY2VzYXJfOTNfMTBAaG90bWFpbC5jb20iLCJ0aWQiOiI5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJhaW8iOiJEVGxJR2VwT241U3N4ZjlSUEhMWTVZekNQZXMwdU1nYU5CQTN2TFloQUpieldWSWRxd1RlRXhPR25hMDl5MDdHemxub2owbzVCRWNxaFM1VXF3QkFVKlIwWXRzVEkxMU1PUkpRRTYxc1JweFdzeUtjSWZVeXRJQW9QQWgzejVPSXpXSFMxek40RzJLb0d4YWlEWHZXTzYwJCJ8.yhaqvrx9VUmTGJNGTZQYMv-jRIv4OP-sYb4UP4XRADY6FAn7-G5OHj_VHc96yHzPxx-2wxzzrPGF4hxA9T4M5FSuuw4LqrQXT5H7oey27LYAE_gFJ8Uo8xY0fMb3yh8Q6HPbmAEuPjLHi_X6roB1dZR3AZj1OnxQr4_0wZRKpvBOkvX943bJtvMKYdrewVaqlI9JfxsPX89pdGh9zNqkyU6mdqAKt_BeucotUQ-Kbpj9Y_mYzXKiHxMzN_uhM_UtEeY_hbpBf87YrC9Jd9Iv3oBZ3aSTLXHHpN8tRrywRXAG-f23TgldldjTuCIuTXVg2xiGJwo9tIGoH0dRmnUl_Q"
 }
@@ -254,6 +251,7 @@ Requests a signature using a key in custody.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
 ```
 {
   "payload": {
@@ -551,6 +549,46 @@ Read operation to a service signing the transaction with the private key guarded
 </details><br>
 
 
+---
+#### (*) Internal mail service for identity recovery communications
+
+The password recovery process functions require a series of communications via email both to send the one-time code to the user and to send the different secrets to the guardians involved in the process. There are two possibilities for communication.
+
+- TrustOS mail service: TrustOS has a mail service that allows internal communication. In this case, functions generate and send emails automatically to the user and the guardians, eliminating the need to do so externally. The response is shown bellow:
+
+```
+{
+  "output": "Sent email to user"
+}
+```
+
+
+- External communication: If on the contrary, the use case requires external communication, TrustOS just generates the codes and return them in the function response. 
+The response for this case is shown below:
+
+```
+{
+  "output": {
+    "guardians": [
+{
+        "email": "bob@mail.com",
+        "secret": "d10ff4ef162ee9fb4cd22ec8a78695520a3ed1ba809hff0495b8abf62d997224"
+},
+{
+        "email": "alice@mail.com",
+        "secret": "d10ff4ef162ee9fb4cd22sdjk78695520a3ed1ba809hff0495b8abf62sdm2333"
+},
+    ]
+  }
+}
+
+```
+To decide the type of communication there is a flag named `internalMailService` sent as a query param in the request. If the flag is set to `true` emails will be sent internally through the TrustOS mail service. On the contrary if it is set to `false` the communication will be managed externally.
+
+The functions that require this flag are:
+
+- POST - `/id/recover/create?internalMailService=true`
+- POST - `id/recover/init?internalMailService=true`
 
 ## OpenID Connect integration
 

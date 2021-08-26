@@ -209,6 +209,39 @@ In this model a new method is required to define the rules the asset must follow
 
 ## Cert API
 
+<details><summary> v1.1.0 [April 2021]</summary><hr>
+
+**What's new in Cert API v1.1.0:**
+
+- New methods for managing advanced signature:
+  - `/certificate/{certID}/advancedsignature/init` - Initialise an advanced signature process for a certificate. 
+  - `/certificate/{certID}/advancedsignature/status` - Check the status of advanced signature for a certificate
+  - `/certificate/{certID}/advancedsignature/document` - Get the signed document for a certificate with advanced signature
+  - `/certificate/advancedsignature/notification`- Receive notifications for an advanced signature process. It requires a new way of authorization based on "Basic Authorization" in order to accept incoming request from third party notification services.
+
+  It is the first integration with a third party platform: VIDSigner. Others will be integrated in next releases.
+
+- Added `init` and `end` parameters in `/certificate/asset/create` to allow the certification of a range of transactions for an asset
+
+- Now Cert API has integration with OpenID Connect, enabling the use of the functionalities with different identity providers such as Google or Microsoft. 
+
+- Added `public` parameter in the creation data model for the certificate creation
+
+- Added `access` information in response for `/certificate/{certID}` and `/certificate/{certID/history` methods
+
+
+**Changes, fixes and deprecations:**
+
+- Swagger methods and responses have been updated
+
+- Postman collection has been updated
+
+- Fixed issue #4: checking that advanced signature is initialized in `/advancedsign/{certID}/status` and `/advancedsign/{certID}/document` methods in order to avoid possible errors
+
+- Fixed issue #2: Handling bad input in `/advancedsign/{certID}/init` method
+
+</details>
+
 <details><summary> v1.0.0 [January 2021]</summary><hr>
 
 **What's new in Cert API v1.0.0:**
