@@ -1,10 +1,10 @@
 # Trust
 
-This API is used to create and register trust points on the private and public blockchain and verify the integrity of all the encapsulated data
+This API is used to create and register trust points on the private and public blockchain and verify the integrity of all the encapsulated data.
 
 ## API Specification
 
-An abstraction API with all the asset functionalities
+An abstraction API with all the asset functionalities.
 
 ### Trust Point
 A trust point is `<JSON>` object used to export the integrity of the transactions over an asset in a private blockchain such as Hyperledger Fabric, to public blockchains such as Ethereum, in order to provide an extra layer of security.
@@ -12,15 +12,15 @@ A trust point is `<JSON>` object used to export the integrity of the transaction
 
 This is the structure of a trust point:
 
-- `assetid` :  `<string>` Identifier of the asset for which the trust point is made
-- `init` :  `<integer>` Timestamp for the previous trust point
-- `end` :  `<integer>` Timestamp at which this trust point is made
-- `txRoot` :  `<string>` Hash of all transactions in the interval
-- `hfTxId` :  `<string>` Current trust point transaction in Hyperledger Fabric
-- `prevHfTxId` :  `<string>`  Previous trust point transaction in Hyperledger Fabric
-- `prevHash` :  `<string>` Hash of the previous trust point
-- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points
-- `hash` :  `<string>`  Hash of the trust point (as a JSON) to verify integrity
+- `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
+- `init` :  `<integer>` Timestamp for the previous trust point.
+- `end` :  `<integer>` Timestamp at which this trust point is made.
+- `txRoot` :  `<string>` Hash of all transactions in the interval.
+- `hfTxId` :  `<string>` Current trust point transaction in Hyperledger Fabric.
+- `prevHfTxId` :  `<string>`  Previous trust point transaction in Hyperledger Fabric.
+- `prevHash` :  `<string>` Hash of the previous trust point.
+- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points.
+- `hash` :  `<string>`  Hash of the trust point (as a JSON) to verify integrity.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -56,10 +56,10 @@ This is the structure of a trust point:
 
 #### GET  -   `/trust/assetId`  
 
-Gets the last trust point in the system for a specific asset
+Gets the last trust point in the system for a specific asset.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust point is made
+- `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
   
 <u>*Output*</u>
 - `trustpoint`    :  `<json>`
@@ -89,10 +89,10 @@ Gets the last trust point in the system for a specific asset
 
 #### GET  -   `/trust/assetId/history`  
 
-Gets all trust point history in the system for a specific asset
+Gets all trust point history in the system for a specific asset.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust point is made
+- `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
   
 <u>*Output*</u>
 - `trustpoint`    :  `<json>`
@@ -136,10 +136,10 @@ Gets all trust point history in the system for a specific asset
 
 #### POST -  `/trust/assetId/create`  
 
-Creates a trust point in the system for a specific asset
+Creates a trust point in the system for a specific asset.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust point is made
+- `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
   
 <u>*Output*</u>
 - `trustpoint`    :  `<json>` 
@@ -169,10 +169,10 @@ Creates a trust point in the system for a specific asset
 
 #### GET  -   `/trust/{assetId}/merkleroot`  
 
-Gets the last trust merkle root stored in the system
+Gets the last trust merkle root stored in the system.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust root is stored
+- `assetid` :  `<string>` Identifier of the asset for which the trust root is stored.
   
 <u>*Output*</u>
 - `trustroot`    :  `<json>`
@@ -196,10 +196,10 @@ Gets the last trust merkle root stored in the system
 
 #### GET  -   `/trust/{assetId}/merkleroot/history`  
 
-Gets the trust merkle root history stored in the system
+Gets the trust merkle root history stored in the system.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust root is stored
+- `assetid` :  `<string>` Identifier of the asset for which the trust root is stored.
   
 <u>*Output*</u>
 - `trustroot`    :  `<json>`
@@ -233,7 +233,7 @@ Gets the trust merkle root history stored in the system
 Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust point is made
+- `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
   
 <u>*Output*</u>
 - `trustpoint` :  `<json>` 
@@ -263,11 +263,11 @@ Creates a trust point if does not exist and registers it in Ethereum. If the tru
 
 #### POST   -   `/trust/assetId/verify`
 
-Verifies a trust point 
+Verifies a trust point.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Identifier of the asset for which the trust point is made
-- `timestamp` : `<string>` Timestamp at which this trust point is made
+- `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
+- `timestamp` : `<string>` Timestamp at which this trust point is made.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -281,15 +281,15 @@ Verifies a trust point
 </details>
 
 <u>*Output*</u>
-- `ethereum`:  `<json>` Ethereum info
-  - `trustRoot`:  `<string>` Trust points merkle root registered on Ethereum
-  - `lastEthTxId`:  `<string>` Last transaction for the trust point in Ethereum
-  - `smartContractAddres`:  `<string>` The smart contract in Ethereum to manage trust points 
-  - `verified`:  `<bool>` Boolean value to specify if the trust point is registered in Ethereum
-- `hf`:  `<json>` Hyperledger Fabric info
-  - `trustRoot`:  `<string>` Trust points merkle root stored in HF
-  - `timestamp`:  `<string>` Timestamp at which this trust point is made
-  - `verified`:  `<bool>` Boolean value to specify if the trust point is registered in Ethereum and it is has not been modified
+- `ethereum`:  `<json>` Ethereum info.
+  - `trustRoot`:  `<string>` Trust points merkle root registered on Ethereum.
+  - `lastEthTxId`:  `<string>` Last transaction for the trust point in Ethereum.
+  - `smartContractAddres`:  `<string>` The smart contract in Ethereum to manage trust points .
+  - `verified`:  `<bool>` Boolean value to specify if the trust point is registered in Ethereum.
+- `hf`:  `<json>` Hyperledger Fabric info.
+  - `trustRoot`:  `<string>` Trust points merkle root stored in HF.
+  - `timestamp`:  `<string>` Timestamp at which this trust point is made.
+  - `verified`:  `<bool>` Boolean value to specify if the trust point is registered in Ethereum and it is has not been modified.
 
 
 <details>
@@ -322,14 +322,14 @@ Verifies a trust point
 
 ### MerkleRoot
 
-In order to achieve the integrity and inmutability of all trust points, every time a trust point is create a parallel process is executed. This process consist of the building of a trust-based merkle tree. All the trust points created until that moment are the leaves of the tree that generates a unique merkle root. That merkle root, called as trustRoot, is registered in HF as well as in Ethereum to proof the integrity. So, every time a new trust point is created, a new trustRoot is created too, and it could be registered in Ethereum or not, depends of the user neccessity
+In order to achieve the integrity and inmutability of all trust points, every time a trust point is create a parallel process is executed. This process consist of the building of a trust-based merkle tree. All the trust points created until that moment are the leaves of the tree that generates a unique merkle root. That merkle root, called as trustRoot, is registered in HF as well as in Ethereum to proof the integrity. So, every time a new trust point is created, a new trustRoot is created too, and it could be registered in Ethereum or not, depends of the user neccessity.
 
 
 This is the structure registered in HF and Ethereum, once the trust merkle tree is calculated:
 
-- `timestamp` :  `<integer>` Timestamp at which the related trust point is made
-- `trustHash` :  `<string>` Hash of the last trust point included to verify integrity
-- `trustRoot` :  `<string>` Root of the trust merkle tree calculated with all the trust points until that moment
+- `timestamp` :  `<integer>` Timestamp at which the related trust point is made.
+- `trustHash` :  `<string>` Hash of the last trust point included to verify integrity.
+- `trustRoot` :  `<string>` Root of the trust merkle tree calculated with all the trust points until that moment.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>

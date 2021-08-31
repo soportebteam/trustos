@@ -21,8 +21,8 @@ using JWT using TrustID as identity backend. This functionality is offered
 for every user in the system (even those for which we are not the
 custodials of the keys). Some services may be still authenticated with JWT,
 and we want to support this authentication even of TrustID users.
-- `id` :  `<string>` Unique identifier of the user
-- `password`    :  `<string>` Password of the user
+- `id` :  `<string>` Unique identifier of the user.
+- `password`    :  `<string>` Password of the user.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -41,9 +41,9 @@ It refreshes a JWT login.
 #### POST   -    `/id/create`
 Create a new identity with the key determined in type and a
 passphrase to lock the private key.
-- `id` :  `<string>` Unique identifier of the user
-- `type`    :  `<string>` Algorithm used, right now only RSA is supported
-- `channel`: `<string>`Identificator of the HF network, only required for admin user
+- `id` :  `<string>` Unique identifier of the user.
+- `type`    :  `<string>` Algorithm used, right now only RSA is supported.
+- `channel`: `<string>` Identifier of the HF network, only required for admin user.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -105,8 +105,8 @@ Verification of a registered identity by a controller in the system.
 
 #### POST - `/id/update/password`
 Updates the old password with a new one.
-- `password`: `<string>` New password selected
-- `oldPassword` :  `<string>` Actual password
+- `password`: `<string>` New password selected.
+- `oldPassword` :  `<string>` Actual password.
 
 
 <details>
@@ -144,6 +144,9 @@ Creates the mechanism to recover the user password. Recovery operation needs an 
 ```
 </details><br>
 
+(*) Please navigate to the following [section](#internal-mail-service-for-identity-recovery-communications) for details of the mail communication service.
+
+
 #### POST - `/id/recover/update/email`
 Updates the recovery email associated with the identity in order to recover the identity. The email must match with the one registered in /id/recover/create.
 
@@ -174,6 +177,8 @@ Initialises the recovery process in order to recover an identity account, the us
 }
 ```
 </details><br>
+
+(*) Please navigate to the following [section](#internal-mail-service-for-identity-recovery-communications) for details of the mail communication service.
 
 #### POST - `/id/recover/password`
 Finishes the process to recover the password. The params required are the single use code received in the users email and the secrets that were sent to the guardians.
@@ -246,7 +251,7 @@ Gets the autorization token generated for the requesting identity in the JWT sta
 Requests a signature using a key in custody.
 
 *Body*
-- `payload` :  `<json>` Payload that needs to be signed
+- `payload` :  `<json>` Payload that needs to be signed.
 
 
 <details>
@@ -264,8 +269,8 @@ Requests a signature using a key in custody.
 
 #### POST - `/id/validate`
 Validates a signature using a key in custody.
-- `id`: `<string>` Identifier of the signer
-- `payload` :  `<string>` Payload that needs to be validated
+- `id`: `<string>` Identifier of the signer.
+- `payload` :  `<string>` Payload that needs to be validated.
 
 
 <details>
@@ -286,9 +291,9 @@ Validates a signature using a key in custody.
 Create a new service in the TrustID network.
 
 - `serviceID` :  `<string>` Identity that is going to be verified for the user that had been logged.
-- `name` :  `<string>` Name of the service deployed in Hyperledger Fabric
-- `access` :  `<json>` Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED
-- `channel` :  `<string>` Identificator of the HF network.
+- `name` :  `<string>` Name of the service deployed in Hyperledger Fabric.
+- `access` :  `<json>` Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED.
+- `channel` :  `<string>` Identifier of the HF network.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -307,7 +312,7 @@ Create a new service in the TrustID network.
 
 #### POST   -   `/service/get`
 Gets the registered information for a service.
-- `serviceID` :  `<string>` Identity that is going to identify the service
+- `serviceID` :  `<string>` Identity that is going to identify the service.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -322,13 +327,12 @@ Gets the registered information for a service.
 #### POST   -   `/service/updateAccess`
 Updates the access of a service.
 - `serviceID` :  `<string>` Identity that is going to identify the service.
-- `access` :  `<json>` Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED
+- `access` :  `<json>` Access policy that will have the service: PUBLIC, SAME_CONTROLLER, FINE_GRAINED.
 
 The supported policies are the following:
-- PUBLIC, everyone with access on the network can call the service
-- SAME_CONTROLLER, identities with the controller that created the service, can call the service
-- FINE_GRAINED, only specific identities can access to
- the service
+- PUBLIC, everyone with access on the network can call the service.
+- SAME_CONTROLLER, identities with the controller that created the service, can call the service.
+- FINE_GRAINED, only specific identities can access to the service.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -350,8 +354,8 @@ The supported policies are the following:
 
 Updates the information of a service.
 - `serviceID` :  `<string>` Identity that is going to identify the service.
-- `name` :  `<string>` Name of the service deployed in Hyperledger Fabric
-- `channel` :  `<string>` Identificator of the HF network.
+- `name` :  `<string>` Name of the service deployed in Hyperledger Fabric.
+- `channel` :  `<string>` Identifier of the HF network.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>

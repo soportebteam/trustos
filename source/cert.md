@@ -4,7 +4,7 @@ Cert API is used to create, sign and verify **digital certificates** on the bloc
 
 ## API Specification
 
-An abstraction API with all the certificate functionalities
+An abstraction API with all the certificate functionalities.
 
 ### Certificate
 
@@ -17,10 +17,11 @@ Every certificate is identified by a unique ID and is composed of three compleme
 ![Certificate model](./images/cert_model.png)
 
 Thus a certificate has the following structure:
-- `certID` :  `<string>` Unique identifier of the certificate 
-- `data`    :  `<json>`   JSON of certificate data that is inmutable
-- `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration)
-- `access` :  `<json>` JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access)
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `data`    :  `<json>`   JSON of certificate data that is inmutable.
+- `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration).
+- `access` :  `<json>` JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access).
+
 <details>
   <summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary>
 
@@ -35,16 +36,15 @@ Thus a certificate has the following structure:
 </details> 
 <br/>
 
-
 #### <u>Certificate data</u>
 
 Data contains the **inmutable information about the certificate**: who issued it, when it was issued, when it will expire and of course what it is certified and what does it mean.
 
 The certificate `data` contains the following fields:
-- `badge` :  `<json>` JSON of **badge information** that characterises the certificate (e.g. name, description, type, content, issuer)
-- `issuedOn` :  `<date>` Datetime of when the certificate is issued
-- `expires` :  `<date>` Datetime of when the certificate should no longer be considered valid
-- `hash` :  `<string>` Hash of the data information
+- `badge` :  `<json>` JSON of **badge information** that characterises the certificate (e.g. name, description, type, content, issuer).
+- `issuedOn` :  `<date>` Datetime of when the certificate is issued.
+- `expires` :  `<date>` Datetime of when the certificate should no longer be considered valid.
+- `hash` :  `<string>` Hash of the data information.
 
 <details>
   <summary><em><strong>Sample Data structure</strong></em> (Click to expand)</summary>
@@ -70,18 +70,18 @@ The certificate `data` contains the following fields:
 
 #### <u>Certificate metadata</u>
 
-Metadata contains the **additional information that feeds the certificate** in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid and know how to verify it (e.g. verification, signers, signatures)
+Metadata contains the **additional information that feeds the certificate** in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid and know how to verify it (e.g. verification, signers, signatures).
 
 The certificate `metadata` contains the following fields:
-- `certID` :  `<string>` Unique identifier of the certificate 
-- `type` : `<string>` Type of transaction (Signature/Revocation/Evidence/Adding signers)
-- `verification` :  `<json>` JSON of **verification information**. It contains the required signers
-- `signatures` :  `<json>` JSON of **signatures** added for the verification of the certificate
-- `public_evidences` :  `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites
-- `revoked` :  `<bool>` Flag to determine that the certificate is revoked and is not longer valid
-- `datetime` :  `<string>` Datetime of when the transaction (signature, evidence or revocation) is done 
-- `hfTxId` :  `<string>` Current transaction identifier in Hyperledger Fabric
-- `hash` :  `<string>` Hash of the transaction
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `type` : `<string>` Type of transaction (Signature/Revocation/Evidence/Adding signers).
+- `verification` :  `<json>` JSON of **verification information**. It contains the required signers.
+- `signatures` :  `<json>` JSON of **signatures** added for the verification of the certificate.
+- `public_evidences` :  `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites.
+- `revoked` :  `<bool>` Flag to determine that the certificate is revoked and is not longer valid.
+- `datetime` :  `<string>` Datetime of when the transaction (signature, evidence or revocation) is done.
+- `hfTxId` :  `<string>` Current transaction identifier in Hyperledger Fabric.
+- `hash` :  `<string>` Hash of the transaction.
 
 <details>
   <summary><em><strong>Sample Metadata structure</strong></em> (Click to expand)</summary>
@@ -106,13 +106,13 @@ The certificate `metadata` contains the following fields:
 <br/>
 
 #### <u>Certificate access</u>
-Access contains **list of authorised users depending on their role** (i.e. admin, sign, read) for a certificate in order to control the possible interaction of every user 
+Access contains **list of authorised users depending on their role** (i.e. admin, sign, read) for a certificate in order to control the possible interaction of every user.
 
 The certificate `access` contains the following fields:
-- `admin` :  `<json>` Json of **admin**. An admin can manage, sign and revoke the certificate
-- `sign` :  `<json>` Json of **readers**. A signer can sign only once and read the certificate
-- `read` :  `<json>` Json of **readers**. A reader can only read and verify the certificate
-- `public` :  `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+- `admin` :  `<json>` Json of **admin**. An admin can manage, sign and revoke the certificate.
+- `sign` :  `<json>` Json of **readers**. A signer can sign only once and read the certificate.
+- `read` :  `<json>` Json of **readers**. A reader can only read and verify the certificate.
+- `public` :  `<bool>` Flag to determine whether the certificate is public and readable for all users or not.
 
 <details>
   <summary><em><strong>Sample Access structure</strong></em> (Click to expand)</summary>
@@ -150,13 +150,13 @@ Create a certificate from a specific content like file/document/collection of fi
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
 <u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate
-- `description`    :  `<string>` Short description of the certificate
-- `content`    :  `<json>` Content to certify (*)
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public 
-- `signers`    :  `<string array>` List of required signers
-- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+- `name`    :  `<string>` Name of the certificate.
+- `description`    :  `<string>` Short description of the certificate.
+- `content`    :  `<json>` Content to certify (*).
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not.
+- `readers`    :  `<string array>` List of readers, in case it is not public.
+- `signers`    :  `<string array>` List of required signers.
+- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601.
 
 
 <details>
@@ -261,15 +261,15 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 
 ####     POST -  `/certificate/asset/create` 
 Create a certificate from a file/document/collection of files on Blockchain. 
-A unique and irrevocable identifier (`certID`) is generated for every certificate
+A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
 <u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate
-- `description`    :  `<string>` Short description of the certificate
-- `assetID`    :  `<string>` Asset to certify (*)
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public 
-- `signers`    :  `<string array>` List of required signers
+- `name`    :  `<string>` Name of the certificate.
+- `description`    :  `<string>` Short description of the certificate.
+- `assetID`    :  `<string>` Asset to certify (*).
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not.
+- `readers`    :  `<string array>` List of readers, in case it is not public.
+- `signers`    :  `<string array>` List of required signers.
 
 
 <details>
@@ -371,10 +371,10 @@ If wanted to certify only transactions within a period or range of time, only yo
 ####    GET     -   `/certificate/{certID}`  
 
 
-Get certificate from the blockchain
+Get certificate from the blockchain.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
   
 <u>*Output*</u>
 - `certificate`    :  `<json>` 
@@ -440,10 +440,10 @@ Get certificate from the blockchain
 ---
 
 ####     POST -  `/certificate/{certID}/sign` 
-Sign a certificate 
+Sign a certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
 - `certificate`    :  `<json>` 
@@ -471,13 +471,13 @@ Sign a certificate
 ---
 
 ####     POST -  `/certificate/{certID}/sign/external` 
-Sign a certificate with external identity and keys
+Sign a certificate with external identity and keys.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
-- `signature`    :  `<string>` Signature 
-- `publicKey`    :  `<string>` External public key to verify the signature
-- `did`    :  `<string>` Signer DID identifier or internal identifier
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `signature`    :  `<string>` Signature.
+- `publicKey`    :  `<string>` External public key to verify the signature.
+- `did`    :  `<string>` Signer DID identifier or internal identifier.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -520,11 +520,11 @@ Sign a certificate with external identity and keys
 
 
 ####     POST -  `/certificate/{certID}/register` 
-Register a certificate evidence in public network
+Register a certificate evidence in public network.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
-- `network`    :  `<string>` Network to register the certificate evidence. Only available: Ethereum
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `network`    :  `<string>` Network to register the certificate evidence. Only available: Ethereum.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -569,10 +569,10 @@ Register a certificate evidence in public network
 ---
 
 ####     POST -  `/certificate/{certID}/revoke` 
-Revoke a certificate 
+Revoke a certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
 - `certificate`    :  `<json>` 
@@ -599,13 +599,13 @@ Revoke a certificate
 
 ####   GET  -     `/certificate/{certID}/history`  
 
-Get all transactions for the whole lifecycle of the certificate
+Get all transactions for the whole lifecycle of the certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
-- `Certificate transactions`    :  `<string>` A list of all transactions
+- `Certificate transactions`    :  `<string>` A list of all transactions.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -662,10 +662,10 @@ Get all transactions for the whole lifecycle of the certificate
 
 #### GET   -    `/certificates`  
 
-Lists all the certificates of a user
+Lists all the certificates of a user.
 
 <u>*Input*</u>
- N/A. It returns all the certificates which belong to the login user
+ N/A. It returns all the certificates which belong to the login user.
 
 <u>*Output*</u>
 - `Certificate list`    :  `<json>` 
@@ -691,13 +691,13 @@ Lists all the certificates of a user
 
 ####   GET  -     `/certificate/{certID}/access`  
 
-Get all granted accesses for the certificate
+Get all granted accesses for the certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
-- `Access`    :  `<string>` A list of all accesses
+- `Access`    :  `<string>` A list of all accesses.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -726,12 +726,12 @@ Get all granted accesses for the certificate
 
 ####   POST     - `/certificate/{certID}/access`  
 
-Authorise the reading access for a certificate. The user has to be the owner (admin) of the certificate. Readers are overwriten in every call
+Authorise the reading access for a certificate. The user has to be the owner (admin) of the certificate. Readers are overwriten in every call.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public 
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not.
+- `readers`    :  `<string array>` List of readers, in case it is not public.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -748,7 +748,7 @@ Authorise the reading access for a certificate. The user has to be the owner (ad
 <br>
 
 <u>*Output*</u>
-- `Access`    :  `<json>`  A list of all accesses
+- `Access`    :  `<json>`  A list of all accesses.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -777,13 +777,13 @@ Authorise the reading access for a certificate. The user has to be the owner (ad
 
 ####   GET  -     `/certificate/{certID}/signers`  
 
-Get the signers and their signatures for the certificate
+Get the signers and their signatures for the certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
-- `Signers`    :  `<string>` A list of all signers with their signature and public key
+- `Signers`    :  `<string>` A list of all signers with their signature and public key.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -804,11 +804,11 @@ Get the signers and their signatures for the certificate
 
 ####   POST  -     `/certificate/{certID}/signers/add`  
 
-Add new signers to the certificate
+Add new signers to the certificate.
 
 *Input*
-- `certID` :  `<string>` Unique identifier of the certificate
-- `signers`:  `<string array>` List of new signers
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `signers`:  `<string array>` List of new signers.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -821,7 +821,7 @@ Add new signers to the certificate
 </details>
 
 *Output*
-- `Metadata`    :  `<json>` A JSON of current metadata information
+- `Metadata`    :  `<json>` A JSON of current metadata information.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -856,12 +856,12 @@ Add new signers to the certificate
 
 ####   POST  -     `/certificate/{certID}/advancedsign/init`  
 
-Initialise advanced signature flow for a certificate 
+Initialise advanced signature flow for a certificate.
 
 *Input*
-- `certID` :  `<string>` Unique identifier of the certificate
-- `platform`:  `<string array>` Third party platform to use for advanced signature
-- `signers`:  `<json array>` List of advanced signers that will be part of the advanced signature flow (email, name and internal identifier)
+- `certID` :  `<string>` Unique identifier of the certificate.
+- `platform`:  `<string array>` Third party platform to use for advanced signature.
+- `signers`:  `<json array>` List of advanced signers that will be part of the advanced signature flow (email, name and internal identifier).
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -886,7 +886,7 @@ Initialise advanced signature flow for a certificate
 </details>
 
 *Output*
-- `Metadata`    :  `<json>` A JSON of current metadata information
+- `Metadata`    :  `<json>` A JSON of current metadata information.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -926,13 +926,13 @@ Initialise advanced signature flow for a certificate
 
 ####   GET  -     `/certificate/{certID}/advancedsign/status`  
 
-Get the signers and their signatures for the certificate
+Get the signers and their signatures for the certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
-- `Status`    :  `<json>` A JSON of status information about the advanced signature flow and the respective signers
+- `Status`    :  `<json>` A JSON of status information about the advanced signature flow and the respective signers.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -979,13 +979,13 @@ Get the signers and their signatures for the certificate
 
 ####   GET  -     `/certificate/{certID}/advancedsign/document`  
 
-Get the signers and their signatures for the certificate
+Get the signers and their signatures for the certificate.
 
 <u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+- `certID` :  `<string>` Unique identifier of the certificate.
 
 <u>*Output*</u>
-- `Document`    :  `<json>` A JSON with the document signed / pending to be signed (`DocContent`) in base64 format and other useful information
+- `Document`    :  `<json>` A JSON with the document signed/pending to be signed (`DocContent`) in base64 format and other useful information.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1007,7 +1007,7 @@ Get the signers and their signatures for the certificate
 
 ####   POST  -     `/certificate/advancedsign/notification`  
 
-Receive notifications from any advanced signature flow
+Receive notifications from any advanced signature flow.
 
 This method and route requires a special authorization process, don't hesitate to ask us in order to provide you more detailed information.
 
@@ -1019,7 +1019,7 @@ This method and route requires a special authorization process, don't hesitate t
 As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
 ## Testing the Application
-In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-certapi module
+In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-certapi module.
 
 Also you can download the files in the links below:
 

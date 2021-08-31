@@ -4,7 +4,7 @@ Track API is used to create, manage, and follow life cycle of **digital assets**
 
 ## API Specification
 
-An abstraction API with all the asset functionalities
+An abstraction API with all the asset functionalities.
 ### Asset
 An asset is a digital representation of a real asset in the physical world. An asset records every single state or data change (f.e. the update of metadata, the transfer of ownership, etc.) This allow us to track the whole transactions since its creation in an inmutable and transparent way.
 
@@ -54,13 +54,9 @@ There are two types of assets: owned assets and authorised assets. These last on
 In order to interact with both assets in some functions it is necessary to put a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to put the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
 
  GET  -     `/asset/{assetId}?isAuthorised=true`  
-
  GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
-
  GET  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
-
- GET  -     `/assets`  
- 
+ GET  -     `/assets?isAuthorised=true`  
  POST -     `/asset/{assetId}/update?isAuthorised=true`  
 
 ## API Methods
@@ -76,9 +72,9 @@ In order to interact with both assets in some functions it is necessary to put a
 Ceate a digital asset on a Blockchain. 
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Unique identifier of the asset
-- `data`    :  `<json>` JSON of **inmutable** data. It can have as many field as required
-- `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `data`    :  `<json>` JSON of **inmutable** data. It can have as many field as required.
+- `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -132,11 +128,10 @@ Ceate a digital asset on a Blockchain.
 ####    GET     -   `/asset/{assetId}?isAuthorised=boolean`  
 
 
-Get asset from the blockchain identified by assetId
+Get asset from the blockchain identified by assetId.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Unique identifier of the asset
-- 
+- `assetid` :  `<string>` Unique identifier of the asset.
   
 <u>*Output*</u>
 - `asset`    :  `<json>` 
@@ -170,13 +165,13 @@ Get asset from the blockchain identified by assetId
 
 ####   GET  -     `/asset/{assetId}/transactions`  
 
-Get all transactions for the whole lifecycle of the asset
+Get all transactions for the whole lifecycle of the asset.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Unique identifier of the asset
+- `assetid` :  `<string>` Unique identifier of the asset.
 
 <u>*Output*</u>
-- `args`    :  `<string>` A list of all transactions
+- `args`    :  `<string>` A list of all transactions.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -229,8 +224,8 @@ Get all transactions for the whole lifecycle of the asset
 Transfer the ownership of the asset. The user has to be the owner of the asset.
 
 <u>*Input*</u>
-- `assetid` :  `<string>` Unique identifier of the asset
-- `destinationId` :  `<string>` The destination owner
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `destinationId` :  `<string>` The destination owner.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -271,12 +266,12 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
 
 ####  POST    `/asset/{assetId}/update`  
 
-Updates the **mutable** ("metadata") of an asset
+Updates the **mutable** ("metadata") of an asset.
 
 <u>*Input*</u>
 
-- `assetid` :  `<string>` Unique identifier of the asset
-- `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -330,8 +325,8 @@ Updates the **mutable** ("metadata") of an asset
 Authorise user access for an asset. Only the asset owner can do this.
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
-- `userId` :  `<string>` The authorised user
+- `assetId` :  `<string>` Unique identifier of the asset.
+- `userId` :  `<string>` The authorised user.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -366,8 +361,8 @@ Authorise user access for an asset. Only the asset owner can do this.
 Unauthorise user access for an asset. Only the asset owner can do this.
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
-- `userId` :  `<string>` The unauthorised user
+- `assetId` :  `<string>` Unique identifier of the asset.
+- `userId` :  `<string>` The unauthorised user.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -403,8 +398,8 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 Creates an admin user that is going to be able to authorise other users. Only the asset owner can do this. There can be more than one admin user and the admin can be admin from different assets of different owners.
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
-- `userId` :  `<string>` The user that is going to manage the asset access
+- `assetId` :  `<string>` Unique identifier of the asset.
+- `userId` :  `<string>` The user that is going to manage the asset access.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -441,9 +436,9 @@ Creates an admin user that is going to be able to authorise other users. Only th
 Authorise user access for an asset. Only the asset admin can do this.
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
-- `userId` :  `<string>` The authorised user
-- `ownerId` :  `<string>` The asset's owner
+- `assetId` :  `<string>` Unique identifier of the asset.
+- `userId` :  `<string>` The authorised user.
+- `ownerId` :  `<string>` The asset's owner.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -479,9 +474,9 @@ Authorise user access for an asset. Only the asset admin can do this.
 Unauthorise user access for an asset. Only the asset owner can do this.
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
-- `userId` :  `<string>` The unauthorised user
-- `ownerId` :  `<string>` The asset's owner
+- `assetId` :  `<string>` Unique identifier of the asset.
+- `userId` :  `<string>` The unauthorised user.
+- `ownerId` :  `<string>` The asset's owner.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -518,8 +513,8 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 Delete an admin user that is not going to be able to authorise other users. Only the asset owner can do this. 
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
-- `userId` :  `<string>` The user that is going to manage the asset access
+- `assetId` :  `<string>` Unique identifier of the asset.
+- `userId` :  `<string>` The user that is going to manage the asset access.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -554,7 +549,7 @@ Delete an admin user that is not going to be able to authorise other users. Only
 Add rules to monitor asset parameters.
 
 <u>*Input*</u>
-- `assetId` :  `<string>` Unique identifier of the asset
+- `assetId` :  `<string>` Unique identifier of the asset.
 - `rules`:  `<json>` JSON of rules. It can have at least two fields: value & range, to specify a constant value or range of values that has to accomplish a parameter. Every rule (value, range) can contain as many conditions for different parameters as necessary. However it's noted that a use of quite many conditions affects the performance of the asset udpates.
 
 <details>
@@ -622,11 +617,11 @@ Add rules to monitor asset parameters.
 
 #### GET   -    `/assets`  
 
-Lists all the assets of a user
+Lists all the assets of a user.
 
 <u>*Input*</u>
 
-N/A. It returns all the assets which belong to the login user
+N/A. It returns all the assets which belong to the login user.
 
 <u>*Output*</u>
 - `assetList`    :  `<json>` 
@@ -723,7 +718,7 @@ Transaction after registering a trustpoint in Ethereum:
 As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
 ## Testing the Application
-In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trackapi module
+In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-trackapi module.
 
 Also you can download the files in the links below:
 
