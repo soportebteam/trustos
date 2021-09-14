@@ -52,13 +52,15 @@ Every asset has the following structure:
 
 There are two types of assets: owned assets and authorised assets. These last ones, the `authorised assets`  are assets created by other users that have granted you access allowing you to consult and update it. 
 
-In order to interact with both assets in some functions it is necessary to set a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to put the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
+In order to interact with both assets in some functions it is necessary to set a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to set the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
 
 - GET  -     `/asset/{assetId}?isAuthorised=true`  
 - GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
 - POST  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
 - GET  -     `/assets?isAuthorised=true`  
 - POST -     `/asset/{assetId}/update?isAuthorised=true`  
+
+To manage your own assets you must set the parameter to false (`...?isAuthorised=false`).
 
 ## API Methods
 
@@ -133,7 +135,7 @@ Get asset from the blockchain identified by assetId.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset.
-- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
 
 (*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
   
@@ -173,7 +175,7 @@ Get all transactions for the whole lifecycle of the asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset.
-- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
 
 (*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
 
@@ -232,7 +234,7 @@ Get all transactions within a range for the whole lifecycle of the asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset.
-- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
 - `rangeAsset`    :  `<json>` JSON object to define range.
 
 (*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
@@ -704,7 +706,7 @@ Lists all the assets of a user.
 
 <u>*Input*</u>
 
-- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
 
 (*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
 
