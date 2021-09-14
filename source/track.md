@@ -56,7 +56,7 @@ In order to interact with both assets in some functions it is necessary to set a
 
 - GET  -     `/asset/{assetId}?isAuthorised=true`  
 - GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
-- GET  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
+- POST  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
 - GET  -     `/assets?isAuthorised=true`  
 - POST -     `/asset/{assetId}/update?isAuthorised=true`  
 
