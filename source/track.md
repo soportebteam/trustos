@@ -48,16 +48,17 @@ Every asset has the following structure:
 </details> 
 <br>
 
+### Authorised assets
 
 There are two types of assets: owned assets and authorised assets. These last ones, the `authorised assets`  are assets created by other users that have granted you access allowing you to consult and update it. 
 
-In order to interact with both assets in some functions it is necessary to put a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to put the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
+In order to interact with both assets in some functions it is necessary to set a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to put the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
 
- GET  -     `/asset/{assetId}?isAuthorised=true`  
- GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
- GET  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
- GET  -     `/assets?isAuthorised=true`  
- POST -     `/asset/{assetId}/update?isAuthorised=true`  
+- GET  -     `/asset/{assetId}?isAuthorised=true`  
+- GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
+- GET  -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
+- GET  -     `/assets?isAuthorised=true`  
+- POST -     `/asset/{assetId}/update?isAuthorised=true`  
 
 ## API Methods
 
@@ -132,6 +133,9 @@ Get asset from the blockchain identified by assetId.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+
+(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
   
 <u>*Output*</u>
 - `asset`    :  `<json>` 
@@ -163,12 +167,88 @@ Get asset from the blockchain identified by assetId.
 
 ---
 
-####   GET  -     `/asset/{assetId}/transactions`  
+####   GET  -     `/asset/{assetId}/transactions?isAuthorised=boolean`  
 
 Get all transactions for the whole lifecycle of the asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+
+(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
+
+<u>*Output*</u>
+- `args`    :  `<string>` A list of all transactions.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": [
+    {
+      "assetid": "exampleAsset",
+      "data": {
+        "id":"A2839RP",
+        "version":"1"
+      },
+      "datetime": 1559820650,
+      "hash": "zCZygxQBp5HBVm+SSUCCrgJfV3+CegaOzV9m+UxDsY8=",
+      "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d06",
+      "trustpoint": {},
+      "metadata": {
+        "color": "blue",
+        "position": { "x": 98.35, "y": -12.32}
+      },
+      "userOwner": "test:org1MSP"
+      },
+    {
+      "assetid": "exampleAsset",
+      "data": {
+        "id":"A2839RP",
+        "version":"1"
+      },
+      "datetime": 1559820650,
+      "hash": "oCZygxQBp5HBVm+SSUCCrgJfV3+CeghOzV9m+UxDsY8=",
+      "hftxid": "d249f267fd2dd58b6bff9d6780d31f3a04ab3a8c5b340b39ab48aed8fac55d05",
+      "trustpoint": {},
+      "metadata": {
+        "color": "red",
+        "position": { "x": 23.34, "y": -24.22}
+      }
+      "userOwner": "test:org1MSP"
+    }
+  ]
+}
+
+```
+</details>
+
+---
+
+####   POST  -     `/asset/{assetId}/transactions/range?isAuthorised=boolean`  
+
+Get all transactions within a range for the whole lifecycle of the asset.
+
+<u>*Input*</u>
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+- `rangeAsset`    :  `<json>` JSON object to define range.
+
+(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "init": "0",
+  "end": "1575975331"
+}
+```
+</details>
+<br>
+
 
 <u>*Output*</u>
 - `args`    :  `<string>` A list of all transactions.
@@ -264,14 +344,17 @@ Transfer the ownership of the asset. The user has to be the owner of the asset.
 
 ---
 
-####  POST    `/asset/{assetId}/update`  
+####  POST    `/asset/{assetId}/update?isAuthorised=boolean`  
 
 Updates the **mutable** ("metadata") of an asset.
 
 <u>*Input*</u>
 
 - `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to update own (false) or authorised (true) assets.
 - `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required.
+
+(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -615,13 +698,15 @@ Add rules to monitor asset parameters.
 
 ---
 
-#### GET   -    `/assets`  
+#### GET   -    `/assets?isAuthorised=boolean`  
 
 Lists all the assets of a user.
 
 <u>*Input*</u>
 
-N/A. It returns all the assets which belong to the login user.
+- `isAuthorised`: `<boolean>` Flag to get own (false) or authorised (true) assets.
+
+(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
 
 <u>*Output*</u>
 - `assetList`    :  `<json>` 
