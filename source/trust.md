@@ -140,6 +140,17 @@ Creates a trust point in the system for a specific asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
+- `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "metadata": {}
+}
+```
+</details>
   
 <u>*Output*</u>
 - `trustpoint`    :  `<json>` 
@@ -234,6 +245,17 @@ Creates a trust point if does not exist and registers it in Ethereum. If the tru
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
+- `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "metadata": {}
+}
+```
+</details>
   
 <u>*Output*</u>
 - `trustpoint` :  `<json>` 
