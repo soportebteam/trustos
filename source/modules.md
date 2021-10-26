@@ -24,5 +24,4 @@ Ensure confidence and integrity in the information generated in your business. O
 
 ## [ID](id.html)
 
-Management of digital identity according to user preference. 
-
+Identity management and decentralised services. Through this module it is possible to create and manage identities. TrustOS acts as the custodian of the identity keys, but it is also possible to operate with external identities and even import them. In addition, it has integration with OpenID to operate with identities generated in the different identity providers.

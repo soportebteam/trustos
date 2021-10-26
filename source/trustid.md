@@ -3,17 +3,17 @@
  
 TrustID is a standalone identity module for TrustOS. We followed a decentralized identity approach for its design, where users (and services) are identified through a DID. 
 
-TrustID is an opensource project and it was released as an opensource project under the umbrella of the Hyperledger Labs
+TrustID is an opensource project and it was released as an opensource project under the umbrella of the Hyperledger Labs.
 
 These DIDs follow the W3C standard, and they serve as a unique ID to identify users. DIDs aggregate all the pieces of public information required to authenticate a user (i.e., their public key or X.509 certificate).
 
-This is the structure of a DID Identity
+This is the structure of a DID Identity:
 
-- `id` :  `<string>` Unique identifier of the identity using the W3C standard
-- `pubkey` :  `<String>` Public key of the identity
-- `privkey` :  `<string>` Private key of the identity
-- `type` :  `<string>` Algorithm used in order to generate the keys 
-- `controller` :  `<String>` Verifier of the identity. In future, an identity should have more than one controller
+- `id` :  `<string>` Unique identifier of the identity using the W3C standard.
+- `pubkey` :  `<String>` Public key of the identity.
+- `privkey` :  `<string>` Private key of the identity.
+- `type` :  `<string>` Algorithm used in order to generate the keys.
+- `controller` :  `<String>` Verifier of the identity. In future, an identity should have more than one controller.
 
 Example:
 ````
@@ -29,10 +29,10 @@ Example:
 
 This is the structure that is stored in the DLT platform that belongs to an user or device identity:
 
-- `Did` :  `<string>` Unique identifier of the identity using the W3C standard
-- `PubKey` :  `<String>` Public key of the identity
-- `Controller` :  `<String>` Verifier of the identity. In future, an identity should have more than one controller
-- `Access` :  `<integer>` Policy of the identity in order of identity operations, 0 root, 1 admin, 2 user. 
+- `Did` :  `<string>` Unique identifier of the identity using the W3C standard.
+- `PubKey` :  `<String>` Public key of the identity.
+- `Controller` :  `<String>` Verifier of the identity. In future, an identity should have more than one controller.
+- `Access` :  `<integer>` Policy of the identity in order of identity operations, 0 root, 1 admin, 2 user.
 
 Example
 ````
@@ -44,14 +44,14 @@ Example
 }
 ````
 
-This is the structure of a service identity
+This is the structure of a service identity:
 
 
-- `serviceID` :  `<string>` Unique identifier for the service
-- `Name` :  `<string>` Chaincode or smart contract identifier at the DLT level
-- `Controller` :  `<string>` Owner/admin of the service
+- `serviceID` :  `<string>` Unique identifier for the service.
+- `Name` :  `<string>` Chaincode or smart contract identifier at the DLT level.
+- `Controller` :  `<string>` Owner/admin of the service.
 - `Access` :  `<string>` Access policy to the service.
-- `Channel` :  `<string>` Network ID of the service 
+- `Channel` :  `<string>` Network ID of the service.
 
 Example: 
 
@@ -68,7 +68,7 @@ Example:
 
 In order to uniquely identify chaincodes and services deployed in TrustOS, we decided to also give them DIDs so that they could be seamlessly discovered and accessed even if they "live" in independent channels not shared by all the organizations of the network. 
 
-All the authentication and management of identities in the system is performed on-chain through an "Identity Chaincode."
+All the authentication and management of identities in the system is performed on-chain through an "Identity Chaincode".
 
 If user A wants to start interacting with the network, he requests the generation of a new DID. The related keys to this DID could be an existing X.509 issued by a valid organization, or even an Ethereum-related public key (internally we use all the JWS, JWE, JWK, secp256k1, etc. RFCs to make our Fabric infrastructure compatible with identities of any nature for the sake of interoperability). This DID generation request has to be validated by a valid organization of the network. Once verified, every transaction signed by user A and directed through a Proxy chaincode is authenticated successfully and delegated to the corresponding chaincode.
 
@@ -81,8 +81,7 @@ TrustID is designed to ease the management of identities for the case of TrustOS
 
 ## TrustID SDK
 
-This SDK exposes all the functionalities required to interact with
-TrustID-based DLT networks. 
+This SDK exposes all the functionalities required to interact with TrustID-based DLT networks. 
 
 ### Install
 * To install this library you need access to the private repo:
@@ -95,28 +94,25 @@ The library has the following modules:
 
 #### Wallet
 
-* `wallet.ts`: Core module of the library. It wraps all the state and
-logic for identity management and interaction with TrustID networks.
-To start using the SDK a new wallet needs to be initialized. A wallet
-exposes the following methods:
-    * `setKeystore(keystore: Keystore): void`: Sets a type of keystore, supported: In memory, filesystem, mongodb
-    * `generateDID(type: string, controller: string, passphrase): DID`: Generates an identity
-    * ` storeDID(did: DID): Promise<boolean>`: Stores the did in the keystore
-    * `updateDID(did: DID): Promise<boolean> `: Updates info from DID
-    * `listDID(): string[]`: Returns dids stored in keystore
-    * `recoverKeySSS(id: string, secrets: Buffer[], newPassword: string): Promise<void>`: Recovers the key 
-    * `updatePassword(id: string, oldPassphrase:,passphrase: string=""): Promise<void> `: Updates the password to unlock the did
-    * `updateTempKeyDID(id: string, passphrase:,tempPassphrase: string=""): Promise<void>`: Unlocks the account with a temporal key
+* `wallet.ts`: Core module of the library. It wraps all the state and logic for identity management and interaction with TrustID networks. To start using the SDK a new wallet needs to be initialized. A wallet exposes the following methods:
+    * `setKeystore(keystore: Keystore): void`: Sets a type of keystore, supported: in memory, filesystem, mongodb.
+    * `generateDID(type: string, controller: string, passphrase): DID`: Generates an identity.
+    * ` storeDID(did: DID): Promise<boolean>`: Stores the did in the keystore.
+    * `updateDID(did: DID): Promise<boolean> `: Updates info from DID.
+    * `listDID(): string[]`: Returns dids stored in keystore.
+    * `recoverKeySSS(id: string, secrets: Buffer[], newPassword: string): Promise<void>`: Recovers the key.
+    * `updatePassword(id: string, oldPassphrase:,passphrase: string=""): Promise<void> `: Updates the password to unlock the did.
+    * `updateTempKeyDID(id: string, passphrase:,tempPassphrase: string=""): Promise<void>`: Unlocks the account with a temporal key.
     * `addNetwork(id: string, network: TrustID): void`: Adds a new network to interact to.
     
 
 #### Class DID
-* `class DID`: Has the following structure. 
+* `class DID`: Has the following structure:
   * `id: string`: Id string that identifies the DID.
   * `pubkey: string`: PublicKey of the DID.
   * `type: string`: Key type (RSA / EC / OKP).
-  * `controller: string`: Verifier of the identity
-  * `access: number`: Access level
+  * `controller: string`: Verifier of the identity.
+  * `access: number`: Access level.
   * `private privkey: string`: Private Key of the DID.
   * `private recoveryKey: string`: Private Key to recover the DID.
 
@@ -126,25 +122,23 @@ And exposes the following functions:
   * `lockAccount(): any`: Locks the private key for a DID.
   * `sign(payload: object, passphrase: string): string`: Sign a payload with a specific DID.
   * `verify(signature: string, id: string): any`: Verifies a signature from a DID.
-  * `updatePassword(oldPassphrase:, passphrase:): Promise < DID >`: Updates the password
+  * `updatePassword(oldPassphrase:, passphrase:): Promise < DID >`: Updates the password.
   * `generateRecoveryKey(password:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing.
   * `generateRecoveryKeyTemp(passwordTemp:string, shares: number, threshold: number): Promise <Buffer[]>`: Generates the recovery key using shamirs secrets sharing unlocking the account with the temporal Key.
-
   * `recoverKey(secrets: Buffer[], newPassword: string): Promise < DID >`: Recovers the key using the secrets generated with Shamirs secrets sharing algorithm.
   * `exportDID(withPrivate: boolean)` : Exports a Did stored in the keystore.
   * `importDID(obj: any)`: Imports a DID and stores it in the keystore.
-  * `sign(payload: object): Promise < string >`: Generates a JWS from a payload using an id from the wallet
-  * `verify(signature: string, did: DID): Promise < any > `: Verifies a JWS from a payload using a did
+  * `sign(payload: object): Promise < string >`: Generates a JWS from a payload using an id from the wallet.
+  * `verify(signature: string, did: DID): Promise < any > `: Verifies a JWS from a payload using a did.
 
 #### TrustID operations
 
-* `TrustID.ts`: Interface that enables the inteoperation  between the drivers and the different  functionalities of TrustID. The only component implemented currently is the `trustIDhf.ts` enabling the interaction with Hyperledger Fabric TrustID
+* `TrustID.ts`: Interface that enables the inteoperation  between the drivers and the different  functionalities of TrustID. The only component implemented currently is the `trustIDhf.ts` enabling the interaction with Hyperledger Fabric TrustID.
 networks.
-
   * `configureDriver(endpoint: string): void`: Sets the network endpoint to interact with the TrustID network.
   * `disconnectDriver(endpoint: string): void`: Disconects the network endpoint to interact with the TrustID network.
   * `createIdentity(did: DID): Promise<object>`: Create an identity in TrustID. It generates a new DID in the wallet and register it in the network.
-  * `importIdentity(did: DID, controller?: DID)`: Imports an existing identity to the chaincode
+  * `importIdentity(did: DID, controller?: DID)`: Imports an existing identity to the chaincode.
   * `verifyIdentity(adminDID: DID, id:string): Promise<object>`: Verifies an identity as an admin.
   * `getIdentity(did: DID, id: string): Promise<object>`: Gets a registered identity from TrustID.
   * `revokeIdentity(adminDID: DID, id: string): Promise<object>`: Revokes a registered identity. Only supported by the owner or controller of the DID.
@@ -153,8 +147,7 @@ networks.
   * `updateServiceAccess(did: DID, serviceDID: string, access: AccessPolicy): Promise<object>`: Updates the access from a service.
   * `getService(did: DID, serviceDID: string): Promise<object>`: Gets information from a registered service.
   * `invoke (did: DID, serviceDID: string, args: string[], channel: string): Promise<object>`: Invokes a function of a registered service in the TrustID network.
-  * `query(did: DID, serviceDID: string, args: string[], channel: string): Promise<object>`: Queries a function of a registered service in the TrustID network
-
+  * `query(did: DID, serviceDID: string, args: string[], channel: string): Promise<object>`: Queries a function of a registered service in the TrustID network.
  * `PolicyType (policy: PolicyType, threshold:?Number, registry:?object)`: It
     defined the policyType to be used for a service. There are currently three
     types of policyTypes supported (more could be easily added according to
@@ -175,21 +168,17 @@ networks.
 
 #### Driver operations
 
-* `driver.ts`: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is
-the `hfdriver.ts` enabling the interaction with Hyperledger Fabric TrustID
-networks.
+* `driver.ts`: Interface that enables the implementation of connection drivers with different TrustID networks. The only driver implemented currently is the `hfdriver.ts` enabling the interaction with Hyperledger Fabric TrustID networks.
 
-  * `connect(config: object): Promise<object>;`: Connects with a DLT networks
-  * `disconnect(config: object): void`: Disconnects of a DLT network 
-  * `checkConnection(channelName?:string): Promise<object>`: Check the connection with a DLT
-  *  `callContractTransaction(id: string, fcn: string, args: any, channel?: string): Promise<object>`: Write operation in the DLT
-  *  `getContractTransaction(id: string, fcn: string, args: any, channel?: string): Promise<object>`: Read operation in the DLT
+  * `connect(config: object): Promise<object>;`: Connects with a DLT networks.
+  * `disconnect(config: object): void`: Disconnects of a DLT network.
+  * `checkConnection(channelName?:string): Promise<object>`: Check the connection with a DLT.
+  *  `callContractTransaction(id: string, fcn: string, args: any, channel?: string): Promise<object>`: Write operation in the DLT.
+  *  `getContractTransaction(id: string, fcn: string, args: any, channel?: string): Promise<object>`: Read operation in the DLT.
 
 #### Keystore
 
-* `keystore.ts`: Interface that enables the implementation of keystore storages.
-    There are currently two implementations of keystore supported: `FileKeystore.ts` (to store DIDs in file keystore)and `MongoKeystore.ts` (to store DIDs in MongoDB). 
-
+* `keystore.ts`: Interface that enables the implementation of keystore storages.bThere are currently two implementations of keystore supported: `FileKeystore.ts` (to store DIDs in file keystore)and `MongoKeystore.ts` (to store DIDs in MongoDB).
     * `abstract getDID(id: string): DID`: It gets specific DID from keystore.
     * `abstract storeDID(did: DID): boolean`: It stores DID in keystore.
     * `abstract updateDID(did: DID): boolean`: It updates DID in keystore.
@@ -198,8 +187,7 @@ networks.
     * `setDefault(did: DID): boolean`: Set DID as default identity for the keystore wallet.
 
 
-If you want additional information of TrustID, its SDK and its functionality
-check the following [repo](https://github.com/hyperledger-labs/TrustID).
+If you want additional information of TrustID, its SDK and its functionality check the following [repo](https://github.com/hyperledger-labs/TrustID).
 
 
 ### Example of use
@@ -273,8 +261,8 @@ console.log("[*] Asset registered\n", res)
 
 
 ## Roadmap
-- TrustID compatible with Hyperledger Indy, Verifiable Credentials, etc
-- Anonymous authentication with anonymous transactions
+- TrustID compatible with Hyperledger Indy, Verifiable Credentials, etc.
+- Anonymous authentication with anonymous transactions.
 - Integration with other Identity Providers, related with the non-blockchain world.
-- Support for other Keys algorithms, now only RSA is supported
+- Support for other Keys algorithms, now only RSA is supported.
 - Compatibility with Ethereum keys.

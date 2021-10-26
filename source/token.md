@@ -11,11 +11,11 @@ An abstraction API with all the token functionalities.
 A token is an asset that gets a transferable value on the blockchain network and can represent whatever it can be imagined, either an abstract or real/physic thing. The term is a little bit confusing at first, since a token can represent the whole class, in which the total supply is declarated, or individual tokens (balances) transferable between users.
 
 Every token has the following structure:
-- `name` :  `<string>`  Name of the generic token
-- `symbol` : `<string>` Shortname for the token
-- `owner` :  `id<string>:company<string>`  Owner of the token. It has to be specified the ID of the owner and the ID of the organization it belongs to inside the organization
-- `ethereumAddress`: `<string>` Address in the Ethereum blockchain, in case we want to link it to a public blockchain token
-- `totalSupply` :  `<integer>` Total number of individual tokens issued
+- `name` :  `<string>`  Name of the generic token.
+- `symbol` : `<string>` Shortname for the token.
+- `owner` :  `id<string>:company<string>`  Token owner. It has to be specified the ID of the owner and the ID of the organization it belongs to inside the organization.
+- `ethereumAddress`: `<string>` Address in the Ethereum blockchain, in case we want to link it to a public blockchain token.
+- `totalSupply` :  `<integer>` Total number of individual tokens issued.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -44,14 +44,14 @@ Every token has the following structure:
 
 #### POST   -   `/token/create`
 
-Initialize a new token in the network with some specific information
+Initialize a new token in the network with some specific information.
 
 <u>*Input*</u>
-- `name` :  `<string>` Name of the token
-- `symbol` : `<string>` Shortname of the token
-- `owner` :  `identifier<string>:company<string>` Owner of the token contract
-- `ethereumAddress` :  `<string>` This address represents the smart contract in Ethereum associated to the token. At the moment is given as an input, but in future releases it will be created by the chaincode and given to the developer as a response 
-- `totalSupply` :  `<integer>`  Total amount of individual tokens that will be created
+- `name` :  `<string>` Token name.
+- `symbol` : `<string>` Token shortname.
+- `owner` :  `identifier<string>:company<string>` Token owner contract.
+- `ethereumAddress` :  `<string>` This address represents the smart contract in Ethereum associated to the token. At the moment is given as an input, but in future releases it will be created by the chaincode and given to the developer as a response.
+- `totalSupply` :  `<integer>`  Total amount of individual tokens that will be created.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -96,10 +96,10 @@ Initialize a new token in the network with some specific information
 
 #### GET   -   `/token/{tokenId}`
 
-Gets all the token information
+Gets all the token information.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
+- `tokenId` :  `<string>`  Token identifier..
   
 <u>*Output*</u>
 - `token`    :  `<string>` 
@@ -131,12 +131,12 @@ Gets all the token information
 This call tells if some specific spender is allowed by some owner to performs actions over the token.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
-- `ownerId`   :  `<string>`  Owner of the token
-- `spenderId` :  `<string>`  Person from whom we want to know how much he is allowed to spend
+- `tokenId` :  `<string>`  Token name.
+- `ownerId`   :  `<string>`  Token owner.
+- `spenderId` :  `<string>`  Person from whom we want to know how much he is allowed to spend.
   
 <u>*Output*</u>
-- `allowed`  : `<integer>` Quantity of tokens he is allowed to spend
+- `allowed`  : `<integer>` Quantity of tokens he is allowed to spend.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -155,12 +155,12 @@ This call tells if some specific spender is allowed by some owner to performs ac
 ---
 
 #### POST   -   `/token/{tokenId}/approve`
-Approve a different spender for a amount of token you own
+Approve a different spender for a amount of token you own.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
-- `spender` :  `<string>` Name of the spender user
-- `value`   :  `<int>`    Amount that is allowed to spend
+- `tokenId` :  `<string>`  Token name.
+- `spender` :  `<string>` Name of the spender user.
+- `value`   :  `<int>`    Amount that is allowed to spend.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -176,8 +176,8 @@ Approve a different spender for a amount of token you own
 <br>
 
 <u>*Output*</u>
-- `id`    :  `<string>`  Id of the transaction
-- `message`    :  `<string>`  Message of the approve transaction
+- `id`    :  `<string>`  Transaction id.
+- `message`    :  `<string>`  Message of the approve transaction.
 
 
 <details>
@@ -199,15 +199,15 @@ Approve a different spender for a amount of token you own
 ---
 
 #### GET   -   `/token/{tokenId}/balance/{userID}`
-Gets the token balance of a user
+Gets the token balance of a user.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
-- `userId`  :  `<string>`  Name of the user
+- `tokenId` :  `<string>`  Token name.
+- `userId`  :  `<string>`  User did.
   
 <u>*Output*</u>
-- `balance`    :  `<integer>`  User's balance
-- `blocked_balance`    :  `<integer>`  User's blocked balance
+- `balance`    :  `<integer>`  User's balance.
+- `blocked_balance`    :  `<integer>`  User's blocked balance.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -228,13 +228,13 @@ Gets the token balance of a user
 ---
 
 #### GET   -   `/token/{tokenId}/transactions`
-Get the token transaction history
+Get the token transaction history.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Id of the token
+- `tokenId` :  `<string>`  Token identifier.
   
 <u>*Output*</u>
-- `list` :  `<json>`  List of transactions of the token
+- `list` :  `<json>`  List of transactions of the token.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -266,12 +266,12 @@ Get the token transaction history
 ---
 
 #### POST   -   `/token/{tokenId}/transfer`
-Transfers individual tokens (balances of a token class)
+Transfers individual tokens (balances of a token class).
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
-- `to`      :  `<string>`  Destination user
-- `value`   :  `<string>`  Balance to transfer
+- `tokenId` :  `<string>`  Token name.
+- `to`      :  `<string>`  Destination user.
+- `value`   :  `<string>`  Balance to transfer.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -287,8 +287,8 @@ Transfers individual tokens (balances of a token class)
 </details> <br>
   
 <u>*Output*</u>
-- `id`    :  `<string>`  Id of the transaction
-- `message`    :  `<string>`  Message of the approve transaction
+- `id`    :  `<string>`  Transaction id.
+- `message`    :  `<string>`  Message of the approve transaction.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -309,12 +309,12 @@ Transfers individual tokens (balances of a token class)
 
 #### POST   -   `/token/{tokenId}/transferfrom`
 
-Transfer / withdraw from a user. The user has to be approved to spend individual tokens
+Transfer / withdraw from a user. The user has to be approved to spend individual tokens.
 
 <u>*Input*</u>
-- `from` :  `<string>`  Person who approves to spend. He has to have a positive balance
-- `to`   :  `<string>`  Destination user of the funds
-- `value`:  `<string>`  Amount of tokens
+- `from` :  `<string>`  Person who approves to spend. He has to have a positive balance.
+- `to`   :  `<string>`  Destination user of the funds.
+- `value`:  `<string>`  Amount of tokens.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -330,8 +330,8 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 </details><br>
 
 <u>*Output*</u>
-- `id`    :  `<string>`  Id of the transaction
-- `message`    :  `<string>`  Message of the approve transaction
+- `id`    :  `<string>`  Transaction id.
+- `message`    :  `<string>`  Message of the approve transaction.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -350,11 +350,11 @@ Transfer / withdraw from a user. The user has to be approved to spend individual
 
 #### POST   -   `/token/{tokenId}/transferownership`
 
-Transfer the ownership of a generic token
+Transfer the ownership of a generic token.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
-- `to`      :  `<string>`  New owner
+- `tokenId` :  `<string>`  Token name.
+- `to`      :  `<string>`  New owner.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -369,7 +369,7 @@ Transfer the ownership of a generic token
 </details><br>
 
 <u>*Output*</u>
-- `token`  :  `<json>`  Token with updated parameters
+- `token`  :  `<json>`  Token with updated parameters.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -392,12 +392,12 @@ Transfer the ownership of a generic token
 
 #### POST   -   `/token/{tokenId}/transferblock`
 
-Transfer individual tokens as a blocked balance for a user
+Transfer individual tokens as a blocked balance for a user.
 
 <u>*Input*</u>
-- `tokenId` :  `<string>`  Name of the token
-- `to`      :  `<string>`  Destination user of the blocked funds
-- `value`   :  `<string>`  Amount of tokens to be blocked
+- `tokenId` :  `<string>`  Token name.
+- `to`      :  `<string>`  Destination user of the blocked funds.
+- `value`   :  `<string>`  Amount of tokens to be blocked.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -413,9 +413,9 @@ Transfer individual tokens as a blocked balance for a user
 </details><br>
 
 <u>*Output*</u>
-- `blocked_id`    :  `<string>`  Id of the transaction
-- `id`    :  `<string>`  Id of the transaction
-- `message`    :  `<string>`  Message of the approve transaction
+- `blocked_id`    :  `<string>`  Transaction id.
+- `id`    :  `<string>`  Transaction id.
+- `message`    :  `<string>`  Message of the approve transaction.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -436,12 +436,12 @@ Transfer individual tokens as a blocked balance for a user
 
 #### POST   -   `/token/{tokenId}/transferunblock`
 
-Unblocks a blocked transfer being true equivalent to accept the blocked balance and false equivalent to returning the blocked balance to origin user
+Unblocks a blocked transfer being true equivalent to accept the blocked balance and false equivalent to returning the blocked balance to origin user.
 
 <u>*Input*</u>
-- `tokenId`     :  `<string>`  Name of the token
-- `blocked_id`  :  `<string>`  Id of the blocked transaction
-- `accept`      :  `<string>`  Flag to determine the acceptance or not of the transaction
+- `tokenId`     :  `<string>`  Token name.
+- `blocked_id`  :  `<string>`  Id of the blocked transaction.
+- `accept`      :  `<string>`  Flag to determine the acceptance or not of the transaction.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -457,8 +457,8 @@ Unblocks a blocked transfer being true equivalent to accept the blocked balance 
 </details>
 
 <u>*Output*</u>
-- `id`    :  `<string>`  Id of the transaction
-- `message`    :  `<string>`  Message of the approve transaction
+- `id`    :  `<string>`  Transaction id.
+- `message`    :  `<string>`  Message of the approve transaction.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -481,7 +481,7 @@ Unblocks a blocked transfer being true equivalent to accept the blocked balance 
 As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
 ## Testing the Application
-In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-tokenapi module
+In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-tokenapi module.
 
 Also you can download the files in the links below:
 
