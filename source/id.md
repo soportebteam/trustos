@@ -123,7 +123,9 @@ Updates the old password with a new one.
 ### Identity Recovery Methods
 
 #### POST - `/id/recover/create`
-Creates the mechanism to recover the user password. Recovery operation needs an email to send the recovery code in case of password change and a group of custodians, in order to have a social recovery wallet. Each custodian will receive a secret that must be provided when the user wants to recover the password.
+Creates the mechanism to recover the user password. Recovery operation needs an email to send the recovery code in case of password change and a group of custodians, in order to have a social recovery wallet. Each custodian will receive a secret that must be provided when the user wants to recover the password. The minumum number of guardians is two. Then in order to recover, you only need at least one of the secrets provided by the guardians.
+
+
 - `email`: `<string>` Email that will own the user in order to recover their identity.
 - `guardians` :  `<array>` List of guardians.
 
@@ -160,7 +162,7 @@ Updates the recovery email associated with the identity in order to recover the 
 </details><br>
 
 #### POST - `/id/recover/init`
-Initialises the recovery process in order to recover an identity account, the user will receive an email with a sigle use code.
+Initialises the recovery process in order to recover an identity account, the user will receive an email with a sigle use code. 
 
 - `email`: `<string>` Email to send the verification code to the user in order to start the account recovery process.
 
@@ -176,7 +178,8 @@ Initialises the recovery process in order to recover an identity account, the us
 </details><br>
 
 #### POST - `/id/recover/password`
-Finishes the process to recover the password. The params required are the single use code received in the users email and the secrets that were sent to the guardians.
+Finishes the process to recover the password. The params required are the single use code received in the users email and the secrets that were sent to the guardians. You need at least one of the secrets provided by the guardians.
+
 - `code`: `<string>` An single use access code sent to the user mail in /id/recover/init function.
 - `guardians`: `<array,objects>` Email of the guardiands and their respective secrets.
 
