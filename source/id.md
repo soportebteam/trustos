@@ -148,6 +148,34 @@ Creates the mechanism to recover the user password. Recovery operation needs an 
 
 (*) Please navigate to the following [section](#internal-mail-service-for-identity-recovery-communications) for details of the mail communication service.
 
+#### GET - `/id/recover/info`
+Gets the recovery info associated to the session. It returns the email of the user and the guardians.
+
+#### POST - `/id/recover/update/guardian`
+Updates the guardian information. It's necessary to provide the info of the oldGuardian in order to change it. It's necessary to specify the internalMailService query parameter. As result it's returned the new secret for the new guardian or an email is sent.
+
+
+- `newGuardian`: `<string>` Email of the new guardian.
+- `oldGuardian`: `<string>` Email of the old guardian.
+- `secret` :  `<array>` Old guardian's secret.
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```
+{
+  
+  "newGuardian": "alice@email.com",
+  "oldGuardian": "bob@email.com",
+  "secret": "secret"
+}
+```
+</details><br>
+
+(*) Please navigate to the following [section](#internal-mail-service-for-identity-recovery-communications) for details of the mail communication service.
+
+
 
 #### POST - `/id/recover/update/email`
 Updates the recovery email associated with the identity in order to recover the identity. The email must match with the one registered in /id/recover/create.
