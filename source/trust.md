@@ -19,7 +19,7 @@ This is the structure of a trust point:
 - `hfTxId` :  `<string>` Current trust point transaction in Hyperledger Fabric.
 - `prevHfTxId` :  `<string>`  Previous trust point transaction in Hyperledger Fabric.
 - `prevHash` :  `<string>` Hash of the previous trust point.
-- `ethereumContractAddress` :  `<string>` The smart contract in Ethereum to manage trust points.
+- `contractAddress` :  `<string>` The smart contract in public network to manage trust points.
 - `hash` :  `<string>`  Hash of the trust point (as a JSON) to verify integrity.
 
 <details>
@@ -35,7 +35,7 @@ This is the structure of a trust point:
     "hfTxId": "671e8c065add74a4759167b9f38cf67916f0f26b5e9b1861c2abcb08a57f8a97",
     "prevHfTxId": "0",
     "prevHash": "0",
-    "ethereumContractAddress": "0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b",
+    "contractAddress": "0xeE83b6D6dc84fa0c91A6f99971f6CF29F6B7ea3b",
     "hash": "3P1HZ+pvbwhogR3tgKng7cWTk6uaHynGKvjqPjpISi0="
 
   }
@@ -72,13 +72,15 @@ Gets the last trust point in the system for a specific asset.
   "output": {
       "assetId": "exampleAsset",
       "end": 1567601354,
-      "ethereumContractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
+      "contractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
       "hash": "7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=",
       "hfTxId": "5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234",
       "init": 1567594895,
       "prevHash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=",
       "prevHfTxId": "70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee",
-      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI="
+      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=",
+      "public": true,
+      "networkId": 1
     }
 }
 
@@ -106,23 +108,27 @@ Gets all trust point history in the system for a specific asset.
     {
       "assetId": "exampleAsset",
       "end": 1567594895,
-      "ethereumContractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
+      "contractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
       "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=",
       "hfTxId": "70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee",
       "init": 0,
       "prevHfTxId": "0",
-      "txRoot": "oGFYgnxCcPvpa2d6G4vHLs92HQgY2z6S8uwIVM0Qg44="
+      "txRoot": "oGFYgnxCcPvpa2d6G4vHLs92HQgY2z6S8uwIVM0Qg44=",
+      "public": true,
+      "networkId": 1
     },
     {
       "assetId": "exampleAsset",
       "end": 1567601354,
-      "ethereumContractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
+      "contractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
       "hash": "7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=",
       "hfTxId": "5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234",
       "init": 1567594895,
       "prevHash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=",
       "prevHfTxId": "70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee",
-      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI="
+      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=",
+      "public": true,
+      "networkId": 2
     }
   ]
 ]
@@ -134,12 +140,13 @@ Gets all trust point history in the system for a specific asset.
 
 
 
-#### POST -  `/trust/assetId/create`  
+#### POST -  `/trust/assetId/create?networkId=integer`  
 
 Creates a trust point in the system for a specific asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered.
 - `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
 
 <details>
@@ -163,13 +170,15 @@ Creates a trust point in the system for a specific asset.
   "output": {
       "assetId": "exampleAsset",
       "end": 1567601354,
-      "ethereumContractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
+      "contractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
       "hash": "7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=",
       "hfTxId": "5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234",
       "init": 1567594895,
       "prevHash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=",
       "prevHfTxId": "70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee",
-      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI="
+      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=",
+      "public": true,
+      "networkId": 1
     }
 }
 
@@ -239,12 +248,13 @@ Gets the trust merkle root history stored in the system.
 
 ---
 
-#### POST -  `/trust/assetId/register`  
+#### POST -  `/trust/assetId/register?networkId=integer`  
 
 Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered.
 - `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
 
 <details>
@@ -268,13 +278,15 @@ Creates a trust point if does not exist and registers it in Ethereum. If the tru
   "output":  {
       "assetId": "exampleAsset",
       "end": 1567601354,
-      "ethereumContractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
+      "contractAddress": "0x1B646bc6C3465Fa8171F7171097A7d8e37b43D6B",
       "hash": "7KYLJXcjGA67WD0v95UvoVPk+sj9M8FdpecS5mRz3+s=",
       "hfTxId": "5c709f206555dbc6a40e37e96aa007a471f706927c8581fb91aef3625413e234",
       "init": 1567594895,
       "prevHash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c=",
       "prevHfTxId": "70c26cfc9aeef3c094b82278b7ed413255f07711366ac2a9da8de7e66b9e53ee",
-      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI="
+      "txRoot": "TBSNvFDt3tGDhI5I48IRlBh2l+O0X+kjBq7/96Zk/wI=",
+      "public": true,
+      "networkId": 1
     }
 }
 

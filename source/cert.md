@@ -259,6 +259,139 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 
 ---
 
+####     POST -  `/certificate/file/hash` 
+Create a unique hash from a file. 
+A unique and irrevocable identifier (`certID`) is generated for every certificate.
+
+<u>*Input*</u>
+- `fileInput`: `<formData>` File from which the hash will be generated.
+
+<u>*Output*</u>
+- `File hash`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+"output": {
+    "file_hash": "f05131b2230066bf3b2bed28829bba890cea4fe48abd56e1c9a96aa212315c6h"
+  }
+}
+```
+</details> 
+
+---
+
+####     POST -  `/certificate/file/create` 
+Create a certificate from a specific hash file on Blockchain. 
+A unique and irrevocable identifier (`certID`) is generated for every certificate.
+
+<u>*Input*</u>
+- `name`    :  `<string>` Name of the certificate.
+- `description`    :  `<string>` Short description of the certificate.
+- `content`    :  `<json>` Content to certify (*). An existing file hash previously generated with /certificate/file/hash method.
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not.
+- `readers`    :  `<string array>` List of readers, in case it is not public.
+- `signers`    :  `<string array>` List of required signers.
+- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601.
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "name": "ABC Certificate",
+  "description": "This certificate is a tamper-proof and valid record of the ABC document file",
+  "content": {},   
+  "public": false,
+  "readers": [
+    "did:vtn:reader1",
+    "did:vtn:reader2"
+  ],
+  "signers": [
+    "did:vtn:signer1",
+    "did:vtn:signer2"
+  ]
+}
+```
+</details> 
+<br>
+
+(*) **Content** field is JSON format and open for every use case. An example is shown below:
+
+<details>
+  <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "content":{
+    "file_hash": "2132d2a5fcf50d988fea87d257f0c69f51bb771196856cec9255242661f8d5e6"
+  }
+}
+```
+
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "6404b254f008acda6d55f68dee48304fcf36c73cf881cdeff478b7b4a2545248",
+    "data": {
+        "badge": {
+            "certID": "6404b254f008acda6d55f68dee48304fcf36c73cf881cdeff478b7b4a2545248",
+            "name": "ABC Certificate",
+            "description": "This certificate is a tamper-proof and valid record of the ABC document file",
+            "type": "content",
+            "content": {
+               "file_hash": "2132d2a5fcf50d988fea87d257f0c69f51bb771196856cec9255242661f8d5e6"
+              } 
+            ,
+            "issuer": "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1",
+        },
+        "issuedOn": "2021-04-28 14:25:06 +0000 UTC"
+        "expires": "",
+        "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
+    },
+    "metadata": [
+        {
+          "verification": {
+            "signers":["did:vtn:signer1","did:vtn:signer2"]
+          },
+          "signatures": null,
+          "public_evidences": null,
+          "revoked": false
+        }
+    ],
+    "access": {
+        "admin": {
+            "did:vtn:admin": 1
+        },
+        "read": {
+            "did:vtn:reader1": 1,
+            "did:vtn:reader2": 1
+        },
+        "sign": {
+            "did:vtn:signer1": 1,
+            "did:vtn:signer2": 1
+        },
+        "public": false
+    }
+  }
+}
+```
+</details> 
+
+---
+
 ####     POST -  `/certificate/asset/create` 
 Create a certificate from a file/document/collection of files on Blockchain. 
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
@@ -420,7 +553,20 @@ Get certificate from the blockchain.
     },
     "metadata": [
       {
-        "public_evidences": null,
+        "public_evidences": {
+          "ethereum": {
+            "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCY=",
+            "smartContract": "0x0C9114b9Ec58d1fbF9FC650BE4B7Aefe481597A0",
+            "timestamp": 1619621204,
+            "transaction": "0x331bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
+          },
+          "besu": {
+            "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCZ=",
+            "smartContract": "0x0C8114b9Ec58d1fbF9FC650BE4B7Aefe481597A1",
+            "timestamp": 1619621267,
+            "transaction": "0x441bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
+          }
+        },
         "revoked": false,
         "signatures": null,
         "verification": {
@@ -519,12 +665,12 @@ Sign a certificate with external identity and keys.
 ---
 
 
-####     POST -  `/certificate/{certID}/register` 
+####     POST -  `/certificate/{certID}/register?networkId=integer` 
 Register a certificate evidence in public network.
 
 <u>*Input*</u>
 - `certID` :  `<string>` Unique identifier of the certificate.
-- `network`    :  `<string>` Network to register the certificate evidence. Only available: Ethereum.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Besu (networkId=2) are available.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -558,6 +704,12 @@ Register a certificate evidence in public network.
             "smartContract": "0x0C9114b9Ec58d1fbF9FC650BE4B7Aefe481597A0",
             "timestamp": 1619621204,
             "transaction": "0x331bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
+          },
+          "besu": {
+            "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCZ=",
+            "smartContract": "0x0C8114b9Ec58d1fbF9FC650BE4B7Aefe481597A1",
+            "timestamp": 1619621267,
+            "transaction": "0x441bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
           }
       },
       "revoked": false
