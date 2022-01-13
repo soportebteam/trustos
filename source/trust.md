@@ -146,7 +146,7 @@ Creates a trust point in the system for a specific asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Besu (networkId=2) are available.
 - `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
 
 <details>
@@ -254,7 +254,7 @@ Creates a trust point if does not exist and registers it in Ethereum. If the tru
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Besu (networkId=2) are available.
 - `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
 
 <details>
