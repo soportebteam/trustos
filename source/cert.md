@@ -666,11 +666,11 @@ Sign a certificate with external identity and keys.
 
 
 ####     POST -  `/certificate/{certID}/register?networkId=integer` 
-Register a certificate evidence in public network.
+Register a certificate evidence in a public network.
 
 <u>*Input*</u>
 - `certID` :  `<string>` Unique identifier of the certificate.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Besu (networkId=2) are available.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Hyperledger Besu (networkId=2) are available.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>

@@ -146,7 +146,7 @@ Creates a trust point in the system for a specific asset.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Besu (networkId=2) are available.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Hyperledger Besu (networkId=2) are available.
 - `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
 
 <details>
@@ -250,11 +250,11 @@ Gets the trust merkle root history stored in the system.
 
 #### POST -  `/trust/assetId/register?networkId=integer`  
 
-Creates a trust point if does not exist and registers it in Ethereum. If the trust point already exists registers it in Ethereum.
+If the trust point does not exists, this method creates and registers it in a public network. If the trust point already exists is just registered.
 
 <u>*Input*</u>
 - `assetid` :  `<string>` Identifier of the asset for which the trust point is made.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Besu (networkId=2) are available.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Hyperledger Besu (networkId=2) are available.
 - `metadata`:  `<json>` JSON of extra data. It can have as many field as required. If you do not want to enter extra data, you must specify the empty JSON in the following way:
 
 <details>
