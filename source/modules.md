@@ -14,14 +14,6 @@ Creation and management of transferable tokens to build new markets, gamificatio
 
 Creation, management and sign of digital certificates on blockchain. A certificate is a tamper-proof and verifiable collection of data that represents a process, a file/document, an accomplishment or any activity that can benefit from the inmmutability and authenticity.
 
-## [Settlement](settle.html)
-
-Settled visions of fragmented views. Generation of general structure for reconciling activity records or aggregation operations.
-
-## [Trust](trust.html)
-
-Ensure confidence and integrity in the information generated in your business. Obtain a snapshot of the status of your assets, register the information in public networks and obtain greater transparency in your operations.
-
 ## [ID](id.html)
 
 Identity management and decentralised services. Through this module it is possible to create and manage identities. TrustOS acts as the custodian of the identity keys, but it is also possible to operate with external identities and even import them. In addition, it has integration with OpenID to operate with identities generated in the different identity providers.

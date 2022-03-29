@@ -23,29 +23,6 @@
 - **Answer:**
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor. Donec dignissim velit vitae odio rutrum viverra. Morbi porttitor suscipit mi, in auctor nisl eleifend vitae. Quisque quam libero, tincidunt vel nulla in, pharetra consectetur sem. 
 
-## Settle
-
-- **Question:**
-  How do I create my own settlement?
-
-- **Answer:**
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
-
-
-## Trust
-- **Question:**
-  How much the registration of a trust point in Ethereum cost?
-
-- **Answer:**
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
-
----
-
-- **Question:**
-  How much the registration of a trust point in Ethereum cost?
-
-- **Answer:**
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada posuere lorem id commodo. Sed hendrerit augue ut eros vulputate porttitor.
 
 ## ID
 

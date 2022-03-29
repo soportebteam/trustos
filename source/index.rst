@@ -21,8 +21,6 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    modules
    track
    token
-   settle
-   trust
    cert
    id
    trustid
