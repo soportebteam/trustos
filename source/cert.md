@@ -534,6 +534,7 @@ If wanted to certify only transactions within a period or range of time, only yo
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
+
 ```js
 {
   "output": {
@@ -601,19 +602,6 @@ Get certificate from the blockchain.
 ```js
 {
   "output": {
-    "access": {
-      "admin": {
-        "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1": 1
-      },
-      "read": {
-        "did:vtn:reader1": 1,
-        "did:vtn:reader2": 1
-      },
-      "sign": {
-        "did:vtn:signer1": 1,
-        "did:vtn:signer2": 1
-      }
-    },
     "certID": "6404b254f008acda6d55f68dee48304fcf36c73cf881cdeff478b7b4a2545248",
     "data": {
       "badge": {
@@ -660,8 +648,112 @@ Get certificate from the blockchain.
           "type": "SignedBadge"
         }
       }
-    ]
+    ],
+    "access": {
+      "admin": {
+        "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1": 1
+      },
+      "read": {
+        "did:vtn:reader1": 1,
+        "did:vtn:reader2": 1
+      },
+      "sign": {
+        "did:vtn:signer1": 1,
+        "did:vtn:signer2": 1
+      }
+    }
   }
+}
+```
+</details> 
+
+
+---
+
+####    GET     -   `/certificate/file/{file_hash}`  
+
+Get a certificate from the file hash
+
+<u>*Input*</u>
+- `file_hash` :  `<string>` Certificate file hash
+
+
+  
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+<br>
+
+The following certificate has been queried using the `file_hash`: `3aAFa39ho53589gbxCSkFj239y90tiFAa78xZAuo=`
+
+```js
+{
+  "output": {
+    "certID": "6404b254f008acda6d55f68dee48304fcf36c73cf881cdeff478b7b4a2545248",
+    "data": {
+      "badge": {
+        "certID": "6404b254f008acda6d55f68dee48304fcf36c73cf881cdeff478b7b4a2545248",
+        "content": [
+          {
+            "file_hash": "3aAFa39ho53589gbxCSkFj239y90tiFAa78xZAuo=",
+            "file_name": "example.pdf",
+            "file_size": "10KB"
+          }
+        ],
+        "description": "This certificate is a tamper-proof and valid record of the ABC document file",
+        "issuer": "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1",
+        "name": "ABC Certificate",
+        "type": "content"
+      },
+      "expires": "",
+      "hash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCY=",
+      "issuedOn": "2021-04-28 14:25:06 +0000 UTC"
+    },
+    "metadata": [
+      {
+        "public_evidences": {
+          "ethereum": {
+            "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCY=",
+            "smartContract": "0x0C9114b9Ec58d1fbF9FC650BE4B7Aefe481597A0",
+            "timestamp": 1619621204,
+            "transaction": "0x331bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
+          },
+          "besu": {
+            "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCZ=",
+            "smartContract": "0x0C8114b9Ec58d1fbF9FC650BE4B7Aefe481597A1",
+            "timestamp": 1619621267,
+            "transaction": "0x441bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
+          }
+        },
+        "revoked": false,
+        "signatures": null,
+        "verification": {
+          "signers": [
+            "did:vtn:signer1",
+            "did:vtn:signer2"
+          ],
+          "type": "SignedBadge"
+        }
+      }
+    ],
+    "access": {
+      "admin": {
+        "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1": 1
+      },
+      "read": {
+        "did:vtn:reader1": 1,
+        "did:vtn:reader2": 1
+      },
+      "sign": {
+        "did:vtn:signer1": 1,
+        "did:vtn:signer2": 1
+      }
+    }
+  } 
 }
 ```
 </details> 
