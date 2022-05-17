@@ -1,6 +1,6 @@
 # Introduction
 
-**TrustOS** is both an SDK and a powerful, easy-to-use set of decentralized network modules deployed in several blockchain networks. It makes easier to anyone to get the benefits of blockchain technology without facing the inherent complexity of it. If you want to enter the Blockchain space, it does not matter the underlying technology, the consensus mechanisms, the network, the consortia or the infrastructure anymore. Just get the better of blockchain invoking the **TrustOs.**
+**TrustOS** is both an SDK and a powerful, easy-to-use set of decentralized network modules deployed in several blockchain networks. It makes easier to anyone to get the benefits of blockchain technology without facing the inherent complexity of it. If you want to enter the Blockchain space, it does not matter the underlying technology, the consensus mechanisms, the network, the consortia or the infrastructure anymore. Just get the better of blockchain invoking the **TrustOS.**
 
 ## Our vision
 
@@ -18,4 +18,19 @@ However, the  use  cases  just  benefit  from  technology  in  the  same  way  a
 
 ## Solution
 
-**TrustOS** can be deployed on any Hyperledger Fabric based blockchain network. Support for Quorum/Ethereum and CORDA based networks will be added soon. Once deployed, an HTTP API is published so that it can be used from any programming language. The API hides much of the complexity of working with a Blockchain, but its direct use still requires low-level knowledge. For that reason, **TrustOS** also includes some libraries to be consumed by applications and other Smart Contracts. Therefore, **TrustOS** commands can be invoked from outside Blockchain through its APIs or from other Smart Contracts inside the Blockchain itself.
+**TrustOS** is a network-deployed middleware that makes the customer's business systems independent from the Blockchain networks:
+-   Enables use of Blockchain without knowledge of the technology​
+-   Simplifies integration​
+-   Facilitates adaptation to new Blockchain technologies and networks​
+-   Allows third party verification of information 
+
+How can TrustOS help you?
+
+**INMUTABILITY:**
+The underlying cryptography allows the existence, authorship and integrity of the information that is generated and transmitted to be attributed with absolute certainty​
+
+**TRACEABILITY:**
+The succession of transactions makes it possible to reconstruct without a doubt the complete history of events without the ability to repudiate​
+
+**TRANSPARENCY**
+The technology itself allows the information to be notarised and verified autonomously without the intervention of trusted third parties​

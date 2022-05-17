@@ -17,4 +17,4 @@ The following figure describes a layer-based architecture:
 
 APIs do not speak the **Blockchain language** (send, validate or verify a transaction, query a block, provision or obtain gas at an address, compile, deploy or execute contracts, manage and safeguard cryptographic material, etc.) but the language a customer understands (create an asset and update its status or position, add account activity, verify an identity, create or transfer a token, etc.). 
 
-Initially, **TrustOS** is available for deployment on any Hyperledger Fabric-based network and interacts with Ethereum (the public network). In the coming months support will be added for implementation in other technologies such as Ethereum/Quorum or CORDA. 
+Initially, **TrustOS** is available for deployment on any Hyperledger Fabric-based network and interacts with Ethereum (mainnet and testnet networks), Polygon (mainnet and testnet networks) and Alastria's Network B (built on Hyperledger Besu). In the coming months support will be added for implementation in other technologies. We put a lot of effort into evolving the product 🤓

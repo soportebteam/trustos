@@ -112,7 +112,7 @@ Access contains **list of authorised users depending on their role** (i.e. admin
 
 The certificate `access` contains the following fields:
 - `admin` :  `<json>` Json of **admin**. An admin can manage, sign and revoke the certificate.
-- `sign` :  `<json>` Json of **readers**. A signer can sign only once and read the certificate.
+- `sign` :  `<json>` Json of **signers**. A signer can sign only once and read the certificate.
 - `read` :  `<json>` Json of **readers**. A reader can only read and verify the certificate.
 - `public` :  `<bool>` Flag to determine whether the certificate is public and readable for all users or not.
 
@@ -168,7 +168,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 {
   "name": "ABC Certificate",
   "description": "This certificate is a tamper-proof and valid record of the ABC document file",
-  "content": {},   
+  "content": {...},   
   "public": false,
   "readers": [
     "did:vtn:reader1",
@@ -311,7 +311,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 {
   "name": "ABC Certificate",
   "description": "This certificate is a tamper-proof and valid record of the ABC document file",
-  "content": {},   
+  "content": {...},   
   "public": true
 }
 ```
@@ -852,7 +852,10 @@ Register a certificate evidence in a public network.
 
 <u>*Input*</u>
 - `certID` :  `<string>` Unique identifier of the certificate.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently, Ethereum (networkId=1) and Hyperledger Besu (networkId=2) are available.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently the following network ID are available:
+  - Kovan network (ETHEREUM): 1
+  - Alastria network (HYPERLEDGER BESU): 2
+  - Mumbai network (POLYGON): 3
 
 (*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/register?networkId=integer`)
 
@@ -860,9 +863,8 @@ Register a certificate evidence in a public network.
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
-{
-  "network": "Ethereum"
-}
+`/certificate/{certID}/register?networkId=1 // Kovan network (Ethereum)
+
 ```
 </details> 
 <br>
@@ -880,21 +882,15 @@ Register a certificate evidence in a public network.
       "hash": "kKI+m663XKazuZ+Orbt/oCQp5rAQJQ7kjYwpqNMnMy4=",
       "hfTxId": "0b9743f8ae6529b4c3bb051202568598facb29227c8d819047db4a63452df37c",
       "type":"Evidence",
-      "verification":{...},
+      "verification": {...},
       "signatures": {...},
       "public_evidences": {
-        "ethereum": {
+        "1": {
             "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCY=",
             "smartContract": "0x0C9114b9Ec58d1fbF9FC650BE4B7Aefe481597A0",
             "timestamp": 1619621204,
             "transaction": "0x331bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
-          },
-          "besu": {
-            "evidenceHash": "I6fI6JPNS9y3QGfACbZkAVTOGr5060Y3JF2b/Tl2TCZ=",
-            "smartContract": "0x0C8114b9Ec58d1fbF9FC650BE4B7Aefe481597A1",
-            "timestamp": 1619621267,
-            "transaction": "0x441bf9fd1514cb41434c594b18f4b848783b3807004ebd68c9ca73a77c7ee48b"
-          }
+        }
       },
       "revoked": false
     }
@@ -1383,14 +1379,10 @@ Also you can download the files in the links below:
 
 ## Errors management
   
-Cert API errors are managed through the following JSON:
+Cert API errors are managed through the following JSON 
 ```
 {
-  "error": {
-    "code": "HTTP status code",
-    "function": "function in which the error was generated",
-    "message": "error description"
-  }
+  "error": "error description"
 }
 ```
 

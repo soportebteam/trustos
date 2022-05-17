@@ -1,7 +1,7 @@
 # Getting Started
 
 Why worrying about the low-level of blockchain technology,
-and having to worry about building you network when you can leverage
+and having to worry about building your network when you can leverage
 the benefits of the technology without having to know the details of
 its operation. **TrustOS** abstracts all the complexity of blockchain
 technology implementing the basic operations you need to leverage
@@ -20,7 +20,6 @@ In order to use the APIs, you need to have an active user and login to use the s
 To faccilitate the first interactions with TrustOS there is a login website so that the user can easily login and authenticate the next use of the website through cookies that contains the JWT and that expires after the JWT becomes invalid. 
 
 ![Login UI](./images/login_ui.png)
-<!-- ![Login UI](./images/login.gif) -->
 
 ### Login request
 
