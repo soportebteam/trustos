@@ -46,14 +46,18 @@ There are two types of assets: owned assets and authorised assets. These last on
 
 In order to interact with both assets in some functions it is necessary to set a flag formely known as `isAuthorised`. In order to interact with authorised, only it is necessary to set the `isAuthorised` flag to `true` as a query parameter in the URL (`...?isAuthorised=true`) as it is shown in the examples below:
 
-- GET  -     `/asset/{assetId}?isAuthorised=true`  
-- GET  -     `/asset/{assetId}/transactions?isAuthorised=true`  
-- POST -     `/asset/{assetId}/transactions/range?isAuthorised=true`  
-- GET  -     `/assets?isAuthorised=true`  
-- POST -     `/asset/{assetId}/update?isAuthorised=true`
-- POST -     `/asset/{assetId}/evidence?isAuthorised=true`
-- POST -     `/asset/{assetId}/getEvidence?isAuthorised=true`
-- GET  -     `/asset/{assetId}/getEvidences?isAuthorised=true`
+- GET  -     `/asset/{assetId}?isAuthorised=boolean`  
+- GET  -     `/asset/{assetId}/transactions?isAuthorised=boolean`  
+- POST -     `/asset/{assetId}/transactions/range?isAuthorised=boolean`  
+- GET  -     `/assets?isAuthorised=boolean`  
+- POST -     `/asset/{assetId}/update?isAuthorised=boolean`
+- POST -     `​/asset​/{assetId}​/batch​/array?isAuthorised=boolean`
+- POST -     `​/asset​/{assetId}​/batch​/range?isAuthorised=boolean`
+- POST -     `​/asset​/{assetId}​/batch​/updateArray?isAuthorised=boolean`
+- POST -     `​/asset​/{assetId}​/batch​/updateRange?isAuthorised=boolean`
+- POST -     `/asset/{assetId}/evidence?isAuthorised=boolean`
+- POST -     `/asset/{assetId}/getEvidence?isAuthorised=boolean`
+- GET  -     `/asset/{assetId}/getEvidences?isAuthorised=boolean`
 
 To manage your own assets you must set the parameter to false (`...?isAuthorised=false`).
 
@@ -518,6 +522,184 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 
 ---
 
+#### GET   -    `/assets?isAuthorised=boolean`  
+
+Get all assets for user
+
+<u>*Input*</u>
+- `isAuthorised` :  `<bool>`  Flag to get own or authorised assets.
+
+(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
+
+<u>*Output*</u>
+- `assetList`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": [
+    "exampleAsset1",
+    "exampleAsset2",
+    "exampleAsset3"
+  ]
+}
+```
+</details>
+
+---
+
+####   POST     - `/assets/create`  
+
+Creates assets from file
+
+<u>*Input*</u>
+- `fileInput` :  `<string>` File from which the asset will be generated.
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": [
+    {
+      "message": "The asset with assetId x has been created successfully"
+    }
+  ]
+}
+```
+</details>
+
+---
+
+####   POST     - `/assets/update`  
+
+Updates assets from file
+
+<u>*Input*</u>
+- `fileInput` :  `<string>` File from which the asset will be updated.
+
+<u>*Output*</u>
+- `asset`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": [
+    {
+      "message": "The asset with assetId x has been updated successfully"
+    }
+  ]
+}
+```
+</details>
+
+---
+
+####   POST     - `​/asset​/{assetId}​/batch​/array?isAuthorised=boolean`  
+
+Creates batch info for an specific asset. This is a list with the IDs of the assets that will belong to the batch.
+
+<u>*Input*</u>
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
+- `batchInfo`: `<json>` Array that will represent the list of the IDs of the assets that will belong to the batch.
+
+<u>*Output*</u>
+- `response`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": "Batch stored successfully"
+}
+```
+</details>
+
+---
+
+####   POST     - `​/asset​/{assetId}​/batch​/range?isAuthorised=boolean`  
+
+Creates batch info for an specific asset. This is a range of the IDs of the assets that will belong to the batch.
+
+<u>*Input*</u>
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
+- `init` :  `<string>`  Range of the IDs of the assets that will belong to the batch.
+- `end` :  `<string>` Range of the IDs of the assets that will belong to the batch.
+
+<u>*Output*</u>
+- `response`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": "Batch stored successfully"
+}
+```
+</details>
+
+---
+
+####   POST     - `​/asset​/{assetId}​/batch​/updateArray?isAuthorised=boolean`  
+
+Update batch info for an specific asset. This is a list with the IDs of the assets that will be added to the batch.
+
+<u>*Input*</u>
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
+- `batchArray`: `<json>` Array that will represent the list of the IDs of the assets that will be added to the batch.
+
+<u>*Output*</u>
+- `response`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": "Batch stored successfully"
+}
+```
+</details>
+
+---
+
+####   POST     - `​/asset​/{assetId}​/batch​/updateRange?isAuthorised=boolean`  
+
+Update batch info for an specific asset. This is a range of the IDs of the assets that will belong to the batch.
+
+<u>*Input*</u>
+- `assetid` :  `<string>` Unique identifier of the asset.
+- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
+- `init` :  `<string>`  Range of the IDs of the assets that will belong to the batch.
+- `end` :  `<string>` Range of the IDs of the assets that will belong to the batch.
+
+<u>*Output*</u>
+- `response`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": "Batch stored successfully"
+}
+```
+</details>
+
+---
+
 ####   POST     - `/asset/{assetId}/admin/create`  
 
 Creates an admin user that is going to be able to authorise other users. Only the asset owner can do this. There can be more than one admin user and the admin can be admin from different assets of different owners.
@@ -538,7 +720,7 @@ Creates an admin user that is going to be able to authorise other users. Only th
 <br>
 
 <u>*Output*</u>
-- `asset`    :  `<json>` 
+- `response`    :  `<json>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -574,7 +756,7 @@ Delete an admin user that is not going to be able to authorise other users. Only
 <br>
 
 <u>*Output*</u>
-- `asset`    :  `<json>` 
+- `response`    :  `<json>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -612,7 +794,7 @@ Authorise user access for an asset. Only the asset admin can do this.
 <br>
 
 <u>*Output*</u>
-- `asset`    :  `<json>` 
+- `response`    :  `<json>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -651,7 +833,7 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 <br>
 
 <u>*Output*</u>
-- `asset`    :  `<json>` 
+- `response`    :  `<json>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -669,7 +851,7 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 
 ####   POST     - `/asset/{assetId}/evidence?isAuthorised=boolean?networkId=int`  
 
-Register an asset public evidence in a public Network
+Create an asset evidence in a public network.
 
 <u>*Input*</u>
 - `assetId` :  `<string>` Asset identifier.
@@ -764,7 +946,7 @@ Get a specific asset evidence from the creation timestamp
 
 ####   GET     - `/asset/{assetId}/getEvidences?isAuthorised=boolean`  
 
-Get all asset evidences from public Networks
+Get all asset evidences from public networks.
 
 <u>*Input*</u>
 - `assetId` :  `<string>` Asset identifier.
@@ -805,33 +987,6 @@ Get all asset evidences from public Networks
       ]
     ]
   }
-}
-```
-</details>
-
-#### GET   -    `/assets?isAuthorised=boolean`  
-
-Lists all the assets of a user.
-
-<u>*Input*</u>
-
-- `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
-
-(*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
-
-<u>*Output*</u>
-- `assetList`    :  `<json>` 
-
-<details>
-  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-
-```js
-{
-  "output": [
-    "exampleAsset1",
-    "exampleAsset2",
-    "exampleAsset3"
-  ]
 }
 ```
 </details>
