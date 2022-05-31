@@ -558,7 +558,7 @@ Creates assets from file
 - `fileInput` :  `<string>` File from which the asset will be generated.
 
 <u>*Output*</u>
-- `asset`    :  `<json>` 
+- `output`    :  `<json>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -584,7 +584,7 @@ Updates assets from file
 - `fileInput` :  `<string>` File from which the asset will be updated.
 
 <u>*Output*</u>
-- `asset`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -612,7 +612,7 @@ Creates batch info for an specific asset. This is a list with the IDs of the ass
 - `batchInfo`: `<json>` Array that will represent the list of the IDs of the assets that will belong to the batch.
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -637,7 +637,7 @@ Creates batch info for an specific asset. This is a range of the IDs of the asse
 - `end` :  `<string>` Range of the IDs of the assets that will belong to the batch.
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -661,7 +661,7 @@ Update batch info for an specific asset. This is a list with the IDs of the asse
 - `batchArray`: `<json>` Array that will represent the list of the IDs of the assets that will be added to the batch.
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -686,7 +686,7 @@ Update batch info for an specific asset. This is a range of the IDs of the asset
 - `end` :  `<string>` Range of the IDs of the assets that will belong to the batch.
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -720,16 +720,14 @@ Creates an admin user that is going to be able to authorise other users. Only th
 <br>
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
 {
-  "output": {
-    "message": "Successfully authorised admin user did:vtn:trustid: for asset XX"
-  }
+  "output": "Authorisation has been sucessfully done for asset: example1 and user: did:vtn:trustid:bob"
 }
 ```
 </details>
@@ -756,16 +754,14 @@ Delete an admin user that is not going to be able to authorise other users. Only
 <br>
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
 {
-  "output": {
-    "message": "Successfully unauthorised admin user did:vtn:trustid: for asset XX"
-  }
+  "output": "Authorisation has been sucessfully done for asset: example1 and user: did:vtn:trustid:bob"
 }
 ```
 </details>
@@ -794,16 +790,14 @@ Authorise user access for an asset. Only the asset admin can do this.
 <br>
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<string>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
 {
-  "output": {
-    "message": "Successfully authorised user did:bteam for asset XXXXX",
-  }
+  "output": "Authorisation has been sucessfully done for asset: example1 and user: did:vtn:trustid:bob"
 }
 ```
 </details>
@@ -833,16 +827,14 @@ Unauthorise user access for an asset. Only the asset owner can do this.
 <br>
 
 <u>*Output*</u>
-- `response`    :  `<json>` 
+- `output`    :  `<json>` 
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
 {
-  "output": {
-    "message": "Successfully unauthorised user did:bteam for asset XXXXX",
-  }
+  "output": "Authorisation has been sucessfully done for asset: example1 and user: did:vtn:trustid:bob"
 }
 ```
 </details>
