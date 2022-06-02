@@ -77,6 +77,7 @@ Ceate a digital asset.
 - `assetid` :  `<string>` Unique identifier of the asset.
 - `data`    :  `<json>` JSON of **inmutable** data. It can have as many field as required.
 - `metadata`:  `<json>` JSON of **mutable** data. It can have as many field as required.
+- `metadata`:  `<bool>` Boolean value to set if it is a batch asset or not.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -275,7 +276,8 @@ Get all transactions within a range for the whole lifecycle of the asset.
 <u>*Input*</u>
 - `assetid` :  `<string>` Unique identifier of the asset.
 - `isAuthorised`: `<boolean>` Flag to get own or authorised assets.
-- `rangeAsset`    :  `<json>` JSON object to define range.
+- `init` : `<string>` Transactions low limit.
+- `end` : `<string>` Transactions upper limit.
 
 (*) Please navigate to the following [section](#authorised-assets) for isAuthorised query param details.
 
