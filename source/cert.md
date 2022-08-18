@@ -2,6 +2,28 @@
 
 Cert API is used to create, sign and verify **digital certificates** on the blockchain. The entire functionalities are based on a Smart Contract that handles the lifecycle of every certificate in the most autonomous and secure way.
 
+By using Blockchain, we create trust, ensure security and reduce the risk of fraud, forgery or information leakage. reduce the risk of fraud, forgery or information leakage.
+
+Blockchain adds immutability to business process information:
+- Everything is recorded forever.
+- Anyone can verify it irrefutably and without repudiation.
+- No one can alter it or therefore doubt it.
+
+A certificate is a digital document that is issued at the request of a user and through cryptographic techniques and blockchain storage ensures the existence at a given time of the content being certified and guarantees its integrity and immutability.
+Each certificate combines 3 evidences to establish with that the user was in possession of the certified content on the date of issuance. content on the date of issuance of the certificate.
+
+- User digital signature
+- Digital fingerprint of the content to certificate
+- A blockchain timestamp
+
+Any information exchange or registration process can benefit from certificates to provide guarantees of the immutability over time of that information and that none of the parties that may have had access to it have modified it for their own benefit. We can think of certificates as the simple way that, thanks to Blockchain, allows us to create evidence about the existence of a certain content without the involvement of a third party to guarantee it.
+
+Is it possible to create the following certificate types:
+
+- Asset: Certification of an asset. This asset must be created first in the Track API.
+- Data: Certification of any kind of information. The data could be documents or free text in string o JSON format.
+- NFTs: Certification of Non Fungible Tokens to guarantee its authenticity. 
+
 ## API Specification
 
 An abstraction API with all the certificate functionalities.
@@ -14,7 +36,7 @@ Thanks to certificates, it allows you to **assure any fact in your business case
 
 Every certificate is identified by a unique ID and is composed of three complementary but different parts: Data, Metadata and Access.
 
-IMPORTANT: Every certificate can be also identified by a custom ID (`externalId`) that is user's choice.
+IMPORTANT: Every certificate can be also identified by a custom ID (`externalId`) that is user's choice. Due to this, the certificate can be consulted both by its id and by its pesonalized id.
 
 ![Certificate model](./images/cert_model.png)
 
@@ -583,6 +605,224 @@ If wanted to certify only transactions within a period or range of time, only yo
 
 ---
 
+
+####     POST -  `/certificate/nft` 
+Create a certificate from a specific NFT. The NFT is managed with a smartcontract that maps an owner an a tokenId of the collection. 
+A unique and irrevocable identifier (`certID`) is generated for every certificate.
+
+<u>*Input*</u>
+- `name`    :  `<string>` Name of the certificate
+- `description`    :  `<string>` Short description of the certificate
+- `content`    :  `<json>` Content to certify (*)
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
+- `readers`    :  `<string array>` List of readers, in case it is not public
+- `signers`    :  `<string array>` List of required signers
+- `externalId` : `<string>` Optional custom identifier for the certificate
+- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+
+<u>*Content*</u>
+- `contractAddress`    :  `<string>` Smartcontract address that manages the nft collection
+- `networkId`    :  `<string>` Blockchain network where the smartcontract is deployed. The networkId can be found in https://chainlist.org/ 
+- `tokenId`    :  `<string>` Unique id that represents the nft
+- 'url': `<string>` Url of the blockexplorer with the smartcontract info (optional)
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "name": "Certificate name",
+  "description": "Certificate short description",
+  "content": {
+    "contractAddress": "0x6751D366820d9022624cF0a543A734467b8A6a73",
+    "networkId": 1,
+    "tokenId": 3,
+    "url": "https://polygonscan.com/address/0x6751d366820d9022624cf0a543a734467b8a6a73"
+  },
+  "public": false,
+  "readers": [
+    "did:vtn:reader1",
+    "did:vtn:reader2"
+  ],
+  "signers": [
+    "did:vtn:signer1",
+    "did:vtn:signer2"
+  ],
+  "externalId": "External certificate identifier"
+}
+```
+</details> 
+<br>
+
+(*) **Content** field is JSON format and open for every use case. An example is shown below:
+
+<details>
+  <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+    "contractAddress": "0x6751D366820d9022624cF0a543A734467b8A6a73",
+    "networkId": 1,
+    "tokenId": 3,
+    "url": "https://polygonscan.com/address/0x6751d366820d9022624cf0a543a734467b8a6a73"
+}
+```
+
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "did:vtn:channel1:certid:c3ff3f3c055ae9eb4884123f0627cd8a4496d8ad381766c963ae496a6cd4669f",
+    "data": {
+      "badge": {
+        "name": "Certificate name",
+        "description": "Certificate description",
+        "type": "content",
+        "content": [
+          {}
+        ]
+      },
+      "issuer": "did:vtn:trustid:afa1f9ad8e593ced39051d1f909b33b0852f18c16e89613bc7e3d2b5ef43a878",
+      "issuedOn": "2025-12-31T23:59:59+00:00",
+      "expires": "",
+      "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
+    },
+    "metadata": [
+      {
+        "type": "Creation/Signature/Revocation/Evidence",
+        "verification": {},
+        "signatures": {},
+        "public_evidences": {},
+        "revoked": false,
+        "datetime": "1592568489",
+        "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+        "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+      }
+    ],
+    "access": {}
+  }
+}
+```
+</details> 
+
+---
+
+
+####     POST -  `/certificate/nft/collection` 
+Create a certificate of a smart contract collection. 
+
+<u>*Input*</u>
+- `name`    :  `<string>` Name of the certificate
+- `description`    :  `<string>` Short description of the certificate
+- `content`    :  `<json>` Content to certify (*)
+- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
+- `readers`    :  `<string array>` List of readers, in case it is not public
+- `signers`    :  `<string array>` List of required signers
+- `externalId` : `<string>` Optional custom identifier for the certificate
+- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+
+<u>*Content*</u>
+- `contractAddress`    :  `<string>` Smartcontract address that manages the nft collection
+- `networkId`    :  `<string>` Blockchain network where the smartcontract is deployed. The id can be found in https://chainlist.org/.
+- 'url': `<string>` Url of the blockexplorer with the smartcontract info (optional)
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "name": "Certificate name",
+  "description": "Certificate short description",
+  "content": {
+    "contractAddress": "0x6751D366820d9022624cF0a543A734467b8A6a73",
+    "networkId": 1,
+    "tokenId": 3,
+    "url": "https://polygonscan.com/address/0x6751d366820d9022624cf0a543a734467b8a6a73"
+  },
+  "public": false,
+  "readers": [
+    "did:vtn:reader1",
+    "did:vtn:reader2"
+  ],
+  "signers": [
+    "did:vtn:signer1",
+    "did:vtn:signer2"
+  ],
+  "externalId": "External certificate identifier"
+}
+```
+</details> 
+<br>
+
+(*) **Content** field is JSON format and open for every use case. An example is shown below:
+
+<details>
+  <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+    "contractAddress": "0x6751D366820d9022624cF0a543A734467b8A6a73",
+    "networkId": 1,
+    "tokenId": 3,
+    "url": "https://polygonscan.com/address/0x6751d366820d9022624cf0a543a734467b8a6a73"
+}
+```
+
+</details> 
+<br>
+
+<u>*Output*</u>
+- `certificate`    :  `<json>` 
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "certID": "did:vtn:channel1:certid:c3ff3f3c055ae9eb4884123f0627cd8a4496d8ad381766c963ae496a6cd4669f",
+    "data": {
+      "badge": {
+        "name": "Certificate name",
+        "description": "Certificate description",
+        "type": "content",
+        "content": [
+          {}
+        ]
+      },
+      "issuer": "did:vtn:trustid:afa1f9ad8e593ced39051d1f909b33b0852f18c16e89613bc7e3d2b5ef43a878",
+      "issuedOn": "2025-12-31T23:59:59+00:00",
+      "expires": "",
+      "hash": "Bs2nFa30Ghu84uwBnjs2aOi53qe6r6YTpjk+o/HB2c="
+    },
+    "metadata": [
+      {
+        "type": "Creation/Signature/Revocation/Evidence",
+        "verification": {},
+        "signatures": {},
+        "public_evidences": {},
+        "revoked": false,
+        "datetime": "1592568489",
+        "hfTxId": "3ae1d6b0f914aee4ce7105ddd65c4cf2dcf160ca398297a13032aaf33b50ed291",
+        "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
+      }
+    ],
+    "access": {}
+  }
+}
+```
+</details> 
+
+---
+
 ####    GET     -   `/certificate/{certID}`  
 
 
@@ -900,6 +1140,30 @@ Register a certificate evidence in a public network.
 
 ---
 
+
+####   GET  -     `/certificate/register/providers`  
+
+Get all the available providers to register the certificate
+
+
+<u>*Output*</u>
+- `ouput`    :  `<json>` A list with all the available providers
+
+<details>
+  <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
+
+```js
+{
+  "output": {
+    "kovan": "1",
+    "besu": "2",
+    "polygon": "3"
+  }
+}
+```
+</details>
+
+---
 ####     POST -  `/certificate/{certID}/revoke` 
 Revoke a certificate.
 
