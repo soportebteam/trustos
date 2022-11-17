@@ -5,6 +5,7 @@ Cert API is used to create, sign and verify **digital certificates** on the bloc
 By using Blockchain, we create trust, ensure security and reduce the risk of fraud, forgery or information leakage. reduce the risk of fraud, forgery or information leakage.
 
 Blockchain adds immutability to business process information:
+
 - Everything is recorded forever.
 - Anyone can verify it irrefutably and without repudiation.
 - No one can alter it or therefore doubt it.
@@ -22,7 +23,7 @@ Is it possible to create the following certificate types:
 
 - Asset: Certification of an asset. This asset must be created first in the Track API.
 - Data: Certification of any kind of information. The data could be documents or free text in string o JSON format.
-- NFTs: Certification of Non Fungible Tokens to guarantee its authenticity. 
+- NFTs: Certification of Non Fungible Tokens to guarantee its authenticity.
 
 ## API Specification
 
@@ -32,7 +33,7 @@ An abstraction API with all the certificate functionalities.
 
 A certificate is a tamper-proof and verifiable collection of data that represents a process, a file/document, an accomplishment or any activity that can benefit from the inmmutability and authenticity.
 
-Thanks to certificates, it allows you to **assure any fact in your business case recording the information along with parameters that everyone can verify** (e.g. signatures, issuance/expiration time, network evidences, etc..). 
+Thanks to certificates, it allows you to **assure any fact in your business case recording the information along with parameters that everyone can verify** (e.g. signatures, issuance/expiration time, network evidences, etc..).
 
 Every certificate is identified by a unique ID and is composed of three complementary but different parts: Data, Metadata and Access.
 
@@ -41,10 +42,11 @@ IMPORTANT: Every certificate can be also identified by a custom ID (`externalId`
 ![Certificate model](./images/cert_model.png)
 
 Thus a certificate has the following structure:
-- `certID` :  `<string>` Unique identifier of the certificate.
-- `data`    :  `<json>`   JSON of certificate data that is inmutable.
-- `metadata`:  `<json array>` Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration).
-- `access` :  `<json>` JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access).
+
+- `certID` : `<string>` Unique identifier of the certificate.
+- `data` : `<json>` JSON of certificate data that is inmutable.
+- `metadata`: `<json array>` Array of transactions that feed the certificate (e.g. verification instructions, signatures, revocation and public registration).
+- `access` : `<json>` JSON of granted accesses to interact with the certificate (e.g. admin, sign, read access).
 
 <details>
   <summary><em><strong>Sample Certificate structure</strong></em> (Click to expand)</summary>
@@ -57,6 +59,7 @@ Thus a certificate has the following structure:
   "access": {...}
 }
 ```
+
 </details> 
 <br/>
 
@@ -65,10 +68,11 @@ Thus a certificate has the following structure:
 Data contains the **inmutable information about the certificate**: who issued it, when it was issued, when it will expire and of course what it is certified and what does it mean.
 
 The certificate `data` contains the following fields:
-- `badge` :  `<json>` JSON of **badge information** that characterises the certificate (e.g. name, description, type, content, issuer).
-- `issuedOn` :  `<date>` Datetime of when the certificate is issued.
-- `expires` :  `<date>` Datetime of when the certificate should no longer be considered valid.
-- `hash` :  `<string>` Hash of the data information.
+
+- `badge` : `<json>` JSON of **badge information** that characterises the certificate (e.g. name, description, type, content, issuer).
+- `issuedOn` : `<date>` Datetime of when the certificate is issued.
+- `expires` : `<date>` Datetime of when the certificate should no longer be considered valid.
+- `hash` : `<string>` Hash of the data information.
 
 <details>
   <summary><em><strong>Sample Data structure</strong></em> (Click to expand)</summary>
@@ -88,24 +92,25 @@ The certificate `data` contains the following fields:
   "hash": "Ni7JYQG6GSmlEjWoRj2xrfF6ZVFhqBDPzyjk+o/HB2c="
 }
 ```
+
 </details> 
 <br/>
-
 
 #### <u>Certificate metadata</u>
 
 Metadata contains the **additional information that feeds the certificate** in order to update the status of the certificate (e.g. revocation, evidences) or to add required data to be valid and know how to verify it (e.g. verification, signers, signatures).
 
 The certificate `metadata` contains the following fields:
-- `certID` :  `<string>` Unique identifier of the certificate.
+
+- `certID` : `<string>` Unique identifier of the certificate.
 - `type` : `<string>` Type of transaction (Signature/Revocation/Evidence/Adding signers).
-- `verification` :  `<json>` JSON of **verification information**. It contains the required signers.
-- `signatures` :  `<json>` JSON of **signatures** added for the verification of the certificate.
-- `public_evidences` :  `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites.
-- `revoked` :  `<bool>` Flag to determine that the certificate is revoked and is not longer valid.
-- `datetime` :  `<string>` Datetime of when the transaction (signature, evidence or revocation) is done.
-- `hfTxId` :  `<string>` Current transaction identifier in Hyperledger Fabric.
-- `hash` :  `<string>` Hash of the transaction.
+- `verification` : `<json>` JSON of **verification information**. It contains the required signers.
+- `signatures` : `<json>` JSON of **signatures** added for the verification of the certificate.
+- `public_evidences` : `<json>` JSON of **certificate evidences** registered in public networks, private databases and other sites.
+- `revoked` : `<bool>` Flag to determine that the certificate is revoked and is not longer valid.
+- `datetime` : `<string>` Datetime of when the transaction (signature, evidence or revocation) is done.
+- `hfTxId` : `<string>` Current transaction identifier in Hyperledger Fabric.
+- `hash` : `<string>` Hash of the transaction.
 
 <details>
   <summary><em><strong>Sample Metadata structure</strong></em> (Click to expand)</summary>
@@ -126,17 +131,20 @@ The certificate `metadata` contains the following fields:
   "hash": "oRj6yKH4EDGCGiKRjHzv3yuqX5wAEzwZFgLnE9jwRIs="
 }
 ```
+
 </details> 
 <br/>
 
 #### <u>Certificate access</u>
+
 Access contains **list of authorised users depending on their role** (i.e. admin, sign, read) for a certificate in order to control the possible interaction of every user.
 
 The certificate `access` contains the following fields:
-- `admin` :  `<json>` Json of **admin**. An admin can manage, sign and revoke the certificate.
-- `sign` :  `<json>` Json of **signers**. A signer can sign only once and read the certificate.
-- `read` :  `<json>` Json of **readers**. A reader can only read and verify the certificate.
-- `public` :  `<bool>` Flag to determine whether the certificate is public and readable for all users or not.
+
+- `admin` : `<json>` Json of **admin**. An admin can manage, sign and revoke the certificate.
+- `sign` : `<json>` Json of **signers**. A signer can sign only once and read the certificate.
+- `read` : `<json>` Json of **readers**. A reader can only read and verify the certificate.
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not.
 
 <details>
   <summary><em><strong>Sample Access structure</strong></em> (Click to expand)</summary>
@@ -151,16 +159,17 @@ The certificate `access` contains the following fields:
     "did:vtn:signer2": 0   // Signer has already signed
   },
   "read":{
-    "did:vtn:reader1": 1,  
-    "did:vtn:reader2": 1  
+    "did:vtn:reader1": 1,
+    "did:vtn:reader2": 1
   },
   "public": false         // The certificate is not visible for all
 }
 ```
+
 </details> 
 <br/>
 
-## API Methods 
+## API Methods
 
 ![CertAPI Swagger](./images/cert_swagger.png)
 
@@ -169,19 +178,21 @@ The certificate `access` contains the following fields:
 
 ---
 
-####     POST -  `/certificate/content/create` 
-Create a certificate from a specific content like file/document/collection of files on Blockchain. 
+#### POST - `/certificate/content/create`
+
+Create a certificate from a specific content like file/document/collection of files on Blockchain.
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
-<u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate
-- `description`    :  `<string>` Short description of the certificate
-- `content`    :  `<json>` Content to certify (*)
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public
-- `signers`    :  `<string array>` List of required signers
+<u>_Input_</u>
+
+- `name` : `<string>` Name of the certificate
+- `description` : `<string>` Short description of the certificate
+- `content` : `<json>` Content to certify (\*)
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+- `readers` : `<string array>` List of readers, in case it is not public
+- `signers` : `<string array>` List of required signers
 - `externalId` : `<string>` Optional custom identifier for the certificate
-- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+- `expires` : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -190,7 +201,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 {
   "name": "ABC Certificate",
   "description": "This certificate is a tamper-proof and valid record of the ABC document file",
-  "content": {...},   
+  "content": {...},
   "public": false,
   "readers": [
     "did:vtn:reader1",
@@ -202,10 +213,11 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   ]
 }
 ```
+
 </details> 
 <br>
 
-(*) **Content** field is JSON format and open for every use case. An example is shown below:
+(\*) **Content** field is JSON format and open for every use case. An example is shown below:
 
 <details>
   <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
@@ -223,8 +235,9 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -244,7 +257,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
                 "file_hash": "3aAFa39ho53589gbxCSkFj239y90tiFAa78xZAuo=",
                 "file_name": "example.pdf",
                 "file_size": "10KB"
-              } 
+              }
             ],
             "issuer": "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1",
         },
@@ -283,19 +296,23 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####     POST -  `/certificate/file/hash` 
-Create a unique hash from a file. 
+#### POST - `/certificate/file/hash`
+
+Create a unique hash from a file.
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
-<u>*Input*</u>
+<u>_Input_</u>
+
 - `fileInput`: `<formData>` File from which the hash will be generated.
 
-<u>*Output*</u>
-- `File hash`    :  `<json>` 
+<u>_Output_</u>
+
+- `File hash` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -307,24 +324,26 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####     POST -  `/certificate/file/create` 
-Create a certificate from a specific hash file on Blockchain. 
+#### POST - `/certificate/file/create`
+
+Create a certificate from a specific hash file on Blockchain.
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
-<u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate
-- `description`    :  `<string>` Short description of the certificate
-- `content`    :  `<json>` Content to certify (*). An existing file hash previously generated with /certificate/file/hash method
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public
-- `signers`    :  `<string array>` List of required signers
-- `externalId` : `<string>` Optional custom identifier for the certificate
-- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+<u>_Input_</u>
 
+- `name` : `<string>` Name of the certificate
+- `description` : `<string>` Short description of the certificate
+- `content` : `<json>` Content to certify (\*). An existing file hash previously generated with /certificate/file/hash method
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+- `readers` : `<string array>` List of readers, in case it is not public
+- `signers` : `<string array>` List of required signers
+- `externalId` : `<string>` Optional custom identifier for the certificate
+- `expires` : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -333,14 +352,15 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 {
   "name": "ABC Certificate",
   "description": "This certificate is a tamper-proof and valid record of the ABC document file",
-  "content": {...},   
+  "content": {...},
   "public": true
 }
 ```
+
 </details> 
 <br>
 
-(*) **Content** field is JSON format and open for every use case. An example is shown below:
+(\*) **Content** field is JSON format and open for every use case. An example is shown below:
 
 <details>
   <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
@@ -356,8 +376,9 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -374,7 +395,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
             "type": "content",
             "content": {
                "file_hash": "2132d2a5fcf50d988fea87d257f0c69f51bb771196856cec9255242661f8d5e6"
-              } 
+              }
             ,
             "issuer": "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1",
         },
@@ -405,27 +426,28 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####     POST -  `/certificate/file/full` 
+#### POST - `/certificate/file/full`
+
 Generate a hash from a file and create a new certificate from this file hash
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
-<u>*Input*</u>
+<u>_Input_</u>
 
 - `fileInput`: `<binary - multipart/form-data>` File is sent in binary format as a multipart/form-data content type
 
 - `body`: `<object - multipart/form-data>` The rest of the parameters are sent in am object `body` as a multipart/form-data content type
-  - `name`    :  `<string>` Name of the certificate
-  - `description`    :  `<string>` Short description of the certificate
-  - `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-  - `readers`    :  `<string array>` List of readers, in case it is not public
-  - `signers`    :  `<string array>` List of required signers
+  - `name` : `<string>` Name of the certificate
+  - `description` : `<string>` Short description of the certificate
+  - `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+  - `readers` : `<string array>` List of readers, in case it is not public
+  - `signers` : `<string array>` List of required signers
   - `externalId` : `<string>` Optional custom identifier for the certificate
-  - `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
-
+  - `expires` : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
 
 <details>
   <summary><em><strong>Sample structure: Body</strong></em> (Click to expand)</summary>
@@ -437,11 +459,13 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   "public": true
 }
 ```
+
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -458,7 +482,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
             "type": "content",
             "content": {
                "file_hash": "2132d2a5fcf50d988fea87d257f0c69f51bb771196856cec9255242661f8d5e6"
-              } 
+              }
             ,
             "issuer": "did:vtn:trustid:76ce288f169fdd9b90a2b9b6a11700fbd80123093f3296e235ab10c27eb306c1",
         },
@@ -489,22 +513,24 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####     POST -  `/certificate/asset/create` 
-Create a certificate from a file/document/collection of files on Blockchain. 
+#### POST - `/certificate/asset/create`
+
+Create a certificate from a file/document/collection of files on Blockchain.
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
-<u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate.
-- `description`    :  `<string>` Short description of the certificate.
-- `assetID`    :  `<string>` Asset to certify (*).
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not.
-- `readers`    :  `<string array>` List of readers, in case it is not public.
-- `signers`    :  `<string array>` List of required signers.
+<u>_Input_</u>
 
+- `name` : `<string>` Name of the certificate.
+- `description` : `<string>` Short description of the certificate.
+- `assetID` : `<string>` Asset to certify (\*).
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not.
+- `readers` : `<string array>` List of readers, in case it is not public.
+- `signers` : `<string array>` List of required signers.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -513,7 +539,7 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 {
   "name": "Asset Certificate",
   "description": "This certificate is a tamper-proof and valid record of the process",
-  "assetID": "asset_example1",   
+  "assetID": "asset_example1",
   "public": false,
   "readers": [
     "did:vtn:reader1",
@@ -525,10 +551,10 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   ]
 }
 ```
-</details> <br/>
- 
 
-(*) **assetID** field is used for certify assets created with Track API. If you have already created some assets (f.e. asset_example1, asset_example2, asset_example3) you can choose what asset to certify and also what range of its transactions.
+</details> <br/>
+
+(\*) **assetID** field is used for certify assets created with Track API. If you have already created some assets (f.e. asset_example1, asset_example2, asset_example3) you can choose what asset to certify and also what range of its transactions.
 
 If wanted to certify only transactions within a period or range of time, only you have to determine `init` and `end` params as depicted below:
 
@@ -537,25 +563,26 @@ If wanted to certify only transactions within a period or range of time, only yo
 
 ```js
 {
- 
+
   "name": "Asset Certificate",
   "description": "This certificate is a tamper-proof and valid record of the process",
-  "assetID": "asset_example1",   
+  "assetID": "asset_example1",
   "init": "1600000000",
   "end":"1615555555"
   "public": true
-} 
+}
 ```
-</details> 
+
+</details>
 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
-
 
 ```js
 {
@@ -601,29 +628,32 @@ If wanted to certify only transactions within a period or range of time, only yo
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
+#### POST - `/certificate/nft`
 
-####     POST -  `/certificate/nft` 
-Create a certificate from a specific NFT. The NFT is managed with a smartcontract that maps an owner an a tokenId of the collection. 
+Create a certificate from a specific NFT. The NFT is managed with a smartcontract that maps an owner an a tokenId of the collection.
 A unique and irrevocable identifier (`certID`) is generated for every certificate.
 
-<u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate
-- `description`    :  `<string>` Short description of the certificate
-- `content`    :  `<json>` Content to certify (*)
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public
-- `signers`    :  `<string array>` List of required signers
-- `externalId` : `<string>` Optional custom identifier for the certificate
-- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+<u>_Input_</u>
 
-<u>*Content*</u>
-- `contractAddress`    :  `<string>` Smartcontract address that manages the nft collection
-- `networkId`    :  `<string>` Blockchain network where the smartcontract is deployed. The networkId can be found in https://chainlist.org/ 
-- `tokenId`    :  `<string>` Unique id that represents the nft
+- `name` : `<string>` Name of the certificate
+- `description` : `<string>` Short description of the certificate
+- `content` : `<json>` Content to certify (\*)
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+- `readers` : `<string array>` List of readers, in case it is not public
+- `signers` : `<string array>` List of required signers
+- `externalId` : `<string>` Optional custom identifier for the certificate
+- `expires` : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+
+<u>_Content_</u>
+
+- `contractAddress` : `<string>` Smartcontract address that manages the nft collection
+- `networkId` : `<string>` Blockchain network where the smartcontract is deployed. The networkId can be found in https://chainlist.org/
+- `tokenId` : `<string>` Unique id that represents the nft
 - 'url': `<string>` Url of the blockexplorer with the smartcontract info (optional)
 
 <details>
@@ -651,10 +681,11 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   "externalId": "External certificate identifier"
 }
 ```
+
 </details> 
 <br>
 
-(*) **Content** field is JSON format and open for every use case. An example is shown below:
+(\*) **Content** field is JSON format and open for every use case. An example is shown below:
 
 <details>
   <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
@@ -671,8 +702,9 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -711,27 +743,30 @@ A unique and irrevocable identifier (`certID`) is generated for every certificat
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
+#### POST - `/certificate/nft/collection`
 
-####     POST -  `/certificate/nft/collection` 
-Create a certificate of a smart contract collection. 
+Create a certificate of a smart contract collection.
 
-<u>*Input*</u>
-- `name`    :  `<string>` Name of the certificate
-- `description`    :  `<string>` Short description of the certificate
-- `content`    :  `<json>` Content to certify (*)
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not
-- `readers`    :  `<string array>` List of readers, in case it is not public
-- `signers`    :  `<string array>` List of required signers
+<u>_Input_</u>
+
+- `name` : `<string>` Name of the certificate
+- `description` : `<string>` Short description of the certificate
+- `content` : `<json>` Content to certify (\*)
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not
+- `readers` : `<string array>` List of readers, in case it is not public
+- `signers` : `<string array>` List of required signers
 - `externalId` : `<string>` Optional custom identifier for the certificate
-- `expires`   : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
+- `expires` : `<string>` Optional parameter to determine the expiration of the certificate in `2020-12-18 09:59:13 +0000 UTC` format, similar to ISO 8601
 
-<u>*Content*</u>
-- `contractAddress`    :  `<string>` Smartcontract address that manages the nft collection
-- `networkId`    :  `<string>` Blockchain network where the smartcontract is deployed. The id can be found in https://chainlist.org/.
+<u>_Content_</u>
+
+- `contractAddress` : `<string>` Smartcontract address that manages the nft collection
+- `networkId` : `<string>` Blockchain network where the smartcontract is deployed. The id can be found in https://chainlist.org/.
 - 'url': `<string>` Url of the blockexplorer with the smartcontract info (optional)
 
 <details>
@@ -759,10 +794,11 @@ Create a certificate of a smart contract collection.
   "externalId": "External certificate identifier"
 }
 ```
+
 </details> 
 <br>
 
-(*) **Content** field is JSON format and open for every use case. An example is shown below:
+(\*) **Content** field is JSON format and open for every use case. An example is shown below:
 
 <details>
   <summary><em><strong>Sample Content structure</strong></em> (Click to expand)</summary>
@@ -779,8 +815,9 @@ Create a certificate of a smart contract collection.
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -819,22 +856,24 @@ Create a certificate of a smart contract collection.
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####    GET     -   `/certificate/{certID}`  
-
+#### GET - `/certificate/{certID}`
 
 Get certificate from the blockchain.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}`)
-  
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+- `certID` : `<string>` Unique identifier of the certificate
+
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}`)
+
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -905,23 +944,22 @@ Get certificate from the blockchain.
   }
 }
 ```
-</details> 
 
+</details>
 
 ---
 
-####    GET     -   `/certificate/file/{file_hash}`  
+#### GET - `/certificate/file/{file_hash}`
 
 Get a certificate from the file hash
 
-<u>*Input*</u>
-- `file_hash` :  `<string>` Certificate file hash
+<u>_Input_</u>
 
+- `file_hash` : `<string>` Certificate file hash
 
-  
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
 
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -993,26 +1031,31 @@ The following certificate has been queried using the `file_hash`: `3aAFa39ho5358
         "did:vtn:signer2": 1
       }
     }
-  } 
+  }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####     POST -  `/certificate/{certID}/sign` 
+#### POST - `/certificate/{certID}/sign`
+
 Sign a certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use the method with the custom ID:
+- `certID` : `<string>` Unique identifier of the certificate.
+
+(\*) You can also use the method with the custom ID:
+
 - `externalId` : `<string>` Custom identifier of the certificat
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/sign`)
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/sign`)
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1032,20 +1075,23 @@ Sign a certificate.
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-####     POST -  `/certificate/{certID}/sign/external` 
+#### POST - `/certificate/{certID}/sign/external`
+
 Sign a certificate with external identity and keys.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
-- `signature`    :  `<string>` Signature.
-- `publicKey`    :  `<string>` External public key to verify the signature.
-- `did`    :  `<string>` Signer DID identifier or internal identifier.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/sign/external`)
+- `certID` : `<string>` Unique identifier of the certificate.
+- `signature` : `<string>` Signature.
+- `publicKey` : `<string>` External public key to verify the signature.
+- `did` : `<string>` Signer DID identifier or internal identifier.
+
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/sign/external`)
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1061,8 +1107,9 @@ Sign a certificate with external identity and keys.
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1082,35 +1129,42 @@ Sign a certificate with external identity and keys.
   }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
+#### POST - `/certificate/{certID}/register?networkId=integer`
 
-####     POST -  `/certificate/{certID}/register?networkId=integer` 
 Register a certificate evidence in a public network.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
-- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently the following network ID are available:
-  - Kovan network (ETHEREUM): 1
-  - Alastria network (HYPERLEDGER BESU): 2
-  - Mumbai network (POLYGON): 3
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/register?networkId=integer`)
+- `certID` : `<string>` Unique identifier of the certificate.
+- `networkId`: `<integer>` Flag to identify the public network on which the trustpoint will be registered. Currently the following network ID are available:
+  - Ethereum mainnet: 1
+  - Goerli network (ETHEREUM): 5
+  - Polygon maninnet: 137
+  - Mumbai network (POLYGON): 80001
+  - Alastria network (HYPERLEDGER BESU): 101
+  - LACChain network: 102
+
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/register?networkId=integer`)
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
 
 ```js
-`/certificate/{certID}/register?networkId=1 // Kovan network (Ethereum)
+`/certificate/{certID}/register?networkId=5 // Goerli network (Ethereum)
 
 ```
+
 </details> 
 <br>
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1136,18 +1190,18 @@ Register a certificate evidence in a public network.
     }
 }
 ```
-</details> 
+
+</details>
 
 ---
 
-
-####   GET  -     `/certificate/register/providers`  
+#### GET - `/certificate/register/providers`
 
 Get all the available providers to register the certificate
 
+<u>_Output_</u>
 
-<u>*Output*</u>
-- `ouput`    :  `<json>` A list with all the available providers
+- `ouput` : `<json>` A list with all the available providers
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1155,25 +1209,33 @@ Get all the available providers to register the certificate
 ```js
 {
   "output": {
-    "kovan": "1",
-    "besu": "2",
-    "polygon": "3"
+    "ethereum": "1",
+	"goerli": "5",
+	"polygon": "137",
+	"mumbai": "80001",
+    "besu": "101",
+    "lacchain": "102"
   }
 }
 ```
+
 </details>
 
 ---
-####     POST -  `/certificate/{certID}/revoke` 
+
+#### POST - `/certificate/{certID}/revoke`
+
 Revoke a certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/revoke`)
+- `certID` : `<string>` Unique identifier of the certificate.
 
-<u>*Output*</u>
-- `certificate`    :  `<json>` 
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/revoke`)
+
+<u>_Output_</u>
+
+- `certificate` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1191,21 +1253,24 @@ Revoke a certificate.
       }
 }
 ```
-</details> 
 
---- 
+</details>
 
-####   GET  -     `/certificate/{certID}/history`  
+---
+
+#### GET - `/certificate/{certID}/history`
 
 Get all transactions for the whole lifecycle of the certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/history`)
+- `certID` : `<string>` Unique identifier of the certificate.
 
-<u>*Output*</u>
-- `Certificate transactions`    :  `<string>` A list of all transactions.
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/history`)
+
+<u>_Output_</u>
+
+- `Certificate transactions` : `<string>` A list of all transactions.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1247,28 +1312,30 @@ Get all transactions for the whole lifecycle of the certificate.
       "public_evidences": {...},
       "revoked": false
     },
-    
+
       ...
-    
+
     ],
     "access": {...}
   }
 }
 
 ```
+
 </details>
 
 ---
 
-#### GET   -    `/certificates`  
+#### GET - `/certificates`
 
 Lists all the certificates of a user.
 
-<u>*Input*</u>
- N/A. It returns all the certificates which belong to the logged user.
+<u>_Input_</u>
+N/A. It returns all the certificates which belong to the logged user.
 
-<u>*Output*</u>
-- `Certificate list`    :  `<json>` 
+<u>_Output_</u>
+
+- `Certificate list` : `<json>`
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1285,21 +1352,24 @@ Lists all the certificates of a user.
   }
 }
 ```
+
 </details>
 
 ---
 
-####   GET  -     `/certificate/{certID}/access`  
+#### GET - `/certificate/{certID}/access`
 
 Get all granted accesses for the certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/access`)
+- `certID` : `<string>` Unique identifier of the certificate.
 
-<u>*Output*</u>
-- `Access`    :  `<string>` A list of all accesses.
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/access`)
+
+<u>_Output_</u>
+
+- `Access` : `<string>` A list of all accesses.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1322,20 +1392,22 @@ Get all granted accesses for the certificate.
   }
 }
 ```
+
 </details>
 
 ---
 
-####   POST     - `/certificate/{certID}/access`  
+#### POST - `/certificate/{certID}/access`
 
 Authorise the reading access for a certificate. The user has to be the owner (admin) of the certificate. Readers are overwriten in every call.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
-- `public`    :  `<bool>`  Flag to determine whether the certificate is public and readable for all users or not.
-- `readers`    :  `<string array>` List of readers, in case it is not public.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/access`)
+- `certID` : `<string>` Unique identifier of the certificate.
+- `public` : `<bool>` Flag to determine whether the certificate is public and readable for all users or not.
+- `readers` : `<string array>` List of readers, in case it is not public.
+
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/access`)
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1348,11 +1420,13 @@ Authorise the reading access for a certificate. The user has to be the owner (ad
   }
 }
 ```
+
 </details> 
 <br>
 
-<u>*Output*</u>
-- `Access`    :  `<json>`  A list of all accesses.
+<u>_Output_</u>
+
+- `Access` : `<json>` A list of all accesses.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1375,21 +1449,24 @@ Authorise the reading access for a certificate. The user has to be the owner (ad
   }
 }
 ```
+
 </details>
 
 ---
 
-####   GET  -     `/certificate/{certID}/signers`  
+#### GET - `/certificate/{certID}/signers`
 
 Get the signers and their signatures for the certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/signers`)
+- `certID` : `<string>` Unique identifier of the certificate.
 
-<u>*Output*</u>
-- `Signers`    :  `<string>` A list of all signers with their signature and public key.
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/signers`)
+
+<u>_Output_</u>
+
+- `Signers` : `<string>` A list of all signers with their signature and public key.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1402,21 +1479,21 @@ Get the signers and their signatures for the certificate.
   }
 }
 ```
+
 </details>
-
-
 
 ---
 
-####   POST  -     `/certificate/{certID}/signers/add`  
+#### POST - `/certificate/{certID}/signers/add`
 
 Add new signers to the certificate.
 
-*Input*
-- `certID` :  `<string>` Unique identifier of the certificate.
-- `signers`:  `<string array>` List of new signers.
+_Input_
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/signers/add`)
+- `certID` : `<string>` Unique identifier of the certificate.
+- `signers`: `<string array>` List of new signers.
+
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/signers/add`)
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1426,10 +1503,12 @@ Add new signers to the certificate.
   "signers": ["did:vtn:signerNEW", "did:vtn:signerNEW2"]
 }
 ```
+
 </details>
 
-*Output*
-- `Metadata`    :  `<json>` A JSON of current metadata information.
+_Output_
+
+- `Metadata` : `<json>` A JSON of current metadata information.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1457,21 +1536,22 @@ Add new signers to the certificate.
     }
 }
 ```
-</details>
 
+</details>
 
 ---
 
-####   POST  -     `/certificate/{certID}/advancedsign/init`  
+#### POST - `/certificate/{certID}/advancedsign/init`
 
 Initialise advanced signature flow for a certificate.
 
-*Input*
-- `certID` :  `<string>` Unique identifier of the certificate.
-- `platform`:  `<string array>` Third party platform to use for advanced signature.
-- `signers`:  `<json array>` List of advanced signers that will be part of the advanced signature flow (email, name and internal identifier).
+_Input_
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/advancedsign/init`)
+- `certID` : `<string>` Unique identifier of the certificate.
+- `platform`: `<string array>` Third party platform to use for advanced signature.
+- `signers`: `<json array>` List of advanced signers that will be part of the advanced signature flow (email, name and internal identifier).
+
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/advancedsign/init`)
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1484,7 +1564,7 @@ Initialise advanced signature flow for a certificate.
       "email": "signer1@test.com",
       "name": "Signer1 Test",
       "did": "internalID1"
-    }, 
+    },
     {
       "email": "signer2@test.com",
       "name": "Signer2 Test",
@@ -1493,10 +1573,12 @@ Initialise advanced signature flow for a certificate.
   ]
 }
 ```
+
 </details>
 
-*Output*
-- `Metadata`    :  `<json>` A JSON of current metadata information.
+_Output_
+
+- `Metadata` : `<json>` A JSON of current metadata information.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1530,21 +1612,24 @@ Initialise advanced signature flow for a certificate.
   }
 }
 ```
+
 </details>
 
 ---
 
-####   GET  -     `/certificate/{certID}/advancedsign/status`  
+#### GET - `/certificate/{certID}/advancedsign/status`
 
 Get the signers and their signatures for the certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/advancedsign/status`)
+- `certID` : `<string>` Unique identifier of the certificate.
 
-<u>*Output*</u>
-- `Status`    :  `<json>` A JSON of status information about the advanced signature flow and the respective signers.
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/advancedsign/status`)
+
+<u>_Output_</u>
+
+- `Status` : `<json>` A JSON of status information about the advanced signature flow and the respective signers.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1585,21 +1670,24 @@ Get the signers and their signatures for the certificate.
   }
 }
 ```
+
 </details>
 
 ---
 
-####   GET  -     `/certificate/{certID}/advancedsign/document`  
+#### GET - `/certificate/{certID}/advancedsign/document`
 
 Get the signers and their signatures for the certificate.
 
-<u>*Input*</u>
-- `certID` :  `<string>` Unique identifier of the certificate.
+<u>_Input_</u>
 
-(*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/advancedsign/document`)
+- `certID` : `<string>` Unique identifier of the certificate.
 
-<u>*Output*</u>
-- `Document`    :  `<json>` A JSON with the document signed/pending to be signed (`DocContent`) in base64 format and other useful information.
+(\*) You can also use this method replacing the `certID` in the URL with the custom identifier `externalId` like this (`/certificate/{externalId}/advancedsign/document`)
+
+<u>_Output_</u>
+
+- `Document` : `<json>` A JSON with the document signed/pending to be signed (`DocContent`) in base64 format and other useful information.
 
 <details>
   <summary><em><strong>Sample structure</strong></em> (Click to expand)</summary>
@@ -1614,25 +1702,26 @@ Get the signers and their signatures for the certificate.
   }
 }
 ```
-</details>
 
+</details>
 
 ---
 
-####   POST  -     `/certificate/advancedsign/notification`  
+#### POST - `/certificate/advancedsign/notification`
 
 Receive notifications from any advanced signature flow.
 
 This method and route requires a special authorization process, don't hesitate to ask us in order to provide you more detailed information.
 
-
 </details>
 <br/>
 
 ## How we run the Application
+
 As you could see in the [Architecture](architecture.html) module, all the applications are running on cloud. Through Kubernetes orchestration system the application deployment, scaling and management is an easy and automated task.
 
 ## Testing the Application
+
 In postman folder there are the collection and environment to interact and test with the API methods. It is only needed to import them into postman application and know to use the coren-certapi module.
 
 Also you can download the files in the links below:
@@ -1641,8 +1730,9 @@ Also you can download the files in the links below:
 <br>
 
 ## Errors management
-  
-Cert API errors are managed through the following JSON 
+
+Cert API errors are managed through the following JSON
+
 ```
 {
   "error": "error description"
@@ -1650,4 +1740,3 @@ Cert API errors are managed through the following JSON
 ```
 
 <br/>
-
