@@ -5,6 +5,8 @@ TrustOS - The Trust Operating System
 
    Please visit `trustos.telefonica.com/docs`_ to read our new documentation and keep up to date with all the new enhancements. 🚀
 
+.. _`trustos.telefonica.com/docs`: https://trustos.telefonica.com/docs
+
 
 A complete Blockchain solution which abstracts all the complexity of blockchain technology.
 
