@@ -17,13 +17,13 @@ In order to use the APIs, you need to have an active user and login to use the s
 
 ### Login UI
 
-To faccilitate the first interactions with TrustOS there is a login website so that the user can easily login and authenticate the next use of the website through cookies that contains the JWT and that expires after the JWT becomes invalid. 
+To facilitate the first interactions with TrustOS there is a login website so that the user can easily login and authenticate the next use of the website through cookies that contains the JWT and that expires after the JWT becomes invalid. 
 
 ![Login UI](./images/login_ui.png)
 
 ### Login request
 
-Once your solution has to madured, it would be nice to integrate the login process through API requests.
+Once your solution has matured, it would be nice to integrate the login process through API requests.
 
 A call to the login method will return a JWT token, of this form:
 
@@ -34,7 +34,7 @@ A call to the login method will return a JWT token, of this form:
 
 ```
 
-## Choose and API and start developing
+## Choose an API and start developing
 
 Once the login is sucessfully done it is time to start developing your own solution based on one of the TrustOS modules.
 
@@ -48,7 +48,7 @@ We have created a simple website that aggregates all the accesible modules so th
 
 If you have login using the Login UI, it is simple to see and copy the JWT Token just clicking the header green button `JWT`.
 
-Choose and API to see what there is inside and then you have to click the button **Authorize, on the right** of the screen.
+Choose an API to see what there is inside and then you have to click the button **Authorize, on the right** of the screen.
 
 From there, in the "value" field of ApiKeyAuth, you should write "Bearer" followed by the JWT Token already copied:
 ```
