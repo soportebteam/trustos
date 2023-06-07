@@ -3,7 +3,11 @@ TrustOS - The Trust Operating System
 
 .. image:: images/trustos.png
 
- 
+.. warning:: 🚨 Hey, these docs has been deprecated. 🚨
+
+   Please visit trustos.telefonica.com/docs to read our new documentation and keep up to date with all the new enhancements. 🚀
+
+
 A complete Blockchain solution which abstracts all the complexity of blockchain technology.
 
 .. .. raw:: html
@@ -30,11 +34,6 @@ A complete Blockchain solution which abstracts all the complexity of blockchain 
    releases
    contributing
 
-.. note:: Please make sure you are looking at the documentation that
-	  matches the version of the software you are using. See the
-	  version label at the top of the navigation panel on the left.
-	  You can change it using selector at the bottom of that
-	  navigation panel.
 
 .. note:: If you have questions not addressed by this documentation, or run into
     issues with any of the tutorials, please `contact us`_ to find additional help.
