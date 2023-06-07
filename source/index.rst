@@ -3,7 +3,7 @@ TrustOS - The Trust Operating System
 
 .. warning:: 🚨 Hey, these docs has been deprecated.
 
-   Please visit trustos.telefonica.com/docs to read our new documentation and keep up to date with all the new enhancements. 🚀
+   Please visit `trustos.telefonica.com/docs`_ to read our new documentation and keep up to date with all the new enhancements. 🚀
 
 
 A complete Blockchain solution which abstracts all the complexity of blockchain technology.
